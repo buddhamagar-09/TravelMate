@@ -19,7 +19,7 @@ const navLinkStyle = ({ isActive }) =>
   }`;
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-gray-90 dark:bg-gray-900 backdrop-blur-md shadow-lg transition-colors duration-300">
       <div className="max-w-screen-2xl mx-auto px-6">
         {/* Navbar */}
         <div className="flex items-center justify-between h-20">
