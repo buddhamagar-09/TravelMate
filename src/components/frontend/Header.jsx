@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useTheme from "../Theme/ThemeContext";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch,FaPlane } from "react-icons/fa";
+
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,7 +29,8 @@ const navLinkStyle = ({ isActive }) =>
             to="/"
             className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap transition-colors"
           >
-            TravelMate
+            <FaPlane className="inline-block text-3xl sm:text-4xl text-blue-600 mr-2" />
+            Travel <span className="text-blue-600"> Mate</span> 
           </Link>
           {/* Desktop Navigation */}
           <nav className="hidden lg:block">
