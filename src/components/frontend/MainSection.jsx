@@ -14,7 +14,8 @@ function MainSection() {
     {
       id: 2,
       image: "images/banners/nature2.jpg",
-      title: "Nature heals the soul, and we have the perfect packages for your next adventure",
+      title:
+        "Nature heals the soul, and we have the perfect packages for your next adventure",
       description:
         "Explore breathtaking landscapes and immerse yourself in nature's beauty with our travel packages",
     },
@@ -71,501 +72,289 @@ function MainSection() {
         </div>
       </section>
       {/* <!-- main banner ends here --> */}
-
-      <section class="mt-scroll-[150px] w-full mt-12">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-1 md:gap-3 lg:gap-4 px-4 md:px-8 lg:px-12 pb-12">
-          {/* <!-- View All Card --> */}
-          <div class="bg-[url(../Accessories/viewall.jpg)] bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col items-center justify-center py-8 bg-center bg-cover">
-            <p class="font-bold text-lg text-white mb-4 text-center px-4">
-              Premium Accessories & Riding Gears
-            </p>
-            <a
-              href="products/products.php?category=Helmet"
-              class="px-5 py-2 text-white font-bold bg-red-500 hover:bg-red-600 rounded-full transition"
-            >
-              View All
-            </a>
-          </div>
-
-          {/* <!-- Product Card --> */}
-          <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col">
-            <a href="productdetails.php?id=1" class="block">
-              <div class="h-40 md:h-44 w-full flex items-center justify-center">
-                <img
-                  src="../admin/upload_products/product.jpg"
-                  alt="Product Name"
-                  class="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              <div class="p-3 flex-1">
-                <p class="text-sm md:text-base font-medium text-gray-800">
-                  Product Name
-                </p>
-              </div>
-            </a>
-
-            <div class="p-3 flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between mt-auto">
-              <div class="flex-1">
-                <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span class="text-base md:text-lg font-semibold text-red-500">
-                    $99.99
-                  </span>
-
-                  <span class="text-xs md:text-sm line-through text-gray-400">
-                    $129.99
-                  </span>
-                </div>
-
-                <div class="flex items-center text-green-500 text-xs md:text-sm">
-                  <ion-icon name="cube-outline" class="mr-1"></ion-icon>
-                  <span>In Stock</span>
-                </div>
-
-                {/* <!-- Out of Stock Example -->
-                    <!-- */}
-                <div class="flex items-center text-red-500 text-xs md:text-sm">
-                  <ion-icon name="close-circle-outline" class="mr-1"></ion-icon>
-                  <span>Out of Stock</span>
-                </div>
-                {/* --> */}
-              </div>
-
-              <a
-                href="../admin/add_to_cart.php?product_id=1&quantity=1"
-                class="cursor-pointer self-end sm:self-auto"
-              >
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-700"
-                ></ion-icon>
-              </a>
-
-              {/* <!-- Disabled Cart Example --> */}
-
-              <span class="cursor-not-allowed self-end sm:self-auto opacity-50">
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-400"
-                ></ion-icon>
-              </span>
-              {/* --> */}
-            </div>
-          </div>
-          {/* <!-- Product Card --> */}
-          <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col">
-            <a href="productdetails.php?id=1" class="block">
-              <div class="h-40 md:h-44 w-full flex items-center justify-center">
-                <img
-                  src="../admin/upload_products/product.jpg"
-                  alt="Product Name"
-                  class="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              <div class="p-3 flex-1">
-                <p class="text-sm md:text-base font-medium text-gray-800">
-                  Product Name
-                </p>
-              </div>
-            </a>
-
-            <div class="p-3 flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between mt-auto">
-              <div class="flex-1">
-                <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span class="text-base md:text-lg font-semibold text-red-500">
-                    $99.99
-                  </span>
-
-                  <span class="text-xs md:text-sm line-through text-gray-400">
-                    $129.99
-                  </span>
-                </div>
-
-                <div class="flex items-center text-green-500 text-xs md:text-sm">
-                  <ion-icon name="cube-outline" class="mr-1"></ion-icon>
-                  <span>In Stock</span>
-                </div>
-
-                {/* <!-- Out of Stock Example -->
-                    <!-- */}
-                <div class="flex items-center text-red-500 text-xs md:text-sm">
-                  <ion-icon name="close-circle-outline" class="mr-1"></ion-icon>
-                  <span>Out of Stock</span>
-                </div>
-                {/* --> */}
-              </div>
-
-              <a
-                href="../admin/add_to_cart.php?product_id=1&quantity=1"
-                class="cursor-pointer self-end sm:self-auto"
-              >
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-700"
-                ></ion-icon>
-              </a>
-
-              {/* <!-- Disabled Cart Example --> */}
-
-              <span class="cursor-not-allowed self-end sm:self-auto opacity-50">
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-400"
-                ></ion-icon>
-              </span>
-              {/* --> */}
-            </div>
-          </div>
-          {/* <!-- Product Card --> */}
-          <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col">
-            <a href="productdetails.php?id=1" class="block">
-              <div class="h-40 md:h-44 w-full flex items-center justify-center">
-                <img
-                  src="../admin/upload_products/product.jpg"
-                  alt="Product Name"
-                  class="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              <div class="p-3 flex-1">
-                <p class="text-sm md:text-base font-medium text-gray-800">
-                  Product Name
-                </p>
-              </div>
-            </a>
-
-            <div class="p-3 flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between mt-auto">
-              <div class="flex-1">
-                <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span class="text-base md:text-lg font-semibold text-red-500">
-                    $99.99
-                  </span>
-
-                  <span class="text-xs md:text-sm line-through text-gray-400">
-                    $129.99
-                  </span>
-                </div>
-
-                <div class="flex items-center text-green-500 text-xs md:text-sm">
-                  <ion-icon name="cube-outline" class="mr-1"></ion-icon>
-                  <span>In Stock</span>
-                </div>
-
-                {/* <!-- Out of Stock Example -->
-                    <!-- */}
-                <div class="flex items-center text-red-500 text-xs md:text-sm">
-                  <ion-icon name="close-circle-outline" class="mr-1"></ion-icon>
-                  <span>Out of Stock</span>
-                </div>
-                {/* --> */}
-              </div>
-
-              <a
-                href="../admin/add_to_cart.php?product_id=1&quantity=1"
-                class="cursor-pointer self-end sm:self-auto"
-              >
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-700"
-                ></ion-icon>
-              </a>
-
-              {/* <!-- Disabled Cart Example --> */}
-
-              <span class="cursor-not-allowed self-end sm:self-auto opacity-50">
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-400"
-                ></ion-icon>
-              </span>
-              {/* --> */}
-            </div>
-          </div>
-          {/* <!-- Product Card --> */}
-          <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col">
-            <a href="productdetails.php?id=1" class="block">
-              <div class="h-40 md:h-44 w-full flex items-center justify-center">
-                <img
-                  src="../admin/upload_products/product.jpg"
-                  alt="Product Name"
-                  class="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              <div class="p-3 flex-1">
-                <p class="text-sm md:text-base font-medium text-gray-800">
-                  Product Name
-                </p>
-              </div>
-            </a>
-
-            <div class="p-3 flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between mt-auto">
-              <div class="flex-1">
-                <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span class="text-base md:text-lg font-semibold text-red-500">
-                    $99.99
-                  </span>
-
-                  <span class="text-xs md:text-sm line-through text-gray-400">
-                    $129.99
-                  </span>
-                </div>
-
-                <div class="flex items-center text-green-500 text-xs md:text-sm">
-                  <ion-icon name="cube-outline" class="mr-1"></ion-icon>
-                  <span>In Stock</span>
-                </div>
-
-                {/* <!-- Out of Stock Example -->
-                    <!-- */}
-                <div class="flex items-center text-red-500 text-xs md:text-sm">
-                  <ion-icon name="close-circle-outline" class="mr-1"></ion-icon>
-                  <span>Out of Stock</span>
-                </div>
-                {/* --> */}
-              </div>
-
-              <a
-                href="../admin/add_to_cart.php?product_id=1&quantity=1"
-                class="cursor-pointer self-end sm:self-auto"
-              >
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-700"
-                ></ion-icon>
-              </a>
-
-              {/* <!-- Disabled Cart Example --> */}
-
-              <span class="cursor-not-allowed self-end sm:self-auto opacity-50">
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-400"
-                ></ion-icon>
-              </span>
-              {/* --> */}
-            </div>
-          </div>
-          {/* <!-- Product Card --> */}
-          <div class="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex flex-col">
-            <a href="productdetails.php?id=1" class="block">
-              <div class="h-40 md:h-44 w-full flex items-center justify-center">
-                <img
-                  src="../admin/upload_products/product.jpg"
-                  alt="Product Name"
-                  class="max-h-full max-w-full object-contain"
-                />
-              </div>
-
-              <div class="p-3 flex-1">
-                <p class="text-sm md:text-base font-medium text-gray-800">
-                  Product Name
-                </p>
-              </div>
-            </a>
-
-            <div class="p-3 flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between mt-auto">
-              <div class="flex-1">
-                <div class="flex flex-wrap items-baseline gap-2 mb-1">
-                  <span class="text-base md:text-lg font-semibold text-red-500">
-                    $99.99
-                  </span>
-
-                  <span class="text-xs md:text-sm line-through text-gray-400">
-                    $129.99
-                  </span>
-                </div>
-
-                <div class="flex items-center text-green-500 text-xs md:text-sm">
-                  <ion-icon name="cube-outline" class="mr-1"></ion-icon>
-                  <span>In Stock</span>
-                </div>
-
-                {/* <!-- Out of Stock Example -->
-                    <!-- */}
-                <div class="flex items-center text-red-500 text-xs md:text-sm">
-                  <ion-icon name="close-circle-outline" class="mr-1"></ion-icon>
-                  <span>Out of Stock</span>
-                </div>
-                {/* --> */}
-              </div>
-
-              <a
-                href="../admin/add_to_cart.php?product_id=1&quantity=1"
-                class="cursor-pointer self-end sm:self-auto"
-              >
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-700"
-                ></ion-icon>
-              </a>
-
-              {/* <!-- Disabled Cart Example --> */}
-
-              <span class="cursor-not-allowed self-end sm:self-auto opacity-50">
-                <ion-icon
-                  name="cart-outline"
-                  class="text-xl md:text-2xl text-gray-400"
-                ></ion-icon>
-              </span>
-              {/* --> */}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full py-16 bg-linear-to-r from-gray-50 to-gray-100 shadow-lg">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Section Title */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Why Choose Us
+      {/* features section starts here */}
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col text-center w-full mb-20">
+            <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
+              ROOF PARTY POLAROID
             </h2>
-            <p className="text-lg text-gray-600">
-              Trusted by thousands of biking enthusiasts worldwide
-            </p>
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">
+              Master Cleanse Reliac Heirloom
+            </h1>
           </div>
-
-          {/* <!-- Features Grid --> */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* <!-- Feature 1: Quality Products --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
-                <ion-icon
-                  name="star"
-                  className="text-4xl text-red-600"
-                ></ion-icon>
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/3">
+              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+                <div class="flex items-center mb-3">
+                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-gray-900 text-lg title-font font-medium">
+                    Shooting Stars
+                  </h2>
+                </div>
+                <div class="grow">
+                  <p class="leading-relaxed text-base">
+                    Blue bottle crucifix vinyl post-ironic four dollar toast
+                    vegan taxidermy. Gastropub indxgo juice poutine.
+                  </p>
+                  <a class="mt-3 text-indigo-500 inline-flex items-center">
+                    Learn More
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Premium Quality
-              </h3>
-              <p className="text-gray-600">
-                We source only the finest bike accessories and parts from
-                trusted manufacturers
-              </p>
             </div>
-
-            {/* <!-- Feature 2: Fast Delivery --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                <ion-icon
-                  name="flash"
-                  className="text-4xl text-blue-600"
-                ></ion-icon>
+            <div class="p-4 md:w-1/3">
+              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+                <div class="flex items-center mb-3">
+                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <h2 class="text-gray-900 text-lg title-font font-medium">
+                    The Catalyzer
+                  </h2>
+                </div>
+                <div class="grow">
+                  <p class="leading-relaxed text-base">
+                    Blue bottle crucifix vinyl post-ironic four dollar toast
+                    vegan taxidermy. Gastropub indxgo juice poutine.
+                  </p>
+                  <a class="mt-3 text-indigo-500 inline-flex items-center">
+                    Learn More
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Fast Shipping
-              </h3>
-              <p className="text-gray-600">
-                Quick and reliable delivery right to your doorstep within 3-5
-                business days
-              </p>
             </div>
-
-            {/* <!-- Feature 3: Best Prices --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                <ion-icon
-                  name="pricetag"
-                  className="text-4xl text-green-600"
-                ></ion-icon>
+            <div class="p-4 md:w-1/3">
+              <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
+                <div class="flex items-center mb-3">
+                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-5 h-5"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle cx="6" cy="6" r="3"></circle>
+                      <circle cx="6" cy="18" r="3"></circle>
+                      <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-gray-900 text-lg title-font font-medium">
+                    Neptune
+                  </h2>
+                </div>
+                <div class="grow">
+                  <p class="leading-relaxed text-base">
+                    Blue bottle crucifix vinyl post-ironic four dollar toast
+                    vegan taxidermy. Gastropub indxgo juice poutine.
+                  </p>
+                  <a class="mt-3 text-indigo-500 inline-flex items-center">
+                    Learn More
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Unbeatable Prices
-              </h3>
-              <p className="text-gray-600">
-                Competitive pricing with regular discounts and exclusive deals
-                for our loyal customers
-              </p>
-            </div>
-
-            {/* <!-- Feature 4: Expert Support --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
-                <ion-icon
-                  name="headset"
-                  className="text-4xl text-purple-600"
-                ></ion-icon>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                24/7 Support
-              </h3>
-              <p className="text-gray-600">
-                Dedicated customer service team ready to help with any questions
-                or concerns
-              </p>
-            </div>
-
-            {/* <!-- Feature 5: Secure Payments --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-yellow-100 rounded-full mb-4">
-                <ion-icon
-                  name="shield-checkmark"
-                  className="text-4xl text-yellow-600"
-                ></ion-icon>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Secure Payments
-              </h3>
-              <p className="text-gray-600">
-                Multiple payment options with bank-level encryption and fraud
-                protection
-              </p>
-            </div>
-
-            {/* <!-- Feature 6: Easy Returns --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-100 rounded-full mb-4">
-                <ion-icon
-                  name="refresh-circle"
-                  className="text-4xl text-teal-600"
-                ></ion-icon>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Easy Returns
-              </h3>
-              <p className="text-gray-600">
-                Hassle-free 7-day return policy for a worry-free shopping
-                experience
-              </p>
-            </div>
-
-            {/* <!-- Feature 7: Expert Advice --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
-                <ion-icon
-                  name="bulb"
-                  className="text-4xl text-indigo-600"
-                ></ion-icon>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Expert Guidance
-              </h3>
-              <p className="text-gray-600">
-                Get personalized recommendations from our team of biking
-                enthusiasts
-              </p>
-            </div>
-
-            {/* <!-- Feature 8: Community --> */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all p-8 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-100 rounded-full mb-4">
-                <ion-icon
-                  name="people"
-                  className="text-4xl text-pink-600"
-                ></ion-icon>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                Active Community
-              </h3>
-              <p className="text-gray-600">
-                Join thousands of riders sharing tips, reviews, and experiences
-              </p>
             </div>
           </div>
         </div>
       </section>
+      {/* features section ends here */}
+
+      {/* Gallery */}
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex w-full mb-20 flex-wrap">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">
+              Our Travel Gallery
+            </h1>
+            <p class="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">
+              Gallery of our travel experiences and destinations. Explore the beauty of the world through our curated collection of images.
+            </p>
+          </div>
+          <div class="flex flex-wrap md:-m-2 -m-1">
+            <div class="flex flex-wrap w-1/2">
+              <div class="md:p-2 p-1 w-1/2">
+                <img
+                  alt="gallery"
+                  class="w-full object-cover h-full object-center block"
+                  src="images/Gallery/gallery1.jpg"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-1/2">
+                <img
+                  alt="gallery"
+                  class="w-full object-cover h-full object-center block"
+                  src="images/Gallery/gallery2.jpg"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-full">
+                <img
+                  alt="gallery"
+                  class="w-full h-full object-cover object-center block"
+                  src="images/Gallery/gallery3.jpg"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap w-1/2">
+              <div class="md:p-2 p-1 w-full">
+                <img
+                  alt="gallery"
+                  class="w-full h-full object-cover object-center block"
+                  src="images/Gallery/gallery4.jpg"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-1/2">
+                <img
+                  alt="gallery"
+                  class="w-full object-cover h-full object-center block"
+                  src="images/Gallery/gallery5.jpg"
+                />
+              </div>
+              <div class="md:p-2 p-1 w-1/2">
+                <img
+                  alt="gallery"
+                  class="w-full object-cover h-full object-center block"
+                  src="images/Gallery/gallery6.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Gallery section ends here */}
+
+      {/* testimonials */}
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">
+            Testimonials
+          </h1>
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 md:w-1/2 w-full">
+              <div class="h-full bg-gray-100 p-8 rounded">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="block w-5 h-5 text-gray-400 mb-4"
+                  viewBox="0 0 975.036 975.036"
+                >
+                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed mb-6">
+                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
+                  carry neutra before they sold out fixie 90's microdosing.
+                  Tacos pinterest fanny pack venmo, post-ironic heirloom
+                  try-hard pabst authentic iceland.
+                </p>
+                <a class="inline-flex items-center">
+                  <img
+                    alt="testimonial"
+                    src="https://dummyimage.com/106x106"
+                    class="w-12 h-12 rounded-full shrink-0 object-cover object-center"
+                  />
+                  <span class="grow flex flex-col pl-4">
+                    <span class="title-font font-medium text-gray-900">
+                      Holden Caulfield
+                    </span>
+                    <span class="text-gray-500 text-sm">UI DEVELOPER</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/2 w-full">
+              <div class="h-full bg-gray-100 p-8 rounded">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  class="block w-5 h-5 text-gray-400 mb-4"
+                  viewBox="0 0 975.036 975.036"
+                >
+                  <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+                </svg>
+                <p class="leading-relaxed mb-6">
+                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
+                  carry neutra before they sold out fixie 90's microdosing.
+                  Tacos pinterest fanny pack venmo, post-ironic heirloom
+                  try-hard pabst authentic iceland.
+                </p>
+                <a class="inline-flex items-center">
+                  <img
+                    alt="testimonial"
+                    src="https://dummyimage.com/107x107"
+                    class="w-12 h-12 rounded-full shrink-0 object-cover object-center"
+                  />
+                  <span class="grow flex flex-col pl-4">
+                    <span class="title-font font-medium text-gray-900">
+                      Alper Kamu
+                    </span>
+                    <span class="text-gray-500 text-sm">DESIGNER</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* testimonials section ends here */}
     </>
   );
 }
