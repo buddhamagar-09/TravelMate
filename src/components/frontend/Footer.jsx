@@ -16,10 +16,10 @@ export default function Footer() {
       to="/"
       className="flex items-center justify-center lg:justify-start"
     >
-      <FaPlane className="text-4xl text-indigo-500" />
+      <FaPlane className="text-4xl text-blue-600  " />
 
       <span className="ml-3 text-2xl font-bold text-gray-900 dark:text-white">
-        Travel <span className="text-indigo-500">Mate</span>
+        Travel <span className="text-blue-600">Mate</span>
       </span>
     </Link>
 
