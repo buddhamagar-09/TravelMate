@@ -42,8 +42,8 @@ const navLinkStyle = ({ isActive }) =>
               </li>
 
               <li>
-                <NavLink to="/shop" className={navLinkStyle}>
-                  Shop
+                <NavLink to="/Package" className={navLinkStyle}>
+                  Packages
                 </NavLink>
               </li>
 
@@ -54,14 +54,14 @@ const navLinkStyle = ({ isActive }) =>
               </li>
 
               <li>
-                <NavLink to="/about" className={navLinkStyle}>
-                  About
+                <NavLink to="/destination" className={navLinkStyle}>
+                  Destinations
                 </NavLink>
               </li>
 
               <li>
-                <NavLink to="/contact" className={navLinkStyle}>
-                  Contact
+                <NavLink to="/about" className={navLinkStyle}>
+                  About us
                 </NavLink>
               </li>
             </ul>
