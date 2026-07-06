@@ -74,40 +74,27 @@ function MainSection() {
       {/* <!-- main banner ends here --> */}
       {/* features section starts here */}
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-14 mx-auto">
           <div class="flex flex-col text-center w-full mb-20">
             <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-              ROOF PARTY POLAROID
+              FEATURES
             </h2>
             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-              Master Cleanse Reliac Heirloom
+              TravelMate - Your Ultimate Travel Companion
             </h1>
           </div>
           <div class="flex flex-wrap -m-4">
             <div class="p-4 md:w-1/3">
               <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                    </svg>
-                  </div>
+                 
                   <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Shooting Stars
+                    Trekking Guides                  
                   </h2>
                 </div>
                 <div class="grow">
                   <p class="leading-relaxed text-base">
-                    Blue bottle crucifix vinyl post-ironic four dollar toast
-                    vegan taxidermy. Gastropub indxgo juice poutine.
+                     Our expert trekking guides will lead you through breathtaking trails, ensuring a safe and unforgettable adventure. Explore the great outdoors with confidence and make memories that will last a lifetime.              
                   </p>
                   <a class="mt-3 text-indigo-500 inline-flex items-center">
                     Learn More
@@ -129,28 +116,14 @@ function MainSection() {
             <div class="p-4 md:w-1/3">
               <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                  </div>
+                 
                   <h2 class="text-gray-900 text-lg title-font font-medium">
-                    The Catalyzer
+                    Travel Accessories
                   </h2>
                 </div>
                 <div class="grow">
                   <p class="leading-relaxed text-base">
-                    Blue bottle crucifix vinyl post-ironic four dollar toast
-                    vegan taxidermy. Gastropub indxgo juice poutine.
+                    Discover our range of travel accessories designed to enhance your journey. From durable luggage to essential travel gadgets, we have everything you need for a comfortable and convenient trip.
                   </p>
                   <a class="mt-3 text-indigo-500 inline-flex items-center">
                     Learn More
@@ -172,29 +145,14 @@ function MainSection() {
             <div class="p-4 md:w-1/3">
               <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
                 <div class="flex items-center mb-3">
-                  <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-indigo-500 text-white flex-shrink-0">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="6" cy="6" r="3"></circle>
-                      <circle cx="6" cy="18" r="3"></circle>
-                      <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
-                    </svg>
-                  </div>
+                  
                   <h2 class="text-gray-900 text-lg title-font font-medium">
-                    Neptune
+                    Custom Travel Packages
                   </h2>
                 </div>
                 <div class="grow">
                   <p class="leading-relaxed text-base">
-                    Blue bottle crucifix vinyl post-ironic four dollar toast
-                    vegan taxidermy. Gastropub indxgo juice poutine.
+                    Create your own travel adventure with our custom travel packages. Choose your destinations, activities, and accommodations to design a trip that perfectly suits your preferences and interests.
                   </p>
                   <a class="mt-3 text-indigo-500 inline-flex items-center">
                     Learn More
@@ -221,7 +179,7 @@ function MainSection() {
       {/* Gallery */}
 
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div class="container px-5 py-14 mx-auto flex flex-wrap">
           <div class="flex w-full mb-20 flex-wrap">
             <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">
               Our Travel Gallery
@@ -284,7 +242,7 @@ function MainSection() {
 
       {/* testimonials */}
       <section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
+        <div class="container px-5 py-14 mx-auto">
           <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">
             Testimonials
           </h1>
@@ -300,10 +258,8 @@ function MainSection() {
                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
                 <p class="leading-relaxed mb-6">
-                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
-                  carry neutra before they sold out fixie 90's microdosing.
-                  Tacos pinterest fanny pack venmo, post-ironic heirloom
-                  try-hard pabst authentic iceland.
+                  I had an amazing experience with TravelMate! The travel packages were well-organized, and the destinations were breathtaking. I highly recommend their services to anyone looking for a memorable travel experience.
+                 
                 </p>
                 <a class="inline-flex items-center">
                   <img
@@ -313,7 +269,7 @@ function MainSection() {
                   />
                   <span class="grow flex flex-col pl-4">
                     <span class="title-font font-medium text-gray-900">
-                      Holden Caulfield
+                      Preyeana Lama
                     </span>
                     <span class="text-gray-500 text-sm">UI DEVELOPER</span>
                   </span>
@@ -331,10 +287,7 @@ function MainSection() {
                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
                 <p class="leading-relaxed mb-6">
-                  Synth chartreuse iPhone lomo cray raw denim brunch everyday
-                  carry neutra before they sold out fixie 90's microdosing.
-                  Tacos pinterest fanny pack venmo, post-ironic heirloom
-                  try-hard pabst authentic iceland.
+                  TravelMate made my trip unforgettable! The travel packages were well-planned, and the customer service was exceptional. I felt supported throughout my journey, and I can't wait to book my next adventure with them. 
                 </p>
                 <a class="inline-flex items-center">
                   <img
@@ -344,7 +297,7 @@ function MainSection() {
                   />
                   <span class="grow flex flex-col pl-4">
                     <span class="title-font font-medium text-gray-900">
-                      Alper Kamu
+                     Cristiano Ronaldo
                     </span>
                     <span class="text-gray-500 text-sm">DESIGNER</span>
                   </span>
