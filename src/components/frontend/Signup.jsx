@@ -53,19 +53,42 @@ function Signup() {
     }
   }
   return (
-  <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4 py-10">
-    <div className="w-full max-w-md bg-gray-800 rounded-2xl shadow-2xl p-8">
-      
-      <h1 className="text-3xl font-bold text-center text-green-500 mb-2">
+ <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 py-10">
+  <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
+
+    {/* LEFT SIDE */}
+    <div
+      className="hidden md:flex items-center justify-center bg-blue-600 p-10"
+      style={{
+        backgroundImage: "url('images/banners/nature1.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="bg-black/50 p-8 rounded-xl text-center">
+        <h1 className="text-4xl font-bold text-white mb-4">
+          Welcome to Travel Mate
+        </h1>
+
+        <p className="text-gray-200 leading-7">
+         Discover destinations, plan your trips, and create unforgettable memories with Travel Mate. Join our community of travelers and start your adventure today!
+        </p>
+      </div>
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="p-10">
+
+      <h1 className="text-3xl font-bold text-center text-blue-600 mb-2">
         Create Account
       </h1>
 
-      <p className="text-center text-gray-400 mb-8">
-        Join MotoMods Nepal today
+      <p className="text-center text-gray-500 mb-8">
+        Join Travel Mate today
       </p>
 
       <form onSubmit={handleForm} className="space-y-4">
-        
+
         {/* Name */}
         <div>
           <input
@@ -76,8 +99,9 @@ function Signup() {
             }}
             type="text"
             placeholder="Full Name"
-            className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-green-500"
+            className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
           />
+
           <p className="text-red-500 text-sm mt-1 min-h-5">
             {error.name}
           </p>
@@ -93,8 +117,9 @@ function Signup() {
             }}
             type="email"
             placeholder="Email Address"
-            className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-green-500"
+            className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
           />
+
           <p className="text-red-500 text-sm mt-1 min-h-5">
             {error.email}
           </p>
@@ -110,8 +135,9 @@ function Signup() {
             }}
             type="password"
             placeholder="Password"
-            className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-green-500"
+            className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
           />
+
           <p className="text-red-500 text-sm mt-1 min-h-5">
             {error.password}
           </p>
@@ -130,16 +156,17 @@ function Signup() {
             }}
             type="password"
             placeholder="Confirm Password"
-            className="w-full p-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:outline-none focus:border-green-500"
+            className="w-full p-3 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
           />
+
           <p className="text-red-500 text-sm mt-1 min-h-5">
             {error.confirmPassword}
           </p>
         </div>
 
-        {/* Success Message */}
+        {/* Success */}
         {success && (
-          <div className="bg-green-500/20 border border-green-500 text-green-400 p-3 rounded-lg text-center">
+          <div className="bg-blue-100 border border-blue-600 text-blue-700 p-3 rounded-lg text-center">
             Account created successfully!
           </div>
         )}
@@ -148,21 +175,23 @@ function Signup() {
         <button
           type="submit"
           disabled={success}
-          className="w-full bg-green-600 hover:bg-green-700 transition duration-300 text-white font-semibold py-3 rounded-lg"
+          className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-3 rounded-lg"
         >
           Sign Up
         </button>
 
-        {/* Login Link */}
-        <p className="text-center text-gray-400 text-sm mt-4">
+        <p className="text-center text-gray-500 text-sm">
           Already have an account?
-          <span className="text-blue-400 hover:text-blue-300 cursor-pointer ml-1">
+          <span className="text-blue-600 hover:text-blue-700 cursor-pointer ml-1 font-semibold">
             Login
           </span>
         </p>
+
       </form>
     </div>
+
   </div>
+</div>
 );
 }
 
