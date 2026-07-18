@@ -247,7 +247,7 @@ function MainSection() {
             </h1>
 
             <Link
-              to="/packages"
+              to="/package"
               className="text-sm sm:text-base text-indigo-500 hover:text-indigo-600 font-semibold whitespace-nowrap"
             >
               See All →

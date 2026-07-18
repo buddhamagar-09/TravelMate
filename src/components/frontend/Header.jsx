@@ -42,7 +42,7 @@ const navLinkStyle = ({ isActive }) =>
               </li>
 
               <li>
-                <NavLink to="/Package" className={navLinkStyle}>
+                <NavLink to="/package" className={navLinkStyle}>
                   Packages
                 </NavLink>
               </li>
