@@ -16,6 +16,7 @@ import Package from "./components/frontend/Package.jsx";
 import About from "./components/frontend/About.jsx";
 import Login from "./components/frontend/Login.jsx";
 import Signup from "./components/frontend/Signup.jsx";
+import PackageDetails from "./components/frontend/PackageDetails.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,8 @@ const router = createBrowserRouter(
         <Route path="" element={<MainSection />} />
         <Route path="destination" element={<Destination />} />
         <Route path="services" element={<Services />} />
-        <Route path="Package" element={<Package />} />
+        <Route path="package" element={<Package />} />
+        <Route path="package-details" element={<PackageDetails />} />
         <Route path="about" element={<About />} />
       </Route>
       <Route path="login" element={<Login />} />
