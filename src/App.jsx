@@ -5,6 +5,7 @@ import Header from "./components/frontend/Header.jsx";
 import Footer from "./components/frontend/Footer.jsx";
 import { ThemeProvider } from "./components/Theme/ThemeContext.jsx";
 import { useState, useEffect } from "react";
+import ScrollToTop from "./components/Theme/ScrollToTop.jsx";
 
 function App() {
   const [themeMode, setThemeMode] = useState(
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <ThemeProvider value={{ lightMode, darkMode, themeMode }}>
+      <ScrollToTop />
       <Header />
       <Outlet />
       <Footer />
