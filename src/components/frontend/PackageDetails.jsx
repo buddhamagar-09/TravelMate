@@ -415,7 +415,7 @@ function PackageDetails() {
       </section>
 
       {/* whats included and whats not included */}
-      <section className="text-gray-600 body-font py-16 bg-white">
+      <section className="text-gray-600 body-font py-10 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           {/* Heading */}
           <div className="text-center mb-14">
@@ -457,6 +457,7 @@ function PackageDetails() {
                   "Airport pickup & drop-off",
                   "Kathmandu hotel accommodation",
                   "Lukla round-trip flight tickets",
+                  "Experienced trekking guide",
                   "Experienced trekking guide",
                 ].map((item, i) => (
                   <div
@@ -540,7 +541,7 @@ function PackageDetails() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           {/* Section Heading */}
           <div className="text-center mb-12">
@@ -583,7 +584,7 @@ function PackageDetails() {
       </section>
 
       {/* testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           {/* Heading */}
           <div className="text-center mb-12">
@@ -651,11 +652,11 @@ function PackageDetails() {
       </section>
 
       {/* CTA section */}
-      <section className="text-gray-600 body-font py-20 bg-white">
+      <section className="text-gray-600 body-font py-10 bg-white">
         <div className="max-w-7xl mx-auto px-5 flex flex-wrap items-center">
           {/* Left Content */}
           <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-20 pr-0">
-            <p className="text-indigo-600 font-semibold tracking-wide uppercase mb-3">
+            <p className="text-blue-600 font-semibold tracking-wide uppercase mb-3">
               Ready to Trek?
             </p>
 
@@ -692,7 +693,7 @@ function PackageDetails() {
             <div className="bg-gray-50 rounded-2xl border border-gray-200 p-8 shadow-sm">
               <div className="mb-6">
                 <p className="text-sm text-gray-500">Starting From</p>
-                <h3 className="text-3xl font-bold text-gray-900">Rs. 16,000</h3>
+                <h3 className="text-3xl font-bold text-blue-600">Rs. 16,000</h3>
                 <p className="text-sm text-gray-500 mt-1">Per person</p>
               </div>
 
