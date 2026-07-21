@@ -26,7 +26,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${1}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -52,7 +52,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${2}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -78,7 +78,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$12.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${3}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -104,7 +104,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$18.40</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${4}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -130,7 +130,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${5}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -156,7 +156,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${6}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -182,7 +182,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${7}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
@@ -208,7 +208,7 @@ function Package() {
                 <div class="mt-1 flex items-center justify-between">
                   <p class="">$16.00</p>
                   <Link
-                    to="/package-details"
+                    to={`/package/${8}`}
                     class="text-blue-500 hover:text-blue-700 font-bold pr-5"
                   >
                     Book Now
