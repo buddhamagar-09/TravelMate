@@ -7,6 +7,7 @@ import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import "yet-another-react-lightbox/styles.css";
+import {useParams} from "react-router-dom"
 
 // swiper animation
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +16,8 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 function PackageDetails() {
+  const {id} = useParams();
+  console.log(id);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -68,6 +71,7 @@ function PackageDetails() {
 
   return (
     <>
+    
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-10 mx-auto flex flex-col">
           <div className="lg:w-4/6 mx-auto">
@@ -388,7 +392,7 @@ function PackageDetails() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex gap-4 border-b pb-5">
                   <div className="font-bold text-blue-600 min-w-17.5">
                     Day 5
                   </div>
@@ -399,7 +403,7 @@ function PackageDetails() {
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 border-b pb-5">
                   <div className="font-bold text-blue-600 min-w-17.5">
                     Day 6
                   </div>
