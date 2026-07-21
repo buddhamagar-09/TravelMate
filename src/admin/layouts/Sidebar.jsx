@@ -58,7 +58,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
        
 
           <NavLink
-            to="/admin/dashboard"
+            to=""
             className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
           >
             <svg
