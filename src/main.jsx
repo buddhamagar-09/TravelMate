@@ -8,7 +8,6 @@ import {
   RouterProvider,
   createRoutesFromElements,
 } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 import MainSection from "./components/frontend/MainSection.jsx";
 import Destination from "./components/frontend/Destination.jsx";
@@ -25,6 +24,9 @@ import AdminDashboard from "./admin/pages/Dashboard.jsx";
 import AddPackage from "./admin/pages/AddPackage.jsx";
 import ViewPackage from "./admin/pages/ViewPackage.jsx";
 import Itinerary from "./admin/pages/Itenaries.jsx";
+import GalleryStep from "./admin/pages/GalleryStep.jsx";
+import Includes from "./admin/pages/Includes.jsx";
+import Excludes from "./admin/pages/Excludes.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +47,9 @@ const router = createBrowserRouter(
         <Route path="add-package" element={<AddPackage />} />
         <Route path="view-packages" element={<ViewPackage />} />
         <Route path="itinerary" element={<Itinerary />} />
+        <Route path="gallery" element={<GalleryStep />} />
+        <Route path="includes" element={<Includes />} />
+        <Route path="excludes" element={<Excludes />} />
       </Route>
       {/* login */}
       <Route path="login" element={<Login />} />
