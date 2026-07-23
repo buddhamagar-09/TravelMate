@@ -64,16 +64,7 @@ export default function Excludes() {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Description
-            </label>
-            <textarea
-              rows="3"
-              placeholder="Short description of this excluded expense"
-              className="w-full rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
-            />
-          </div>
+      
 
           {/* Static preview list */}
           <div className="pt-2">
@@ -120,31 +111,13 @@ export default function Excludes() {
 
           {/* Completion box */}
           <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-4">
-            <div className="flex items-start gap-3">
-              <div className="mt-0.5">
-                <svg
-                  className="w-5 h-5 text-blue-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-
-              <div>
+           <div>
                 <p className="font-semibold text-white">Final Step</p>
                 <p className="text-sm text-slate-300 mt-1">
                   After saving this form, the package setup will be completed
                   and the package can be viewed from the admin package list.
                 </p>
               </div>
-            </div>
           </div>
         </div>
 
