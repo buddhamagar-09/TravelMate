@@ -106,6 +106,12 @@ export default function ItineraryStep() {
                 </label>
 
                 <input
+                  value={item.title}
+                  onChange={(e) => {
+                    const updated = [...days];
+                    updated[index].title = e.target.value;
+                    setDays(updated);
+                  }}
                   type="text"
                   placeholder="Arrival in Kathmandu"
                   className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
@@ -119,6 +125,12 @@ export default function ItineraryStep() {
                 </label>
 
                 <textarea
+                  value={item.description}
+                  onChange={(e) => {
+                    const updated = [...days];
+                    updated[index].description = e.target.value;
+                    setDays(updated);
+                  }}
                   rows="4"
                   placeholder="Describe the activities, trekking hours, sightseeing, meals, and important information for this day..."
                   className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
@@ -132,6 +144,12 @@ export default function ItineraryStep() {
                 </label>
 
                 <input
+                  value={item.overnight}
+                  onChange={(e) => {
+                    const updated = [...days];
+                    updated[index].overnight = e.target.value;
+                    setDays(updated);
+                  }}
                   type="text"
                   placeholder="Kathmandu"
                   className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
@@ -144,18 +162,23 @@ export default function ItineraryStep() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
           {/* Left */}
-           <button onClick={() => navigate("/admin/add-package")} type="button" 
-          className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition">
+          <button
+            onClick={() => navigate("/admin/add-package")}
+            type="button"
+            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+          >
             ← Previous
           </button>
 
           {/* Right */}
           <div className="flex gap-3">
-              <button onClick={() => navigate("/admin/gallery")} type="button" 
-          className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition">
-            Next →
-          </button>
-
+            <button
+              onClick={() => navigate("/admin/gallery")}
+              type="button"
+              className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            >
+              Next →
+            </button>
 
             <button
               type="button"
