@@ -28,6 +28,9 @@ import GalleryStep from "./admin/pages/GalleryStep.jsx";
 import Includes from "./admin/pages/Includes.jsx";
 import Excludes from "./admin/pages/Excludes.jsx";
 
+//protected route
+import ProtectedRoute from "./components/ProtectedRoute";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
@@ -40,6 +43,7 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
       </Route>
       {/* admin routes */}
+      <Route element={<ProtectedRoute />}>
       <Route path="admin" element={<AdminLayout />}>
         {/* default route to admin/home  */}
 
@@ -50,6 +54,7 @@ const router = createBrowserRouter(
         <Route path="gallery" element={<GalleryStep />} />
         <Route path="includes" element={<Includes />} />
         <Route path="excludes" element={<Excludes />} />
+      </Route>
       </Route>
       {/* login */}
       <Route path="login" element={<Login />} />
