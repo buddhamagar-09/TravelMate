@@ -1,24 +1,136 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, useMatch } from "react-router-dom";
+import api from "../../api/axios";
+
 export default function AddPackage() {
+  const { id } = useParams();
   const currentStep = 1;
 
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
   const navigate = useNavigate();
 
-  //const $id = 1; // Replace with the actual package ID after saving the package
+  const [packageId, setPackageId] = useState(null); // State to store the package ID after saving
+  const [name, setName] = useState("");
+  const [slug, setSlug] = useState("");
+  const [price, setPrice] = useState("");
+  const [duration, setDuration] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [location, setLocation] = useState("");
+  const [bestSeason, setBestSeason] = useState("");
+  const [maxAltitude, setMaxAltitude] = useState("");
+  const [groupSize, setGroupSize] = useState("");
+  const [shortOverview, setShortOverview] = useState("");
+  const [fullDescription, setFullDescription] = useState("");
+  const [featuredImage, setFeaturedImage] = useState(null);
+
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const isEditing = useMatch("/admin/edit-package/:id"); // Check if we are in edit mode based on the URL pattern
+
+  // Fetch existing package data if editing
+  useEffect(() => {
+    if (!isEditing) return;
+
+    const fetchPackage = async () => {
+      try {
+        const response = await api.get(`/packages/${id}`);
+
+        const pkg = response.data;
+
+        setName(pkg.title);
+        setSlug(pkg.slug);
+        setLocation(pkg.location);
+        setDuration(pkg.duration);
+        setPrice(pkg.price);
+        setGroupSize(pkg.group_size);
+        setMaxAltitude(pkg.max_altitude);
+        setDifficulty(pkg.difficulty);
+        setBestSeason(pkg.best_season);
+        setShortOverview(pkg.short_description);
+        setFullDescription(pkg.long_description);
+      } catch (error) {
+        console.log(error);
+        setError("Failed to load package.");
+      }
+    };
+    fetchPackage();
+  }, [isEditing, id]);
+
+  // Function to handle form submission
+  const handleSubmit = async () => {
+    setSaving(true);
+    setError("");
+
+    try {
+      const formdata = new FormData();
+      formdata.append("title", name);
+      formdata.append("slug", slug);
+      formdata.append("price", price);
+      formdata.append("duration", duration);
+      formdata.append("difficulty", difficulty);
+      formdata.append("location", location);
+      formdata.append("best_season", bestSeason);
+      formdata.append("max_altitude", maxAltitude);
+      formdata.append("group_size", groupSize);
+      formdata.append("short_description", shortOverview);
+      formdata.append("long_description", fullDescription);
+      if (featuredImage) {
+        formdata.append("featured_image", featuredImage);
+      }
+
+      let response;
+      if (isEditing) {
+        formdata.append("_method", "PUT");
+
+        response = await api.post(`/packages/${id}`, formdata);
+      } else {
+        response = await api.post("/packages", formdata);
+      }
   
+
+      console.log(
+        isEditing
+          ? "Package updated successfully"
+          : "Package created successfully",
+      );
+      console.log(response.data);
+      if(!isEditing) {
+        setPackageId(response.data.package.id);
+        navigate(`/admin/itinerary/${packageId}`); // Store the package ID after saving
+      }
+      else
+      {
+        navigate(`/admin/edit-itinerary/${id}`);
+      }
+    } catch (err) {
+      console.log(err.response.data.errors);
+      setError("Failed to save package. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Function to handle "Next" button click
   const handleNext = () => {
-    // Navigate to the next step (Itenaries page)
-    navigate(`/admin/itinerary`);
+    if (isEditing) {
+      navigate(`/admin/edit-itinerary/${id}`);
+    } else {
+      navigate(`/admin/itinerary/${packageId}`);
+    }
   };
 
   return (
     <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
       {/* Page title */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Add Package</h1>
-        <p className="text-slate-400 text-sm">Create a new travel package</p>
+        <h1 className="text-2xl font-bold text-white">
+          {isEditing ? "Edit Package" : "Create a new travel package"}
+        </h1>
+        <p className="text-slate-400 text-sm">
+          {isEditing
+            ? "Edit the details of your travel package"
+            : "Fill in the details for your new travel package"}
+        </p>
       </div>
 
       {/* Progress */}
@@ -54,6 +166,9 @@ export default function AddPackage() {
         <h2 className="text-lg font-semibold text-white mb-4">
           Basic Package Information
         </h2>
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -65,6 +180,8 @@ export default function AddPackage() {
               <input
                 type="text"
                 placeholder="Everest Base Camp Trek"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -75,6 +192,8 @@ export default function AddPackage() {
               <input
                 type="text"
                 placeholder="everest-base-camp-trek"
+                value={slug}
+                onChange={(e) => setSlug(e.target.value)}
                 className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -87,6 +206,8 @@ export default function AddPackage() {
             <input
               type="number"
               placeholder="1299"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -98,6 +219,8 @@ export default function AddPackage() {
             <input
               type="number"
               placeholder="14"
+              value={duration}
+              onChange={(e) => setDuration(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -106,7 +229,11 @@ export default function AddPackage() {
             <label className="block text-sm text-slate-300 mb-2">
               Difficulty
             </label>
-            <select className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500">
+            <select
+              value={difficulty}
+              onChange={(e) => setDifficulty(e.target.value)}
+              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+            >
               <option>Select difficulty</option>
               <option>Easy</option>
               <option>Moderate</option>
@@ -121,6 +248,8 @@ export default function AddPackage() {
             <input
               type="text"
               placeholder="Khumbu, Nepal"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
             />
           </div>
@@ -130,8 +259,12 @@ export default function AddPackage() {
               <label className="block text-sm text-slate-300 mb-2">
                 Best Season
               </label>
-              <select className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500">
-                <option>Select season</option>
+              <select
+                value={bestSeason}
+                onChange={(e) => setBestSeason(e.target.value)}
+                className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              >
+                <option> season</option>
                 <option>Spring (Mar-May)</option>
                 <option>Summer (Jun-Aug)</option>
                 <option>Autumn (Sep-Nov)</option>
@@ -148,6 +281,8 @@ export default function AddPackage() {
               <input
                 type="text"
                 placeholder="5,364 m"
+                value={maxAltitude}
+                onChange={(e) => setMaxAltitude(e.target.value)}
                 className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -160,6 +295,8 @@ export default function AddPackage() {
               <input
                 type="number"
                 placeholder="10"
+                value={groupSize}
+                onChange={(e) => setGroupSize(e.target.value)}
                 className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
               />
             </div>
@@ -172,6 +309,8 @@ export default function AddPackage() {
             <textarea
               rows="3"
               placeholder="Short package summary"
+              value={shortOverview}
+              onChange={(e) => setShortOverview(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 resize-none"
             />
           </div>
@@ -183,6 +322,8 @@ export default function AddPackage() {
             <textarea
               rows="6"
               placeholder="Detailed package description"
+              value={fullDescription}
+              onChange={(e) => setFullDescription(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 resize-none"
             />
           </div>
@@ -193,35 +334,30 @@ export default function AddPackage() {
             </label>
             <input
               type="file"
+              onChange={(e) => setFeaturedImage(e.target.files[0])}
               className="w-full text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700"
             />
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
+
+        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6 pt-4 border-t border-slate-800">
+          <button
+            onClick={handleNext}
+            type="button"
+            className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+          >
+            Next
+          </button>
           <button
             type="button"
-            className="px-5 py-2 rounded-md border border-slate-700 text-slate-300 hover:bg-slate-800 transition"
+            onClick={handleSubmit}
+            disabled={saving}
+            className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
           >
-            Save Package
+            {saving ? "Saving..." : "Save & Continue"}
           </button>
-
-          <div className="flex gap-3">
-            <button
-              onClick={handleNext}
-              type="button"
-              className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
-            >
-              Next
-            </button>
-            <button
-              type="button"
-              className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
-            >
-              Save & Continue
-            </button>
-          </div>
         </div>
       </div>
     </div>
