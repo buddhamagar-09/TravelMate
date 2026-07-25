@@ -1,20 +1,25 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, useMatch } from "react-router-dom";
+import api from "../../api/axios";
 
 export default function ItineraryStep() {
   const currentStep = 2;
 
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+
   const { id } = useParams(); // Get the package ID from the URL
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const isEditing = useMatch("/admin/edit-itinerary/:id"); // Check if we are in edit mode based on the URL pattern
 
   // Static demo data
   const [days, setDays] = useState([
     {
-      day: 1,
+      day_number: 1,
       title: "",
       description: "",
-      overnight: "",
+      overnight_stay: "",
     },
   ]);
 
@@ -23,21 +28,70 @@ export default function ItineraryStep() {
     setDays([
       ...days,
       {
-        day: days.length + 1,
+        day_number: days.length + 1,
         title: "",
         description: "",
-        overnight: "",
+        overnight_stay: "",
       },
     ]);
+  };
+
+  const handleSumbit = async () => {
+    // Here you can handle the submission of the itinerary data to your backend or API
+    setLoading(true);
+    setError(null);
+    console.log("Submitting Itinerary:", days);
+    try {
+      const response = isEditing
+        ? await api.put(`/itinerary/${id}`, { itinerary: days })
+        : await api.post(`/itinerary/${id}`, { itinerary: days });
+
+      console.log(response.data);
+      navigate(`/admin/gallery/${id}`);
+    } catch (error) {
+      console.log(error.response.data);
+      setError(error?.response?.data?.message || "Failed to submit itinerary");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // if we are in editing mode then we need to fetch the existing itinerary data for the package and populate the form
+  useEffect(() => {
+    if (!isEditing) return;
+
+    const fetchItinerary = async () => {
+      setLoading(true);
+
+      try {
+        const response = await api.get(`/itinerary/${id}`);
+        setDays(response.data.itinerary);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchItinerary();
+  }, [isEditing, id]);
+
+  // Function to handle "Next" button click
+  const handleNext = () => {  
+    navigate(`/admin/gallery/${id}`);
   };
 
   return (
     <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
       {/* Page title */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Package Itinerary</h1>
+        <h1 className="text-2xl font-bold text-white">
+          {isEditing ? "Edit Itinerary" : "Add Itinerary"}
+        </h1>
         <p className="text-slate-400 text-sm">
-          Add day-by-day itinerary for this package
+          {isEditing
+            ? "Update the day-by-day itinerary for this package."
+            : "Create a day-by-day itinerary for this package."}
         </p>
       </div>
 
@@ -74,6 +128,7 @@ export default function ItineraryStep() {
           <h2 className="text-lg font-semibold text-white">
             Day-by-Day Itinerary
           </h2>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
 
           <button
             type="button"
@@ -92,7 +147,9 @@ export default function ItineraryStep() {
             >
               {/* Day Header */}
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-semibold">Day {item.day}</h3>
+                <h3 className="text-white font-semibold">
+                  Day {item.day_number}
+                </h3>
 
                 <span className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300">
                   Itinerary
@@ -144,10 +201,10 @@ export default function ItineraryStep() {
                 </label>
 
                 <input
-                  value={item.overnight}
+                  value={item.overnight_stay}
                   onChange={(e) => {
                     const updated = [...days];
-                    updated[index].overnight = e.target.value;
+                    updated[index].overnight_stay = e.target.value;
                     setDays(updated);
                   }}
                   type="text"
@@ -163,7 +220,7 @@ export default function ItineraryStep() {
         <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
           {/* Left */}
           <button
-            onClick={() => navigate("/admin/add-package")}
+            onClick={() => navigate(`/admin/edit-package/${id}`)}
             type="button"
             className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
           >
@@ -173,7 +230,7 @@ export default function ItineraryStep() {
           {/* Right */}
           <div className="flex gap-3">
             <button
-              onClick={() => navigate("/admin/gallery")}
+              onClick={handleNext}
               type="button"
               className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
             >
@@ -181,10 +238,12 @@ export default function ItineraryStep() {
             </button>
 
             <button
+              onClick={handleSumbit}
               type="button"
+              disabled={loading}
               className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
             >
-              Save & Continue
+              {loading ? "Saving..." : "Save & Continue"}
             </button>
           </div>
         </div>
