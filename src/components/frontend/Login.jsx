@@ -31,7 +31,7 @@ function Login() {
         navigate("/");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError("Login failed");
     } finally {
       setLoading(false);
     }
@@ -98,7 +98,9 @@ function Login() {
               Forgot Password?
             </button>
           </div>
-          {error && <div className="text-red-500 text-sm mb-3">{error}</div>}
+          {error && (
+            <div className="text-red-500 text-sm mb-3 text-center">{error}</div>
+          )}
 
           {/* Login Button */}
           <button
