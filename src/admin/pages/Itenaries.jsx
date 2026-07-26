@@ -36,7 +36,7 @@ export default function ItineraryStep() {
     ]);
   };
 
-  const handleSumbit = async () => {
+  const handleSubmit = async () => {
     // Here you can handle the submission of the itinerary data to your backend or API
     setLoading(true);
     setError(null);
@@ -47,7 +47,12 @@ export default function ItineraryStep() {
         : await api.post(`/itinerary/${id}`, { itinerary: days });
 
       console.log(response.data);
-      navigate(`/admin/gallery/${id}`);
+
+      if (!isEditing) {
+        navigate(`/admin/gallery/${id}`);
+      } else {
+        navigate(`/admin/edit-gallery/${id}`);
+      }
     } catch (error) {
       console.log(error.response.data);
       setError(error?.response?.data?.message || "Failed to submit itinerary");
@@ -76,9 +81,20 @@ export default function ItineraryStep() {
     fetchItinerary();
   }, [isEditing, id]);
 
-  // Function to handle "Next" button click
-  const handleNext = () => {  
-    navigate(`/admin/gallery/${id}`);
+  const handlePrevious = () => {
+    if (isEditing) {
+      navigate(`/admin/edit-package/${id}`);
+    } else {
+      navigate(`/admin/add-package`);
+    }
+  };
+
+  const handleNext = () => {
+    if (isEditing) {
+      navigate(`/admin/edit-gallery/${id}`);
+    } else {
+      navigate(`/admin/gallery/${id}`);
+    }
   };
 
   return (
@@ -220,7 +236,7 @@ export default function ItineraryStep() {
         <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
           {/* Left */}
           <button
-            onClick={() => navigate(`/admin/edit-package/${id}`)}
+            onClick={handlePrevious}
             type="button"
             className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
           >
@@ -238,7 +254,7 @@ export default function ItineraryStep() {
             </button>
 
             <button
-              onClick={handleSumbit}
+              onClick={handleSubmit}
               type="button"
               disabled={loading}
               className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
