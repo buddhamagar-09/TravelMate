@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, useMatch } from "react-router-dom";
+import api from "../../api/axios";
 
 export default function GalleryStep() {
   const navigate = useNavigate();
@@ -8,31 +9,95 @@ export default function GalleryStep() {
   const currentStep = 3;
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
 
-  // Static preview data for UI
-  const [images] = useState([
-    {
-      id: 1,
-      url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800",
-      featured: true,
-    },
-    {
-      id: 2,
-      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
+  const isEditing = useMatch("/admin/edit-gallery/:id"); // Check if we are in edit mode based on the URL pattern
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
+
+  // State to hold the selected images
+  const [images, setImages] = useState([]);
+
+  //fetch existing images if we are in edit mode
+  useEffect(() => {
+    if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing images
+
+    const fetchImages = async () => {
+      setSaving(true);
+      try {
+        const response = await api.get(`/gallery/${id}`);
+        console.log(response.data);
+        const galleryImages = response.data.gallery.map((image) => ({
+          id: image.id,
+          url: `http://127.0.0.1:8000/storage/${image.image_path}`,
+          file: null, // No file object for existing images
+        }));
+        setImages(galleryImages);
+      } catch (error) {
+        console.log(error.response?.data);
+        setError("Failed to fetch existing images");
+      } finally {
+        setSaving(false);
+      }
+    };
+    fetchImages();
+  }, [id, isEditing]);
+
+  // Function to handle file input change
+  const handleFileChange = (event) => {
+    const files = Array.from(event.target.files);
+    const newImages = files.map((file, index) => ({
+      id: Date.now() + index,
+      file,
+      url: URL.createObjectURL(file),
       featured: false,
-    },
-    {
-      id: 3,
-      url: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800",
-      featured: false,
-    },
-  ]);
+    }));
+    setImages((prevImages) => [...prevImages, ...newImages]);
+    event.target.value = "";
+  };
+
+  //handle submit
+  const handleSubmit = async () => {
+    setSaving(true);
+    const formData = new FormData();
+
+    images.forEach((image) => {
+      if (image.file) {
+        formData.append("images[]", image.file);
+      }
+    });
+
+    try {
+      const response = isEditing
+        ? await api.post(`/gallery/${id}?_method=PUT`, formData)
+        : await api.post(`/gallery/${id}`, formData);
+
+      console.log(response.data);
+      if (!isEditing) {
+        navigate(`/admin/includes/${id}`);
+      } else {
+        navigate(`/admin/edit-includes/${id}`);
+      }
+    } catch (error) {
+      console.log(error.response?.data);
+      setError("Failed to submit gallery");
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const handlePrevious = () => {
-    navigate(`/admin/itinerary`);
+    if (isEditing) {
+      navigate(`/admin/edit-itinerary/${id}`);
+    } else {
+      navigate(`/admin/itinerary/${id}`);
+    }
   };
 
   const handleNext = () => {
-    navigate(`/admin/includes`);
+    if (isEditing) {
+      navigate(`/admin/edit-gallery/${id}`);
+    } else {
+      navigate(`/admin/gallery/${id}`);
+    }
   };
 
   return (
@@ -75,6 +140,11 @@ export default function GalleryStep() {
       {/* Upload Section */}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 mb-6">
         <h2 className="text-lg font-semibold text-white mb-4">Upload Images</h2>
+        {error && (
+          <div className="bg-red-600 text-white p-2 rounded mb-4 text-center">
+            {error}
+          </div>
+        )}
 
         <label className="block w-full border-2 border-dashed border-slate-700 rounded-lg p-10 text-center cursor-pointer hover:border-blue-500 transition">
           <div className="flex flex-col items-center gap-3">
@@ -102,7 +172,13 @@ export default function GalleryStep() {
             </div>
           </div>
 
-          <input type="file" multiple accept="image/*" className="hidden" />
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
         </label>
       </div>
 
@@ -119,39 +195,11 @@ export default function GalleryStep() {
               key={image.id}
               className="rounded-lg overflow-hidden border border-slate-800 bg-slate-950"
             >
-              <div className="relative">
-                <img
-                  src={image.url}
-                  alt="Package preview"
-                  className="w-full h-48 object-cover"
-                />
-
-                {image.featured && (
-                  <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-2 py-1 rounded-md font-medium">
-                    Featured
-                  </span>
-                )}
-              </div>
-
-              <div className="p-4 flex items-center justify-between">
-                <button
-                  type="button"
-                  className={`text-sm font-medium ${
-                    image.featured
-                      ? "text-blue-400"
-                      : "text-slate-300 hover:text-white"
-                  }`}
-                >
-                  {image.featured ? "Cover Image" : "Set as Cover"}
-                </button>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm font-medium"
-                >
-                  Remove
-                </button>
-              </div>
+              <img
+                src={image.url}
+                alt="Package preview"
+                className="w-full h-48 object-cover"
+              />
             </div>
           ))}
         </div>
@@ -167,19 +215,20 @@ export default function GalleryStep() {
           </button>
 
           <div className="flex gap-3">
-             <button
-            type="button"
-            onClick={handleNext}
-            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
-          >
-            Next →
-          </button>
             <button
               type="button"
               onClick={handleNext}
+              className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            >
+              Next →
+            </button>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={saving}
               className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
             >
-              Save & Continue
+              {saving ? "Saving..." : "Save & Continue"}
             </button>
           </div>
         </div>
