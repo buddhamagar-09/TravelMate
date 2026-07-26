@@ -86,7 +86,6 @@ export default function AddPackage() {
       } else {
         response = await api.post("/packages", formdata);
       }
-  
 
       console.log(
         isEditing
@@ -94,12 +93,12 @@ export default function AddPackage() {
           : "Package created successfully",
       );
       console.log(response.data);
-      if(!isEditing) {
-        setPackageId(response.data.package.id);
-        navigate(`/admin/itinerary/${packageId}`); // Store the package ID after saving
-      }
-      else
-      {
+
+      if (!isEditing) {
+        const newPackageId = response.data.package.id; // Assuming the API returns the new package ID
+        setPackageId(newPackageId); // Store the package ID in state
+        navigate(`/admin/itinerary/${newPackageId}`); // Store the package ID after saving
+      } else {
         navigate(`/admin/edit-itinerary/${id}`);
       }
     } catch (err) {
