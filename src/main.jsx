@@ -43,6 +43,7 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
       </Route>
       {/* admin routes */}
+      {/* protected routes for admin only */}
       <Route element={<ProtectedRoute />}>
       <Route path="admin" element={<AdminLayout />}>
         {/* default route to admin/home  */}
@@ -50,10 +51,17 @@ const router = createBrowserRouter(
         <Route path="" element={<AdminDashboard />} />
         <Route path="add-package" element={<AddPackage />} />
         <Route path="view-packages" element={<ViewPackage />} />
-        <Route path="itinerary" element={<Itinerary />} />
-        <Route path="gallery" element={<GalleryStep />} />
-        <Route path="includes" element={<Includes />} />
-        <Route path="excludes" element={<Excludes />} />
+        <Route path="itinerary/:id" element={<Itinerary />} />
+        <Route path="gallery/:id" element={<GalleryStep />} />
+        <Route path="includes/:id" element={<Includes />} />
+        <Route path="excludes/:id" element={<Excludes />} />
+
+        {/* edit routes */}
+        <Route path="edit-package/:id" element={<AddPackage />} />
+        <Route path="edit-itinerary/:id" element={<Itinerary />} />
+        <Route path="edit-gallery/:id" element={<GalleryStep />} />
+        <Route path="edit-includes/:id" element={<Includes />} />
+        <Route path="edit-excludes/:id" element={<Excludes />} />
       </Route>
       </Route>
       {/* login */}
