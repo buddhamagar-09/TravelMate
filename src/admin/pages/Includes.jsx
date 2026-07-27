@@ -1,19 +1,91 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import { useNavigate, useParams,useMatch } from "react-router-dom";
+import api from "../../api/axios";
 
 export default function Includes() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const isEditing = useMatch("/admin/edit-includes/:id"); // Check if we are in edit mode based on the URL pattern
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
+  const [includes, setIncludes] = useState([]);
+  const [newInclude, setNewInclude] = useState(""); // State for the new include item input
 
   const currentStep = 4;
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
 
-  const handlePrevious = () => {
-    navigate(`/admin/gallery`);
+
+//function to fetch existing includes if we are in edit mode
+useEffect(() => {
+  if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
+  setSaving(true);
+  setError(null);
+  //fetch existing includes
+  const fetchIncludes = async () => {
+    try{
+      const response = await api.get(`/includes/${id}`);
+      console.log(response.data);
+      const existingIncludes = response.data.includes.map((item) => item.item);
+      setIncludes(existingIncludes);
+    }catch(error){
+      console.log(error.response?.data);
+      setError("Failed to fetch existing includes");
+    }
+    finally{
+      setSaving(false);
+    }
+  }
+  fetchIncludes();
+}, [id, isEditing]);
+
+
+// Function to handle form submission
+  const handleSubmit = async () => {
+
+    setSaving(true);
+    setError(null);
+    try{
+      const response = isEditing
+        ? await api.post(`/includes/${id}?_method=PUT`, { includes })
+        : await api.post(`/includes/${id}`, { includes });
+
+      console.log(response.data);
+
+      navigate(`/admin/excludes/${id}`); 
+
+    }
+    catch(error){
+      console.log(error.response?.data);
+      setError("Failed to save includes");
+    }
+    finally{
+      setSaving(false);
+    }
+
+  }
+
+// Function to add a new item to the list
+  const addInclude = () => {
+    if(!newInclude.trim()) return; // Prevent adding empty items
+    setIncludes([...includes, newInclude.trim()]);
+    setNewInclude(""); // Clear the input field
+  };
+// Function to remove an item from the list
+  const removeInclude = (index) => {
+    setIncludes(includes.filter((_, i) => i !== index));
   };
 
+// Navigation handlers
+  const handlePrevious = () => {
+   if(isEditing) {
+      navigate(`/admin/edit-gallery/${id}`);
+    } else {
+      navigate(`/admin/gallery/${id}`);
+    }
+  };
+// Navigation handlers
   const handleNext = () => {
-    navigate(`/admin/excludes`);
+      navigate(`/admin/excludes/${id}`);
   };
 
   return (
@@ -24,7 +96,10 @@ export default function Includes() {
         <h1 className="text-2xl font-bold text-white">Package Includes</h1>{" "}
         <p className="text-slate-400 text-sm">
           Add services that are included in the package price{" "}
-        </p>{" "}
+        </p>
+        {error && (
+          <p className="text-red-500 text-sm mt-2">{error}</p>
+        )}
       </div>
       {/* Progress */}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
@@ -59,15 +134,18 @@ export default function Includes() {
           <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
+              value={newInclude}
+              onChange={(event) => setNewInclude(event.target.value)}
               placeholder="Example: Airport pickup and drop"
               className="flex-1 rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
             />
 
             <button
               type="button"
+              onClick={addInclude}
               className="px-5 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition whitespace-nowrap"
             >
-               Add
+              Add
             </button>
           </div>
 
@@ -78,38 +156,17 @@ export default function Includes() {
             </h3>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
-                <p className="text-white text-sm">Airport pickup and drop</p>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm"
-                >
+              {includes.map((item, index) => (
+                <div key={index} className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
+                  <p className="text-white text-sm">{item}</p>
+                  <button
+                    type="button"
+                    onClick={() => removeInclude(index)}
+                  >   
                   Remove
                 </button>
               </div>
-
-              <div className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
-                <p className="text-white text-sm">Tea house accommodation</p>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
-
-              <div className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
-                <p className="text-white text-sm">Guide fee</p>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -135,10 +192,10 @@ export default function Includes() {
 
             <button
               type="button"
-              onClick={handleNext}
+              onClick={handleSubmit}
               className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
             >
-              Save & Continue
+             {saving ? "Saving..." : "Save & Continue"}
             </button>
           </div>
         </div>
