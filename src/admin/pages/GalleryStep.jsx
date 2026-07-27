@@ -94,9 +94,9 @@ export default function GalleryStep() {
 
   const handleNext = () => {
     if (isEditing) {
-      navigate(`/admin/edit-gallery/${id}`);
+      navigate(`/admin/edit-includes/${id}`);
     } else {
-      navigate(`/admin/gallery/${id}`);
+      navigate(`/admin/includes/${id}`);
     }
   };
 
