@@ -1,19 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import api from "../../api/axios";
 
 export default function Excludes() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [saving, setSaving] = React.useState(false);
+  const [error, setError] = React.useState(null);
+  const [excludes, setExcludes] = useState([]);
+  const [newExclude, setNewExclude] = useState(""); // State for the new exclude item input
 
   const currentStep = 5;
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
 
-  const handlePrevious = () => {
-    navigate(`/admin/includes`);
+
+  const handleSubmit = async () => {
+    setSaving(true);
+    setError(null);
+
+    try {
+      const response = await api.post(`/excludes/${id}`, { excludes });
+      console.log(response.data);
+
+      navigate("/admin/view-packages");
+
+    } catch (error) {
+      console.log(error.response?.data);
+      setError("Failed to save excludes");
+    } finally {
+      setSaving(false);
+    }
   };
 
-  const handleFinish = () => {
-    navigate("/admin/view-packages");
+  const addExclude = () => {
+    if (!newExclude.trim()) return;
+
+    setExcludes((prev) => [...prev, newExclude.trim()]);
+    setNewExclude("");
+  };
+
+  const removeExclude = (index) => {
+    setExcludes((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handlePrevious = () => {
+    if(!id){
+      navigate("/admin/includes");
+    }
+    else{
+      navigate(`/admin/edit-includes/${id}`);
+    }
   };
 
   return (
@@ -26,7 +62,6 @@ export default function Excludes() {
           Add expenses that are not included in the package price{" "}
         </p>{" "}
       </div>
-      ```
       {/* Progress */}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
@@ -51,20 +86,26 @@ export default function Excludes() {
         </div>
       </div>
       {/* Form */}
+      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
         <div className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Exclude Item
-            </label>
+          <div className="flex flex-col sm:flex-row gap-3 items-start">
             <input
               type="text"
               placeholder="Example: International flight ticket"
               className="w-full rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+              value={newExclude}
+              onChange={(e) => setNewExclude(e.target.value)}
             />
-          </div>
 
-      
+            <button
+              type="button"
+              onClick={addExclude}
+              className="px-5 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition whitespace-nowrap"
+            >
+              Add
+            </button>
+          </div>
 
           {/* Static preview list */}
           <div className="pt-2">
@@ -73,51 +114,36 @@ export default function Excludes() {
             </h3>
 
             <div className="space-y-3">
-              <div className="flex items-start justify-between rounded-md border border-slate-800 bg-slate-950 p-4">
-                <div>
-                  <p className="font-medium text-white">
-                    International flight ticket
-                  </p>
-                  <p className="text-sm text-slate-400 mt-1">
-                    Airfare from your home country to Nepal is not included.
-                  </p>
-                </div>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm"
+              {excludes.map((exclude, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 p-4 mb-3"
                 >
-                  Remove
-                </button>
-              </div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-white">{exclude}</p>
+                  </div>
 
-              <div className="flex items-start justify-between rounded-md border border-slate-800 bg-slate-950 p-4">
-                <div>
-                  <p className="font-medium text-white">Personal expenses</p>
-                  <p className="text-sm text-slate-400 mt-1">
-                    Snacks, drinks, laundry, charging, and other personal costs.
-                  </p>
+                  <button
+                    type="button"
+                    onClick={() => removeExclude(index)}
+                    className="rounded  px-3 py-1 text-sm text-white hover:bg-red-700"
+                  >
+                    Remove
+                  </button>
                 </div>
-
-                <button
-                  type="button"
-                  className="text-red-400 hover:text-red-300 text-sm"
-                >
-                  Remove
-                </button>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Completion box */}
           <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-4">
-           <div>
-                <p className="font-semibold text-white">Final Step</p>
-                <p className="text-sm text-slate-300 mt-1">
-                  After saving this form, the package setup will be completed
-                  and the package can be viewed from the admin package list.
-                </p>
-              </div>
+            <div>
+              <p className="font-semibold text-white">Final Step</p>
+              <p className="text-sm text-slate-300 mt-1">
+                After saving this form, the package setup will be completed and
+                the package can be viewed from the admin package list.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -134,17 +160,10 @@ export default function Excludes() {
           <div className="flex gap-3">
             <button
               type="button"
-              className="px-5 py-2 rounded-md border border-slate-700 text-slate-300 hover:bg-slate-800 transition"
-            >
-              Save Draft
-            </button>
-
-            <button
-              type="button"
-              onClick={handleFinish}
+              onClick={handleSubmit}
               className="px-5 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition"
             >
-              Finish Package
+              {saving ? "Saving..." : "Save & Finish"}
             </button>
           </div>
         </div>
