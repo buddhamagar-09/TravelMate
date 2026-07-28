@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams,useMatch } from "react-router-dom";
 import api from "../../api/axios";
 
 export default function Excludes() {
@@ -13,14 +13,41 @@ export default function Excludes() {
   const currentStep = 5;
   const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
 
+  const isEditing = useMatch("/admin/edit-excludes/:id"); // Check if we are in edit mode based on the URL pattern
+  //function to fetch existing includes if we are in edit mode
+useEffect(() => {
+  if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
+  setSaving(true);
+  setError(null);
+  //fetch existing includes
+  const fetchExcludes = async () => {
+    try{
+      const response = await api.get(`/excludes/${id}`);
+      console.log(response.data);
+      const existingExcludes = response.data.excludes.map((item) => item.item);
+      setExcludes(existingExcludes);
+    }catch(error){
+      console.log(error.response?.data);
+      setError("Failed to fetch existing excludes");
+    }
+    finally{
+      setSaving(false);
+    }
+  }
+  fetchExcludes();
+}, [id, isEditing]);
 
   const handleSubmit = async () => {
     setSaving(true);
     setError(null);
 
     try {
-      const response = await api.post(`/excludes/${id}`, { excludes });
-      console.log(response.data);
+     if(isEditing) {
+        await api.post(`/excludes/${id}?_method=PUT`, { excludes });
+      }
+      else {
+        await api.post(`/excludes/${id}`, { excludes });
+      }
 
       navigate("/admin/view-packages");
 
@@ -44,8 +71,8 @@ export default function Excludes() {
   };
 
   const handlePrevious = () => {
-    if(!id){
-      navigate("/admin/includes");
+    if(id == "null") {
+      navigate(`/admin/includes/${id}`);
     }
     else{
       navigate(`/admin/edit-includes/${id}`);
