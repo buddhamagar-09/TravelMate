@@ -51,7 +51,12 @@ useEffect(() => {
 
       console.log(response.data);
 
-      navigate(`/admin/excludes/${id}`); 
+     if(isEditing) {
+        navigate(`/admin/edit-excludes/${id}`);
+      }
+      else {
+        navigate(`/admin/excludes/${id}`);
+      }
 
     }
     catch(error){
@@ -85,7 +90,12 @@ useEffect(() => {
   };
 // Navigation handlers
   const handleNext = () => {
-      navigate(`/admin/excludes/${id}`);
+      if(isEditing) {
+        navigate(`/admin/edit-excludes/${id}`);
+      }
+      else {
+        navigate(`/admin/excludes/${id}`);
+      }
   };
 
   return (
