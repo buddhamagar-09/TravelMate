@@ -82,7 +82,7 @@ const deletePackage = async (id) => {
 
           <tbody>
             {packages.map((pkg) => (
-              <tr className="border-b border-slate-800 hover:bg-slate-800 transition">
+              <tr id={pkg.id} className="border-b border-slate-800 hover:bg-slate-800 transition">
                 <td className="px-6 py-4">
                   <img
                     src={`http://127.0.0.1:8000/storage/${pkg.featured_image}`}
