@@ -1,15 +1,22 @@
 import React, { useState } from "react";
+import{useNavigate} from "react-router-dom";
+import api from "../../api/axios";
 
 function Signup() {
+  const navigate = useNavigate();
+
+  // State variables for form fields and validation
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState({});
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleForm(e) {
     e.preventDefault();
+    setLoading(true);
     const newErrors = {};
     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,9 +48,24 @@ function Signup() {
     setError(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
+      try {
+        const response = await api.post("/register", {
+          name,
+          email,
+          password,
+          confirmPassword,
+        });
+        console.log(response);
+        navigate("/login");
+      } catch (error) {
+        console.error("Error occurred while signing up:", error);
+      }
+      finally {
+        setLoading(false);
+      }
       setSuccess(true);
       console.log("Form submitted successfully");
-      console.log({ name, email, password });
+      // console.log({ name, email, password });
       setName("");
       setEmail("");
       setPassword("");
@@ -52,6 +74,8 @@ function Signup() {
       setSuccess(false);
     }
   }
+
+  
   return (
  <div className="min-h-screen bg-gray-100 flex items-center justify-center px-6 py-10">
   <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
@@ -174,10 +198,10 @@ function Signup() {
         {/* Button */}
         <button
           type="submit"
-          disabled={success}
+          disabled={success || loading}
           className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-3 rounded-lg"
         >
-          Sign Up
+          {loading ? "Creating Account..." : "Sign Up"}
         </button>
 
         <p className="text-center text-gray-500 text-sm">
