@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../api/axios";
 
 export default function Header({ setSidebarOpen }) {
   const navigate = useNavigate();
