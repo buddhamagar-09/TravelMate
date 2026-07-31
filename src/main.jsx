@@ -27,6 +27,7 @@ import Itinerary from "./admin/pages/Itenaries.jsx";
 import GalleryStep from "./admin/pages/GalleryStep.jsx";
 import Includes from "./admin/pages/Includes.jsx";
 import Excludes from "./admin/pages/Excludes.jsx";
+import ViewUser from "./admin/pages/ViewUser.jsx";
 
 //protected route
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -55,6 +56,7 @@ const router = createBrowserRouter(
         <Route path="gallery/:id" element={<GalleryStep />} />
         <Route path="includes/:id" element={<Includes />} />
         <Route path="excludes/:id" element={<Excludes />} />
+        <Route path="view-users" element={<ViewUser />} />
 
         {/* edit routes */}
         <Route path="edit-package/:id" element={<AddPackage />} />
