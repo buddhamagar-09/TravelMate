@@ -2,35 +2,40 @@ import React from "react";
 import api from "../../api/axios";
 import { useState, useEffect } from "react";
 import { FiSearch, FiTrash2 } from "react-icons/fi";
+import SkeletonLoader from "../../components/Theme/SkeletonLoader";
 
 export default function ViewUser() {
   const [users, setUsers] = useState([]);
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchUsers();
   }, []);
 
   const fetchUsers = async () => {
+    setLoading(true);
     try {
       const response = await api.get("/view-users");
       console.log(response.data);
       setUsers(response.data.users);
     } catch (error) {
       console.log(error.response?.data);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const deleteUser = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this user?")) {
-      return;
-    }
-    try {
-      const response = await api.delete(`/users/${id}`);
-      console.log(response.data);
-      fetchUsers();
-    } catch (error) {
-      console.log(error.response?.data);
+  const toggleStatus = async (id) => {
+    if (
+      window.confirm("Are you sure you want to change the status of this user?")
+    ) {
+      try {
+        const response = await api.patch(`/users/${id}/toggle-status`);
+        console.log(response.data);
+        fetchUsers();
+      } catch (error) {
+        console.log(error.response?.data);
+      }
     }
   };
 
@@ -57,47 +62,67 @@ export default function ViewUser() {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
-        <table className="min-w-full text-sm">
-          <thead className="border-b border-slate-800 bg-slate-950">
-            <tr className="text-slate-300">
-              <th className="px-6 py-4 text-left font-semibold">S.No</th>
-              <th className="px-6 py-4 text-left font-semibold">Name</th>
-              <th className="px-6 py-4 text-left font-semibold">Email</th>
-              {/* <th className="px-6 py-4 text-left font-semibold">Role</th> */}
-              <th className="px-6 py-4 text-center font-semibold">Action</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {users.map((user, index) => (
-              <tr
-                key={user.id}
-                className="border-b border-slate-800 hover:bg-slate-800 transition"
-              >
-                <td className="px-6 py-4">{index + 1}</td>
-
-                <td className="px-6 py-4 font-medium text-white">
-                  {user.name}
-                </td>
-
-                <td className="px-6 py-4 text-slate-300">{user.email}</td>
-
-                <td className="px-6 py-4">
-                  <div className="flex justify-center gap-2">
-                    <button
-                      onClick={() => deleteUser(user.id)}
-                      className=" bg-red-600 p-2 hover:bg-red-700 cursor-pointer"
-                    >
-                      <FiTrash2 size={16} />
-                    </button>
-                  </div>
-                </td>
+      {loading ? (
+        <SkeletonLoader rows={5} />
+      ) : (
+        <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
+          <table className="min-w-full text-sm">
+            <thead className="border-b border-slate-800 bg-slate-950">
+              <tr className="text-slate-300">
+                <th className="px-6 py-4 text-left font-semibold">S.No</th>
+                <th className="px-6 py-4 text-left font-semibold">Name</th>
+                <th className="px-6 py-4 text-left font-semibold">Email</th>
+                <th className="px-6 py-4 text-left font-semibold">Status</th>
+                <th className="px-6 py-4 text-center font-semibold">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+
+            <tbody>
+              {users.map((user, index) => (
+                <tr
+                  key={user.id}
+                  className="border-b border-slate-800 hover:bg-slate-800 transition"
+                >
+                  <td className="px-6 py-4">{index + 1}</td>
+
+                  <td className="px-6 py-4 font-medium text-white">
+                    {user.name}
+                  </td>
+
+                  <td className="px-6 py-4 text-slate-300">{user.email}</td>
+
+                  <td className="px-6 py-4">
+                    {user.status === "active" ? (
+                      <span className="text-green-500 font-medium">Active</span>
+                    ) : (
+                      <span className="text-red-500 font-medium">Blocked</span>
+                    )}
+                  </td>
+
+                  <td className="px-6 py-4">
+                    <div className="flex justify-center gap-2">
+                      <button className="bg-blue-600 pl-4 pr-4 pt-2 pb-2 rounded-md hover:bg-blue-700 cursor-pointer">
+                        View Details
+                      </button>
+                      <button
+                        onClick={() => toggleStatus(user.id)}
+                        className={`px-3 py-1 rounded text-white ${
+                          user.status === "active"
+                            ? "bg-red-600 hover:bg-red-700"
+                            : "bg-green-600 hover:bg-green-700"
+                        }`}
+                      >
+                        {user.status === "active" ? "Block" : "Unblock"}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
