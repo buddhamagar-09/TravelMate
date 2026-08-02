@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import useFetchPackages from "../Theme/FetchPackages";
 
 // for swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +16,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 function MainSection() {
+  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
   const banners = [
     {
       id: 1,
@@ -43,44 +45,12 @@ function MainSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    fetchPackages();
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const packages = [
-    {
-      title: "Dhorpatan Hunting Reserve",
-      category: "Package Tour",
-      price: "$16.00",
-      image: "images/trekking/dhorpatan.jpg",
-    },
-    {
-      title: "Everest Base Camp Trek",
-      category: "Trekking",
-      price: "$16.00",
-      image: "images/trekking/everest.jpg",
-    },
-    {
-      title: "Badimalika Trek",
-      category: "Trekking",
-      price: "$12.00",
-      image: "images/trekking/badimalika.jpg",
-    },
-    {
-      title: "Annapurna Base Camp",
-      category: "Trekking",
-      price: "$18.40",
-      image: "images/trekking/annapurna.jpg",
-    },
-    {
-      title: "Rara Lake",
-      category: "Trekking",
-      price: "$20.00",
-      image: "images/trekking/rara.jpg",
-    },
-  ];
 
   // Testimonials data
   const reviews = [
@@ -191,9 +161,9 @@ function MainSection() {
                       <svg
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-4 h-4 ml-2"
                         viewBox="0 0 24 24"
                       >
@@ -222,9 +192,9 @@ function MainSection() {
                       <svg
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-4 h-4 ml-2"
                         viewBox="0 0 24 24"
                       >
@@ -253,9 +223,9 @@ function MainSection() {
                       <svg
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-4 h-4 ml-2"
                         viewBox="0 0 24 24"
                       >
@@ -288,68 +258,71 @@ function MainSection() {
           </div>
         </div>
         <FramerMotion>
-          <div className="container px-5 py-10 mx-auto">
-            <div className="">
-              <Swiper
-                modules={[Navigation, Autoplay]}
-                navigation={{
-                  prevEl: ".prev-btn",
-                  nextEl: ".next-btn",
-                }}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                loop={true}
-                spaceBetween={20}
-                breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                  },
-                  1024: {
-                    slidesPerView: 4,
-                  },
-                }}
-              >
-                {packages.map((pkg) => (
-                  <SwiperSlide key={pkg.title}>
-                    <div className="">
-                      <a className="block relative h-48 rounded overflow-hidden">
-                        <img
-                          alt="ecommerce"
-                          className="object-cover object-center w-full h-full block"
-                          src={pkg.image}
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                          {pkg.category}
-                        </h3>
-                        <h2 className="text-gray-900 title-font text-lg font-medium">
-                          {pkg.title}
-                        </h2>
-                        <div className="mt-1 flex items-center justify-between">
-                          <p className="">{pkg.price}</p>
-                          <Link
-                            to="/booking"
-                            className="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                          >
-                            Book Now
-                          </Link>
+          <div className="container max-w-7xl mx-auto px-5 py-10">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              navigation={{
+                prevEl: ".prev-btn",
+                nextEl: ".next-btn",
+              }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              loop={packages.length > 4} // Enable loop only if there are more than 4 packages
+              spaceBetween={20}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
+            >
+              {packages.map((pkg) => (
+                <SwiperSlide key={pkg.id} className="">
+                  <div className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm">
+                    <img
+                      src={`http://localhost:8000/storage/${pkg.featured_image}`}
+                      alt={pkg.title}
+                      className="w-full h-56 object-cover"
+                    />
+
+                    <div className="p-4">
+                      <h2 className="font-semibold text-lg text-black line-clamp-2">
+                        {pkg.title}
+                      </h2>
+
+                      <div className="mt-4 flex items-center justify-between">
+                        <div>
+                          <p className="text-xs text-gray-500">From</p>
+                          <p className="text-2xl font-bold text-blue-700">
+                            ${pkg.price}
+                          </p>
                         </div>
+
+                        <Link
+                          to={`/package/${pkg.id}`}
+                          className="text-blue-700 font-semibold hover:underline"
+                        >
+                          View →
+                        </Link>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
             <div className="flex justify-center mt-10 gap-4">
               <button className="prev-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
                 <FaChevronLeft />
               </button>
+
               <button className="next-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
                 <FaChevronRight />
               </button>
@@ -427,72 +400,74 @@ function MainSection() {
 
       <FramerMotion>
         {/* testimonails part */}
-       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-5">
-          {/* Heading */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">
-              What Travelers Say
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Reviews from trekkers who completed the Everest Base Camp journey
-              with TravelMate.
-            </p>
-          </div>
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-5">
+            {/* Heading */}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">
+                What Travelers Say
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Reviews from trekkers who completed the Everest Base Camp
+                journey with TravelMate.
+              </p>
+            </div>
 
-          <Swiper
-            modules={[Autoplay]}
-            spaceBetween={24}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              768: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 3,
-              },
-            }}
-            className="pb-8"
-          >
-            {reviews.map((review) => (
-              <SwiperSlide key={review.id} className="h-auto">
-                <div className="h-full pb-6 border-b md:border-b-0 md:border-r border-gray-200 pr-0 md:pr-6">
-                  {/* User */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src={review.image}
-                      alt={review.name}
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={24}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="pb-8"
+            >
+              {reviews.map((review) => (
+                <SwiperSlide key={review.id} className="h-auto">
+                  <div className="h-full pb-6 border-b md:border-b-0 md:border-r border-gray-200 pr-0 md:pr-6">
+                    {/* User */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={review.image}
+                        alt={review.name}
+                        className="w-14 h-14 rounded-full object-cover"
+                      />
 
-                    <div>
-                      <h3 className="font-semibold text-gray-900">
-                        {review.name}
-                      </h3>
+                      <div>
+                        <h3 className="font-semibold text-gray-900">
+                          {review.name}
+                        </h3>
 
-                      <p className="text-sm text-gray-500">{review.location}</p>
+                        <p className="text-sm text-gray-500">
+                          {review.location}
+                        </p>
+                      </div>
                     </div>
+
+                    {/* Rating */}
+                    <div className="flex text-yellow-400 mb-3">★★★★★</div>
+
+                    {/* Review */}
+                    <p className="text-gray-600 leading-relaxed">
+                      {review.comment}
+                    </p>
                   </div>
-
-                  {/* Rating */}
-                  <div className="flex text-yellow-400 mb-3">★★★★★</div>
-
-                  {/* Review */}
-                  <p className="text-gray-600 leading-relaxed">
-                    {review.comment}
-                  </p>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </section>
       </FramerMotion>
     </>
   );
