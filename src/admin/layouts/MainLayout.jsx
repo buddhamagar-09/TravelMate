@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
-import Header from './Header';
-import Footer from './Footer';
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -10,11 +10,7 @@ export default function AdminLayout() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Sidebar */}
-      <Sidebar
-        sidebarOpen={sidebarOpen}
-        setSidebarOpen={setSidebarOpen}
-      />
-
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       {/* Main wrapper - exactly like CoreUI wrapper */}
       <div className="lg:pl-72 flex flex-col min-h-screen transition-all duration-300">
         <Header setSidebarOpen={setSidebarOpen} />
