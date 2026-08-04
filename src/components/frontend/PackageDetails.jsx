@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import useFetchPackages from "../Theme/FetchPackages";
@@ -19,6 +19,8 @@ import "swiper/css";
 function PackageDetails() {
   const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
   const { id } = useParams();
+  const navigate = useNavigate();
+
   console.log(id);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -62,6 +64,19 @@ function PackageDetails() {
     },
   ];
 
+  const handleBooking = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login", {
+        state: {
+          redirectTo: `/bookingform/${id}`,
+        },
+      });
+      return;
+    } else {
+      navigate(`/bookingform/${id}`);
+    }
+  };
   return (
     <>
       <section className="text-gray-600 body-font">
@@ -187,7 +202,7 @@ function PackageDetails() {
                         </h2>
                       </div>
 
-                      <form className="space-y-5">
+                      {/* <form className="space-y-5">
                         <div>
                           <label
                             htmlFor="travel-date"
@@ -221,12 +236,14 @@ function PackageDetails() {
                         </div>
 
                         <button
-                          type="submit"
-                          className="w-full rounded-md bg-blue-600 py-3 font-medium text-white transition hover:bg-blue-700"
+                          type="button"
+                          onClick={handleBooking}
+                          className="w-full rounded-md bg-blue-600 cursor-pointer px-4 py-3 text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-200"
                         >
                           Book Now
                         </button>
-                      </form>
+                      </form> */}
+
                       <div className="mt-6 border-t border-gray-200 pt-5 space-y-3 text-sm text-gray-600">
                         <div className="flex items-center gap-3">
                           <span className="text-green-500 text-lg">✔</span>
@@ -344,7 +361,7 @@ function PackageDetails() {
                   </p>
 
                   {pkg.itineraries.map((itinerary, index) => (
-                    <div className="space-y-6">
+                    <div key={index} className="space-y-6">
                       <div className="flex gap-4 border-b pb-5">
                         <div className="font-bold text-blue-600">
                           {itinerary.day}
@@ -493,7 +510,7 @@ function PackageDetails() {
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => (
-            <div className="max-w-7xl mx-auto px-5">
+            <div key={pkg.id} className="max-w-7xl mx-auto px-5">
               {/* Section Heading */}
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -645,47 +662,83 @@ function PackageDetails() {
           </div>
 
           {/* Right CTA Card */}
-          <div className="lg:w-2/5 md:w-1/2 w-full mt-10 md:mt-0">
-            <div className="bg-gray-50 rounded-2xl border border-gray-200 p-8 shadow-sm">
-              <div className="mb-6">
-                <p className="text-sm text-gray-500">Starting From</p>
-                <h3 className="text-3xl font-bold text-blue-600">Rs. 16,000</h3>
-                <p className="text-sm text-gray-500 mt-1">Per person</p>
-              </div>
+          {packages
+            .filter((pkg) => pkg.id == id)
+            .map((pkg) => (
+              <div className="lg:w-2/5 md:w-1/2 w-full mt-10 md:mt-0">
+                <div className=" border border-gray-200 p-8 shadow-sm">
+                  {/* <div className="mb-6">
+                <p className="text-sm uppercase tracking-wider text-blue-600 font-semibold">
+                  Starting From
+                </p>
 
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Travel Date
-                  </label>
-                  <input
-                    type="date"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
-                  />
+                <h3 className="text-4xl font-bold text-gray-900 mt-2">
+                  Rs. {pkg.price}
+                </h3>
+
+                <p className="text-sm text-gray-500">Per Person</p>
+              </div> */}
+
+                  {/* <div className="space-y-4 border-t border-b border-gray-200 py-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Duration</span>
+                  <span className="font-semibold">{pkg.duration}</span>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Travelers
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    placeholder="Number of travelers"
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none"
-                  />
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Difficulty</span>
+                  <span className="font-semibold">{pkg.difficulty}</span>
                 </div>
 
-                <button className="w-full rounded-lg bg-indigo-600 py-3 text-white font-medium hover:bg-indigo-700 transition-colors duration-200">
-                  Book This Trek
-                </button>
-              </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Group Size</span>
+                  <span className="font-semibold">{pkg.group_size} People</span>
+                </div>
 
-              <p className="text-sm text-gray-500 mt-5 text-center">
-                Free cancellation up to 24 hours before departure.
-              </p>
-            </div>
-          </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-600">Best Season</span>
+                  <span className="font-semibold">{pkg.best_season}</span>
+                </div>
+              </div> */}
+
+                  <div className="mt-6 space-y-3 text-sm text-gray-600">
+                    <div className="flex items-center gap-3">
+                      <span className="text-green-600">✔</span>
+                      <span>Free cancellation up to 24 hours.</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-green-600">✔</span>
+                      <span>Professional licensed trekking guides.</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-green-600">✔</span>
+                      <span>No hidden costs or extra charges.</span>
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <span className="text-green-600">✔</span>
+                      <span>
+                        24/7 customer support before and during your trip.
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleBooking}
+                    className="mt-8 w-full bg-blue-600 py-4 text-white font-semibold hover:bg-blue-700 transition"
+                  >
+                    Book This Trek
+                  </button>
+
+                  <p className="mt-4 text-center text-xs text-gray-500">
+                    Secure booking • Instant confirmation • Trusted by hundreds
+                    of travelers
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </section>
     </>
