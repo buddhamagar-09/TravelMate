@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import api from "../../api/axios";
 import { FiArrowRight, FiCheckCircle, FiLock, FiMail } from "react-icons/fi";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,9 @@ function Login() {
       if (response.data.user.usertype === "admin") {
         navigate("/admin/");
       } else {
-        navigate("/");
+        const redirect = location.state?.redirectTo || "/";
+
+        navigate(redirect);
       }
     } catch (err) {
       setError("Login failed");
@@ -58,7 +61,8 @@ function Login() {
               </h1>
 
               <p className="mt-4 max-w-md text-sm leading-6 text-slate-100/85">
-                Manage bookings, review itineraries, and keep your travel plans in one place without the clutter.
+                Manage bookings, review itineraries, and keep your travel plans
+                in one place without the clutter.
               </p>
             </div>
 
@@ -98,7 +102,8 @@ function Login() {
                   Sign in to continue
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
-                  Use your TravelMate account to access bookings, trips, and saved packages.
+                  Use your TravelMate account to access bookings, trips, and
+                  saved packages.
                 </p>
               </div>
 
