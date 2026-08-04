@@ -1,11 +1,16 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetchPackages from "../Theme/FetchPackages";
+import { useEffect,useState } from "react";
+import api from "../../api/axios";
 
 export default function BookingForm() {
   const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
   const { id } = useParams();
+  const navigate = useNavigate();
   const packageData = packages.find((pkg) => pkg.id === parseInt(id));
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <>
       <div className=" mt-10  mb-10 text-center">
@@ -100,7 +105,9 @@ export default function BookingForm() {
                   </label>
                   <input
                     type="text"
-                    placeholder="John Doe"
+                    // placeholder="John Doe"
+                    value={user?.name}
+                    readOnly
                     className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                   />
                 </div>
@@ -113,7 +120,9 @@ export default function BookingForm() {
                     </label>
                     <input
                       type="email"
-                      placeholder="john@gmail.com"
+                    //   placeholder="john@gmail.com"
+                      value={user?.email}
+                      readOnly
                       className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                     />
                   </div>
