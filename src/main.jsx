@@ -17,6 +17,7 @@ import About from "./components/frontend/About.jsx";
 import Login from "./components/frontend/Login.jsx";
 import Signup from "./components/frontend/Signup.jsx";
 import PackageDetails from "./components/frontend/PackageDetails.jsx";
+import BookingForm from "./components/frontend/BookingForm.jsx";
 
 // admin routes
 import AdminLayout from "./admin/layouts/MainLayout.jsx";
@@ -42,6 +43,7 @@ const router = createBrowserRouter(
         <Route path="package" element={<Package />} />
         <Route path="package/:id" element={<PackageDetails />} />
         <Route path="about" element={<About />} />
+        <Route path="bookingform/:id" element={<BookingForm />} />
       </Route>
       {/* admin routes */}
       {/* protected routes for admin only */}
