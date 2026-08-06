@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import api from "../../api/axios";
 import { FiArrowRight, FiCheckCircle, FiLock, FiMail } from "react-icons/fi";
+import { toast } from "react-hot-toast";
 
 function Login() {
   const navigate = useNavigate();
@@ -9,22 +10,25 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     setLoading(true);
-    setError("");
+   
 
     try {
       const response = await api.post("/login", {
         email,
         password,
       });
-
+      console.log(response.data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("user_id", response.data.user.id);
+      toast.success("Login successful!");
+
 
       if (response.data.user.usertype === "admin") {
         navigate("/admin/");
@@ -34,8 +38,9 @@ function Login() {
         navigate(redirect);
       }
     } catch (err) {
-      setError("Login failed");
-      console.error(err.response?.data || err.message);
+      toast.error("Login failed. Please try again."
+      );
+  
     } finally {
       setLoading(false);
     }
@@ -159,11 +164,7 @@ function Login() {
                   </button>
                 </div>
 
-                {error && (
-                  <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-200">
-                    {error}
-                  </div>
-                )}
+                
 
                 <button
                   type="submit"
