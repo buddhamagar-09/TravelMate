@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function Header({ setSidebarOpen }) {
   const navigate = useNavigate();
@@ -9,7 +10,9 @@ export default function Header({ setSidebarOpen }) {
   const handleLogout = async () => {
     try {
       await api.post("/logout");
+      toast.success("Logged out successfully!");
     } catch (error) {
+      toast.error("Logout failed. Please try again.");
       console.log(error);
     }
 
