@@ -1,13 +1,14 @@
 import React,{useState,useEffect} from "react";
 import { useNavigate, useParams,useMatch } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function Includes() {
   const navigate = useNavigate();
   const { id } = useParams();
   const isEditing = useMatch("/admin/edit-includes/:id"); // Check if we are in edit mode based on the URL pattern
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState(null);
+
   const [includes, setIncludes] = useState([]);
   const [newInclude, setNewInclude] = useState(""); // State for the new include item input
 
@@ -19,7 +20,7 @@ export default function Includes() {
 useEffect(() => {
   if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
   setSaving(true);
-  setError(null);
+
   //fetch existing includes
   const fetchIncludes = async () => {
     try{
@@ -29,7 +30,7 @@ useEffect(() => {
       setIncludes(existingIncludes);
     }catch(error){
       console.log(error.response?.data);
-      setError("Failed to fetch existing includes");
+      toast.error("Failed to fetch existing includes. Please try again.");
     }
     finally{
       setSaving(false);
@@ -43,13 +44,17 @@ useEffect(() => {
   const handleSubmit = async () => {
 
     setSaving(true);
-    setError(null);
     try{
       const response = isEditing
         ? await api.post(`/includes/${id}?_method=PUT`, { includes })
         : await api.post(`/includes/${id}`, { includes });
 
       console.log(response.data);
+      toast.success(
+        isEditing
+          ? "Includes updated successfully"
+          : "Includes created successfully",
+      );
 
      if(isEditing) {
         navigate(`/admin/edit-excludes/${id}`);
@@ -61,7 +66,12 @@ useEffect(() => {
     }
     catch(error){
       console.log(error.response?.data);
-      setError("Failed to save includes");
+      toast.error(
+        isEditing
+          ? "Failed to update includes. Please try again."
+          : "Failed to create includes. Please try again.",
+      );
+      
     }
     finally{
       setSaving(false);
@@ -107,9 +117,6 @@ useEffect(() => {
         <p className="text-slate-400 text-sm">
           Add services that are included in the package price{" "}
         </p>
-        {error && (
-          <p className="text-red-500 text-sm mt-2">{error}</p>
-        )}
       </div>
       {/* Progress */}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">

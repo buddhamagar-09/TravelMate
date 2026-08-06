@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams,useMatch } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function Excludes() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [saving, setSaving] = React.useState(false);
-  const [error, setError] = React.useState(null);
+
   const [excludes, setExcludes] = useState([]);
   const [newExclude, setNewExclude] = useState(""); // State for the new exclude item input
 
@@ -18,7 +19,6 @@ export default function Excludes() {
 useEffect(() => {
   if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
   setSaving(true);
-  setError(null);
   //fetch existing includes
   const fetchExcludes = async () => {
     try{
@@ -28,7 +28,7 @@ useEffect(() => {
       setExcludes(existingExcludes);
     }catch(error){
       console.log(error.response?.data);
-      setError("Failed to fetch existing excludes");
+      toast.error("Failed to fetch existing excludes. Please try again.");
     }
     finally{
       setSaving(false);
@@ -39,7 +39,7 @@ useEffect(() => {
 
   const handleSubmit = async () => {
     setSaving(true);
-    setError(null);
+   
 
     try {
      if(isEditing) {
@@ -48,12 +48,21 @@ useEffect(() => {
       else {
         await api.post(`/excludes/${id}`, { excludes });
       }
-
+      toast.success(
+        isEditing
+          ? "Excludes updated successfully"
+          : "Excludes created successfully",
+      );
       navigate("/admin/view-packages");
 
     } catch (error) {
       console.log(error.response?.data);
-      setError("Failed to save excludes");
+      toast.error(
+        isEditing
+          ? "Failed to update excludes. Please try again."
+          : "Failed to create excludes. Please try again.",
+      );
+   
     } finally {
       setSaving(false);
     }
@@ -113,7 +122,7 @@ useEffect(() => {
         </div>
       </div>
       {/* Form */}
-      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+    
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
         <div className="space-y-5">
           <div className="flex flex-col sm:flex-row gap-3 items-start">

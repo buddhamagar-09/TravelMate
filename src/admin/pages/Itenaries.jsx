@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useMatch } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function ItineraryStep() {
   const currentStep = 2;
@@ -10,7 +11,6 @@ export default function ItineraryStep() {
   const { id } = useParams(); // Get the package ID from the URL
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const isEditing = useMatch("/admin/edit-itinerary/:id"); // Check if we are in edit mode based on the URL pattern
 
   // Static demo data
@@ -39,7 +39,6 @@ export default function ItineraryStep() {
   const handleSubmit = async () => {
     // Here you can handle the submission of the itinerary data to your backend or API
     setLoading(true);
-    setError(null);
     console.log("Submitting Itinerary:", days);
     try {
       const response = isEditing
@@ -47,6 +46,11 @@ export default function ItineraryStep() {
         : await api.post(`/itinerary/${id}`, { itinerary: days });
 
       console.log(response.data);
+      toast.success(
+        isEditing
+          ? "Itinerary updated successfully"
+          : "Itinerary created successfully",
+      );
 
       if (!isEditing) {
         navigate(`/admin/gallery/${id}`);
@@ -55,7 +59,11 @@ export default function ItineraryStep() {
       }
     } catch (error) {
       console.log(error.response.data);
-      setError(error?.response?.data?.message || "Failed to submit itinerary");
+     toast.error(
+        isEditing
+          ? "Failed to update itinerary. Please try again."
+          : "Failed to create itinerary. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
@@ -73,6 +81,7 @@ export default function ItineraryStep() {
         setDays(response.data.itinerary);
       } catch (error) {
         console.error(error);
+        toast.error("Failed to fetch existing itinerary. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -144,7 +153,7 @@ export default function ItineraryStep() {
           <h2 className="text-lg font-semibold text-white">
             Day-by-Day Itinerary
           </h2>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+         
 
           <button
             type="button"

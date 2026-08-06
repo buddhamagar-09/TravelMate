@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useMatch } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function AddPackage() {
   const { id } = useParams();
@@ -24,7 +25,6 @@ export default function AddPackage() {
   const [featuredImage, setFeaturedImage] = useState(null);
 
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
   const isEditing = useMatch("/admin/edit-package/:id"); // Check if we are in edit mode based on the URL pattern
 
   // Fetch existing package data if editing
@@ -50,7 +50,7 @@ export default function AddPackage() {
         setFullDescription(pkg.long_description);
       } catch (error) {
         console.log(error);
-        setError("Failed to load package.");
+        toast.error("Failed to load package.");
       }
     };
     fetchPackage();
@@ -59,7 +59,6 @@ export default function AddPackage() {
   // Function to handle form submission
   const handleSubmit = async () => {
     setSaving(true);
-    setError("");
 
     try {
       const formdata = new FormData();
@@ -87,7 +86,7 @@ export default function AddPackage() {
         response = await api.post("/packages", formdata);
       }
 
-      console.log(
+      toast.success(
         isEditing
           ? "Package updated successfully"
           : "Package created successfully",
@@ -102,8 +101,12 @@ export default function AddPackage() {
         navigate(`/admin/edit-itinerary/${id}`);
       }
     } catch (err) {
-      console.log(err.response.data.errors);
-      setError("Failed to save package. Please try again.");
+      toast.error(
+        isEditing
+          ? "Failed to update package. Please try again."
+          : "Failed to create package. Please try again.",
+      );
+      console.log(err.response.data);
     } finally {
       setSaving(false);
     }
@@ -165,10 +168,6 @@ export default function AddPackage() {
         <h2 className="text-lg font-semibold text-white mb-4">
           Basic Package Information
         </h2>
-        {error && (
-          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
-        )}
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Package Title */}

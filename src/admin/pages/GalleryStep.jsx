@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useMatch } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function GalleryStep() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ export default function GalleryStep() {
 
   const isEditing = useMatch("/admin/edit-gallery/:id"); // Check if we are in edit mode based on the URL pattern
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState(null);
+
 
   // State to hold the selected images
   const [images, setImages] = useState([]);
@@ -33,7 +34,11 @@ export default function GalleryStep() {
         setImages(galleryImages);
       } catch (error) {
         console.log(error.response?.data);
-        setError("Failed to fetch existing images");
+      toast.error(
+        isEditing
+          ? "Failed to fetch existing gallery images. Please try again."
+          : "Failed to fetch gallery images. Please try again.",
+      );
       } finally {
         setSaving(false);
       }
@@ -71,6 +76,11 @@ export default function GalleryStep() {
         : await api.post(`/gallery/${id}`, formData);
 
       console.log(response.data);
+      toast.success(
+        isEditing
+          ? "Gallery updated successfully"
+          : "Gallery created successfully",
+      );
       if (!isEditing) {
         navigate(`/admin/includes/${id}`);
       } else {
@@ -78,10 +88,13 @@ export default function GalleryStep() {
       }
     } catch (error) {
       console.log(error.response?.data);
-      setError("Failed to submit gallery");
-    } finally {
-      setSaving(false);
+     toast.error(
+        isEditing
+          ? "Failed to update gallery. Please try again."
+          : "Failed to create gallery. Please try again.",
+      );
     }
+      setSaving(false);
   };
 
   const handlePrevious = () => {
@@ -99,7 +112,6 @@ export default function GalleryStep() {
       navigate(`/admin/includes/${id}`);
     }
   };
-
   return (
     <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
       {/* Header */}
@@ -140,11 +152,6 @@ export default function GalleryStep() {
       {/* Upload Section */}
       <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 mb-6">
         <h2 className="text-lg font-semibold text-white mb-4">Upload Images</h2>
-        {error && (
-          <div className="bg-red-600 text-white p-2 rounded mb-4 text-center">
-            {error}
-          </div>
-        )}
 
         <label className="block w-full border-2 border-dashed border-slate-700 rounded-lg p-10 text-center cursor-pointer hover:border-blue-500 transition">
           <div className="flex flex-col items-center gap-3">
@@ -234,5 +241,5 @@ export default function GalleryStep() {
         </div>
       </div>
     </div>
-  );
-}
+  )
+};
