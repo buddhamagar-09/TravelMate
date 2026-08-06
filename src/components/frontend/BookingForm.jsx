@@ -1,15 +1,58 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useFetchPackages from "../Theme/FetchPackages";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 export default function BookingForm() {
   const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
   const { id } = useParams();
   const navigate = useNavigate();
+
+  // find the package data based on the id from the URL
   const packageData = packages.find((pkg) => pkg.id === parseInt(id));
+  //get user data from local storage
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [travelDate, setTravelDate] = useState("");
+  const [travelers, setTravelers] = useState(1);
+  const [specialRequest, setSpecialRequest] = useState("");
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+
+  const handleBooking = async (e) => {
+    e.preventDefault();
+    const bookingData = new FormData();
+    bookingData.append("package_id", packageData?.id);
+    bookingData.append("phone_number", phoneNumber);
+    bookingData.append("travel_date", travelDate);
+    bookingData.append("travelers", travelers);
+    bookingData.append("special_request", specialRequest);
+
+    if (!agreedToTerms) {
+      alert("You must agree to the Terms & Conditions and Privacy Policy.");
+      return;
+    }
+    const loadingToast = toast.loading("Processing your booking...");
+    try {
+      const response = await api.post("/bookings", bookingData);
+      console.log(response.data);
+      toast.dismiss(loadingToast);
+      toast.success("Booking successful!"); // Show a success toast notification
+      //reset the form fields
+      setPhoneNumber("");
+      setTravelDate("");
+      setTravelers(1);
+      setSpecialRequest("");
+      setAgreedToTerms(false);
+      navigate("/"); // Redirect to home page after successful booking
+    } catch (error) {
+      toast.dismiss(loadingToast);
+      toast.error("Failed to create booking.");
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -97,7 +140,7 @@ export default function BookingForm() {
               <p className="mt-2 text-gray-500">
                 Fill in your information to reserve your trip.
               </p>
-              <form className="mt-8 space-y-6">
+              <form onSubmit={handleBooking} className="mt-8 space-y-6">
                 {/* Full Name */}
                 <div>
                   <label className="block mb-2 text-sm font-medium text-gray-700">
@@ -120,7 +163,7 @@ export default function BookingForm() {
                     </label>
                     <input
                       type="email"
-                    //   placeholder="john@gmail.com"
+                      //   placeholder="john@gmail.com"
                       value={user?.email}
                       readOnly
                       className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
@@ -133,6 +176,7 @@ export default function BookingForm() {
                     </label>
                     <input
                       type="text"
+                      onChange={(e) => setPhoneNumber(e.target.value)}
                       placeholder="+977 98XXXXXXXX"
                       className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                     />
@@ -147,6 +191,8 @@ export default function BookingForm() {
                     </label>
                     <input
                       type="date"
+                      min={new Date().toISOString().split("T")[0]}
+                      onChange={(e) => setTravelDate(e.target.value)}
                       className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                     />
                   </div>
@@ -158,6 +204,7 @@ export default function BookingForm() {
                     <input
                       type="number"
                       min="1"
+                      onChange={(e) => setTravelers(e.target.value)}
                       defaultValue={1}
                       className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                     />
@@ -172,6 +219,7 @@ export default function BookingForm() {
                   </label>
                   <textarea
                     rows={4}
+                    onChange={(e) => setSpecialRequest(e.target.value)}
                     placeholder="Tell us anything you'd like us to know..."
                     className="w-full rounded-md border border-gray-300 px-4 py-3 resize-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
                   />
@@ -190,14 +238,16 @@ export default function BookingForm() {
 
                   <div className="flex justify-between mb-3">
                     <span className="text-gray-600">Travelers</span>
-                    <span>1</span>
+                    <span>{travelers}</span>
                   </div>
 
                   <hr className="my-4" />
 
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-blue-600">${packageData?.price}</span>
+                    <span className="text-blue-600">
+                      ${packageData?.price * travelers}
+                    </span>
                   </div>
                 </div>
 
@@ -205,7 +255,9 @@ export default function BookingForm() {
                 <div className="flex items-start gap-3">
                   <input
                     type="checkbox"
-                    required
+                    checked={agreedToTerms}
+                    onChange={(e) => setAgreedToTerms(e.target.checked)}
+                    // required
                     className="mt-1 h-4 w-4 accent-blue-600"
                   />
 
