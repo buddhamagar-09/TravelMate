@@ -163,7 +163,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
               </NavLink>
 
               <NavLink
-                to="/admin/bookings"
+                to="/admin/view-bookings"
                 className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
               >
                 <svg
