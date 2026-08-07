@@ -1,7 +1,7 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-import useFetchPackages from "../Theme/FetchPackages";
+import useFetchPackages from "../Hook/FetchPackages";
 
 // Lightbox zoom plugin for image gallery
 import Lightbox from "yet-another-react-lightbox";
@@ -82,9 +82,9 @@ function PackageDetails() {
       <section className="text-gray-600 body-font">
         {packages
           .filter((pkg) => pkg.id == id)
-          .map((pkg) => (
+          .map((pkg,index) => (
             <div
-              key={pkg.id}
+              key={index}
               className="container px-5 py-10 mx-auto flex flex-col"
             >
               <div className="lg:w-4/6 mx-auto">
@@ -282,8 +282,8 @@ function PackageDetails() {
       <section className="bg-white py-10">
         {packages
           .filter((pkg) => pkg.id == id)
-          .map((pkg) => (
-            <div key={pkg.id} className="max-w-7xl mx-auto px-5">
+          .map((pkg,index) => (
+            <div key={index} className="max-w-7xl mx-auto px-5">
               {/* Heading */}
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -387,8 +387,8 @@ function PackageDetails() {
       <section className="text-gray-600 body-font py-10 bg-white">
         {packages
           .filter((pkg) => pkg.id == id)
-          .map((pkg) => (
-            <div key={pkg.id} className="max-w-7xl mx-auto px-5">
+          .map((pkg,index) => (
+            <div key={index} className="max-w-7xl mx-auto px-5">
               {/* Heading */}
               <div className="text-center mb-14">
                 <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -509,8 +509,8 @@ function PackageDetails() {
       <section className="py-10 bg-white">
         {packages
           .filter((pkg) => pkg.id == id)
-          .map((pkg) => (
-            <div key={pkg.id} className="max-w-7xl mx-auto px-5">
+          .map((pkg,index) => (
+            <div key={index} className="max-w-7xl mx-auto px-5">
               {/* Section Heading */}
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -664,8 +664,8 @@ function PackageDetails() {
           {/* Right CTA Card */}
           {packages
             .filter((pkg) => pkg.id == id)
-            .map((pkg) => (
-              <div className="lg:w-2/5 md:w-1/2 w-full mt-10 md:mt-0">
+            .map((pkg,index) => (
+              <div key={index} className="lg:w-2/5 md:w-1/2 w-full mt-10 md:mt-0">
                 <div className=" border border-gray-200 p-8 shadow-sm">
                   {/* <div className="mb-6">
                 <p className="text-sm uppercase tracking-wider text-blue-600 font-semibold">
