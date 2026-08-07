@@ -2,7 +2,7 @@ import React from "react";
 import { FaPlane } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import FramerMotion from "../Theme/FramerMotion.jsx";
+import FramerMotion from "../Hook/FramerMotion";
 
 function About() {
   return (

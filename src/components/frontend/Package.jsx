@@ -2,9 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { useState, useEffect } from "react";
-import useFetchPackages from "../Theme/FetchPackages";
+import useFetchPackages from "../Hook/FetchPackages";
 
-import FramerMotion from "../Theme/FramerMotion";
+import FramerMotion from "../Hook/FramerMotion";
 function Package() {
  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
   const navigate = useNavigate();

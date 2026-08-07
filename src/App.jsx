@@ -3,9 +3,9 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./components/frontend/Header.jsx";
 import Footer from "./components/frontend/Footer.jsx";
-import { ThemeProvider } from "./components/Theme/ThemeContext.jsx";
+import { ThemeProvider } from "./components/Hook/ThemeContext.jsx";
 import { useState, useEffect } from "react";
-import ScrollToTop from "./components/Theme/ScrollToTop.jsx";
+import ScrollToTop from "./components/Hook/ScrollToTop.jsx";
 
 function App() {
   const [themeMode, setThemeMode] = useState(

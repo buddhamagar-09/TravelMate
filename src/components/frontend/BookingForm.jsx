@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useFetchPackages from "../Theme/FetchPackages";
+import useFetchPackages from "../Hook/FetchPackages";
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
 import { toast } from "react-hot-toast";

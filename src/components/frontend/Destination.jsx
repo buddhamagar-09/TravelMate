@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import FramerMotion from "../Theme/FramerMotion";
+import FramerMotion from "../Hook/FramerMotion";
 
 function Destination() {
   return (

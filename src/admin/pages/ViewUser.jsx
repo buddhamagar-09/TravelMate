@@ -2,7 +2,7 @@ import React from "react";
 import api from "../../api/axios";
 import { useState, useEffect } from "react";
 import { FiSearch, FiTrash2 } from "react-icons/fi";
-import SkeletonLoader from "../../components/Theme/SkeletonLoader";
+import SkeletonLoader from "../../components/Hook/SkeletonLoader";
 
 export default function ViewUser() {
   const [users, setUsers] = useState([]);
