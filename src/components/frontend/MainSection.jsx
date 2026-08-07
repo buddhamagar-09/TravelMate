@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import useFetchPackages from "../Theme/FetchPackages";
+import useFetchPackages from "../Hook/FetchPackages";
 
 // for swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
 // for animations
-import FramerMotion from "../Theme/FramerMotion";
+import FramerMotion from "../Hook/FramerMotion";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -43,9 +43,9 @@ function MainSection() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  // fetchPackages();
   useEffect(() => {
-    fetchPackages();
+  
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
     }, 3000);
