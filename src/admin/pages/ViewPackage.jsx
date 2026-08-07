@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiSearch, FiEdit2, FiTrash2 } from "react-icons/fi";
 import api from "../../api/axios";
-import SkeletonLoader from "../../components/Theme/SkeletonLoader";
+import SkeletonLoader from "../../components/Hook/SkeletonLoader";
+import { toast } from "react-hot-toast";
 
 export default function ViewPackage() {
   const [packages, setPackages] = useState([]);
@@ -17,7 +18,7 @@ export default function ViewPackage() {
   const fetchPackages = async () => {
     setLoading(true);
     try {
-      const response = await api.get("/packages");
+      const response = await api.get("/adminpackages");
       console.log(response.data);
       setPackages(response.data);
     } catch (error) {
@@ -39,10 +40,12 @@ export default function ViewPackage() {
     }
     try{
       const response = await api.put(`/packages/${id}/toggle-status`);
+      toast.success("Package status updated successfully!");
       console.log(response.data);
     }
     catch (error) {
       console.log(error.response?.data);
+      toast.error("Failed to update package status.");
     }
     fetchPackages(); 
   };
