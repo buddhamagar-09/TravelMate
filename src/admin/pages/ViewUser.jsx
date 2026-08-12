@@ -3,6 +3,7 @@ import api from "../../api/axios";
 import { useState, useEffect } from "react";
 import { FiSearch, FiTrash2 } from "react-icons/fi";
 import SkeletonLoader from "../../components/Hook/SkeletonLoader";
+import {toast} from "react-hot-toast";
 
 export default function ViewUser() {
   const [users, setUsers] = useState([]);
@@ -32,9 +33,11 @@ export default function ViewUser() {
       try {
         const response = await api.patch(`/users/${id}/toggle-status`);
         console.log(response.data);
+        toast.success("User status changed successfully!");
         fetchUsers();
       } catch (error) {
         console.log(error.response?.data);
+        toast.error("Failed to change user status. Please try again.");
       }
     }
   };
