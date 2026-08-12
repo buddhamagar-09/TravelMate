@@ -136,7 +136,7 @@ function Header() {
 
                 <button
                   onClick={handleLogout}
-                  className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white cursor-pointer shadow-sm transition hover:bg-blue-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
                 >
                   Logout
                 </button>
@@ -249,7 +249,7 @@ function Header() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="w-full rounded-2xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+                className="w-full rounded-2xl bg-blue-600 px-4 cursor-pointer py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
               >
                 Logout
               </button>
