@@ -119,7 +119,7 @@ function MainSection() {
               </p>
 
               <Link
-                to="/products"
+                to="/package"
                 className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
               >
                 Book Now
