@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import{useNavigate} from "react-router-dom";
 import api from "../../api/axios";
+import {toast} from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();
@@ -56,9 +57,11 @@ function Signup() {
           confirmPassword,
         });
         console.log(response);
+        toast.success("Account created successfully!");
         navigate("/login");
       } catch (error) {
         console.error("Error occurred while signing up:", error);
+        toast.error("Error occurred while signing up. Please try again.");
       }
       finally {
         setLoading(false);

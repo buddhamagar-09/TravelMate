@@ -10,13 +10,11 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     setLoading(true);
-   
 
     try {
       const response = await api.post("/login", {
@@ -29,7 +27,6 @@ function Login() {
       localStorage.setItem("user_id", response.data.user.id);
       toast.success("Login successful!");
 
-
       if (response.data.user.usertype === "admin") {
         navigate("/admin/");
       } else {
@@ -38,9 +35,11 @@ function Login() {
         navigate(redirect);
       }
     } catch (err) {
-      toast.error("Login failed. Please try again."
+      console.log(err.response?.data);
+
+      toast.error(
+        err.response?.data?.message || "Login failed. Please try again.",
       );
-  
     } finally {
       setLoading(false);
     }
@@ -163,8 +162,6 @@ function Login() {
                     Forgot password?
                   </button>
                 </div>
-
-                
 
                 <button
                   type="submit"
