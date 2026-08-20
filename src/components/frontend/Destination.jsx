@@ -1,226 +1,58 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import FramerMotion from "../Hook/FramerMotion";
+import useFetchPackages from "../Hook/FetchPackages";
 
 function Destination() {
+  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
+  useEffect(() => {
+   window.scrollTo(0, 0); 
+  }, []);
   return (
     <>
-      <section class="text-gray-600 body-font">
+      <section className="text-gray-600 body-font">
         <h1 className="text-3xl font-bold text-center mt-9">
           Popular Destinations
         </h1>
 
-        <div class="container px-5 py-14 mx-auto">
-          <div class="flex flex-wrap -m-4">
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {packages.map((pkg) => (
+              <div
+                key={pkg.id}
+                className="bg-white border border-gray-200 overflow-hidden"
+              >
                 <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/dhorpatan.jpg"
+                  src={`http://localhost:8000/storage/${pkg.featured_image}`}
+                  alt={pkg.title}
+                  className="w-full h-56 object-cover text-black"
                 />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Package Tour{" "}
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Dhorpatan Hunting Reserve
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
+
+                <div className="p-4">
+                  <h2 className="font-semibold text-lg text-black leading-6 h-12">
+                    {pkg.title}
+                  </h2>
+
+                  <div className="mt-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-gray-500">From</p>
+
+                      <p className="text-2xl font-bold text-blue-700">
+                        ${pkg.price}
+                      </p>
+                    </div>
+
+                    <Link
+                      to={`/package/${pkg.id}`}
+                      className="text-blue-700 font-semibold hover:underline"
+                    >
+                      View →
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/everest.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Everest Base Camp Trek
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/badimalika.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Badimalika Trek
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$12.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/annapurna.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Annapurna Base Camp
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$18.40</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/ghorepani.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Ghorepani Poon Hill Trek
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/kori.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Kori Trek
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/mardihimal.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Trekking
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Mardi Himal Trek
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-              <a class="block relative h-48 rounded overflow-hidden">
-                <img
-                  alt="ecommerce"
-                  class="object-cover object-center w-full h-full block"
-                  src="images/trekking/muktinath.jpg"
-                />
-              </a>
-              <div class="mt-4">
-                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
-                  Tour
-                </h3>
-                <h2 class="text-gray-900 title-font text-lg font-medium">
-                  Muktinath Temple
-                </h2>
-                <div class="mt-1 flex items-center justify-between">
-                  <p class="">$16.00</p>
-                  <Link
-                    to="/booking"
-                    class="text-blue-500 hover:text-blue-700 font-bold pr-5"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
