@@ -45,7 +45,6 @@ function MainSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   // fetchPackages();
   useEffect(() => {
-  
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
     }, 3000);
@@ -242,7 +241,9 @@ function MainSection() {
       {/* features section ends here */}
 
       {/* packages section starts here */}
+      {/* Popular Packages */}
       <section className="text-gray-600 body-font">
+        {/* Heading */}
         <div className="container mx-auto px-5">
           <div className="flex items-center justify-between">
             <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
@@ -257,76 +258,127 @@ function MainSection() {
             </Link>
           </div>
         </div>
+
         <FramerMotion>
           <div className="container max-w-7xl mx-auto px-5 py-10">
-            <Swiper
-              modules={[Navigation, Autoplay]}
-              navigation={{
-                prevEl: ".prev-btn",
-                nextEl: ".next-btn",
-              }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              loop={packages.length > 4} // Enable loop only if there are more than 4 packages
-              spaceBetween={20}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 4,
-                },
-              }}
-            >
-              {packages.map((pkg) => (
-                <SwiperSlide key={pkg.id} className="">
-                  <div className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm">
-                    <img
-                      src={`http://localhost:8000/storage/${pkg.featured_image}`}
-                      alt={pkg.title}
-                      className="w-full h-56 object-cover"
-                    />
+            {loading ? (
+              /* Loading Skeleton */
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  {[1, 2, 3, 4].map((item) => (
+                    <div
+                      key={item}
+                      className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm animate-pulse"
+                    >
+                      {/* Image skeleton */}
+                      <div className="w-full h-56 bg-gray-200"></div>
 
-                    <div className="p-4">
-                      <h2 className="font-semibold text-lg text-black line-clamp-2">
-                        {pkg.title}
-                      </h2>
+                      {/* Content skeleton */}
+                      <div className="p-4">
+                        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
 
-                      <div className="mt-4 flex items-center justify-between">
-                        <div>
-                          <p className="text-xs text-gray-500">From</p>
-                          <p className="text-2xl font-bold text-blue-700">
-                            ${pkg.price}
-                          </p>
+                        <div className="mt-2 h-5 bg-gray-200 rounded w-1/2"></div>
+
+                        <div className="mt-6 flex items-center justify-between">
+                          <div>
+                            <div className="h-3 bg-gray-200 rounded w-10"></div>
+
+                            <div className="h-7 bg-gray-200 rounded w-20 mt-2"></div>
+                          </div>
+
+                          <div className="h-5 bg-gray-200 rounded w-12"></div>
                         </div>
-
-                        <Link
-                          to={`/package/${pkg.id}`}
-                          className="text-blue-700 font-semibold hover:underline"
-                        >
-                          View →
-                        </Link>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+                  ))}
+                </div>
 
-            <div className="flex justify-center mt-10 gap-4">
-              <button className="prev-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
-                <FaChevronLeft />
-              </button>
+                {/* Skeleton navigation buttons */}
+                <div className="flex justify-center mt-10 gap-4">
+                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
+                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
+                </div>
+              </>
+            ) : packages.length > 0 ? (
+              /* Actual Swiper */
+              <>
+                <Swiper
+                  modules={[Navigation, Autoplay]}
+                  navigation={{
+                    prevEl: ".prev-btn",
+                    nextEl: ".next-btn",
+                  }}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={packages.length > 4}
+                  spaceBetween={20}
+                  breakpoints={{
+                    320: {
+                      slidesPerView: 1,
+                    },
+                    768: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 4,
+                    },
+                  }}
+                >
+                  {packages.map((pkg) => (
+                    <SwiperSlide key={pkg.id}>
+                      <div className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm">
+                        <img
+                          src={`http://localhost:8000/storage/${pkg.featured_image}`}
+                          alt={pkg.title}
+                          className="w-full h-56 object-cover"
+                        />
 
-              <button className="next-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
-                <FaChevronRight />
-              </button>
-            </div>
+                        <div className="p-4">
+                          <h2 className="font-semibold text-lg text-black line-clamp-2 h-14">
+                            {pkg.title}
+                          </h2>
+
+                          <div className="mt-4 flex items-center justify-between">
+                            <div>
+                              <p className="text-xs text-gray-500">From</p>
+
+                              <p className="text-2xl font-bold text-blue-700">
+                                ${pkg.price}
+                              </p>
+                            </div>
+
+                            <Link
+                              to={`/package/${pkg.id}`}
+                              className="text-blue-700 font-semibold hover:underline"
+                            >
+                              View →
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-center mt-10 gap-4">
+                  <button className="prev-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                    <FaChevronLeft />
+                  </button>
+
+                  <button className="next-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
+                    <FaChevronRight />
+                  </button>
+                </div>
+              </>
+            ) : (
+              /* No Packages */
+              <div className="text-center py-10">
+                <p className="text-gray-500">No travel packages available.</p>
+              </div>
+            )}
           </div>
         </FramerMotion>
       </section>
