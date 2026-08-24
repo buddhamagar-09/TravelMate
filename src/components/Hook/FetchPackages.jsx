@@ -3,7 +3,7 @@ import api from "../../api/axios";
 
 export default function FetchPackages() {
   const [packages, setPackages] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const fetchPackages = async () => {
     setLoading(true);
