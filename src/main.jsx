@@ -31,6 +31,8 @@ import Includes from "./admin/pages/Includes.jsx";
 import Excludes from "./admin/pages/Excludes.jsx";
 import ViewUser from "./admin/pages/ViewUser.jsx";
 import ViewBookings from "./admin/pages/ViewBookings.jsx";
+import MyBookings from "./components/frontend/MyBookings.jsx";
+import BookingDetails from "./components/frontend/BookingDetails.jsx";
 
 //protected route
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -46,6 +48,8 @@ const router = createBrowserRouter(
         <Route path="package/:id" element={<PackageDetails />} />
         <Route path="about" element={<About />} />
         <Route path="bookingform/:id" element={<BookingForm />} />
+        <Route path="my-bookings" element={<MyBookings />} />
+        <Route path="booking-details/:id" element={<BookingDetails />} /> 
       </Route>
       {/* admin routes */}
       {/* protected routes for admin only */}
