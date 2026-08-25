@@ -83,6 +83,11 @@ function Header() {
                   About us
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/my-bookings" className={navLinkStyle}>
+                  My Bookings
+                </NavLink>
+              </li>
             </ul>
           </nav>
           {/* Right Side */}
