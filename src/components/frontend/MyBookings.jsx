@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 const MyBookings = () => {
+  const navigate = useNavigate();
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchBookings = async () => {
     try {
       const response = await api.get("/my-bookings");
-      console.log("Fetched bookings:", response.data.bookings);
+      // console.log("Fetched bookings:", response.data.bookings);
 
       setBookings(response.data.bookings || []);
     } catch (error) {
-      console.error("Error fetching bookings:", error);
+      // console.error("Error fetching bookings:", error);
+      // toast.error("Error fetching bookings");
     } finally {
       setLoading(false);
     }
@@ -22,6 +25,20 @@ const MyBookings = () => {
   useEffect(() => {
     fetchBookings();
   }, []);
+
+  const handleCancelBooking = async (id) => {
+    try{
+      const response = await api.patch(`/bookings/${id}/cancel-booking`);
+      // console.log("Booking cancelled:", response.data);
+      toast.success("Booking cancelled successfully!");
+      fetchBookings(); // Refresh bookings after cancellation
+    }
+    catch(error){
+      // console.error("Error cancelling booking:", error);
+      toast.error("Error cancelling booking");
+    }
+  
+  }
 
   const getBookingStatus = (status) => {
     switch (status) {
@@ -60,9 +77,14 @@ const MyBookings = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-gray-600">Loading your bookings...</p>
-      </div>
+      <section className="min-h-screen bg-slate-50 py-12">
+        <div className="container mx-auto px-5">
+          <div className="flex min-h-[400px] items-center justify-center">
+         {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
+          <p className="text-gray-600">Loading bookings...</p>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -98,7 +120,7 @@ const MyBookings = () => {
               planning your next adventure.
             </p>
 
-            <button className="mt-6 bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+            <button onClick={() => navigate("/package")} className="mt-6 bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 cursor-pointer">
               Explore Packages
             </button>
           </div>
@@ -209,7 +231,7 @@ const MyBookings = () => {
                           )}
 
                         {booking.status === "pending" && (
-                          <button className="border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-red-300 hover:text-red-600">
+                          <button onClick={()=> handleCancelBooking(booking.id,'cancelled')}  className="border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-red-300 hover:text-red-600">
                             Cancel
                           </button>
                         )}

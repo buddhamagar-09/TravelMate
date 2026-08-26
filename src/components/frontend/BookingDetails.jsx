@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../api/axios";
+import { toast } from "react-hot-toast";
 
 const BookingDetails = () => {
   const { id } = useParams();
@@ -12,11 +13,12 @@ const BookingDetails = () => {
   const fetchBooking = async () => {
     try {
       const response = await api.get(`/booking-details/${id}`);
-      console.log("Fetched booking:", response.data.bookingDetails);
+      // console.log("Fetched booking:", response.data.bookingDetails);
 
-      setBooking(response.data.bookingDetails || []);
+      setBooking(response.data.bookingDetails || null);
     } catch (error) {
-      console.error("Error fetching booking:", error);
+      // console.error("Error fetching booking:", error);
+      toast.error("Error fetching booking details");
     } finally {
       setLoading(false);
     }
@@ -25,6 +27,18 @@ const BookingDetails = () => {
   useEffect(() => {
     fetchBooking();
   }, [id]);
+
+  // handle cancel booking
+  const handleCancelBooking = async (id) => {
+    try {
+      const response = await api.patch(`/bookings/${id}/cancel-booking`, { status });
+      toast.success("Booking cancelled successfully!");
+      fetchBooking(); // Refresh booking details after cancellation
+    }
+    catch (error) {
+      toast.error("Error cancelling booking");
+  }
+};
 
   const getBookingStatus = (status) => {
     switch (status) {
@@ -66,9 +80,8 @@ const BookingDetails = () => {
       <section className="min-h-screen bg-slate-50 py-12">
         <div className="container mx-auto px-5">
           <div className="flex min-h-[400px] items-center justify-center">
-            <p className="text-slate-500">
-              Loading booking details...
-            </p>
+         {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
+          <p className="text-gray-600">Loading booking details...</p>
           </div>
         </div>
       </section>
@@ -315,7 +328,8 @@ const BookingDetails = () => {
             )}
 
           {booking.status === "pending" && (
-            <button
+            <button 
+              onClick={() => handleCancelBooking(booking.id)}
               className="border border-red-300 px-7 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50"
             >
               Cancel Booking
@@ -326,6 +340,7 @@ const BookingDetails = () => {
 
       </div>
     </section>
+    
   );
 };
 
