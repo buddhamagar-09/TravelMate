@@ -25,18 +25,18 @@ function Header() {
     }`;
 
   //logout function
-    const handleLogout = async () => {
-      try {
-        const response = await api.post("/logout");
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
+  const handleLogout = async () => {
+    try {
+      const response = await api.post("/logout");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
 
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-      navigate("/login");
-    };
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-gray-90 dark:bg-gray-900 backdrop-blur-md shadow-lg transition-colors duration-300">
@@ -85,7 +85,7 @@ function Header() {
               </li>
               <li>
                 <NavLink to="/my-bookings" className={navLinkStyle}>
-                  My Bookings
+                  Bookings
                 </NavLink>
               </li>
             </ul>
@@ -189,11 +189,11 @@ function Header() {
 
             <li>
               <NavLink
-                to="/shop"
+                to="/package"
                 onClick={() => setMenuOpen(false)}
                 className={navLinkStyle}
               >
-                Shop
+                Packages
               </NavLink>
             </li>
 
@@ -209,21 +209,31 @@ function Header() {
 
             <li>
               <NavLink
-                to="/about"
+                to="/destination"
                 onClick={() => setMenuOpen(false)}
                 className={navLinkStyle}
               >
-                About
+                Destinations
               </NavLink>
             </li>
 
             <li>
               <NavLink
-                to="/contact"
+                to="/about"
                 onClick={() => setMenuOpen(false)}
                 className={navLinkStyle}
               >
-                Contact
+                About us
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/my-bookings"
+                onClick={() => setMenuOpen(false)}
+                className={navLinkStyle}
+              >
+                Bookings
               </NavLink>
             </li>
           </ul>
