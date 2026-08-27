@@ -11,7 +11,7 @@ import { FaPlane } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="text-gray-600 dark:text-gray-300 body-font bg-white dark:bg-gray-900 transition-colors duration-300">
+    <footer className="text-gray-600 dark:text-gray-300 body-font border-t border-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
       {/* upper footer */}
       <div className="container mx-auto px-5 py-14 flex flex-col lg:flex-row justify-between gap-16">
         {/* Logo Section */}
