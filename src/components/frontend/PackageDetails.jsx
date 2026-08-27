@@ -2,6 +2,7 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import useFetchPackages from "../Hook/FetchPackages";
+import ReviewForm from "../Hook/ReviewForm";
 
 // Lightbox zoom plugin for image gallery
 import Lightbox from "yet-another-react-lightbox";
@@ -799,6 +800,9 @@ function PackageDetails() {
             ))}
         </div>
       </section>
+
+      {/* review form */}
+      <ReviewForm packageId={id} />
     </>
   );
 }
