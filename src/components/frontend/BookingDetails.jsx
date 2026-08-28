@@ -31,7 +31,7 @@ const BookingDetails = () => {
   // handle cancel booking
   const handleCancelBooking = async (id) => {
     try {
-      const response = await api.patch(`/bookings/${id}/cancel-booking`, { status });
+      const response = await api.patch(`/bookings/${id}/cancel-booking`);
       toast.success("Booking cancelled successfully!");
       fetchBooking(); // Refresh booking details after cancellation
     }
