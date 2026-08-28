@@ -5,8 +5,8 @@ export default function SkeletonLoader({ rows = 5 }) {
         <thead className="border-b border-slate-800 bg-slate-950">
           <tr>
             <th className="px-6 py-4 text-left text-slate-500">S.No</th>
-            <th className="px-6 py-4 text-left text-slate-500">Name</th>
-            <th className="px-6 py-4 text-left text-slate-500">Email</th>
+            <th className="px-6 py-4 text-left text-slate-500">....</th>
+            <th className="px-6 py-4 text-left text-slate-500">....</th>
             <th className="px-6 py-4 text-center text-slate-500">Action</th>
           </tr>
         </thead>
