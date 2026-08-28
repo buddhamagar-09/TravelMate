@@ -97,7 +97,7 @@ export default function ViewUser() {
 
                   <td className="px-6 py-4">
                     {user.status === "active" ? (
-                      <span className="text-green-500 font-medium">Active</span>
+                      <span className="text-blue-500 font-medium">Active</span>
                     ) : (
                       <span className="text-red-500 font-medium">Blocked</span>
                     )}
@@ -113,7 +113,7 @@ export default function ViewUser() {
                         className={`px-3 py-1 rounded text-white ${
                           user.status === "active"
                             ? "bg-red-600 hover:bg-red-700"
-                            : "bg-green-600 hover:bg-green-700"
+                            : "bg-blue-600 hover:bg-blue-700"
                         }`}
                       >
                         {user.status === "active" ? "Block" : "Unblock"}

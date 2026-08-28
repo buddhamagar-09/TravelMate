@@ -135,7 +135,7 @@ export default function ViewPackage() {
 
                       <button
                         onClick={() => togglestatus(pkg.id)}
-                        className={`${pkg.status === 'active' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} p-2 rounded text-white cursor-pointer`}
+                        className={`${pkg.status === 'active' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'} p-2 rounded text-white cursor-pointer`}
                       >
                        {pkg.status === 'active' ? 'Block' : 'Unblock'}
                       </button>
