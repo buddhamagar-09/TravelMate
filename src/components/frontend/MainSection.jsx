@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import useFetchPackages from "../Hook/FetchPackages";
+import api from "../../api/axios";
 
 // for swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -43,7 +44,13 @@ function MainSection() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  // fetchPackages();
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    // fetchPackages();
+    fetchReviews();
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
@@ -51,45 +58,58 @@ function MainSection() {
     return () => clearInterval(interval);
   }, []);
 
+  const fetchReviews = async () => {
+    try {
+      const response = await api.get("/show-reviews");
+      console.log("Fetched reviews:", response.data.reviews);
+      setReviews(response.data.reviews);
+    } catch (e) {
+      console.log(
+        "Error fetching reviews:",
+        e.response?.data?.message || e.message,
+      );
+    }
+  };
+
   // Testimonials data
-  const reviews = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      country: "Australia",
-      rating: 5,
-      comment:
-        "Amazing Everest Base Camp experience. The guides were professional and supportive throughout the trek.",
-      image: "/images/trekking/everest.jpg",
-    },
-    {
-      id: 2,
-      name: "David Miller",
-      country: "Canada",
-      rating: 5,
-      comment:
-        "Well-organized itinerary and breathtaking Himalayan views from Kala Patthar.",
-      image: "/images/trekking/annapurna.jpg",
-    },
-    {
-      id: 3,
-      name: "Maya Shrestha",
-      country: "Nepal",
-      rating: 5,
-      comment:
-        "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-      image: "/images/trekking/dhorpatan.jpg",
-    },
-    {
-      id: 4,
-      name: "Preyeana Tamang",
-      country: "Nepal",
-      rating: 5,
-      comment:
-        "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-      image: "/images/trekking/annapurna.jpg",
-    },
-  ];
+  // const reviews = [
+  //   {
+  //     id: 1,
+  //     name: "Sarah Johnson",
+  //     country: "Australia",
+  //     rating: 5,
+  //     comment:
+  //       "Amazing Everest Base Camp experience. The guides were professional and supportive throughout the trek.",
+  //     image: "/images/trekking/everest.jpg",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "David Miller",
+  //     country: "Canada",
+  //     rating: 5,
+  //     comment:
+  //       "Well-organized itinerary and breathtaking Himalayan views from Kala Patthar.",
+  //     image: "/images/trekking/annapurna.jpg",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Maya Shrestha",
+  //     country: "Nepal",
+  //     rating: 5,
+  //     comment:
+  //       "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
+  //     image: "/images/trekking/dhorpatan.jpg",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Preyeana Tamang",
+  //     country: "Nepal",
+  //     rating: 5,
+  //     comment:
+  //       "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
+  //     image: "/images/trekking/annapurna.jpg",
+  //   },
+  // ];
 
   return (
     <>
@@ -451,7 +471,7 @@ function MainSection() {
       {/* Gallery section ends here */}
 
       <FramerMotion>
-        {/* testimonails part */}
+        {/* Testimonials */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-5">
             {/* Heading */}
@@ -459,9 +479,10 @@ function MainSection() {
               <h2 className="text-3xl font-bold text-gray-900 mb-3">
                 What Travelers Say
               </h2>
+
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Reviews from trekkers who completed the Everest Base Camp
-                journey with TravelMate.
+                Reviews from travelers who experienced unforgettable journeys
+                with TravelMate.
               </p>
             </div>
 
@@ -469,7 +490,7 @@ function MainSection() {
               modules={[Autoplay]}
               spaceBetween={24}
               slidesPerView={1}
-              loop={true}
+              loop={reviews.length > 3}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -491,24 +512,30 @@ function MainSection() {
                     {/* User */}
                     <div className="flex items-center gap-4 mb-4">
                       <img
-                        src={review.image}
-                        alt={review.name}
+                        src={review.user?.image}
+                        alt={review.user?.name}
                         className="w-14 h-14 rounded-full object-cover"
                       />
 
                       <div>
                         <h3 className="font-semibold text-gray-900">
-                          {review.name}
+                          {review.user?.name}
                         </h3>
 
                         <p className="text-sm text-gray-500">
-                          {review.location}
+                          {review.user?.location}
                         </p>
                       </div>
                     </div>
 
                     {/* Rating */}
-                    <div className="flex text-yellow-400 mb-3">★★★★★</div>
+                    <div className="flex text-yellow-400 mb-3">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span key={star}>
+                          {star <= review.rating ? "★" : "☆"}
+                        </span>
+                      ))}
+                    </div>
 
                     {/* Review */}
                     <p className="text-gray-600 leading-relaxed">
