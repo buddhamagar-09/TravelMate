@@ -1,6 +1,8 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import api from "../../api/axios";
+import {FaRegCircleUser,FaUser} from "react-icons/fa6";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useFetchPackages from "../Hook/FetchPackages";
 import ReviewForm from "../Hook/ReviewForm";
 
@@ -25,45 +27,24 @@ function PackageDetails() {
   console.log(id);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const [reviews, setReviews] = useState([]);
 
-  const reviews = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      country: "Australia",
-      rating: 5,
-      comment:
-        "Amazing Everest Base Camp experience. The guides were professional and supportive throughout the trek.",
-      image: "/images/trekking/everest.jpg",
-    },
-    {
-      id: 2,
-      name: "David Miller",
-      country: "Canada",
-      rating: 5,
-      comment:
-        "Well-organized itinerary and breathtaking Himalayan views from Kala Patthar.",
-      image: "/images/trekking/annapurna.jpg",
-    },
-    {
-      id: 3,
-      name: "Maya Shrestha",
-      country: "Nepal",
-      rating: 5,
-      comment:
-        "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-      image: "/images/trekking/dhorpatan.jpg",
-    },
-    {
-      id: 4,
-      name: "Preyeana Tamang",
-      country: "Nepal",
-      rating: 5,
-      comment:
-        "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-      image: "/images/trekking/annapurna.jpg",
-    },
-  ];
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await api.get("/show-reviews");
+        console.log("Fetched reviews:", response.data.reviews);
+        setReviews(response.data.reviews);
+      } catch (e) {
+        console.log(
+          "Error fetching reviews:",
+          e.response?.data?.message || e.message,
+        );
+      }
+    };
+
+    fetchReviews();
+  }, []);
 
   const handleBooking = () => {
     const token = localStorage.getItem("token");
@@ -613,16 +594,18 @@ function PackageDetails() {
       </section>
 
       {/* testimonials */}
-      <section className="py-10 bg-white">
+      {/* Testimonials */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-5">
           {/* Heading */}
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-3">
               What Travelers Say
             </h2>
+
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Reviews from trekkers who completed the Everest Base Camp journey
-              with TravelMate.
+              Reviews from travelers who experienced unforgettable journeys with
+              TravelMate.
             </p>
           </div>
 
@@ -630,7 +613,7 @@ function PackageDetails() {
             modules={[Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            loop={true}
+            loop={reviews.length > 3}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -651,23 +634,27 @@ function PackageDetails() {
                 <div className="h-full pb-6 border-b md:border-b-0 md:border-r border-gray-200 pr-0 md:pr-6">
                   {/* User */}
                   <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src={review.image}
-                      alt={review.name}
-                      className="w-14 h-14 rounded-full object-cover"
-                    />
+                   <FaUser size={40} className="text-gray-500" />
 
                     <div>
                       <h3 className="font-semibold text-gray-900">
-                        {review.name}
+                        {review.user?.name}
                       </h3>
 
-                      <p className="text-sm text-gray-500">{review.location}</p>
+                      <p className="text-sm text-gray-500">
+                        {review.user?.location}
+                      </p>
                     </div>
                   </div>
 
                   {/* Rating */}
-                  <div className="flex text-yellow-400 mb-3">★★★★★</div>
+                  <div className="flex text-yellow-400 mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star}>
+                        {star <= review.rating ? "★" : "☆"}
+                      </span>
+                    ))}
+                  </div>
 
                   {/* Review */}
                   <p className="text-gray-600 leading-relaxed">

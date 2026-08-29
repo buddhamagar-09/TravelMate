@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight,FaUser } from "react-icons/fa";
 import useFetchPackages from "../Hook/FetchPackages";
 import api from "../../api/axios";
 
@@ -511,12 +511,7 @@ function MainSection() {
                   <div className="h-full pb-6 border-b md:border-b-0 md:border-r border-gray-200 pr-0 md:pr-6">
                     {/* User */}
                     <div className="flex items-center gap-4 mb-4">
-                      <img
-                        src={review.user?.image}
-                        alt={review.user?.name}
-                        className="w-14 h-14 rounded-full object-cover"
-                      />
-
+                      <FaUser size={40} className="text-gray-500" />
                       <div>
                         <h3 className="font-semibold text-gray-900">
                           {review.user?.name}
