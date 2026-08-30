@@ -181,6 +181,25 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 </svg>
                 <span>Bookings</span>
               </NavLink>
+              <NavLink
+                to="/admin/reviews"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11.049 2.927c.3-.921 1.608-2.023 3.176-2.023s2.877 1.102 3.176 2.023c.458 1.498-.365 3.06-1.859 3.06H9c-1.494 0-2.317-1.562-1.859-3.06z"
+                  />
+                </svg>
+                <span>Reviews</span>
+              </NavLink>
             </div>
           </div>
         </nav>
