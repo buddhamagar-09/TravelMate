@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight,FaUser } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaUser } from "react-icons/fa";
 import useFetchPackages from "../Hook/FetchPackages";
 import api from "../../api/axios";
 
@@ -113,33 +113,39 @@ function MainSection() {
 
   return (
     <>
-      {/* <!-- main banner starts here --> */}
-      <FramerMotion>
-        <section className="mt-5 w-full flex justify-center items-center px-6">
-          <div className="relative h-[75vh] w-full overflow-hidden rounded-2xl">
-            {banners.map((banner, index) => (
-              <img
-                key={banner.id}
-                src={banner.image}
-                alt={banner.title}
-                className={`absolute inset-0 w-full h-full object-cover rounded-2xl transition-opacity duration-1000 ${
-                  index === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
+      {/* Main banner starts here */}
 
-            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start p-6">
-              <h2 className="text-3xl font-bold text-white">
+      <FramerMotion>
+        <section className="relative w-full h-screen overflow-hidden">
+          {/* Banner Images */}
+          {banners.map((banner, index) => (
+            <img
+              key={banner.id}
+              src={banner.image}
+              alt={banner.title}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          {/* Banner Content */}
+          <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
                 {banners[currentIndex].title}
               </h2>
 
-              <p className="text-gray-200 mt-2">
+              <p className="text-gray-200 text-lg mt-4 max-w-xl">
                 {banners[currentIndex].description}
               </p>
 
               <Link
                 to="/package"
-                className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+                className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
               >
                 Book Now
               </Link>
@@ -147,6 +153,7 @@ function MainSection() {
           </div>
         </section>
       </FramerMotion>
+
       {/* <!-- main banner ends here --> */}
       {/* features section starts here */}
       <FramerMotion>
