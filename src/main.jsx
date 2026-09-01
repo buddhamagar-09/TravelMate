@@ -52,7 +52,7 @@ const router = createBrowserRouter(
         <Route path="bookingform/:id" element={<BookingForm />} />
         <Route path="my-bookings" element={<MyBookings />} />
         <Route path="booking-details/:id" element={<BookingDetails />} /> 
-        <Route path="esewa-success" element={<EsewaSuccessPage />} />
+        <Route path="esewa-success/:booking_id" element={<EsewaSuccessPage />} />
         
       </Route>
       {/* admin routes */}
