@@ -1,11 +1,9 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 
 const EsewaSuccessPage = () => {
-  const [searchParams] = useSearchParams();
-  const bookingId = searchParams.get("booking_id");
-
+  const { booking_id } = useParams();
   return (
     <section className="min-h-screen bg-slate-50 flex items-center justify-center px-5">
       <div className="w-full max-w-lg bg-white border border-slate-200 p-8 text-center shadow-sm">
@@ -20,11 +18,11 @@ const EsewaSuccessPage = () => {
           Your payment has been successfully completed.
         </p>
 
-        {bookingId && (
+        {booking_id && (
           <p className="mt-4 text-sm text-slate-600">
             Booking ID:{" "}
             <span className="font-semibold text-slate-900">
-              #{bookingId}
+              #{booking_id}
             </span>
           </p>
         )}
