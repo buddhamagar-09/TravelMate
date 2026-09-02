@@ -35,6 +35,7 @@ import MyBookings from "./components/frontend/MyBookings.jsx";
 import BookingDetails from "./components/frontend/BookingDetails.jsx";
 import ViewReview from "./admin/pages/ViewReview.jsx";
 import EsewaSuccessPage from "./components/frontend/EsewaSuccessPage.jsx";
+import EsewaFailurePage from "./components/frontend/EsewaFailurePage.jsx";
 
 //protected route
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
         <Route path="my-bookings" element={<MyBookings />} />
         <Route path="booking-details/:id" element={<BookingDetails />} /> 
         <Route path="esewa-success/:booking_id" element={<EsewaSuccessPage />} />
+        <Route path="esewa-failure/:bookingId" element={<EsewaFailurePage />} />
         
       </Route>
       {/* admin routes */}
