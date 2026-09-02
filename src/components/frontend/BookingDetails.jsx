@@ -9,6 +9,7 @@ const BookingDetails = () => {
 
   const [booking, setBooking] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [paying, setPaying] = useState(false);
 
   const fetchBooking = async () => {
     try {
@@ -34,11 +35,54 @@ const BookingDetails = () => {
       const response = await api.patch(`/bookings/${id}/cancel-booking`);
       toast.success("Booking cancelled successfully!");
       fetchBooking(); // Refresh booking details after cancellation
-    }
-    catch (error) {
+    } catch (error) {
       toast.error("Error cancelling booking");
-  }
-};
+    }
+  };
+
+  const handlePayNow = async (id) => {
+    setPaying(true);
+    try {
+      const response = await api.post("/esewa/initiate", {
+        booking_id: id,
+      });
+      const { payment_url, payment_data } = response.data;
+      const form = document.createElement("form");
+      form.action = payment_url;
+      form.method = "POST";
+
+      const fields = [
+        "amount",
+        "tax_amount",
+        "total_amount",
+        "transaction_uuid",
+        "product_code",
+        "product_service_charge",
+        "product_delivery_charge",
+        "success_url",
+        "failure_url",
+        "signed_field_names",
+        "signature",
+      ];
+
+      fields.forEach((field) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = field;
+        input.value = payment_data[field];
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      form.submit();
+    } catch (error) {
+      console.log("Esewa Error:", error);
+      console.log("Response:", error.response?.data);
+
+      toast.error(error.response?.data?.message || "Unable to start payment");
+    } finally {
+      setPaying(false);
+    }
+  };
 
   const getBookingStatus = (status) => {
     switch (status) {
@@ -80,8 +124,8 @@ const BookingDetails = () => {
       <section className="min-h-screen bg-slate-50 py-12">
         <div className="container mx-auto px-5">
           <div className="flex min-h-[400px] items-center justify-center">
-         {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
-          <p className="text-gray-600">Loading booking details...</p>
+            {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
+            <p className="text-gray-600">Loading booking details...</p>
           </div>
         </div>
       </section>
@@ -116,7 +160,6 @@ const BookingDetails = () => {
   return (
     <section className="min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto max-w-5xl px-5">
-
         {/* Back Button */}
         <button
           onClick={() => navigate("/my-bookings")}
@@ -138,7 +181,7 @@ const BookingDetails = () => {
 
             <span
               className={`w-fit px-4 py-2 text-sm font-semibold capitalize ${getBookingStatus(
-                booking.status
+                booking.status,
               )}`}
             >
               {booking.status}
@@ -148,9 +191,7 @@ const BookingDetails = () => {
 
         {/* Package */}
         <div className="border border-slate-200 bg-white">
-
           <div className="flex flex-col md:flex-row">
-
             {/* Package Image */}
             <div className="h-64 w-full md:h-auto md:w-80">
               <img
@@ -182,9 +223,7 @@ const BookingDetails = () => {
 
               <div className="mt-6">
                 <button
-                  onClick={() =>
-                    navigate(`/package/${booking.package?.id}`)
-                  }
+                  onClick={() => navigate(`/package/${booking.package?.id}`)}
                   className="border border-blue-600 px-5 py-2.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-600 hover:text-white"
                 >
                   View Package
@@ -196,15 +235,11 @@ const BookingDetails = () => {
 
         {/* Trip Details */}
         <div className="mt-6 border border-slate-200 bg-white">
-
           <div className="border-b border-slate-100 px-6 py-5">
-            <h2 className="text-lg font-bold text-slate-900">
-              Trip Details
-            </h2>
+            <h2 className="text-lg font-bold text-slate-900">Trip Details</h2>
           </div>
 
           <div className="grid grid-cols-1 gap-6 px-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
-
             <div>
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Travel Date
@@ -242,19 +277,17 @@ const BookingDetails = () => {
 
               <span
                 className={`mt-1 inline-block px-3 py-1 text-xs font-semibold capitalize ${getPaymentStatus(
-                  booking.payment_status
+                  booking.payment_status,
                 )}`}
               >
                 {booking.payment_status}
               </span>
             </div>
-
           </div>
         </div>
 
         {/* Customer Information */}
         <div className="mt-6 border border-slate-200 bg-white">
-
           <div className="border-b border-slate-100 px-6 py-5">
             <h2 className="text-lg font-bold text-slate-900">
               Customer Information
@@ -262,7 +295,6 @@ const BookingDetails = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 px-6 py-6 sm:grid-cols-3">
-
             <div>
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Full Name
@@ -292,14 +324,12 @@ const BookingDetails = () => {
                 {booking.phone_number}
               </p>
             </div>
-
           </div>
         </div>
 
         {/* Special Request */}
         {booking.special_request && (
           <div className="mt-6 border border-slate-200 bg-white">
-
             <div className="border-b border-slate-100 px-6 py-5">
               <h2 className="text-lg font-bold text-slate-900">
                 Special Request
@@ -311,36 +341,32 @@ const BookingDetails = () => {
                 {booking.special_request}
               </p>
             </div>
-
           </div>
         )}
 
         {/* Actions */}
         <div className="mt-6 flex flex-wrap justify-end gap-3">
-
           {booking.status === "confirmed" &&
             booking.payment_status === "pending" && (
               <button
-                className="bg-blue-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-              >
-                Pay Now
+              onClick={() => handlePayNow(booking.id)}
+              disbaled={paying}
+              className="bg-blue-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+              {paying ? "Processing Payment..." : "Pay Now"}
               </button>
             )}
 
           {booking.status === "pending" && (
-            <button 
+            <button
               onClick={() => handleCancelBooking(booking.id)}
               className="border border-red-300 px-7 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50"
             >
               Cancel Booking
             </button>
           )}
-
         </div>
-
       </div>
     </section>
-    
   );
 };
 
