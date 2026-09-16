@@ -47,9 +47,9 @@ const MyBookings = () => {
       });
 
       const { payment_url, payment_data } = response.data;
-      console.log("Full Response:", response.data);
-      console.log("Payment URL:", payment_url);
-      console.log("Payment Data:", JSON.stringify(payment_data, null, 2));
+      // console.log("Full Response:", response.data);
+      // console.log("Payment URL:", payment_url);
+      // console.log("Payment Data:", JSON.stringify(payment_data, null, 2));
       const form = document.createElement("form");
       form.action = payment_url;
       form.method = "POST";
