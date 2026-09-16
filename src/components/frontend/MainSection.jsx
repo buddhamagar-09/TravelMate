@@ -123,6 +123,7 @@ function MainSection() {
               key={banner.id}
               src={banner.image}
               alt={banner.title}
+              lazy="loading"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
