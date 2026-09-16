@@ -137,7 +137,15 @@ export default function ViewBookings() {
                   </td>
 
                     <td className="px-6 py-4 whitespace-nowrap text-slate-300">
-                    {booking.payment_status}
+                      {booking.payment_status === "paid" ? (
+                        <span className="bg-green-600 text-white px-2 py-1 rounded">
+                          Paid
+                        </span>
+                      ) : (
+                        <span className="bg-yellow-500 text-white px-2 py-1 rounded">
+                          pending
+                        </span>
+                      )}
                   </td>
 
                   <td className="px-6 py-4 whitespace-nowrap text-slate-300">
