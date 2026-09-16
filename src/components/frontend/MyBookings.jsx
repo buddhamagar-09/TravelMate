@@ -127,7 +127,7 @@ const MyBookings = () => {
     return (
       <section className="min-h-screen bg-slate-50 py-12">
         <div className="container mx-auto px-5">
-          <div className="flex min-h-[400px] items-center justify-center">
+          <div className="flex min-h-100 items-center justify-center">
             {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
             <p className="text-gray-600">Loading bookings...</p>
           </div>
