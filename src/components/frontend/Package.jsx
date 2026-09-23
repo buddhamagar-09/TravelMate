@@ -1,17 +1,35 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import api from "../../api/axios";
 import { useState, useEffect } from "react";
 import useFetchPackages from "../Hook/FetchPackages";
 
-import FramerMotion from "../Hook/FramerMotion";
+// import FramerMotion from "../Hook/FramerMotion";
 function Package() {
   const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
-  const navigate = useNavigate();
+
+  const [searchParams , setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search");
+
+  const searchPackages = async () => {
+    try {
+      const response = await api.get(
+        `/search-packages?query=${encodeURIComponent(searchQuery)}`,
+      );
+      setPackages(response.data);
+    } catch (error) {
+      console.error("Error searching packages:", error);
+    }
+  };
 
   useEffect(() => {
+    if (searchQuery) {
+      searchPackages();
+    } else {
+      fetchPackages();
+    }
     window.scrollTo(0, 0); // Scroll to top when the component mounts
-  }, []);
+  }, [searchQuery]);
 
   return (
     <>
@@ -28,12 +46,6 @@ function Package() {
 
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap gap-4 items-center">
-          <input
-            type="text"
-            placeholder="Search package..."
-            className="border px-4 py-2 w-72 outline-none focus:border-blue-600"
-          />
-
           <select className="border px-4 py-2">
             <option>Duration</option>
           </select>
