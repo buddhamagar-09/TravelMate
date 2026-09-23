@@ -3,7 +3,7 @@ import api from "../../api/axios";
 import { useState, useEffect } from "react";
 import { FiSearch, FiTrash2 } from "react-icons/fi";
 import SkeletonLoader from "../../components/Hook/SkeletonLoader";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 export default function ViewUser() {
   const [users, setUsers] = useState([]);
@@ -105,15 +105,12 @@ export default function ViewUser() {
 
                   <td className="px-6 py-4">
                     <div className="flex justify-center gap-2">
-                      <button className="bg-blue-600 pl-4 pr-4 pt-2 pb-2 rounded-md hover:bg-blue-700 cursor-pointer">
-                        View Details
-                      </button>
                       <button
                         onClick={() => toggleStatus(user.id)}
-                        className={`px-3 py-1 rounded text-white ${
+                        className={`px-3 py-1 rounded border ${
                           user.status === "active"
-                            ? "bg-red-600 hover:bg-red-700"
-                            : "bg-blue-600 hover:bg-blue-700"
+                            ? "border-red-600"
+                            : "border-blue-600"
                         }`}
                       >
                         {user.status === "active" ? "Block" : "Unblock"}

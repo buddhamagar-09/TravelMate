@@ -102,7 +102,9 @@ export default function ViewReview() {
                   <td className="px-6 py-4 text-slate-300">{review.comment}</td>
                   <td
                     className={`px-6 py-4 font-medium ${
-                      review.status === "active" ? "text-blue-500" : "text-red-500"
+                      review.status === "active"
+                        ? "text-blue-500"
+                        : "text-red-500"
                     }`}
                   >
                     {review.status}
@@ -110,10 +112,10 @@ export default function ViewReview() {
                   <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => toggleStatus(review.id)}
-                      className={`px-4 py-2 rounded-lg text-white ${
+                      className={`px-4 py-2 rounded-lg border ${
                         review.status === "active"
-                          ? "bg-red-600 hover:bg-red-700"
-                          : "bg-blue-600 hover:bg-blue-700"
+                          ? "border-red-600"
+                          : "border-blue-600"
                       }`}
                     >
                       {review.status === "active" ? "Block" : "Unblock"}

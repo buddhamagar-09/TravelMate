@@ -19,11 +19,10 @@ export default function ViewBookings() {
     setLoading(true);
     try {
       const response = await api.get("/bookings");
-    
+
       console.log(response.data);
       setBookings(response.data.bookings);
     } catch (error) {
-    
       console.log(error.response?.data);
     } finally {
       setLoading(false);
@@ -83,21 +82,39 @@ export default function ViewBookings() {
           <table className="min-w-full text-sm">
             <thead className="border-b border-slate-800 bg-slate-950">
               <tr className="text-slate-300">
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">S.No</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Name</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Package</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Phone</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Email</th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  S.No
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Name
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Package
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Phone
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Email
+                </th>
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   Date
                 </th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Travelers</th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Travelers
+                </th>
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   Total Amount
                 </th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Payment_Status</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Status</th>
-                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">Action</th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Payment_Status
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Status
+                </th>
+                <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Action
+                </th>
               </tr>
             </thead>
 
@@ -136,31 +153,41 @@ export default function ViewBookings() {
                     ${booking.total_price}
                   </td>
 
-                    <td className="px-6 py-4 whitespace-nowrap text-slate-300">
-                      {booking.payment_status === "paid" ? (
-                        <span className="bg-green-600 text-white px-2 py-1 rounded">
-                          Paid
-                        </span>
-                      ) : (
-                        <span className="bg-yellow-500 text-white px-2 py-1 rounded">
-                          pending
-                        </span>
-                      )}
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                    {booking.payment_status === "paid" && (
+                      <span className="border border-green-600 px-2 py-1 rounded">
+                        {booking.payment_status}
+                      </span>
+                    )}
+
+                    {booking.payment_status === "pending" && (
+                      <span className="border border-yellow-500 px-2 py-1 rounded">
+                        {booking.payment_status}
+                      </span>
+                    )}
+
+                    {booking.payment_status === "failed" && (
+                      <span className="border border-red-600 px-2 py-1 rounded">
+                        {booking.payment_status}
+                      </span>
+                    )}
                   </td>
 
                   <td className="px-6 py-4 whitespace-nowrap text-slate-300">
                     {booking.status === "pending" && (
-                      <span className="bg-yellow-500 text-white px-2 py-1 rounded">
+                      <span className="border border-yellow-500 px-2 py-1 rounded">
                         Pending
                       </span>
                     )}
+
                     {booking.status === "confirmed" && (
-                      <span className="bg-blue-500 text-white px-2 py-1 rounded">
+                      <span className="border border-blue-500 px-2 py-1 rounded">
                         Confirmed
                       </span>
                     )}
+
                     {booking.status === "cancelled" && (
-                      <span className="bg-red-500 text-white px-2 py-1 rounded">
+                      <span className="border border-red-500 px-2 py-1 rounded">
                         Cancelled
                       </span>
                     )}
