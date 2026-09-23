@@ -46,8 +46,9 @@ function MainSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState([]);
 
+
   useEffect(() => {
-    // fetchPackages();
+    fetchPackages();
     fetchReviews();
   }, []);
 
