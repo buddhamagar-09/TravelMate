@@ -4,10 +4,12 @@ import useTheme from "../Hook/ThemeContext";
 
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 
-import { FaSearch, FaPlane } from "react-icons/fa";
+import { FaSearch, FaPlane, FaTimes } from "react-icons/fa";
 import api from "../../api/axios";
 
 export default function Header() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
@@ -25,9 +27,7 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -63,6 +63,7 @@ export default function Header() {
           ? "text-blue-600 dark:text-blue-400 font-semibold"
           : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
     }`;
+
   // Mobile navigation
   const mobileNavLinkStyle = ({ isActive }) =>
     `block px-4 py-2 transition-colors duration-300 ${
@@ -70,6 +71,21 @@ export default function Header() {
         ? "text-blue-600 dark:text-blue-400 font-semibold"
         : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
     }`;
+
+  // handle search form submission
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (searchTerm.trim() === "") {
+      return; // Do not perform search if the input is empty
+    }
+    navigate(`/package?search=${encodeURIComponent(searchTerm.trim())}`);
+  };
+
+  //clear search input when navigating to a new page
+  const clearSearch = () => {
+    setSearchTerm("");
+    navigate("/package");
+  };
 
   return (
     <header
@@ -162,17 +178,40 @@ export default function Header() {
                 }
               />
 
-              <input
-                type="text"
-                placeholder="Search destinations..."
-                className={`ml-3 flex-1 bg-transparent outline-none text-sm ${
-                  isHomePage && !scrolled
-                    ? "text-white placeholder:text-gray-200"
-                    : "text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
-                }`}
-              />
-            </div>
+              <form
+                id="searchform"
+                onSubmit={handleSearch}
+                action=""
+                method="get"
+                className="flex-1 flex items-center"
+              >
+                <input
+                  type="text"
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={searchTerm}
+                  placeholder="Search destinations..."
+                  className={`ml-3 flex-1 bg-transparent outline-none text-sm ${
+                    isHomePage && !scrolled
+                      ? "text-white placeholder:text-gray-200"
+                      : "text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
+                  }`}
+                />
 
+                {searchTerm && (
+                  <button
+                    type="button"
+                    onClick={clearSearch}
+                    className={
+                      isHomePage && !scrolled
+                        ? "text-white/80 hover:text-white"
+                        : "text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
+                    }
+                  >
+                    <FaTimes size={14} />
+                  </button>
+                )}
+              </form>
+            </div>
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
