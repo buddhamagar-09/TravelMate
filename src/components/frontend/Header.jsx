@@ -8,6 +8,7 @@ import { FaSearch, FaPlane, FaTimes } from "react-icons/fa";
 import api from "../../api/axios";
 
 export default function Header() {
+  const [packages, setPackages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const location = useLocation();
@@ -22,17 +23,36 @@ export default function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
-  // Scroll effect for the header background color
+  //suggestion
+  const suggestions = packages.filter((packageitem) => {
+    return packageitem.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+  // Fetch packages for search suggestions
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const response = await api.get("/packages");
+        setPackages(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchPackages();
+  }, []);
+
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   // Theme toggle
   const toggleTheme = () => {
     themeMode === "light" ? darkMode() : lightMode();
@@ -164,7 +184,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             {/* Search */}
             <div
-              className={`hidden lg:flex items-center w-64 px-4 py-2 rounded-full border backdrop-blur-md transition-all duration-300 ${
+              className={`hidden lg:flex relative items-center w-64 px-4 py-2 rounded-full border backdrop-blur-md transition-all duration-300 ${
                 isHomePage && !scrolled
                   ? "border-white/30 bg-white/10"
                   : "border-gray-300 bg-white/50 dark:border-gray-700 dark:bg-gray-800/70"
@@ -211,6 +231,30 @@ export default function Header() {
                   </button>
                 )}
               </form>
+
+              {searchTerm && suggestions.length > 0 && (
+                <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden z-50">
+                  {suggestions.slice(0, 5).map((packageItem) => (
+                    <button
+                      key={packageItem.id}
+                      type="button"
+                      onClick={() => {
+                        setSearchTerm(packageItem.title);
+                        navigate(
+                          `/package?search=${encodeURIComponent(packageItem.title)}`,
+                        );
+                      }}
+                      className="w-full text-left px-4 py-3 hover:bg-gray-100 text-gray-800"
+                    >
+                      <div className="font-medium">{packageItem.title}</div>
+
+                      <div className="text-xs text-gray-500">
+                        {packageItem.location}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             {/* Theme Toggle */}
             <button
