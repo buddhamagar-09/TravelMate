@@ -9,6 +9,11 @@ function Destination() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    fetchPackages();
+  }, []);
+  
   return (
     <>
       <section className="text-gray-600 body-font">
