@@ -46,6 +46,10 @@ function PackageDetails() {
     fetchReviews();
   }, []);
 
+  useEffect(() => {
+    fetchPackages();
+  }, []);
+
   const handleBooking = () => {
     const token = localStorage.getItem("token");
     if (!token) {

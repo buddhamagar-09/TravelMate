@@ -21,6 +21,10 @@ export default function BookingForm() {
   const [specialRequest, setSpecialRequest] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
+useEffect(() => {
+    fetchPackages();
+  }, []);
+
   const handleBooking = async (e) => {
     e.preventDefault();
     const bookingData = new FormData();
