@@ -23,11 +23,6 @@ export default function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
-  //suggestion
-  const suggestions = packages.filter((packageitem) => {
-    return packageitem.title.toLowerCase().includes(searchTerm.toLowerCase());
-  });
-  
   // Fetch packages for search suggestions
   useEffect(() => {
     const fetchPackages = async () => {
@@ -41,6 +36,11 @@ export default function Header() {
 
     fetchPackages();
   }, []);
+
+  //suggestion
+  const suggestions = packages.filter((packageitem) => {
+    return packageitem.title.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
   // Scroll effect
   useEffect(() => {
