@@ -27,6 +27,7 @@ export default function Header() {
   const suggestions = packages.filter((packageitem) => {
     return packageitem.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
+  
   // Fetch packages for search suggestions
   useEffect(() => {
     const fetchPackages = async () => {
@@ -72,6 +73,7 @@ export default function Header() {
 
     navigate("/login");
   };
+
   // Desktop navigation
   const navLinkStyle = ({ isActive }) =>
     `px-4 py-2 transition-colors duration-300 ${

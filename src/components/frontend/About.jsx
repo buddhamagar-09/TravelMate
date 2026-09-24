@@ -13,7 +13,7 @@ function About() {
           <div
             style={{
               backgroundImage:
-                "linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('images/aboutus/mainbanner1.jpg')",
+                "linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('images/banners/nature1.jpg')",
             }}
             className="w-full h-[45vh] bg-cover bg-center flex flex-col justify-center items-center text-center px-6"
           >
@@ -75,7 +75,7 @@ function About() {
                   <img
                     src="images/trekking/dhorpatan.jpg"
                     alt="TravelMate"
-                    className="rounded-3xl shadow-2xl w-full h-[550px] object-cover"
+                    className="rounded-3xl shadow-2xl w-full h-137.5 object-cover"
                   />
 
                   {/* Floating Card */}

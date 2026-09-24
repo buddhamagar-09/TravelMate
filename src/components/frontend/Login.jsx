@@ -46,10 +46,10 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(251,191,36,0.18),_transparent_28%),linear-gradient(180deg,_#f8fafc_0%,_#eef4ff_100%)] px-4 py-8 transition-colors duration-300 dark:bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(15,23,42,0.35),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_100%)] sm:px-6 lg:px-8">
+    <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(251,191,36,0.18),transparent_28%),linear-gradient(180deg,#f8fafc_0%,#eef4ff_100%)] px-4 py-8 transition-colors duration-300 dark:bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.18),_transparent_34%),radial-gradient(circle_at_bottom_right,_rgba(15,23,42,0.35),_transparent_30%),linear-gradient(180deg,_#020617_0%,_#0f172a_100%)] sm:px-6 lg:px-8">
       <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center justify-center">
-        <div className="grid w-full overflow-hidden rounded-[2rem] border border-white/60 bg-white/85 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/80 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="relative hidden flex-col justify-between overflow-hidden bg-[linear-gradient(160deg,_#0f172a_0%,_#1d4ed8_52%,_#0ea5e9_100%)] p-10 text-white lg:flex">
+        <div className="grid w-full overflow-hidden rounded-4xl border border-white/60 bg-white/85 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/80 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative hidden flex-col justify-between overflow-hidden bg-[linear-gradient(160deg,#0f172a_0%,#1d4ed8_52%,#0ea5e9_100%)] p-10 text-white lg:flex">
             <div className="absolute -right-20 top-8 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
             <div className="absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-sky-300/20 blur-3xl" />
             <div className="relative z-10">
