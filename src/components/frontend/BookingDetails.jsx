@@ -14,11 +14,8 @@ const BookingDetails = () => {
   const fetchBooking = async () => {
     try {
       const response = await api.get(`/booking-details/${id}`);
-      // console.log("Fetched booking:", response.data.bookingDetails);
-
       setBooking(response.data.bookingDetails || null);
     } catch (error) {
-      // console.error("Error fetching booking:", error);
       toast.error("Error fetching booking details");
     } finally {
       setLoading(false);
@@ -29,12 +26,11 @@ const BookingDetails = () => {
     fetchBooking();
   }, [id]);
 
-  // handle cancel booking
   const handleCancelBooking = async (id) => {
     try {
-      const response = await api.patch(`/bookings/${id}/cancel-booking`);
+      await api.patch(`/bookings/${id}/cancel-booking`);
       toast.success("Booking cancelled successfully!");
-      fetchBooking(); // Refresh booking details after cancellation
+      fetchBooking();
     } catch (error) {
       toast.error("Error cancelling booking");
     }
@@ -77,7 +73,6 @@ const BookingDetails = () => {
     } catch (error) {
       console.log("Esewa Error:", error);
       console.log("Response:", error.response?.data);
-
       toast.error(error.response?.data?.message || "Unable to start payment");
     } finally {
       setPaying(false);
@@ -87,45 +82,39 @@ const BookingDetails = () => {
   const getBookingStatus = (status) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-100 text-yellow-700";
-
+        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20";
       case "confirmed":
-        return "bg-green-100 text-green-700";
-
+        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20";
       case "cancelled":
-        return "bg-red-100 text-red-700";
-
+        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       case "completed":
-        return "bg-blue-100 text-blue-700";
-
+        return "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/10 dark:text-sky-400 dark:border-sky-500/20";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
     }
   };
 
   const getPaymentStatus = (status) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-100 text-yellow-700";
-
+        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20";
       case "paid":
-        return "bg-green-100 text-green-700";
-
+        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20";
       case "failed":
-        return "bg-red-100 text-red-700";
-
+        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
     }
   };
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-slate-50 py-12">
+      <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
         <div className="container mx-auto px-5">
           <div className="flex min-h-[400px] items-center justify-center">
-            {/* <div className="h-20 w-20 border-4 border-slate-300 border-t-slate-600 rounded-full animate-spin"></div> */}
-            <p className="text-gray-600">Loading booking details...</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Loading booking details...
+            </p>
           </div>
         </div>
       </section>
@@ -134,20 +123,20 @@ const BookingDetails = () => {
 
   if (!booking) {
     return (
-      <section className="min-h-screen bg-slate-50 py-12">
+      <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
         <div className="container mx-auto max-w-4xl px-5">
-          <div className="border border-slate-200 bg-white p-10 text-center">
-            <h2 className="text-xl font-semibold text-slate-800">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 text-center">
+            <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
               Booking not found
             </h2>
 
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
               We couldn't find the booking you're looking for.
             </p>
 
             <button
               onClick={() => navigate("/my-bookings")}
-              className="mt-6 bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+              className="mt-6 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
             >
               Back to My Bookings
             </button>
@@ -158,29 +147,29 @@ const BookingDetails = () => {
   }
 
   return (
-    <section className="min-h-screen bg-slate-50 py-12">
+    <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
       <div className="container mx-auto max-w-5xl px-5">
         {/* Back Button */}
         <button
           onClick={() => navigate("/my-bookings")}
-          className="mb-6 text-sm font-semibold text-blue-600 transition hover:text-blue-800"
+          className="mb-6 text-sm font-semibold text-sky-500 transition-colors hover:text-sky-600"
         >
           ← Back to My Bookings
         </button>
 
         {/* Header */}
-        <div className="mb-6 border-b border-slate-200 pb-6">
-          <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
+        <div className="mb-6 border-b border-slate-200 dark:border-slate-800 pb-6">
+          <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
             Booking #{booking.id}
           </p>
 
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h1 className="text-3xl font-bold text-slate-900">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               {booking.package?.title}
             </h1>
 
             <span
-              className={`w-fit px-4 py-2 text-sm font-semibold capitalize ${getBookingStatus(
+              className={`inline-flex w-fit items-center border px-4 py-2 text-sm font-semibold capitalize ${getBookingStatus(
                 booking.status,
               )}`}
             >
@@ -190,10 +179,10 @@ const BookingDetails = () => {
         </div>
 
         {/* Package */}
-        <div className="border border-slate-200 bg-white">
+        <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           <div className="flex flex-col md:flex-row">
             {/* Package Image */}
-            <div className="h-64 w-full md:h-auto md:w-80">
+            <div className="h-64 w-full md:h-auto md:w-80 shrink-0">
               <img
                 src={
                   booking.package?.featured_image
@@ -207,16 +196,16 @@ const BookingDetails = () => {
 
             {/* Package Info */}
             <div className="flex-1 p-6">
-              <p className="text-xs font-medium uppercase tracking-wider text-slate-400">
+              <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
                 Travel Package
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold text-slate-900">
+              <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                 {booking.package?.title}
               </h2>
 
               {booking.package?.location && (
-                <p className="mt-2 text-sm text-slate-500">
+                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                   📍 {booking.package.location}
                 </p>
               )}
@@ -224,7 +213,7 @@ const BookingDetails = () => {
               <div className="mt-6">
                 <button
                   onClick={() => navigate(`/package/${booking.package?.id}`)}
-                  className="border border-blue-600 px-5 py-2.5 text-sm font-semibold text-blue-600 transition hover:bg-blue-600 hover:text-white"
+                  className="border border-sky-500 px-5 py-2.5 text-sm font-semibold text-sky-500 transition-colors hover:bg-sky-500 hover:text-white"
                 >
                   View Package
                 </button>
@@ -234,18 +223,13 @@ const BookingDetails = () => {
         </div>
 
         {/* Trip Details */}
-        <div className="mt-6 border border-slate-200 bg-white">
-          <div className="border-b border-slate-100 px-6 py-5">
-            <h2 className="text-lg font-bold text-slate-900">Trip Details</h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 px-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
+        <SectionCard title="Trip Details">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Travel Date
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 {booking.travel_date}
               </p>
             </div>
@@ -254,8 +238,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Travelers
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 {booking.travelers}
               </p>
             </div>
@@ -264,8 +247,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Total Price
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 Rs. {Number(booking.total_price).toLocaleString()}
               </p>
             </div>
@@ -274,9 +256,8 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Payment
               </p>
-
               <span
-                className={`mt-1 inline-block px-3 py-1 text-xs font-semibold capitalize ${getPaymentStatus(
+                className={`mt-1 inline-flex items-center border px-3 py-1 text-xs font-semibold capitalize ${getPaymentStatus(
                   booking.payment_status,
                 )}`}
               >
@@ -284,23 +265,16 @@ const BookingDetails = () => {
               </span>
             </div>
           </div>
-        </div>
+        </SectionCard>
 
         {/* Customer Information */}
-        <div className="mt-6 border border-slate-200 bg-white">
-          <div className="border-b border-slate-100 px-6 py-5">
-            <h2 className="text-lg font-bold text-slate-900">
-              Customer Information
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 px-6 py-6 sm:grid-cols-3">
+        <SectionCard title="Customer Information">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div>
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Full Name
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 {booking.user.name}
               </p>
             </div>
@@ -309,8 +283,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Email
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 {booking.user.email}
               </p>
             </div>
@@ -319,29 +292,20 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Phone
               </p>
-
-              <p className="mt-1 font-semibold text-slate-800">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
                 {booking.phone_number}
               </p>
             </div>
           </div>
-        </div>
+        </SectionCard>
 
         {/* Special Request */}
         {booking.special_request && (
-          <div className="mt-6 border border-slate-200 bg-white">
-            <div className="border-b border-slate-100 px-6 py-5">
-              <h2 className="text-lg font-bold text-slate-900">
-                Special Request
-              </h2>
-            </div>
-
-            <div className="px-6 py-6">
-              <p className="text-sm leading-6 text-slate-600">
-                {booking.special_request}
-              </p>
-            </div>
-          </div>
+          <SectionCard title="Special Request">
+            <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+              {booking.special_request}
+            </p>
+          </SectionCard>
         )}
 
         {/* Actions */}
@@ -349,17 +313,18 @@ const BookingDetails = () => {
           {booking.status === "confirmed" &&
             booking.payment_status === "pending" && (
               <button
-              onClick={() => handlePayNow(booking.id)}
-              disbaled={paying}
-              className="bg-blue-600 px-7 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
-              {paying ? "Processing Payment..." : "Pay Now"}
+                onClick={() => handlePayNow(booking.id)}
+                disabled={paying}
+                className="bg-sky-500 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {paying ? "Processing Payment..." : "Pay Now"}
               </button>
             )}
 
           {booking.status === "pending" && (
             <button
               onClick={() => handleCancelBooking(booking.id)}
-              className="border border-red-300 px-7 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50"
+              className="border border-red-300 dark:border-red-500/30 px-7 py-3 text-sm font-semibold text-red-600 dark:text-red-400 transition-colors hover:bg-red-50 dark:hover:bg-red-500/10"
             >
               Cancel Booking
             </button>
@@ -369,5 +334,20 @@ const BookingDetails = () => {
     </section>
   );
 };
+
+/* ---------- Subcomponents ---------- */
+
+function SectionCard({ title, children }) {
+  return (
+    <div className="mt-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+      <div className="border-b border-slate-100 dark:border-slate-800 px-6 py-5">
+        <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+          {title}
+        </h2>
+      </div>
+      <div className="px-6 py-6">{children}</div>
+    </div>
+  );
+}
 
 export default BookingDetails;

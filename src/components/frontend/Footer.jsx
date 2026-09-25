@@ -5,171 +5,144 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaPlane,
+  FaArrowRight,
 } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si";
-import { FaPlane } from "react-icons/fa";
+
+const exploreLinks = [
+  { label: "Home", to: "/" },
+  { label: "Destinations", to: "/destination" },
+  { label: "Tour Packages", to: "/package" },
+  { label: "Gallery", to: "/gallery" },
+  { label: "Travel Guides", to: "/travel-guides" },
+];
+
+const companyLinks = [
+  { label: "Travel Blog", to: "/travel-blog" },
+  { label: "About Us", to: "/about" },
+  { label: "Contact Us", to: "/contact" },
+  { label: "Testimonials", to: "/testimonials" },
+];
+
+const supportLinks = [
+  { label: "Privacy Policy", to: "/privacy-policy" },
+  { label: "Terms & Conditions", to: "/terms-and-conditions" },
+  { label: "Customer Support", to: "/customer-support" },
+  { label: "FAQs", to: "/faqs" },
+];
+
+const socials = [
+  { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
+  { icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: SiTiktok, href: "https://tiktok.com", label: "TikTok" },
+];
 
 export default function Footer() {
   return (
-    <footer className="text-gray-600 dark:text-gray-300 body-font border-t border-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
-      {/* upper footer */}
-      <div className="container mx-auto px-5 py-14 flex flex-col lg:flex-row justify-between gap-16">
-        {/* Logo Section */}
-        <div className="lg:w-1/3 w-full">
-          <Link
-            to="/"
-            className="flex items-center justify-center lg:justify-start"
-          >
-            <FaPlane className="text-4xl text-blue-600  " />
-
-            <span className="ml-3 text-2xl font-bold text-gray-900 dark:text-white">
-              Travel <span className="text-blue-600">Mate</span>
+    <footer className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+      {/* Upper footer */}
+      <div className="container mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Brand + Newsletter */}
+        <div className="lg:col-span-4">
+          <Link to="/" className="flex items-center gap-3">
+            <span className="grid place-items-center w-11 h-11 bg-sky-500 text-white">
+              <FaPlane className="text-lg" />
+            </span>
+            <span className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+              Travel<span className="text-sky-500">Mate</span>
             </span>
           </Link>
 
-          <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-justify leading-7">
-            Travel Mate is a travel website that provides information and
-            resources for travelers. We offer travel guides, tips, and
-            recommendations to help you plan your next adventure.
+          <p className="mt-5 text-sm leading-7 max-w-sm">
+            Your companion for smarter journeys. Discover guides, tips, and
+            handpicked destinations to plan your next adventure with ease.
           </p>
+
+          {/* Newsletter */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="mt-6 flex items-stretch gap-0 max-w-sm"
+          >
+            <input
+              type="email"
+              required
+              placeholder="Your email"
+              className="flex-1 border border-slate-300 dark:border-slate-700 border-r-0 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 transition-colors"
+            />
+            <button
+              type="submit"
+              aria-label="Subscribe"
+              className="grid place-items-center w-12 bg-sky-500 text-white hover:bg-sky-600 transition-colors"
+            >
+              <FaArrowRight className="text-sm" />
+            </button>
+          </form>
         </div>
 
-        {/* Footer Links */}
-        <div className="lg:w-2/3 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-          {/* Explore */}
-          <div className="text-center sm:text-left">
-            <h2 className="font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Explore
-            </h2>
-
-            <ul className="space-y-3">
-              <li>
-                <Link to="/" className="hover:text-indigo-500">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations" className="hover:text-indigo-500">
-                  Destinations
-                </Link>
-              </li>
-              <li>
-                <Link to="/tour-packages" className="hover:text-indigo-500">
-                  Tour Packages
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="hover:text-indigo-500">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link to="/travel-guides" className="hover:text-indigo-500">
-                  Travel Guides
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="text-center sm:text-left">
-            <h2 className="font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Company
-            </h2>
-
-            <ul className="space-y-3 ">
-              <li>
-                <Link to="/travel-blog" className="hover:text-indigo-500">
-                  Travel Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-indigo-500">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-indigo-500">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/testimonials" className="hover:text-indigo-500">
-                  Testimonials
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div className="text-center sm:text-left">
-            <h2 className="font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Support
-            </h2>
-
-            <ul className="space-y-3">
-              <li>
-                <Link to="/privacy-policy" className="hover:text-indigo-500">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/terms-and-conditions"
-                  className="hover:text-indigo-500"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link to="/customer-support" className="hover:text-indigo-500">
-                  Customer Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/faqs" className="hover:text-indigo-500">
-                  FAQs
-                </Link>
-              </li>
-            </ul>
-          </div>
+        {/* Links */}
+        <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10">
+          <FooterColumn title="Explore" links={exploreLinks} />
+          <FooterColumn title="Company" links={companyLinks} />
+          <FooterColumn title="Support" links={supportLinks} />
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
-        <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-500 dark:text-gray-400 text-sm text-center sm:text-left">
-            © 2026 TravelMate —
+      {/* Bottom bar */}
+      <div className="border-t border-slate-200 dark:border-slate-800">
+        <div className="container mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
+          <p className="text-xs sm:text-sm text-center sm:text-left">
+            © {new Date().getFullYear()} TravelMate —{" "}
             <a
               href="https://twitter.com/knyttneve"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-500 ml-1 hover:text-indigo-400"
+              className="text-sky-500 hover:text-sky-600 font-medium"
             >
               @renxbm07
             </a>
           </p>
 
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="text-gray-500 dark:text-gray-400 hover:text-indigo-500 cursor-pointer">
-              <FaFacebookF />
-            </a>
-
-            <a className="ml-3 text-gray-500 dark:text-gray-400 hover:text-indigo-500 cursor-pointer">
-              <FaTwitter />
-            </a>
-
-            <a className="ml-3 text-gray-500 dark:text-gray-400 hover:text-indigo-500 cursor-pointer">
-              <FaInstagram />
-            </a>
-
-            <a className="ml-3 text-gray-500 dark:text-gray-400 hover:text-indigo-500 cursor-pointer">
-              <FaLinkedinIn />
-            </a>
-          </span>
+          <div className="sm:ml-auto flex items-center gap-1">
+            {socials.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="grid place-items-center w-9 h-9 text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors duration-200"
+              >
+                <Icon className="text-sm" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({ title, links }) {
+  return (
+    <div>
+      <h3 className="text-xs font-semibold uppercase tracking-widest text-slate-900 dark:text-white mb-5">
+        {title}
+      </h3>
+      <ul className="space-y-3">
+        {links.map(({ label, to }) => (
+          <li key={to}>
+            <Link
+              to={to}
+              className="text-sm hover:text-sky-500 transition-colors"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

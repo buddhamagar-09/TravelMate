@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight, FaUser } from "react-icons/fa";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaArrowRight,
+  FaCompass,
+  FaSuitcase,
+  FaRoute,
+  FaStar,
+  FaUser,
+} from "react-icons/fa";
 import useFetchPackages from "../Hook/FetchPackages";
 import api from "../../api/axios";
 
@@ -17,27 +24,27 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 function MainSection() {
-  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
+  const { packages, fetchPackages, loading } = useFetchPackages();
+
   const banners = [
     {
       id: 1,
-      image: "images/banners/nature1.jpg",
-      title: "TravelMate - Your Ultimate travel Companion",
+      image: "/images/banners/nature1.jpg",
+      title: "TravelMate — Your Ultimate Travel Companion",
       description:
         "Discover the world with our curated travel packages and accessories",
     },
     {
       id: 2,
-      image: "images/banners/nature2.jpg",
-      title:
-        "Nature heals the soul, and we have the perfect packages for your next adventure",
+      image: "/images/banners/nature2.jpg",
+      title: "Nature heals the soul",
       description:
         "Explore breathtaking landscapes and immerse yourself in nature's beauty with our travel packages",
     },
     {
       id: 3,
-      image: "images/banners/nature3.jpg",
-      title: "Explore the world with TravelMate - Your trusted travel partner",
+      image: "/images/banners/nature3.jpg",
+      title: "Explore the world with TravelMate",
       description:
         "Embark on unforgettable journeys and create lifelong memories with our travel packages",
     },
@@ -45,7 +52,6 @@ function MainSection() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviews, setReviews] = useState([]);
-
 
   useEffect(() => {
     fetchPackages();
@@ -62,7 +68,6 @@ function MainSection() {
   const fetchReviews = async () => {
     try {
       const response = await api.get("/show-reviews");
-      console.log("Fetched reviews:", response.data.reviews);
       setReviews(response.data.reviews);
     } catch (e) {
       console.log(
@@ -72,264 +77,165 @@ function MainSection() {
     }
   };
 
-  // Testimonials data
-  // const reviews = [
-  //   {
-  //     id: 1,
-  //     name: "Sarah Johnson",
-  //     country: "Australia",
-  //     rating: 5,
-  //     comment:
-  //       "Amazing Everest Base Camp experience. The guides were professional and supportive throughout the trek.",
-  //     image: "/images/trekking/everest.jpg",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "David Miller",
-  //     country: "Canada",
-  //     rating: 5,
-  //     comment:
-  //       "Well-organized itinerary and breathtaking Himalayan views from Kala Patthar.",
-  //     image: "/images/trekking/annapurna.jpg",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Maya Shrestha",
-  //     country: "Nepal",
-  //     rating: 5,
-  //     comment:
-  //       "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-  //     image: "/images/trekking/dhorpatan.jpg",
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "Preyeana Tamang",
-  //     country: "Nepal",
-  //     rating: 5,
-  //     comment:
-  //       "Excellent local knowledge, comfortable tea houses, and great support from the TravelMate team.",
-  //     image: "/images/trekking/annapurna.jpg",
-  //   },
-  // ];
-
   return (
     <>
-      {/* Main banner starts here */}
-
+      {/* ==================== HERO ==================== */}
       <FramerMotion>
-        <section className="relative w-full h-screen overflow-hidden">
-          {/* Banner Images */}
+        <section className="relative w-full h-screen overflow-hidden bg-slate-900">
           {banners.map((banner, index) => (
             <img
               key={banner.id}
               src={banner.image}
               alt={banner.title}
-              lazy="loading"
+              loading="lazy"
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-slate-950/55" />
 
-          {/* Banner Content */}
-          <div className="absolute inset-0 flex flex-col justify-center items-start px-6 md:px-16 lg:px-24">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                {banners[currentIndex].title}
-              </h2>
+          <div className="relative h-full flex items-center">
+            <div className="container mx-auto px-6 lg:px-8">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-4">
+                  Explore Nepal
+                </p>
 
-              <p className="text-gray-200 text-lg mt-4 max-w-xl">
-                {banners[currentIndex].description}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                  {banners[currentIndex].title}
+                </h1>
+
+                <p className="mt-6 text-base md:text-lg text-slate-200 leading-relaxed max-w-xl">
+                  {banners[currentIndex].description}
+                </p>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    to="/package"
+                    className="inline-flex items-center gap-2 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                  >
+                    Book Now
+                    <FaArrowRight className="text-xs" />
+                  </Link>
+
+                  <Link
+                    to="/destination"
+                    className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  >
+                    Browse Destinations
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide indicators */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+            {banners.map((b, i) => (
+              <button
+                key={b.id}
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-1 transition-all ${
+                  i === currentIndex
+                    ? "w-8 bg-sky-500"
+                    : "w-4 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
+        </section>
+      </FramerMotion>
+
+      {/* ==================== FEATURES ==================== */}
+      <FramerMotion>
+        <section className="bg-white dark:bg-slate-950 transition-colors duration-300">
+          <div className="container mx-auto px-6 lg:px-8 py-14 lg:py-20">
+            <div className="max-w-2xl mx-auto text-center mb-12">
+              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                Features
               </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+                Everything you need for the perfect trip
+              </h2>
+              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+                From expert guides to custom packages — TravelMate gives you the
+                tools to plan smarter journeys.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              <FeatureCard
+                icon={FaCompass}
+                title="Trekking Guides"
+                description="Our expert trekking guides lead you through breathtaking trails, ensuring a safe and unforgettable adventure. Explore the great outdoors with confidence."
+                link="/travel-guides"
+              />
+              <FeatureCard
+                icon={FaSuitcase}
+                title="Travel Accessories"
+                description="Discover a curated range of travel accessories designed to enhance your journey — from durable luggage to essential travel gadgets."
+                link="/accessories"
+              />
+              <FeatureCard
+                icon={FaRoute}
+                title="Custom Travel Packages"
+                description="Create your own adventure. Choose destinations, activities, and accommodations to design a trip that fits your preferences."
+                link="/tour-packages"
+              />
+            </div>
+          </div>
+        </section>
+      </FramerMotion>
+
+      {/* ==================== POPULAR PACKAGES ==================== */}
+      <FramerMotion>
+        <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                  Featured
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+                  Popular packages
+                </h2>
+              </div>
 
               <Link
                 to="/package"
-                className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
               >
-                Book Now
+                See all
+                <FaArrowRight className="text-xs" />
               </Link>
             </div>
-          </div>
-        </section>
-      </FramerMotion>
 
-      {/* <!-- main banner ends here --> */}
-      {/* features section starts here */}
-      <FramerMotion>
-        <section className="text-gray-600 body-font">
-          <div className="container px-5 py-14 mx-auto">
-            <div className="flex flex-col text-center w-full mb-20">
-              <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">
-                FEATURES
-              </h2>
-              <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900">
-                TravelMate - Your Ultimate Travel Companion
-              </h1>
-            </div>
-            <div className="flex flex-wrap -m-4">
-              <div className="p-4 md:w-1/3">
-                <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                  <div className="flex items-center mb-3">
-                    <h2 className="text-gray-900 text-lg title-font font-medium">
-                      Trekking Guides
-                    </h2>
-                  </div>
-                  <div className="grow">
-                    <p className="leading-relaxed text-base">
-                      Our expert trekking guides will lead you through
-                      breathtaking trails, ensuring a safe and unforgettable
-                      adventure. Explore the great outdoors with confidence and
-                      make memories that will last a lifetime.
-                    </p>
-                    <a className="mt-3 text-indigo-500 inline-flex items-center">
-                      Learn More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 md:w-1/3">
-                <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                  <div className="flex items-center mb-3">
-                    <h2 className="text-gray-900 text-lg title-font font-medium">
-                      Travel Accessories
-                    </h2>
-                  </div>
-                  <div className="grow">
-                    <p className="leading-relaxed text-base">
-                      Discover our range of travel accessories designed to
-                      enhance your journey. From durable luggage to essential
-                      travel gadgets, we have everything you need for a
-                      comfortable and convenient trip.
-                    </p>
-                    <a className="mt-3 text-indigo-500 inline-flex items-center">
-                      Learn More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 md:w-1/3">
-                <div className="flex rounded-lg h-full bg-gray-100 p-8 flex-col">
-                  <div className="flex items-center mb-3">
-                    <h2 className="text-gray-900 text-lg title-font font-medium">
-                      Custom Travel Packages
-                    </h2>
-                  </div>
-                  <div className="grow">
-                    <p className="leading-relaxed text-base">
-                      Create your own travel adventure with our custom travel
-                      packages. Choose your destinations, activities, and
-                      accommodations to design a trip that perfectly suits your
-                      preferences and interests.
-                    </p>
-                    <a className="mt-3 text-indigo-500 inline-flex items-center">
-                      Learn More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FramerMotion>
-      {/* features section ends here */}
-
-      {/* packages section starts here */}
-      {/* Popular Packages */}
-      <section className="text-gray-600 body-font">
-        {/* Heading */}
-        <div className="container mx-auto px-5">
-          <div className="flex items-center justify-between">
-            <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-              Our Popular Travel Packages
-            </h1>
-
-            <Link
-              to="/package"
-              className="text-sm sm:text-base text-indigo-500 hover:text-indigo-600 font-semibold whitespace-nowrap"
-            >
-              See All →
-            </Link>
-          </div>
-        </div>
-
-        <FramerMotion>
-          <div className="container max-w-7xl mx-auto px-5 py-10">
             {loading ? (
-              /* Loading Skeleton */
-              <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                  {[1, 2, 3, 4].map((item) => (
-                    <div
-                      key={item}
-                      className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm animate-pulse"
-                    >
-                      {/* Image skeleton */}
-                      <div className="w-full h-56 bg-gray-200"></div>
-
-                      {/* Content skeleton */}
-                      <div className="p-4">
-                        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
-
-                        <div className="mt-2 h-5 bg-gray-200 rounded w-1/2"></div>
-
-                        <div className="mt-6 flex items-center justify-between">
-                          <div>
-                            <div className="h-3 bg-gray-200 rounded w-10"></div>
-
-                            <div className="h-7 bg-gray-200 rounded w-20 mt-2"></div>
-                          </div>
-
-                          <div className="h-5 bg-gray-200 rounded w-12"></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {[1, 2, 3, 4].map((item) => (
+                  <div
+                    key={item}
+                    className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden animate-pulse"
+                  >
+                    <div className="w-full h-56 bg-slate-200 dark:bg-slate-800" />
+                    <div className="p-4">
+                      <div className="h-5 bg-slate-200 dark:bg-slate-800 w-3/4" />
+                      <div className="mt-2 h-4 bg-slate-200 dark:bg-slate-800 w-1/2" />
+                      <div className="mt-6 flex items-center justify-between">
+                        <div>
+                          <div className="h-3 bg-slate-200 dark:bg-slate-800 w-10" />
+                          <div className="h-6 bg-slate-200 dark:bg-slate-800 w-20 mt-2" />
                         </div>
+                        <div className="h-4 bg-slate-200 dark:bg-slate-800 w-12" />
                       </div>
                     </div>
-                  ))}
-                </div>
-
-                {/* Skeleton navigation buttons */}
-                <div className="flex justify-center mt-10 gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
-                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
-                </div>
-              </>
+                  </div>
+                ))}
+              </div>
             ) : packages.length > 0 ? (
-              /* Actual Swiper */
               <>
                 <Swiper
                   modules={[Navigation, Autoplay]}
@@ -344,20 +250,14 @@ function MainSection() {
                   loop={packages.length > 4}
                   spaceBetween={20}
                   breakpoints={{
-                    320: {
-                      slidesPerView: 1,
-                    },
-                    768: {
-                      slidesPerView: 2,
-                    },
-                    1024: {
-                      slidesPerView: 4,
-                    },
+                    320: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 4 },
                   }}
                 >
                   {packages.map((pkg) => (
                     <SwiperSlide key={pkg.id}>
-                      <div className="bg-white border border-gray-200 overflow-hidden rounded-lg shadow-sm">
+                      <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden">
                         <img
                           src={`http://localhost:8000/storage/${pkg.featured_image}`}
                           alt={pkg.title}
@@ -365,22 +265,23 @@ function MainSection() {
                         />
 
                         <div className="p-4">
-                          <h2 className="font-semibold text-lg text-black line-clamp-2 h-14">
+                          <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-[2.75rem]">
                             {pkg.title}
                           </h2>
 
-                          <div className="mt-4 flex items-center justify-between">
+                          <div className="mt-4 flex items-end justify-between">
                             <div>
-                              <p className="text-xs text-gray-500">From</p>
-
-                              <p className="text-2xl font-bold text-blue-700">
+                              <p className="text-xs uppercase tracking-wide text-slate-400">
+                                From
+                              </p>
+                              <p className="text-xl font-bold text-sky-500">
                                 ${pkg.price}
                               </p>
                             </div>
 
                             <Link
                               to={`/package/${pkg.id}`}
-                              className="text-blue-700 font-semibold hover:underline"
+                              className="text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
                             >
                               View →
                             </Link>
@@ -391,105 +292,135 @@ function MainSection() {
                   ))}
                 </Swiper>
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-center mt-10 gap-4">
-                  <button className="prev-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
-                    <FaChevronLeft />
+                {/* Navigation */}
+                <div className="flex justify-center mt-8 gap-3">
+                  <button
+                    aria-label="Previous"
+                    className="prev-btn grid place-items-center w-10 h-10 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+                  >
+                    <FaChevronLeft className="text-sm" />
                   </button>
 
-                  <button className="next-btn bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600">
-                    <FaChevronRight />
+                  <button
+                    aria-label="Next"
+                    className="next-btn grid place-items-center w-10 h-10 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+                  >
+                    <FaChevronRight className="text-sm" />
                   </button>
                 </div>
               </>
             ) : (
-              /* No Packages */
               <div className="text-center py-10">
-                <p className="text-gray-500">No travel packages available.</p>
+                <p className="text-slate-500 dark:text-slate-400">
+                  No travel packages available.
+                </p>
               </div>
             )}
           </div>
-        </FramerMotion>
-      </section>
+        </section>
+      </FramerMotion>
 
-      {/* Gallery */}
-
+      {/* ==================== DESTINATIONS ==================== */}
       <FramerMotion>
-        <section className="text-gray-600 body-font">
-          <div className="container px-5 py-10 mx-auto flex flex-wrap">
-            <div className="flex w-full mb-15 flex-wrap">
-              <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 lg:w-1/3 lg:mb-0 mb-4">
-                Our Travel Gallery
-              </h1>
-              <p className="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-base">
-                Gallery of our travel experiences and destinations. Explore the
-                beauty of the world through our curated collection of images.
+        <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="max-w-2xl mb-10">
+              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                Destinations
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+                Where will you go next?
+              </h2>
+              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+                From Himalayan peaks to jungle safaris — pick a region and start
+                planning.
               </p>
             </div>
-            <div className="flex flex-wrap md:-m-2 -m-1">
-              <div className="flex flex-wrap w-1/2">
-                <div className="md:p-2 p-1 w-1/2">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block"
-                    src="images/Gallery/gallery1.jpg"
-                  />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Featured */}
+              <Link
+                to="/destinations/everest"
+                className="sm:col-span-2 lg:col-span-2 lg:row-span-2 block relative overflow-hidden"
+              >
+                <img
+                  src="/images/destinations/gallery5.jpg"
+                  alt="Everest Base Camp"
+                  loading="lazy"
+                  className="w-full h-72 lg:h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-slate-950/45" />
+
+                <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-2">
+                    14 days · Trekking
+                  </p>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-white">
+                    Everest Base Camp
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-200 max-w-md">
+                    Walk the legendary trail to the roof of the world.
+                  </p>
+
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-400">
+                    Explore
+                    <FaArrowRight className="text-xs" />
+                  </span>
                 </div>
-                <div className="md:p-2 p-1 w-1/2">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block"
-                    src="images/Gallery/gallery2.jpg"
-                  />
-                </div>
-                <div className="md:p-2 p-1 w-full">
-                  <img
-                    alt="gallery"
-                    className="w-full h-full object-cover object-center block"
-                    src="images/Gallery/gallery3.jpg"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap w-1/2">
-                <div className="md:p-2 p-1 w-full">
-                  <img
-                    alt="gallery"
-                    className="w-full h-full object-cover object-center block"
-                    src="images/Gallery/gallery4.jpg"
-                  />
-                </div>
-                <div className="md:p-2 p-1 w-1/2">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block"
-                    src="images/Gallery/gallery5.jpg"
-                  />
-                </div>
-                <div className="md:p-2 p-1 w-1/2">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block"
-                    src="images/Gallery/gallery6.jpg"
-                  />
-                </div>
-              </div>
+              </Link>
+
+              <DestinationCard
+                image="/images/destinations/gallery1.jpg"
+                alt="Annapurna Circuit"
+                duration="12 days · Trekking"
+                name="Annapurna Circuit"
+                tagline="Circle the majestic Annapurna massif."
+                to="/destinations/annapurna"
+              />
+
+              <DestinationCard
+                image="/images/destinations/gallery2.jpg"
+                alt="Pokhara"
+                duration="5 days · Lakeside"
+                name="Pokhara"
+                tagline="Lakes, paragliding, and mountain views."
+                to="/destinations/pokhara"
+              />
+
+              <DestinationCard
+                image="/images/destinations/gallery3.jpg"
+                alt="Chitwan National Park"
+                duration="3 days · Wildlife"
+                name="Chitwan Safari"
+                tagline="Jungle safaris and rare wildlife encounters."
+                to="/destinations/chitwan"
+              />
+
+              <DestinationCard
+                image="/images/destinations/gallery4.jpg"
+                alt="Lumbini"
+                duration="2 days · Heritage"
+                name="Lumbini"
+                tagline="Birthplace of Buddha and a UNESCO site."
+                to="/destinations/lumbini"
+              />
             </div>
           </div>
         </section>
       </FramerMotion>
-      {/* Gallery section ends here */}
 
+      {/* ==================== TESTIMONIALS ==================== */}
       <FramerMotion>
-        {/* Testimonials */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-5">
-            {/* Heading */}
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">
-                What Travelers Say
+        <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+          <div className="container mx-auto px-6 lg:px-8">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                Testimonials
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+                What travelers say
               </h2>
-
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="mt-4 text-base lg:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
                 Reviews from travelers who experienced unforgettable journeys
                 with TravelMate.
               </p>
@@ -506,46 +437,13 @@ function MainSection() {
                 pauseOnMouseEnter: true,
               }}
               breakpoints={{
-                768: {
-                  slidesPerView: 2,
-                },
-                1024: {
-                  slidesPerView: 3,
-                },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
               }}
-              className="pb-8"
             >
               {reviews.map((review) => (
-                <SwiperSlide key={review.id} className="h-auto">
-                  <div className="h-full pb-6 border-b md:border-b-0 md:border-r border-gray-200 pr-0 md:pr-6">
-                    {/* User */}
-                    <div className="flex items-center gap-4 mb-4">
-                      <FaUser size={40} className="text-gray-500" />
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          {review.user?.name}
-                        </h3>
-
-                        <p className="text-sm text-gray-500">
-                          {review.user?.location}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex text-yellow-400 mb-3">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <span key={star}>
-                          {star <= review.rating ? "★" : "☆"}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Review */}
-                    <p className="text-gray-600 leading-relaxed">
-                      {review.comment}
-                    </p>
-                  </div>
+                <SwiperSlide key={review.id} className="!h-auto">
+                  <TestimonialCard review={review} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -553,6 +451,91 @@ function MainSection() {
         </section>
       </FramerMotion>
     </>
+  );
+}
+
+/* ---------- Subcomponents ---------- */
+
+function FeatureCard({ icon: Icon, title, description, link }) {
+  return (
+    <div className="flex flex-col h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+      <div className="w-12 h-12 grid place-items-center border border-sky-500/30 text-sky-500 mb-6">
+        <Icon className="h-5 w-5" />
+      </div>
+
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+        {title}
+      </h3>
+
+      <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 grow">
+        {description}
+      </p>
+
+      <Link
+        to={link}
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+      >
+        Learn more
+        <FaArrowRight className="text-xs" />
+      </Link>
+    </div>
+  );
+}
+
+function DestinationCard({ image, alt, duration, name, tagline, to }) {
+  return (
+    <Link to={to} className="block relative overflow-hidden">
+      <img
+        src={image}
+        alt={alt}
+        loading="lazy"
+        className="w-full h-72 object-cover"
+      />
+      <div className="absolute inset-0 bg-slate-950/45" />
+
+      <div className="absolute inset-x-0 bottom-0 p-6">
+        <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-2">
+          {duration}
+        </p>
+        <h3 className="text-xl font-bold text-white">{name}</h3>
+        <p className="mt-1 text-sm text-slate-200 line-clamp-1">{tagline}</p>
+      </div>
+    </Link>
+  );
+}
+
+function TestimonialCard({ review }) {
+  return (
+    <div className="h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+      {/* User */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-10 h-10 grid place-items-center border border-sky-500/30 text-sky-500 shrink-0">
+          <FaUser className="text-sm" />
+        </div>
+        <div className="min-w-0">
+          <h3 className="font-semibold text-slate-900 dark:text-white truncate">
+            {review.user?.name}
+          </h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+            {review.user?.location}
+          </p>
+        </div>
+      </div>
+
+      {/* Rating */}
+      <div className="flex gap-0.5 text-amber-400 mb-3">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span key={star} className="text-sm">
+            {star <= review.rating ? "★" : "☆"}
+          </span>
+        ))}
+      </div>
+
+      {/* Review */}
+      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+        {review.comment}
+      </p>
+    </div>
   );
 }
 

@@ -6,13 +6,11 @@ import api from "../../api/axios";
 import { toast } from "react-hot-toast";
 
 export default function BookingForm() {
-  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
+  const { packages, fetchPackages } = useFetchPackages();
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // find the package data based on the id from the URL
   const packageData = packages.find((pkg) => pkg.id === parseInt(id));
-  //get user data from local storage
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -21,7 +19,7 @@ export default function BookingForm() {
   const [specialRequest, setSpecialRequest] = useState("");
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
     fetchPackages();
   }, []);
 
@@ -43,14 +41,13 @@ useEffect(() => {
       const response = await api.post("/bookings", bookingData);
       console.log(response.data);
       toast.dismiss(loadingToast);
-      toast.success("Booking successful!"); // Show a success toast notification
-      //reset the form fields
+      toast.success("Booking successful!");
       setPhoneNumber("");
       setTravelDate("");
       setTravelers(1);
       setSpecialRequest("");
       setAgreedToTerms(false);
-      navigate("/"); // Redirect to home page after successful booking
+      navigate("/");
     } catch (error) {
       toast.dismiss(loadingToast);
       toast.error("Failed to create booking.");
@@ -58,131 +55,118 @@ useEffect(() => {
     }
   };
 
+  const inputClass =
+    "w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-sky-500 outline-none transition-colors";
+
   return (
     <>
-      <div className=" mt-10  mb-10 text-center">
-        <p className="text-blue-600 font-semibold uppercase tracking-wider">
-          TravelMate
-        </p>
+      {/* ============ PAGE HEADER ============ */}
+      <section className="bg-white dark:bg-slate-950 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-5 py-14 text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+            TravelMate
+          </p>
 
-        <h1 className="mt-2 text-4xl font-bold text-gray-900">
-          Complete Your Booking
-        </h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+            Complete your booking
+          </h1>
 
-        <p className="mt-3 text-gray-600 mb-3">
-          You're just one step away from your next adventure.
-        </p>
-      </div>
-      <section className="bg-gray-50 py-16">
+          <p className="mt-4 text-slate-600 dark:text-slate-400">
+            You're just one step away from your next adventure.
+          </p>
+        </div>
+      </section>
+
+      {/* ============ FORM SECTION ============ */}
+      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="bg-white  overflow-hidden"></div>
-
-          <div className="grid lg:grid-cols-2">
-            {/* LEFT SIDE */}
-            <div className="flex flex-col border-r border-gray-200 p-10">
+          <div className="grid lg:grid-cols-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+            {/* ============ LEFT SIDE ============ */}
+            <div className="flex flex-col p-8 lg:p-10 lg:border-r border-slate-200 dark:border-slate-800">
               <img
                 src={`http://localhost:8000/storage/${packageData?.featured_image}`}
                 alt="Package Image"
-                className=" h-72 object-cover"
+                className="h-72 object-cover w-full"
               />
 
               <div className="mt-6">
-                <h2 className="text-3xl font-bold text-gray-900">
+                <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
                   {packageData?.title}
                 </h2>
 
-                <p className="mt-3 text-gray-600 leading-relaxed line-clamp-3 text-justify">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 line-clamp-3">
                   {packageData?.short_description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-4 mt-8">
-                  <div className="border border-gray-200 p-4 rounded-md">
-                    <p className="text-sm text-gray-500">Duration</p>
-                    <h4 className="font-semibold mt-1">
-                      {packageData?.duration}
-                    </h4>
-                  </div>
-
-                  <div className="border border-gray-200 p-4 rounded-md">
-                    <p className="text-sm text-gray-500">Difficulty</p>
-                    <h4 className="font-semibold mt-1">
-                      {packageData?.difficulty}
-                    </h4>
-                  </div>
-
-                  <div className="border border-gray-200 p-4 rounded-md">
-                    <p className="text-sm text-gray-500">Group Size</p>
-                    <h4 className="font-semibold mt-1">
-                      {packageData?.group_size}
-                    </h4>
-                  </div>
-
-                  <div className="border border-gray-200 p-4 rounded-md">
-                    <p className="text-sm text-gray-500">Season</p>
-                    <h4 className="font-semibold mt-1">
-                      {packageData?.best_season}
-                    </h4>
-                  </div>
+                <div className="grid grid-cols-2 gap-3 mt-8">
+                  <InfoBox label="Duration" value={packageData?.duration} />
+                  <InfoBox label="Difficulty" value={packageData?.difficulty} />
+                  <InfoBox label="Group Size" value={packageData?.group_size} />
+                  <InfoBox label="Season" value={packageData?.best_season} />
                 </div>
 
-                <div className="mb-6 flex flex-col items-start mt-5">
-                  <p className="text-gray-500 text-sm">Starting From</p>
-                  <div className="ml-2 flex items-baseline gap-2">
-                    <h3 className="text-3xl font-bold text-blue-600">
+                <div className="mt-8">
+                  <p className="text-xs uppercase tracking-wide text-slate-400">
+                    Starting from
+                  </p>
+                  <div className="mt-1 flex items-baseline gap-2">
+                    <h3 className="text-3xl font-bold text-sky-500">
                       ${packageData?.price}
                     </h3>
-                    <p className="text-gray-500 text-sm mt-1">Per Person</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      per person
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            {/* RIGHT SIDE */}
-            <div className="p-10 lg:p-12 border-r border-gray-200">
-              <h2 className="text-3xl font-bold text-gray-900">
-                Complete Your Booking
+
+            {/* ============ RIGHT SIDE ============ */}
+            <div className="p-8 lg:p-10 border-t lg:border-t-0 border-slate-200 dark:border-slate-800">
+              <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
+                Your details
               </h2>
-              <p className="mt-2 text-gray-500">
+              <p className="mt-2 text-slate-500 dark:text-slate-400">
                 Fill in your information to reserve your trip.
               </p>
+
               <form onSubmit={handleBooking} className="mt-8 space-y-6">
                 {/* Full Name */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700">
+                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                     Full Name
                   </label>
                   <input
                     type="text"
-                    // placeholder="John Doe"
                     value={user?.name}
                     readOnly
-                    className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    className={`${inputClass} bg-slate-50 dark:bg-slate-900 cursor-not-allowed`}
                   />
                 </div>
 
                 {/* Email & Phone */}
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                       Email
                     </label>
                     <input
                       type="email"
-                      //   placeholder="john@gmail.com"
                       value={user?.email}
                       readOnly
-                      className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                      className={`${inputClass} bg-slate-50 dark:bg-slate-900 cursor-not-allowed`}
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                       Phone Number
                     </label>
                     <input
                       type="text"
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       placeholder="+977 98XXXXXXXX"
-                      className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                      className={inputClass}
                     />
                   </div>
                 </div>
@@ -190,19 +174,19 @@ useEffect(() => {
                 {/* Travel Date & Travelers */}
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                       Travel Date
                     </label>
                     <input
                       type="date"
                       min={new Date().toISOString().split("T")[0]}
                       onChange={(e) => setTravelDate(e.target.value)}
-                      className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                      className={inputClass}
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                       Number of Travelers
                     </label>
                     <input
@@ -210,46 +194,56 @@ useEffect(() => {
                       min="1"
                       onChange={(e) => setTravelers(e.target.value)}
                       defaultValue={1}
-                      className="w-full rounded-md border border-gray-300 px-4 py-3 focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 {/* Special Request */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-gray-700">
+                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
                     Special Request{" "}
-                    <span className="text-gray-400">(Optional)</span>
+                    <span className="text-slate-400">(Optional)</span>
                   </label>
                   <textarea
                     rows={4}
                     onChange={(e) => setSpecialRequest(e.target.value)}
                     placeholder="Tell us anything you'd like us to know..."
-                    className="w-full rounded-md border border-gray-300 px-4 py-3 resize-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 outline-none"
+                    className={`${inputClass} resize-none`}
                   />
                 </div>
 
                 {/* Booking Summary */}
-                <div className="border border-gray-200 bg-gray-50 p-5">
-                  <h3 className="mb-4 text-lg font-semibold text-gray-800">
+                <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
+                  <h3 className="mb-4 text-base font-semibold text-slate-900 dark:text-white">
                     Booking Summary
                   </h3>
 
-                  <div className="flex justify-between mb-3">
-                    <span className="text-gray-600">Price Per Person</span>
-                    <span className="font-medium">${packageData?.price}</span>
+                  <div className="flex justify-between mb-2 text-sm">
+                    <span className="text-slate-600 dark:text-slate-400">
+                      Price per person
+                    </span>
+                    <span className="font-medium text-slate-900 dark:text-white">
+                      ${packageData?.price}
+                    </span>
                   </div>
 
-                  <div className="flex justify-between mb-3">
-                    <span className="text-gray-600">Travelers</span>
-                    <span>{travelers}</span>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-slate-600 dark:text-slate-400">
+                      Travelers
+                    </span>
+                    <span className="font-medium text-slate-900 dark:text-white">
+                      {travelers}
+                    </span>
                   </div>
 
-                  <hr className="my-4" />
+                  <div className="my-4 border-t border-slate-200 dark:border-slate-800" />
 
-                  <div className="flex justify-between text-lg font-bold">
-                    <span>Total</span>
-                    <span className="text-blue-600">
+                  <div className="flex justify-between text-base font-bold">
+                    <span className="text-slate-900 dark:text-white">
+                      Total
+                    </span>
+                    <span className="text-sky-500">
                       ${packageData?.price * travelers}
                     </span>
                   </div>
@@ -261,11 +255,10 @@ useEffect(() => {
                     type="checkbox"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    // required
-                    className="mt-1 h-4 w-4 accent-blue-600"
+                    className="mt-1 h-4 w-4 accent-sky-500"
                   />
 
-                  <p className="text-sm text-gray-600 leading-6">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-6">
                     I agree to the Terms & Conditions and Privacy Policy.
                   </p>
                 </div>
@@ -273,7 +266,7 @@ useEffect(() => {
                 {/* Button */}
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 py-4 text-white font-semibold transition hover:bg-blue-700"
+                  className="w-full bg-sky-500 py-4 text-white font-semibold transition-colors hover:bg-sky-600"
                 >
                   Confirm Booking
                 </button>
@@ -283,5 +276,18 @@ useEffect(() => {
         </div>
       </section>
     </>
+  );
+}
+
+/* ---------- Subcomponents ---------- */
+
+function InfoBox({ label, value }) {
+  return (
+    <div className="border border-slate-200 dark:border-slate-800 p-4">
+      <p className="text-xs uppercase tracking-wide text-slate-400">{label}</p>
+      <h4 className="mt-1 font-semibold text-slate-900 dark:text-white">
+        {value}
+      </h4>
+    </div>
   );
 }

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import useTheme from "../Hook/ThemeContext";
 
-import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
-
-import { FaSearch, FaPlane, FaTimes } from "react-icons/fa";
+import { FaPlane, FaSearch, FaTimes, FaSun, FaMoon } from "react-icons/fa";
+import { HiOutlineXMark, HiOutlineBars3 } from "react-icons/hi2";
 import api from "../../api/axios";
 
 export default function Header() {
@@ -109,341 +108,341 @@ export default function Header() {
     navigate("/package");
   };
 
-  return (
-    <header
-      className={
-        isHomePage
-          ? `fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-              scrolled
-                ? "bg-white/60 backdrop-blur-lg shadow-lg"
-                : "bg-transparent"
-            }`
-          : "sticky top-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md"
-      }
-    >
-      <div className="max-w-screen-2xl mx-auto px-6">
-        {/* ================= NAVBAR ================= */}
-        <div className="flex items-center justify-between h-20">
-          {/* ================= LOGO ================= */}
-          <Link
-            to="/"
-            className={`text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 ${
-              isHomePage && !scrolled
-                ? "text-white"
-                : "text-gray-900 dark:text-white"
-            }`}
-          >
-            <FaPlane
-              className={`inline-block text-3xl sm:text-4xl mr-2 transition-colors duration-300 ${
-                isHomePage && !scrolled ? "text-blue-500" : "text-blue-600"
-              }`}
-            />
-            Travel <span className="text-blue-600">Mate</span>
-          </Link>
-
-          {/* ================= DESKTOP NAVIGATION ================= */}
-          <nav className="hidden lg:block">
-            <ul className="flex items-center gap-2">
-              <li>
-                <NavLink to="/" className={navLinkStyle}>
-                  Home
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/package" className={navLinkStyle}>
-                  Packages
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/services" className={navLinkStyle}>
-                  Services
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/destination" className={navLinkStyle}>
-                  Destinations
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/about" className={navLinkStyle}>
-                  About us
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/my-bookings" className={navLinkStyle}>
-                  Bookings
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-
-          {/* ================= RIGHT SIDE ================= */}
-          <div className="flex items-center gap-3">
-            {/* Search */}
-            <div
-              className={`hidden lg:flex relative items-center w-64 px-4 py-2 rounded-full border backdrop-blur-md transition-all duration-300 ${
-                isHomePage && !scrolled
-                  ? "border-white/30 bg-white/10"
-                  : "border-gray-300 bg-white/50 dark:border-gray-700 dark:bg-gray-800/70"
-              }`}
-            >
-              <FaSearch
-                className={
-                  isHomePage && !scrolled
-                    ? "text-white/80"
-                    : "text-gray-500 dark:text-gray-400"
-                }
-              />
-
-              <form
-                id="searchform"
-                onSubmit={handleSearch}
-                action=""
-                method="get"
-                className="flex-1 flex items-center"
-              >
-                <input
-                  type="text"
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  value={searchTerm}
-                  placeholder="Search destinations..."
-                  className={`ml-3 flex-1 bg-transparent outline-none text-sm ${
-                    isHomePage && !scrolled
-                      ? "text-white placeholder:text-gray-200"
-                      : "text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
-                  }`}
-                />
-
-                {searchTerm && (
-                  <button
-                    type="button"
-                    onClick={clearSearch}
-                    className={
-                      isHomePage && !scrolled
-                        ? "text-white/80 hover:text-white"
-                        : "text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
-                    }
-                  >
-                    <FaTimes size={14} />
-                  </button>
-                )}
-              </form>
-
-              {searchTerm && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden z-50">
-                  {suggestions.slice(0, 5).map((packageItem) => (
-                    <button
-                      key={packageItem.id}
-                      type="button"
-                      onClick={() => {
-                        setSearchTerm(packageItem.title);
-                        navigate(
-                          `/package?search=${encodeURIComponent(packageItem.title)}`,
-                        );
-                      }}
-                      className="w-full text-left px-4 py-3 hover:bg-gray-100 text-gray-800"
-                    >
-                      <div className="font-medium">{packageItem.title}</div>
-
-                      <div className="text-xs text-gray-500">
-                        {packageItem.location}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${
-                themeMode === "light"
-                  ? isHomePage && !scrolled
-                    ? "bg-white/30"
-                    : "bg-gray-300/70 dark:bg-gray-700"
-                  : "bg-blue-600/80"
-              }`}
-            >
-              <span
-                className={`absolute top-0.5 left-0.5 w-6 h-6 rounded-full bg-white flex items-center justify-center transition-transform duration-300 ${
-                  themeMode === "light" ? "translate-x-0" : "translate-x-7"
-                }`}
-              >
-                {themeMode === "light" ? "☀️" : "🌙"}
-              </span>
-            </button>
-
-            {/* Desktop Login / Logout */}
-            {!token && !user ? (
-              <div className="hidden lg:flex items-center gap-3">
-                {/* Register */}
-                <Link
-                  to="/signup"
-                  className={`transition-colors duration-300 ${
-                    isHomePage && !scrolled
-                      ? "text-white hover:text-blue-300"
-                      : "text-gray-800 dark:text-white hover:text-blue-600"
-                  }`}
-                >
-                  Register
-                </Link>
-
-                {/* Login */}
-                <Link
-                  to="/login"
-                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white cursor-pointer shadow-sm transition hover:bg-blue-700"
-                >
-                  Login
-                </Link>
-              </div>
-            ) : (
-              <div className="hidden lg:flex items-center gap-4">
-                {/* Logout */}
-                <button
-                  onClick={handleLogout}
-                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white cursor-pointer shadow-sm transition hover:bg-blue-700"
-                >
-                  Logout
-                </button>
-              </div>
-            )}
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className={`lg:hidden text-3xl transition-colors duration-300 ${
-                isHomePage && !scrolled
-                  ? "text-white"
-                  : "text-gray-800 dark:text-white"
-              }`}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? <HiOutlineXMark /> : <HiOutlineBars3 />}
-            </button>
-          </div>
-        </div>
-
-        {/* ================= MOBILE MENU ================= */}
-        <div
-          className={`lg:hidden overflow-hidden bg-white dark:bg-gray-900 rounded-b-xl shadow-lg transition-all duration-300 ${
-            menuOpen ? "max-h-[600px] py-4" : "max-h-0"
+return (
+  <header
+    className={
+      isHomePage
+        ? `fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+            scrolled
+              ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+              : "bg-transparent border-b border-transparent"
+          }`
+        : "sticky top-0 w-full z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+    }
+  >
+    <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
+      {/* ================= NAVBAR ================= */}
+      <div className="flex items-center justify-between h-20">
+        {/* ================= LOGO ================= */}
+        <Link
+          to="/"
+          className={`flex items-center gap-2 text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 ${
+            isHomePage && !scrolled
+              ? "text-white"
+              : "text-slate-900 dark:text-white"
           }`}
         >
-          {/* Mobile Search */}
-          <div className="px-4 pt-2">
-            <div className="flex items-center w-full border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg">
-              <FaSearch className="text-gray-500 dark:text-gray-400" />
+          <FaPlane
+            className={`text-2xl sm:text-3xl transition-colors duration-300 ${
+              isHomePage && !scrolled ? "text-sky-400" : "text-sky-500"
+            }`}
+          />
+          <span>
+            Travel <span className="text-sky-500">Mate</span>
+          </span>
+        </Link>
 
-              <input
-                type="text"
-                placeholder="Search destinations..."
-                className="ml-3 flex-1 bg-transparent outline-none text-sm text-gray-800 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400"
-              />
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          <ul className="flex flex-col gap-1 pt-3">
+        {/* ================= DESKTOP NAV ================= */}
+        <nav className="hidden lg:block">
+          <ul className="flex items-center gap-1">
             <li>
-              <NavLink
-                to="/"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
+              <NavLink to="/" className={navLinkStyle}>
                 Home
               </NavLink>
             </li>
 
             <li>
-              <NavLink
-                to="/package"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
+              <NavLink to="/package" className={navLinkStyle}>
                 Packages
               </NavLink>
             </li>
 
             <li>
-              <NavLink
-                to="/services"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
-                Services
+              <NavLink to="/plan" className={navLinkStyle}>
+                Plan
               </NavLink>
             </li>
 
             <li>
-              <NavLink
-                to="/destination"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
+              <NavLink to="/destination" className={navLinkStyle}>
                 Destinations
               </NavLink>
             </li>
 
             <li>
-              <NavLink
-                to="/about"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
-                About us
+              <NavLink to="/about" className={navLinkStyle}>
+                About
               </NavLink>
             </li>
 
             <li>
-              <NavLink
-                to="/my-bookings"
-                onClick={() => setMenuOpen(false)}
-                className={mobileNavLinkStyle}
-              >
+              <NavLink to="/my-bookings" className={navLinkStyle}>
                 Bookings
               </NavLink>
             </li>
           </ul>
+        </nav>
 
-          {/* ================= MOBILE LOGIN / LOGOUT ================= */}
+        {/* ================= RIGHT SIDE ================= */}
+        <div className="flex items-center gap-3">
+          {/* Desktop Search */}
+          <div
+            className={`hidden lg:flex relative items-center w-64 px-4 py-2 border transition-colors duration-300 ${
+              isHomePage && !scrolled
+                ? "border-white/30 bg-white/10"
+                : "border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900"
+            }`}
+          >
+            <FaSearch
+              className={`text-sm ${
+                isHomePage && !scrolled
+                  ? "text-white/80"
+                  : "text-slate-500 dark:text-slate-400"
+              }`}
+            />
+
+            <form
+              id="searchform"
+              onSubmit={handleSearch}
+              action=""
+              method="get"
+              className="flex-1 flex items-center"
+            >
+              <input
+                type="text"
+                onChange={(e) => setSearchTerm(e.target.value)}
+                value={searchTerm}
+                placeholder="Search destinations..."
+                className={`ml-3 flex-1 bg-transparent outline-none text-sm ${
+                  isHomePage && !scrolled
+                    ? "text-white placeholder:text-slate-200"
+                    : "text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                }`}
+              />
+
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={clearSearch}
+                  className={`ml-2 ${
+                    isHomePage && !scrolled
+                      ? "text-white/80 hover:text-white"
+                      : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                  }`}
+                >
+                  <FaTimes size={14} />
+                </button>
+              )}
+            </form>
+
+            {/* Suggestions dropdown */}
+            {searchTerm && suggestions.length > 0 && (
+              <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden z-50">
+                {suggestions.slice(0, 5).map((packageItem) => (
+                  <button
+                    key={packageItem.id}
+                    type="button"
+                    onClick={() => {
+                      setSearchTerm(packageItem.title);
+                      navigate(
+                        `/package?search=${encodeURIComponent(packageItem.title)}`,
+                      );
+                    }}
+                    className="w-full text-left px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 border-b border-slate-100 dark:border-slate-800 last:border-b-0 transition-colors"
+                  >
+                    <div className="font-medium text-sm text-slate-900 dark:text-white">
+                      {packageItem.title}
+                    </div>
+
+                    <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      {packageItem.location}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Theme Toggle — simplified */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className={`grid place-items-center w-9 h-9 border transition-colors duration-300 ${
+              isHomePage && !scrolled
+                ? "border-white/30 text-white hover:bg-white/10"
+                : "border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+            }`}
+          >
+            {themeMode === "light" ? (
+              <FaSun className="text-sm" />
+            ) : (
+              <FaMoon className="text-sm" />
+            )}
+          </button>
+
+          {/* Desktop Login / Logout */}
           {!token && !user ? (
-            <div className="flex flex-col gap-2 px-4 pt-4">
+            <div className="hidden lg:flex items-center gap-4">
+              <Link
+                to="/signup"
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  isHomePage && !scrolled
+                    ? "text-white hover:text-sky-300"
+                    : "text-slate-700 dark:text-slate-200 hover:text-sky-500"
+                }`}
+              >
+                Register
+              </Link>
+
               <Link
                 to="/login"
-                onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 border border-blue-500 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-500 hover:text-white transition"
+                className="bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
               >
                 Login
               </Link>
-
-              <Link
-                to="/signup"
-                onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-              >
-                Sign Up
-              </Link>
             </div>
           ) : (
-            <div className="flex flex-col gap-3 px-4 pt-4">
+            <div className="hidden lg:flex items-center gap-4">
               <button
-                onClick={() => {
-                  handleLogout();
-                  setMenuOpen(false);
-                }}
-                className="w-full rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                onClick={handleLogout}
+                className="bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
               >
                 Logout
               </button>
             </div>
           )}
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`lg:hidden text-2xl transition-colors duration-300 ${
+              isHomePage && !scrolled
+                ? "text-white"
+                : "text-slate-800 dark:text-white"
+            }`}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <HiOutlineXMark /> : <HiOutlineBars3 />}
+          </button>
         </div>
       </div>
-    </header>
-  );
+
+      {/* ================= MOBILE MENU ================= */}
+      <div
+        className={`lg:hidden overflow-hidden bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-[max-height] duration-300 ${
+          menuOpen ? "max-h-[600px] py-4" : "max-h-0"
+        }`}
+      >
+        {/* Mobile Search */}
+        <div className="px-4 pt-2">
+          <div className="flex items-center w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2">
+            <FaSearch className="text-sm text-slate-500 dark:text-slate-400" />
+
+            <input
+              type="text"
+              placeholder="Search destinations..."
+              className="ml-3 flex-1 bg-transparent outline-none text-sm text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+            />
+          </div>
+        </div>
+
+        {/* Mobile Nav */}
+        <ul className="flex flex-col pt-3">
+          <li>
+            <NavLink
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              Home
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/package"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              Packages
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/plan"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              Plan
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/destination"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              Destinations
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/about"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              About
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              to="/my-bookings"
+              onClick={() => setMenuOpen(false)}
+              className={mobileNavLinkStyle}
+            >
+              Bookings
+            </NavLink>
+          </li>
+        </ul>
+
+        {/* Mobile Login / Logout */}
+        {!token && !user ? (
+          <div className="flex flex-col gap-2 px-4 pt-4">
+            <Link
+              to="/login"
+              onClick={() => setMenuOpen(false)}
+              className="text-center px-4 py-2 border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-colors"
+            >
+              Login
+            </Link>
+
+            <Link
+              to="/signup"
+              onClick={() => setMenuOpen(false)}
+              className="text-center px-4 py-2 bg-sky-500 text-white hover:bg-sky-600 transition-colors"
+            >
+              Sign Up
+            </Link>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-3 px-4 pt-4">
+            <button
+              onClick={() => {
+                handleLogout();
+                setMenuOpen(false);
+              }}
+              className="w-full bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  </header>
+);
 }

@@ -5,7 +5,8 @@ import FramerMotion from "../Hook/FramerMotion";
 import useFetchPackages from "../Hook/FetchPackages";
 
 function Destination() {
-  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
+  const { packages, fetchPackages, loading } = useFetchPackages();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,49 +14,59 @@ function Destination() {
   useEffect(() => {
     fetchPackages();
   }, []);
-  
+
   return (
     <>
-      <section className="text-gray-600 body-font">
-        <h1 className="text-3xl font-bold text-center mt-9">
-          Popular Destinations
-        </h1>
+      {/* ==================== PAGE HEADER ==================== */}
+      <section className="bg-slate-900 dark:bg-slate-950">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+          <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-3">
+            Destinations
+          </p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            Popular destinations
+          </h1>
+          <p className="mt-4 text-base lg:text-lg text-slate-300 max-w-xl leading-relaxed">
+            Explore the regions, trails, and towns that travelers love most
+            across Nepal.
+          </p>
+        </div>
+      </section>
 
-        <div className="max-w-7xl mx-auto px-6 py-12">
+      {/* ==================== GRID ==================== */}
+      <section className="bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
                 <div
                   key={item}
-                  className="bg-white border border-gray-200 overflow-hidden animate-pulse"
+                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden animate-pulse"
                 >
-                  {/* Image skeleton */}
-                  <div className="w-full h-56 bg-gray-200"></div>
+                  <div className="w-full h-56 bg-slate-200 dark:bg-slate-800" />
 
-                  {/* Content skeleton */}
                   <div className="p-4">
-                    <div className="h-6 bg-gray-200 rounded w-3/4"></div>
-
-                    <div className="h-4 bg-gray-200 rounded w-1/2 mt-2"></div>
+                    <div className="h-5 bg-slate-200 dark:bg-slate-800 w-3/4" />
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 w-1/2 mt-2" />
 
                     <div className="mt-6 flex items-center justify-between">
                       <div>
-                        <div className="h-3 bg-gray-200 rounded w-10"></div>
-                        <div className="h-7 bg-gray-200 rounded w-20 mt-2"></div>
+                        <div className="h-3 bg-slate-200 dark:bg-slate-800 w-10" />
+                        <div className="h-7 bg-slate-200 dark:bg-slate-800 w-20 mt-2" />
                       </div>
 
-                      <div className="h-5 bg-gray-200 rounded w-12"></div>
+                      <div className="h-4 bg-slate-200 dark:bg-slate-800 w-12" />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          ) : packages.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-white border border-gray-200 overflow-hidden"
+                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden"
                 >
                   <img
                     src={`http://localhost:8000/storage/${pkg.featured_image}`}
@@ -64,22 +75,24 @@ function Destination() {
                   />
 
                   <div className="p-4">
-                    <h2 className="font-semibold text-lg text-black leading-6 h-12">
+                    <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-[2.75rem]">
                       {pkg.title}
                     </h2>
 
-                    <div className="mt-4 flex items-center justify-between">
+                    <div className="mt-4 flex items-end justify-between">
                       <div>
-                        <p className="text-xs text-gray-500">From</p>
+                        <p className="text-xs uppercase tracking-wide text-slate-400">
+                          From
+                        </p>
 
-                        <p className="text-2xl font-bold text-blue-700">
+                        <p className="text-xl font-bold text-sky-500">
                           ${pkg.price}
                         </p>
                       </div>
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="text-blue-700 font-semibold hover:underline"
+                        className="text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
                       >
                         View →
                       </Link>
@@ -87,6 +100,12 @@ function Destination() {
                   </div>
                 </div>
               ))}
+            </div>
+          ) : (
+            <div className="text-center py-20">
+              <p className="text-slate-500 dark:text-slate-400">
+                No destinations found.
+              </p>
             </div>
           )}
         </div>
