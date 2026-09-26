@@ -153,55 +153,61 @@ export default function ViewBookings() {
                     ${booking.total_price}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap">
                     {booking.payment_status === "paid" && (
-                      <span className="border border-green-600 px-2 py-1 rounded">
-                        {booking.payment_status}
+                      <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+                        Paid
                       </span>
                     )}
 
                     {booking.payment_status === "pending" && (
-                      <span className="border border-yellow-500 px-2 py-1 rounded">
-                        {booking.payment_status}
+                      <span className="inline-flex items-center gap-2 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-medium text-yellow-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
+                        Pending
                       </span>
                     )}
 
                     {booking.payment_status === "failed" && (
-                      <span className="border border-red-600 px-2 py-1 rounded">
-                        {booking.payment_status}
+                      <span className="inline-flex items-center gap-2 border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-medium text-red-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-red-400"></span>
+                        Failed
                       </span>
                     )}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap">
                     {booking.status === "pending" && (
-                      <span className="border border-yellow-500 px-2 py-1 rounded">
+                      <span className="inline-flex items-center gap-2 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-medium text-yellow-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
                         Pending
                       </span>
                     )}
 
                     {booking.status === "confirmed" && (
-                      <span className="border border-blue-500 px-2 py-1 rounded">
+                      <span className="inline-flex items-center gap-2 border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-xs font-medium text-blue-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
                         Confirmed
                       </span>
                     )}
 
                     {booking.status === "cancelled" && (
-                      <span className="border border-red-500 px-2 py-1 rounded">
+                      <span className="inline-flex items-center gap-2 border border-red-500/30 bg-red-500/10 px-3 py-1.5 text-xs font-medium text-red-400">
+                        <span className="h-1.5 w-1.5 rounded-full bg-red-400"></span>
                         Cancelled
                       </span>
                     )}
                   </td>
 
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex justify-center gap-2">
+                    <div className="flex items-center justify-center gap-2">
                       {booking.status === "pending" && (
                         <>
                           <button
                             onClick={() =>
                               updateStatus(booking.id, "confirmed")
                             }
-                            className="bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded text-white cursor-pointer"
+                            className="border cursor-pointer border-blue-500/40 px-3 py-1.5 text-xs font-medium text-blue-400 transition hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-300"
                           >
                             Approve
                           </button>
@@ -210,7 +216,7 @@ export default function ViewBookings() {
                             onClick={() =>
                               updateStatus(booking.id, "cancelled")
                             }
-                            className="bg-red-600 hover:bg-red-700 px-3 py-2 rounded text-white cursor-pointer"
+                            className="border cursor-pointer border-red-500/40 px-3 py-1.5 text-xs font-medium text-red-400 transition hover:border-red-500 hover:bg-red-500/10 hover:text-red-300"
                           >
                             Cancel
                           </button>
@@ -218,14 +224,14 @@ export default function ViewBookings() {
                       )}
 
                       {booking.status === "confirmed" && (
-                        <span className="text-blue-500 font-semibold">
-                          Confirmed
+                        <span className="text-xs text-slate-500">
+                          No action
                         </span>
                       )}
 
                       {booking.status === "cancelled" && (
-                        <span className="text-red-500 font-semibold">
-                          Cancelled
+                        <span className="text-xs text-slate-500">
+                          No action
                         </span>
                       )}
                     </div>
