@@ -100,22 +100,32 @@ export default function ViewReview() {
                   </td>
 
                   <td className="px-6 py-4 text-slate-300">{review.comment}</td>
-                  <td
-                    className={`px-6 py-4 font-medium ${
-                      review.status === "active"
-                        ? "text-blue-500"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {review.status}
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span
+                      className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
+                        review.status === "active"
+                          ? "border-blue-500/30 bg-blue-500/10 text-blue-400"
+                          : "border-red-500/30 bg-red-500/10 text-red-400"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 ${
+                          review.status === "active"
+                            ? "bg-blue-400"
+                            : "bg-red-400"
+                        }`}
+                      ></span>
+
+                      {review.status === "active" ? "Active" : "Blocked"}
+                    </span>
                   </td>
                   <td className="px-6 py-4 text-center">
                     <button
                       onClick={() => toggleStatus(review.id)}
-                      className={`px-4 py-2 rounded-lg border ${
+                      className={`border px-3 py-1.5 text-xs font-medium transition ${
                         review.status === "active"
-                          ? "border-red-600"
-                          : "border-blue-600"
+                          ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
+                          : "border-blue-500/40 bg-blue-500/10 text-blue-400 hover:border-blue-500 hover:bg-blue-500/15 hover:text-blue-300"
                       }`}
                     >
                       {review.status === "active" ? "Block" : "Unblock"}
