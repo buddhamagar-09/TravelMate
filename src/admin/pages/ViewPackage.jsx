@@ -35,19 +35,20 @@ export default function ViewPackage() {
 
   //function to toggle package status
   const togglestatus = async (id) => {
-    if (!window.confirm("Are you sure you want to toggle this package's status?")) {
+    if (
+      !window.confirm("Are you sure you want to toggle this package's status?")
+    ) {
       return;
     }
-    try{
+    try {
       const response = await api.put(`/packages/${id}/toggle-status`);
       toast.success("Package status updated successfully!");
       console.log(response.data);
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error.response?.data);
       toast.error("Failed to update package status.");
     }
-    fetchPackages(); 
+    fetchPackages();
   };
 
   return (
@@ -119,25 +120,33 @@ export default function ViewPackage() {
                   <td className="px-6 py-4 text-slate-300">{pkg.location}</td>
 
                   <td className="px-6 py-4">
-                    <span className="rounded-full bg-yellow-500/20 px-3 py-1 text-xs font-medium text-yellow-400">
+                    <span className="inline-flex items-center gap-2 border border-yellow-500/30 bg-yellow-500/10 px-3 py-1.5 text-xs font-medium text-yellow-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-400"></span>
                       {pkg.difficulty}
                     </span>
                   </td>
 
                   <td className="px-6 py-4">
-                    <div className="flex justify-center gap-2">
+                    <div className="flex items-center justify-center gap-2">
+                      {/* Edit */}
                       <button
                         onClick={() => handleEdit(pkg.id)}
-                        className=" bg-blue-600 p-2 hover:bg-blue-700 cursor-pointer"
+                        title="Edit package"
+                        className="border cursor-pointer border-slate-700 bg-slate-800 p-2 text-slate-300 transition hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-400"
                       >
                         <FiEdit2 size={16} />
                       </button>
 
+                      {/* Block / Unblock */}
                       <button
                         onClick={() => togglestatus(pkg.id)}
-                        className={`${pkg.status === 'active' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'} p-2 rounded text-white cursor-pointer`}
+                        className={`border px-3 py-1.5 text-xs font-medium transition cursor-pointer ${
+                          pkg.status === "active"
+                            ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
+                            : "border-blue-500/40 bg-blue-500/10 text-blue-400 hover:border-blue-500 hover:bg-blue-500/15 hover:text-blue-300"
+                        }`}
                       >
-                       {pkg.status === 'active' ? 'Block' : 'Unblock'}
+                        {pkg.status === "active" ? "Block" : "Unblock"}
                       </button>
                     </div>
                   </td>
@@ -150,4 +159,3 @@ export default function ViewPackage() {
     </div>
   );
 }
-
