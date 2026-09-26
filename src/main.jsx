@@ -46,7 +46,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route path="" element={<MainSection />} />
         <Route path="destination" element={<Destination />} />
-        <Route path="services" element={<Services />} />
+        <Route path="plan" element={<Services />} />
         <Route path="package" element={<Package />} />
         <Route path="package/:id" element={<PackageDetails />} />
         <Route path="about" element={<About />} />
