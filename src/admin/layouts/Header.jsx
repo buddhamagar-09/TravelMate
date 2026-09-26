@@ -114,7 +114,7 @@ export default function Header({ setSidebarOpen }) {
           {/* Logout button - hide on small tablets */}
           <button
             onClick={handleLogout}
-            className="hidden lg:block px-3 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-medium transition"
+            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-medium transition"
           >
             Logout
           </button>
