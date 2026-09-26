@@ -71,7 +71,7 @@ export default function ViewUser() {
       ) : (
         <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
           <table className="min-w-full text-sm">
-            <thead className="border-b border-slate-800 bg-slate-950">
+            <thead className="border-b border-slate-800 transition hover:bg-slate-800/60">
               <tr className="text-slate-300">
                 <th className="px-6 py-4 text-left font-semibold">S.No</th>
                 <th className="px-6 py-4 text-left font-semibold">Name</th>
@@ -87,30 +87,41 @@ export default function ViewUser() {
                   key={user.id}
                   className="border-b border-slate-800 hover:bg-slate-800 transition"
                 >
-                  <td className="px-6 py-4">{index + 1}</td>
+                  <td className="px-6 py-4 text-slate-400">{index + 1}</td>
 
                   <td className="px-6 py-4 font-medium text-white">
                     {user.name}
                   </td>
 
                   <td className="px-6 py-4 text-slate-300">{user.email}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span
+                      className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
+                        user.status === "active"
+                          ? "border-blue-500/30 bg-blue-500/10 text-blue-400"
+                          : "border-red-500/30 bg-red-500/10 text-red-400"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 ${
+                          user.status === "active"
+                            ? "bg-blue-400"
+                            : "bg-red-400"
+                        }`}
+                      ></span>
 
-                  <td className="px-6 py-4">
-                    {user.status === "active" ? (
-                      <span className="text-blue-500 font-medium">Active</span>
-                    ) : (
-                      <span className="text-red-500 font-medium">Blocked</span>
-                    )}
+                      {user.status === "active" ? "Active" : "Blocked"}
+                    </span>
                   </td>
 
                   <td className="px-6 py-4">
-                    <div className="flex justify-center gap-2">
+                    <div className="flex items-center justify-center">
                       <button
                         onClick={() => toggleStatus(user.id)}
-                        className={`px-3 py-1 rounded border ${
+                        className={`border cursor-pointer px-3 py-1.5 text-xs font-medium transition ${
                           user.status === "active"
-                            ? "border-red-600"
-                            : "border-blue-600"
+                            ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
+                            : "border-blue-500/40 bg-blue-500/10 text-blue-400 hover:border-blue-500 hover:bg-blue-500/15 hover:text-blue-300"
                         }`}
                       >
                         {user.status === "active" ? "Block" : "Unblock"}
