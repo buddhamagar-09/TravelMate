@@ -4,6 +4,7 @@ import useTheme from "../Hook/ThemeContext";
 
 import { FaPlane, FaSearch, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import { HiOutlineXMark, HiOutlineBars3 } from "react-icons/hi2";
+import { toast } from "react-hot-toast";
 import api from "../../api/axios";
 
 export default function Header() {
@@ -29,7 +30,7 @@ export default function Header() {
         const response = await api.get("/packages");
         setPackages(response.data);
       } catch (error) {
-        console.log(error);
+        toast.error("Failed to load search suggestions");
       }
     };
 
@@ -68,10 +69,9 @@ export default function Header() {
   // Logout
   const handleLogout = async () => {
     try {
-      const response = await api.post("/logout");
-      console.log(response);
+      await api.post("/logout");
     } catch (error) {
-      console.log(error);
+      toast.error("Logout failed. Please try again.");
     }
 
     localStorage.removeItem("token");
@@ -337,20 +337,35 @@ return (
       {/* ================= MOBILE MENU ================= */}
       <div
         className={`lg:hidden overflow-hidden bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-[max-height] duration-300 ${
-          menuOpen ? "max-h-[600px] py-4" : "max-h-0"
+          menuOpen ? "max-h-150 py-4" : "max-h-0"
         }`}
       >
         {/* Mobile Search */}
         <div className="px-4 pt-2">
-          <div className="flex items-center w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2">
+          <form
+            onSubmit={handleSearch}
+            className="flex items-center w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2"
+          >
             <FaSearch className="text-sm text-slate-500 dark:text-slate-400" />
 
             <input
               type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search destinations..."
               className="ml-3 flex-1 bg-transparent outline-none text-sm text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
             />
-          </div>
+
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={clearSearch}
+                className="ml-2 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+              >
+                <FaTimes size={14} />
+              </button>
+            )}
+          </form>
         </div>
 
         {/* Mobile Nav */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import api from "../../api/axios";
 import useFetchPackages from "../Hook/FetchPackages";
 
@@ -16,7 +17,7 @@ function Package() {
       );
       setPackages(response.data);
     } catch (error) {
-      console.error("Error searching packages:", error);
+      toast.error("Failed to search packages. Please try again.");
     }
   };
 
@@ -102,7 +103,7 @@ function Package() {
                   />
 
                   <div className="p-4">
-                    <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-[2.75rem]">
+                    <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-11">
                       {pkg.title}
                     </h2>
 
