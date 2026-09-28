@@ -1,34 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import api from "../../api/axios";
 import useFetchPackages from "../Hook/FetchPackages";
 
 function Package() {
-  const { packages, fetchPackages, loading, setPackages } = useFetchPackages();
+  const { packages, fetchPackages, loading } = useFetchPackages();
 
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
 
-  const searchPackages = async () => {
-    try {
+  const { data: searchResults = [] } = useQuery({
+    queryKey: ["search-packages", searchQuery],
+    queryFn: async () => {
       const response = await api.get(
         `/search-packages?query=${encodeURIComponent(searchQuery)}`,
       );
-      setPackages(response.data);
-    } catch (error) {
+      return response.data;
+    },
+    enabled: !!searchQuery,
+    onError: () => {
       toast.error("Failed to search packages. Please try again.");
-    }
-  };
+    },
+  });
 
-  useEffect(() => {
-    if (searchQuery) {
-      searchPackages();
-    } else {
-      fetchPackages();
-    }
-    window.scrollTo(0, 0);
-  }, [searchQuery]);
+  const displayPackages = searchQuery ? searchResults : packages;
 
   return (
     <>
@@ -89,9 +86,9 @@ function Package() {
                 </div>
               ))}
             </div>
-          ) : packages.length > 0 ? (
+          ) : displayPackages.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-              {packages.map((pkg) => (
+              {displayPackages.map((pkg) => (
                 <div
                   key={pkg.id}
                   className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden"

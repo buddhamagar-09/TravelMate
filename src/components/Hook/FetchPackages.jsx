@@ -1,38 +1,18 @@
-import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import api from "../../api/axios";
 
 export default function FetchPackages() {
+  const {
+    data: packages = [],
+    isLoading: loading,
+    refetch: fetchPackages,
+  } = useQuery({
+    queryKey: ["packages"],
+    queryFn: async () => {
+      const response = await api.get("/packages");
+      return response.data;
+    },
+  });
 
-    const [packages, setPackages] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    const fetchPackages = async () => {
-
-        setLoading(true);
-
-        try {
-
-            const response = await api.get("/packages");
-
-            console.log(response.data);
-
-            setPackages(response.data);
-
-        } catch (error) {
-
-            console.log(error.response?.data);
-
-        } finally {
-
-            setLoading(false);
-
-        }
-    };
-
-    return {
-        packages,
-        fetchPackages,
-        loading,
-        setPackages
-    };
+  return { packages, fetchPackages, loading };
 }

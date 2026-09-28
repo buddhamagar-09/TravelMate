@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import useTheme from "../Hook/ThemeContext";
 
 import { FaPlane, FaSearch, FaTimes, FaSun, FaMoon } from "react-icons/fa";
@@ -8,7 +9,6 @@ import { toast } from "react-hot-toast";
 import api from "../../api/axios";
 
 export default function Header() {
-  const [packages, setPackages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const location = useLocation();
@@ -23,19 +23,17 @@ export default function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
   const token = localStorage.getItem("token");
 
-  // Fetch packages for search suggestions
-  useEffect(() => {
-    const fetchPackages = async () => {
-      try {
-        const response = await api.get("/packages");
-        setPackages(response.data);
-      } catch (error) {
-        toast.error("Failed to load search suggestions");
-      }
-    };
-
-    fetchPackages();
-  }, []);
+  // Fetch packages for search suggestions using React Query
+  const { data: packages = [] } = useQuery({
+    queryKey: ["packages"],
+    queryFn: async () => {
+      const response = await api.get("/packages");
+      return response.data;
+    },
+    onError: () => {
+      toast.error("Failed to load search suggestions");
+    },
+  });
 
   //suggestion
   const suggestions = packages.filter((packageitem) => {
