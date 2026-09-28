@@ -41,6 +41,13 @@ export default function Header() {
     return packageitem.title.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
+  // Clear search term when navigating to any page other than /package
+  useEffect(() => {
+    if (location.pathname !== "/package") {
+      setSearchTerm("");
+    }
+  }, [location.pathname]);
+
   // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
