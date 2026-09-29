@@ -15,28 +15,27 @@ export default function Includes() {
   const currentStep = 5;
   const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
 
+  // Function to fetch existing includes if we are in edit mode
+  useEffect(() => {
+    if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
+    setSaving(true);
 
-//function to fetch existing includes if we are in edit mode
-useEffect(() => {
-  if (!isEditing) return; // if we are not in edit mode then we don't need to fetch existing includes
-  setSaving(true);
-
-  //fetch existing includes
-  const fetchIncludes = async () => {
-    try{
-      const response = await api.get(`/includes/${id}`);
-      console.log(response.data);
-      const existingIncludes = response.data.includes.map((item) => item.item);
-      setIncludes(existingIncludes);
-    }catch(error){
-      console.log(error.response?.data);
-      toast.error("Failed to fetch existing includes. Please try again.");
+    //fetch existing includes
+    const fetchIncludes = async () => {
+      try{
+        const response = await api.get(`/includes/${id}`);
+        console.log(response.data);
+        const existingIncludes = response.data.includes.map((item) => item.item);
+        setIncludes(existingIncludes);
+      }catch(error){
+        console.log(error.response?.data);
+        toast.error("Failed to fetch existing includes. Please try again.");
+      }
+      finally{
+        setSaving(false);
+      }
     }
-    finally{
-      setSaving(false);
-    }
-  }
-  fetchIncludes();
+    fetchIncludes();
 }, [id, isEditing]);
 
 
