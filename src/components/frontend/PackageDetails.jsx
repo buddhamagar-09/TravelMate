@@ -127,7 +127,7 @@ function PackageDetails() {
                           {pkg.title}
                         </h2>
 
-                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 text-justify">
                           {pkg.short_description}
                         </p>
 
@@ -166,7 +166,7 @@ function PackageDetails() {
 
                     {/* Right Side */}
                     <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-slate-200 dark:border-slate-800 mt-4 pt-4 sm:mt-0 sm:pt-0">
-                      <p className="leading-relaxed text-base text-slate-600 dark:text-slate-300 mb-4">
+                      <p className="leading-relaxed text-base text-slate-600 dark:text-slate-300 mb-4 text-justify">
                         {pkg.long_description}
                       </p>
 
