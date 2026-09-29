@@ -30,6 +30,7 @@ import Itinerary from "./admin/pages/Itenaries.jsx";
 import GalleryStep from "./admin/pages/GalleryStep.jsx";
 import Includes from "./admin/pages/Includes.jsx";
 import Excludes from "./admin/pages/Excludes.jsx";
+import Highlights from "./admin/pages/Highlights.jsx";
 import ViewUser from "./admin/pages/ViewUser.jsx";
 import ViewBookings from "./admin/pages/ViewBookings.jsx";
 import MyBookings from "./components/frontend/MyBookings.jsx";
@@ -69,6 +70,7 @@ const router = createBrowserRouter(
           <Route path="view-packages" element={<ViewPackage />} />
           <Route path="itinerary/:id" element={<Itinerary />} />
           <Route path="gallery/:id" element={<GalleryStep />} />
+          <Route path="highlights/:id" element={<Highlights />} />
           <Route path="includes/:id" element={<Includes />} />
           <Route path="excludes/:id" element={<Excludes />} />
           <Route path="view-users" element={<ViewUser />} />
@@ -79,6 +81,7 @@ const router = createBrowserRouter(
           <Route path="edit-package/:id" element={<AddPackage />} />
           <Route path="edit-itinerary/:id" element={<Itinerary />} />
           <Route path="edit-gallery/:id" element={<GalleryStep />} />
+          <Route path="edit-highlights/:id" element={<Highlights />} />
           <Route path="edit-includes/:id" element={<Includes />} />
           <Route path="edit-excludes/:id" element={<Excludes />} />
         </Route>
