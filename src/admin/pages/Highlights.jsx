@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useMatch } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import api from "../../api/axios";
 
 export default function Highlights() {
   const navigate = useNavigate();
@@ -12,17 +13,48 @@ export default function Highlights() {
   const [newHighlight, setNewHighlight] = useState("");
 
   const currentStep = 4;
-  const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
+  const steps = [
+    "Package",
+    "Itinerary",
+    "Gallery",
+    "Highlights",
+    "Includes",
+    "Exclude",
+  ];
+
+  //fetch existing highlights if we are in edit mode
+  useEffect(() => {
+    if (!isEditing) return;
+
+    const fetchHighlights = async () => {
+      setSaving(true);
+      try {
+        const response = await api.get(`/trek-highlights/${id}`);
+        const existingHighlights = response.data.highlights.map(
+          (item) => item.highlight,
+        );
+        setHighlights(existingHighlights);
+      } catch (error) {
+        console.log(error.response?.data);
+        toast.error("Failed to fetch existing highlights. Please try again.");
+      } finally {
+        setSaving(false);
+      }
+    };
+
+    fetchHighlights();
+  }, [id, isEditing]);
 
   // Function to handle form submission
   const handleSubmit = async () => {
     setSaving(true);
     try {
       // TODO: Add API call when backend is ready
-      // const response = isEditing
-      //   ? await api.post(`/highlights/${id}?_method=PUT`, { highlights })
-      //   : await api.post(`/highlights/${id}`, { highlights });
+      const response = isEditing
+        ? await api.post(`/trek-highlights/${id}?_method=PUT`, { highlights })
+        : await api.post(`/trek-highlights/${id}`, { highlights });
 
+      console.log("Response:", response.data); // Log the response data for debugging
       toast.success(
         isEditing
           ? "Highlights updated successfully"
@@ -142,12 +174,12 @@ export default function Highlights() {
 
             <div className="space-y-2">
               {highlights.map((item, index) => (
-                <div key={index} className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
+                <div
+                  key={index}
+                  className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3"
+                >
                   <p className="text-white text-sm">{item}</p>
-                  <button
-                    type="button"
-                    onClick={() => removeHighlight(index)}
-                  >
+                  <button type="button" onClick={() => removeHighlight(index)}>
                     Remove
                   </button>
                 </div>

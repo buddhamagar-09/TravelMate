@@ -138,12 +138,9 @@ function PackageDetails() {
                           </h3>
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
-                            <HighlightItem text="Visit Everest Base Camp" />
-                            <HighlightItem text="Sunrise at Kala Patthar" />
-                            <HighlightItem text="Experience Sherpa culture" />
-                            <HighlightItem text="Explore Sagarmatha National Park" />
-                            <HighlightItem text="Visit Namche Bazaar" />
-                            <HighlightItem text="Tengboche Monastery" />
+                            {pkg.trek_highlights?.map((highlight, index) => (
+                              <HighlightItem key={index} text={highlight.highlight} />
+                            ))}
                           </div>
                         </div>
 
@@ -448,7 +445,7 @@ function PackageDetails() {
             }}
           >
             {reviews.map((review) => (
-              <SwiperSlide key={review.id} className="!h-auto">
+              <SwiperSlide key={review.id} className="h-auto!">
                 <div className="h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
                   {/* User */}
                   <div className="flex items-center gap-3 mb-4">
