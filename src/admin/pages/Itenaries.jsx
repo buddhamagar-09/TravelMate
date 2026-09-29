@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 export default function ItineraryStep() {
   const currentStep = 2;
 
-  const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+  const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
 
   const { id } = useParams(); // Get the package ID from the URL
   const navigate = useNavigate();

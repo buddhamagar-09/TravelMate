@@ -12,8 +12,8 @@ export default function Includes() {
   const [includes, setIncludes] = useState([]);
   const [newInclude, setNewInclude] = useState(""); // State for the new include item input
 
-  const currentStep = 4;
-  const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+  const currentStep = 5;
+  const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
 
 
 //function to fetch existing includes if we are in edit mode
@@ -93,9 +93,9 @@ useEffect(() => {
 // Navigation handlers
   const handlePrevious = () => {
    if(isEditing) {
-      navigate(`/admin/edit-gallery/${id}`);
+      navigate(`/admin/edit-highlights/${id}`);
     } else {
-      navigate(`/admin/gallery/${id}`);
+      navigate(`/admin/highlights/${id}`);
     }
   };
 // Navigation handlers

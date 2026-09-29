@@ -8,7 +8,7 @@ export default function GalleryStep() {
   const { id } = useParams();
 
   const currentStep = 3;
-  const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+  const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
 
   const isEditing = useMatch("/admin/edit-gallery/:id"); // Check if we are in edit mode based on the URL pattern
   const [saving, setSaving] = useState(false);
@@ -82,9 +82,9 @@ export default function GalleryStep() {
           : "Gallery created successfully",
       );
       if (!isEditing) {
-        navigate(`/admin/includes/${id}`);
+        navigate(`/admin/highlights/${id}`);
       } else {
-        navigate(`/admin/edit-includes/${id}`);
+        navigate(`/admin/edit-highlights/${id}`);
       }
     } catch (error) {
       console.log(error.response?.data);
@@ -107,9 +107,9 @@ export default function GalleryStep() {
 
   const handleNext = () => {
     if (isEditing) {
-      navigate(`/admin/edit-includes/${id}`);
+      navigate(`/admin/edit-highlights/${id}`);
     } else {
-      navigate(`/admin/includes/${id}`);
+      navigate(`/admin/highlights/${id}`);
     }
   };
   return (

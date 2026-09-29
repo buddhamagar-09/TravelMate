@@ -11,8 +11,8 @@ export default function Excludes() {
   const [excludes, setExcludes] = useState([]);
   const [newExclude, setNewExclude] = useState(""); // State for the new exclude item input
 
-  const currentStep = 5;
-  const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+  const currentStep = 6;
+  const steps = ["Package", "Itinerary", "Gallery", "Highlights", "Includes", "Exclude"];
 
   const isEditing = useMatch("/admin/edit-excludes/:id"); // Check if we are in edit mode based on the URL pattern
   //function to fetch existing includes if we are in edit mode
@@ -80,11 +80,10 @@ useEffect(() => {
   };
 
   const handlePrevious = () => {
-    if(id == "null") {
-      navigate(`/admin/includes/${id}`);
-    }
-    else{
+    if(isEditing) {
       navigate(`/admin/edit-includes/${id}`);
+    } else {
+      navigate(`/admin/includes/${id}`);
     }
   };
 
