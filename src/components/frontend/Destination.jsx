@@ -86,7 +86,7 @@ function Destination() {
                         </p>
 
                         <p className="text-xl font-bold text-sky-500">
-                          ${pkg.price}
+                          Rs. {pkg.price}
                         </p>
                       </div>
 

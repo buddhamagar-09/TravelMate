@@ -111,7 +111,7 @@ export default function BookingForm() {
                   </p>
                   <div className="mt-1 flex items-baseline gap-2">
                     <h3 className="text-3xl font-bold text-sky-500">
-                      ${packageData?.price}
+                      Rs. {packageData?.price}
                     </h3>
                     <p className="text-sm text-slate-500 dark:text-slate-400">
                       per person
@@ -224,7 +224,7 @@ export default function BookingForm() {
                       Price per person
                     </span>
                     <span className="font-medium text-slate-900 dark:text-white">
-                      ${packageData?.price}
+                      Rs. {packageData?.price}
                     </span>
                   </div>
 
@@ -244,7 +244,7 @@ export default function BookingForm() {
                       Total
                     </span>
                     <span className="text-sky-500">
-                      ${packageData?.price * travelers}
+                      Rs. {packageData?.price * travelers}
                     </span>
                   </div>
                 </div>

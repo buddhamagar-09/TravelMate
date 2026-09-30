@@ -151,7 +151,7 @@ function PackageDetails() {
                           </p>
                           <div className="mt-1 flex items-baseline gap-2">
                             <h3 className="text-3xl font-bold text-sky-500">
-                              ${pkg.price}
+                              Rs. {pkg.price}
                             </h3>
                             <p className="text-sm text-slate-500 dark:text-slate-400">
                               per person
@@ -174,7 +174,7 @@ function PackageDetails() {
                             Starting from
                           </p>
                           <h2 className="text-2xl font-bold text-sky-500 mt-1">
-                            ${pkg.price}{" "}
+                            Rs. {pkg.price}{" "}
                             <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
                               per person
                             </span>
