@@ -113,7 +113,7 @@ export default function ViewPackage() {
                     {pkg.title}
                   </td>
 
-                  <td className="px-6 py-4 text-slate-300">${pkg.price}</td>
+                  <td className="px-6 py-4 text-slate-300">Rs. {pkg.price}</td>
 
                   <td className="px-6 py-4 text-slate-300">{pkg.duration}</td>
 

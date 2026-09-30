@@ -150,7 +150,7 @@ export default function ViewBookings() {
                     {booking.travelers}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-slate-300">
-                    ${booking.total_price}
+                    Rs. {booking.total_price}
                   </td>
 
                   <td className="px-6 py-4 whitespace-nowrap">

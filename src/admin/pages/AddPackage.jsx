@@ -7,7 +7,7 @@ export default function AddPackage() {
   const { id } = useParams();
   const currentStep = 1;
 
-  const steps = ["Package", "Itinerary", "Gallery", "Includes", "Exclude"];
+  const steps = ["Package", "Itinerary", "Gallery","Highlights", "Includes", "Exclude"];
   const navigate = useNavigate();
 
   const [packageId, setPackageId] = useState(null); // State to store the package ID after saving
@@ -199,11 +199,11 @@ export default function AddPackage() {
 
           <div>
             <label className="block text-sm text-slate-300 mb-2">
-              Price (USD)
+              Price (Rupees)
             </label>
             <input
               type="number"
-              placeholder="1299"
+              placeholder="00000"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
