@@ -2,26 +2,30 @@ import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import api from "../../api/axios";
 import { toast } from "react-hot-toast";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ReviewForm({ packageId }) {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
-    if(!token)
-    {
-      navigate("/login",{
-        state:{
+
+    if (!token) {
+      navigate("/login", {
+        state: {
           redirectTo: `/package/${packageId}`,
-        }
+        },
       });
       return;
     }
 
+    if (rating === 0) return;
+
+    setSubmitting(true);
     try {
       const response = await api.post(`/reviews`, {
         package_id: packageId,
@@ -32,66 +36,79 @@ function ReviewForm({ packageId }) {
       setComment("");
       toast.success(response.data.message);
     } catch (error) {
-      toast.error(error.response?.data?.message);
+      toast.error(
+        error.response?.data?.message || "Failed to submit review.",
+      );
       console.log("Error submitting review:", error.response?.data);
+    } finally {
+      setSubmitting(false);
     }
   };
 
   return (
-    <section className="mt-12 px-5">
-      <div className="max-w-7xl mx-auto border-t border-gray-200 pt-10 pb-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            Leave a Review
-          </h2>
+    <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+          Leave a Review
+        </h2>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          Share your experience with this package.
+        </p>
+      </div>
 
-          <p className="text-gray-500 mb-7">
-            Share your experience with this package.
+      <form onSubmit={handleSubmitReview}>
+        {/* Rating */}
+        <div className="flex flex-col items-center mb-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+            Your Rating
           </p>
 
-          <form onSubmit={handleSubmitReview} className="text-left">
-            {/* Rating */}
-            <div className="flex justify-center gap-2 mb-6">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  type="button"
-                  onClick={() => setRating(star)}
-                  className="focus:outline-none transition-transform hover:scale-110"
-                >
-                  <FaStar
-                    size={30}
-                    className={
-                      star <= rating ? "text-yellow-400" : "text-gray-300"
-                    }
-                  />
-                </button>
-              ))}
-            </div>
-
-            {/* Comment */}
-            <textarea
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              placeholder="Write your review..."
-              rows="5"
-              className="w-full border border-gray-200 rounded-xl p-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none shadow-sm"
-            />
-
-            {/* Submit */}
-            <div className="flex justify-center mt-5">
+          <div className="flex gap-1">
+            {[1, 2, 3, 4, 5].map((star) => (
               <button
-                type="submit"
-                disabled={rating === 0}
-                className="px-7 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+                key={star}
+                type="button"
+                onClick={() => setRating(star)}
+                aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
+                className="focus:outline-none transition-transform hover:scale-110"
               >
-                Submit Review
+                <FaStar
+                  size={28}
+                  className={
+                    star <= rating
+                      ? "text-amber-400"
+                      : "text-slate-300 dark:text-slate-700"
+                  }
+                />
               </button>
-            </div>
-          </form>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        {/* Comment */}
+        <div className="mb-5">
+          <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
+            Your Review
+          </label>
+          <textarea
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Tell us about your experience..."
+            rows="5"
+            className="w-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 text-sm text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-sky-500 transition resize-none"
+          />
+        </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={rating === 0 || submitting}
+          className="w-full bg-sky-500 py-4 text-white font-semibold transition-colors hover:bg-sky-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed"
+        >
+          {submitting ? "Posting..." : "Post Review"}
+        </button>
+      </form>
+    </div>
   );
 }
 
