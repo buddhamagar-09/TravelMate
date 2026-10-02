@@ -91,6 +91,9 @@ export default function ViewBookings() {
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   Package
                 </th>
+                  <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
+                  Category
+                </th>
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   Phone
                 </th>
@@ -132,6 +135,11 @@ export default function ViewBookings() {
                   <td className="px-6 py-4 whitespace-nowrap text-slate-300">
                     {booking.package.title}
                   </td>
+
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                    {booking.package.category}
+                  </td>
+
                   <td className="px-6 py-4 whitespace-nowrap text-slate-300">
                     {booking.phone_number}
                   </td>
