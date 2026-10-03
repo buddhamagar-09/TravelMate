@@ -388,7 +388,7 @@ function MainSection() {
               />
 
               <DestinationCard
-                image="/images/destinations/gallery3.jpg"
+                image="/images/wildlifesafari/chitwan1.jpg"
                 alt="Chitwan National Park"
                 duration="3 days · Wildlife"
                 name="Chitwan Safari"
@@ -397,12 +397,12 @@ function MainSection() {
               />
 
               <DestinationCard
-                image="/images/destinations/gallery4.jpg"
+                image="/images/tour/lumbini1.jpg"
                 alt="Lumbini"
                 duration="2 days · Heritage"
                 name="Lumbini"
                 tagline="Birthplace of Buddha and a UNESCO site."
-                to="/destinations/lumbini"
+                to="destination"
               />
             </div>
           </div>

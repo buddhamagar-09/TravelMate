@@ -348,7 +348,7 @@ function PackageDetails() {
 
                     <div className="relative">
                       {/* Vertical line */}
-                      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-800" />
+                      <div className="absolute left-1.75 top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-800" />
 
                       <div className="space-y-6">
                         {pkg.itineraries.map((itinerary, index) => (
