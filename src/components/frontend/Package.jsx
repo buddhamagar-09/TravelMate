@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
@@ -10,11 +10,16 @@ function Package() {
 
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
+  const categoryQuery = searchParams.get("category");
 
   // Filter state
-  const [category, setCategory] = useState("all");
+  const [category, setCategory] = useState(categoryQuery || "all");
   const [duration, setDuration] = useState("all");
   const [difficulty, setDifficulty] = useState("all");
+
+  useEffect(() => {
+    setCategory(categoryQuery || "all");
+  }, [categoryQuery]);
 
   const { data: searchResults = [] } = useQuery({
     queryKey: ["search-packages", searchQuery],
@@ -35,8 +40,7 @@ function Package() {
   // Apply filters client-side
   const displayPackages = useMemo(() => {
     return basePackages.filter((pkg) => {
-      const matchCategory =
-        category === "all" || pkg.category === category;
+      const matchCategory = category === "all" || pkg.category === category;
 
       const matchDifficulty =
         difficulty === "all" || pkg.difficulty === difficulty;
@@ -75,56 +79,68 @@ function Package() {
 
       {/* ==================== FILTERS ==================== */}
       <div className="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex flex-wrap gap-3 items-center">
-          {/* Category */}
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-700 dark:text-slate-200 px-4 py-2 focus:outline-none focus:border-sky-500 transition"
-          >
-            <option value="all">All Categories</option>
-            <option value="trekking">Trekking</option>
-            <option value="tour">Tour</option>
-            <option value="wildlife">Wildlife Safari</option>
-          </select>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Label */}
+            <span className="text-xs font-semibold uppercase tracking-widest text-slate-400 hidden sm:inline">
+              Filter
+            </span>
 
-          {/* Duration */}
-          <select
-            value={duration}
-            onChange={(e) => setDuration(e.target.value)}
-            className="border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-700 dark:text-slate-200 px-4 py-2 focus:outline-none focus:border-sky-500 transition"
-          >
-            <option value="all">Any Duration</option>
-            <option value="short">less than 7 days</option>
-            <option value="medium">8 - 14 days</option>
-            <option value="long">15 + days</option>
-          </select>
+            <div className="hidden sm:block h-5 w-px bg-slate-200 dark:bg-slate-800" />
 
-          {/* Difficulty */}
-          <select
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-            className="border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm text-slate-700 dark:text-slate-200 px-4 py-2 focus:outline-none focus:border-sky-500 transition"
-          >
-            <option value="all">Any Difficulty</option>
-            <option value="Easy">Easy</option>
-            <option value="Moderate">Moderate</option>
-            <option value="Hard">Hard</option>
-          </select>
+            {/* Category */}
+            <FilterSelect
+              value={category}
+              onChange={setCategory}
+              options={[
+                { value: "all", label: "All Categories" },
+                { value: "trekking", label: "Trekking" },
+                { value: "tour", label: "Tour" },
+                { value: "wildlife", label: "Wildlife Safari" },
+              ]}
+            />
 
-          {/* Reset */}
-          {(category !== "all" || duration !== "all" || difficulty !== "all") && (
-            <button
-              onClick={() => {
-                setCategory("all");
-                setDuration("all");
-                setDifficulty("all");
-              }}
-              className="text-sm text-sky-500 hover:text-sky-600 transition ml-auto"
-            >
-              Clear filters
-            </button>
-          )}
+            {/* Duration */}
+            <FilterSelect
+              value={duration}
+              onChange={setDuration}
+              options={[
+                { value: "all", label: "Any Duration" },
+                { value: "short", label: "Less than 7 days" },
+                { value: "medium", label: "8 – 14 days" },
+                { value: "long", label: "15+ days" },
+              ]}
+            />
+
+            {/* Difficulty */}
+            <FilterSelect
+              value={difficulty}
+              onChange={setDifficulty}
+              options={[
+                { value: "all", label: "Any Difficulty" },
+                { value: "Easy", label: "Easy" },
+                { value: "Moderate", label: "Moderate" },
+                { value: "Hard", label: "Hard" },
+              ]}
+            />
+
+            {/* Clear */}
+            {(category !== "all" ||
+              duration !== "all" ||
+              difficulty !== "all") && (
+              <button
+                onClick={() => {
+                  setCategory("all");
+                  setDuration("all");
+                  setDifficulty("all");
+                }}
+                className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
+              >
+                <span className="text-base leading-none">×</span>
+                Clear filters
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -172,10 +188,10 @@ function Package() {
                         {pkg.category === "trekking"
                           ? "Trekking"
                           : pkg.category === "tour"
-                          ? "Tour"
-                          : pkg.category === "wildlife"
-                          ? "Wildlife"
-                          : pkg.category}
+                            ? "Tour"
+                            : pkg.category === "wildlife"
+                              ? "Wildlife"
+                              : pkg.category}
                       </span>
                     )}
                   </div>
@@ -216,6 +232,39 @@ function Package() {
         </div>
       </section>
     </>
+  );
+}
+
+function FilterSelect({ value, onChange, options }) {
+  const isActive = value !== "all";
+
+  return (
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className={`appearance-none cursor-pointer text-sm pr-9 pl-4 py-2 border transition-colors focus:outline-none focus:border-sky-500 ${
+          isActive
+            ? "border-sky-500 bg-sky-50 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 font-medium"
+            : "border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-600"
+        }`}
+      >
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+
+      {/* Custom chevron */}
+      <span
+        className={`pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs transition-colors ${
+          isActive ? "text-sky-500" : "text-slate-400"
+        }`}
+      >
+        ▼
+      </span>
+    </div>
   );
 }
 
