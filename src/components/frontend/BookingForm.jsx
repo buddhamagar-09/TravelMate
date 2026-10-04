@@ -100,9 +100,41 @@ export default function BookingForm() {
 
                 <div className="grid grid-cols-2 gap-3 mt-8">
                   <InfoBox label="Duration" value={packageData?.duration} />
-                  <InfoBox label="Difficulty" value={packageData?.difficulty} />
                   <InfoBox label="Group Size" value={packageData?.group_size} />
                   <InfoBox label="Season" value={packageData?.best_season} />
+
+                  {/* Trek-only */}
+                  {packageData?.category === "trekking" && (
+                    <InfoBox
+                      label="Difficulty"
+                      value={packageData?.difficulty}
+                    />
+                  )}
+
+                  {/* Tour-only */}
+                  {packageData?.category === "tour" &&
+                    packageData?.tour_type && (
+                      <InfoBox
+                        label="Tour Type"
+                        value={packageData?.tour_type}
+                      />
+                    )}
+
+                  {/* Wildlife-only */}
+                  {packageData?.category === "wildlife" &&
+                    packageData?.park_name && (
+                      <InfoBox label="Park" value={packageData?.park_name} />
+                    )}
+
+                  {/* Vehicle — for tour + wildlife */}
+                  {(packageData?.category === "tour" ||
+                    packageData?.category === "wildlife") &&
+                    packageData?.vehicle_type && (
+                      <InfoBox
+                        label="Vehicle"
+                        value={packageData?.vehicle_type}
+                      />
+                    )}
                 </div>
 
                 <div className="mt-8">
