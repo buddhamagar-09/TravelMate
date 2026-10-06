@@ -1,99 +1,103 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  FaCheckCircle,
-  FaArrowLeft,
-  FaSuitcase,
-} from "react-icons/fa";
+import { FaArrowLeft, FaCheck, FaSuitcase, FaCompass } from "react-icons/fa";
 
 const EsewaSuccessPage = () => {
   const { bookingId } = useParams();
 
   return (
-    <section className="min-h-screen bg-slate-50 dark:bg-slate-950 px-5 py-16 flex items-center justify-center transition-colors duration-300">
-      <div className="w-full max-w-2xl">
-        {/* Back Link */}
+    <section className="bg-white dark:bg-slate-950 min-h-screen py-16 lg:py-24 transition-colors duration-300">
+      <div className="max-w-xl mx-auto px-6 lg:px-8">
+        {/* Back link */}
         <Link
           to="/my-bookings"
-          className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 transition-colors hover:text-sky-500"
+          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors mb-12"
         >
           <FaArrowLeft className="text-xs" />
-          Back to My Bookings
+          Back to my bookings
         </Link>
 
-        <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-          {/* ============ HEADER ============ */}
-          <div className="border-b border-slate-100 dark:border-slate-800 px-8 py-8">
-            <div className="flex items-start gap-5">
-              {/* Success Icon */}
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-emerald-500/30 text-emerald-500">
-                <FaCheckCircle className="text-2xl" />
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-                  Payment successful
-                </p>
-
-                <h1 className="mt-2 text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
-                  Your payment was completed
-                </h1>
-
-                <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                  Your payment has been successfully verified. Your booking
-                  is now confirmed and ready for your upcoming journey.
-                </p>
-              </div>
-            </div>
+        {/* Success mark */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <div className="w-20 h-20 grid place-items-center rounded-full bg-emerald-500 text-white mb-6 shadow-lg shadow-emerald-500/30">
+            <FaCheck className="text-3xl" />
           </div>
 
-          {/* ============ DETAILS ============ */}
-          <div className="px-8 py-7">
-            {bookingId && (
-              <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-5">
-                <span className="text-sm text-slate-500 dark:text-slate-400">
-                  Booking ID
-                </span>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-4">
+            Payment successful
+          </p>
 
-                <span className="font-semibold text-slate-900 dark:text-white">
-                  #{bookingId}
-                </span>
-              </div>
-            )}
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
+            You're all set
+          </h1>
 
-            <div
-              className={`flex items-center justify-between ${
-                bookingId ? "pt-5" : ""
-              }`}
-            >
+          <p className="mt-4 text-base leading-relaxed text-slate-500 dark:text-slate-400">
+            Your booking is confirmed. A confirmation email is on its way.
+          </p>
+        </div>
+
+        {/* Details list */}
+        <div className="space-y-0 mb-12">
+          {bookingId && (
+            <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
               <span className="text-sm text-slate-500 dark:text-slate-400">
-                Payment status
+                Booking reference
               </span>
-
-              <span className="border border-emerald-500/30 bg-emerald-50 dark:bg-emerald-500/10 px-3 py-1 text-xs font-semibold tracking-wide text-emerald-600 dark:text-emerald-400">
-                PAID
+              <span className="font-mono text-sm font-semibold text-slate-900 dark:text-white">
+                #{bookingId}
               </span>
             </div>
+          )}
+
+          <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
+            <span className="text-sm text-slate-500 dark:text-slate-400">
+              Payment method
+            </span>
+            <span className="text-sm font-medium text-slate-900 dark:text-white">
+              eSewa
+            </span>
           </div>
 
-          {/* ============ ACTIONS ============ */}
-          <div className="flex flex-col-reverse gap-3 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-8 py-6 sm:flex-row sm:justify-end">
-            <Link
-              to="/package"
-              className="px-5 py-3 text-center text-sm font-semibold text-slate-600 dark:text-slate-400 transition-colors hover:text-sky-500"
-            >
-              Explore Packages
-            </Link>
-
-            <Link
-              to="/my-bookings"
-              className="inline-flex items-center justify-center gap-2 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
-            >
-              <FaSuitcase className="text-sm" />
-              View My Bookings
-            </Link>
+          <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
+            <span className="text-sm text-slate-500 dark:text-slate-400">
+              Status
+            </span>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              Paid
+            </span>
           </div>
         </div>
+
+        {/* Actions */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link
+            to="/my-bookings"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-sky-500 py-4 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+          >
+            <FaSuitcase className="text-sm" />
+            View my bookings
+          </Link>
+
+          <Link
+            to="/package"
+            className="flex-1 inline-flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 py-4 text-sm font-semibold text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+          >
+            <FaCompass className="text-sm" />
+            Explore packages
+          </Link>
+        </div>
+
+        {/* Help */}
+        <p className="mt-12 text-center text-xs text-slate-400 dark:text-slate-500">
+          Questions?{" "}
+          <a
+            href="mailto:support@travelmate.com"
+            className="text-sky-500 hover:underline"
+          >
+            support@travelmate.com
+          </a>
+        </p>
       </div>
     </section>
   );
