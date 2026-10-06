@@ -254,6 +254,11 @@ export default function Header() {
                   Bookings
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/my-plans" className={navLinkStyle}>
+                  My Plans
+                </NavLink>
+              </li>
             </ul>
           </nav>
 

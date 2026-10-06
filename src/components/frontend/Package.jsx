@@ -174,14 +174,15 @@ function Package() {
               {displayPackages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden"
+                  className="group bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40"
                 >
-                  <div className="relative">
+                  <div className="relative overflow-hidden">
                     <img
                       src={`http://localhost:8000/storage/${pkg.featured_image}`}
                       alt={pkg.title}
-                      className="w-full h-56 object-cover"
+                      className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
                     />
+
                     {/* Category badge */}
                     {pkg.category && (
                       <span className="absolute top-3 left-3 bg-sky-500 text-white text-xs font-medium px-2 py-1">

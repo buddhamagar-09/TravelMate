@@ -224,6 +224,7 @@ export default function BookingForm() {
                     <input
                       type="number"
                       min="1"
+                      
                       onChange={(e) => setTravelers(e.target.value)}
                       defaultValue={1}
                       className={inputClass}

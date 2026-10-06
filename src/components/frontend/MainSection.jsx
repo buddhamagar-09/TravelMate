@@ -265,7 +265,7 @@ function MainSection() {
                         />
 
                         <div className="p-4">
-                          <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-[2.75rem]">
+                          <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-11">
                             {pkg.title}
                           </h2>
 
@@ -442,7 +442,7 @@ function MainSection() {
               }}
             >
               {reviews.map((review) => (
-                <SwiperSlide key={review.id} className="!h-auto">
+                <SwiperSlide key={review.id} className="h-auto!">
                   <TestimonialCard review={review} />
                 </SwiperSlide>
               ))}

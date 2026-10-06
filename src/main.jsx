@@ -13,7 +13,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MainSection from "./components/frontend/MainSection.jsx";
 import Destination from "./components/frontend/Destination.jsx";
-import Services from "./components/frontend/Services.jsx";
+import Plan from "./components/frontend/Plan.jsx";
+import MyPlans from "./components/frontend/MyPlans.jsx";
+import MyPlanDetail from "./components/frontend/MyPlanDetail.jsx";
 import Package from "./components/frontend/Package.jsx";
 import About from "./components/frontend/About.jsx";
 import Login from "./components/frontend/Login.jsx";
@@ -48,7 +50,9 @@ const router = createBrowserRouter(
       <Route path="/" element={<App />}>
         <Route path="" element={<MainSection />} />
         <Route path="destination" element={<Destination />} />
-        <Route path="plan" element={<Services />} />
+        <Route path="plan" element={<Plan />} />
+        <Route path="my-plans" element={<MyPlans />} />
+        <Route path="my-plans/:id" element={<MyPlanDetail />} />
         <Route path="package" element={<Package />} />
         <Route path="package/:id" element={<PackageDetails />} />
         <Route path="about" element={<About />} />
