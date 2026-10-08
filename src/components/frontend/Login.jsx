@@ -1,45 +1,40 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import api from "../../api/axios";
 import { FiArrowRight, FiCheckCircle, FiLock, FiMail } from "react-icons/fi";
-import { toast } from "react-hot-toast";
 
 function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onTouched" });
+
+  const handleLogin = async (data) => {
+    setFormError("");
     setLoading(true);
 
     try {
-      const response = await api.post("/login", {
-        email,
-        password,
-      });
-
-      console.log(response.data);
+      const response = await api.post("/login", data);
 
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       localStorage.setItem("user_id", response.data.user.id);
 
-      toast.success("Login successful!");
-
       if (response.data.user.usertype === "admin") {
         navigate("/admin/");
       } else {
-        const redirect = location.state?.redirectTo || "/";
-        navigate(redirect);
+        navigate(location.state?.redirectTo || "/");
       }
     } catch (err) {
-      console.log(err.response?.data);
-
-      toast.error(
+      setFormError(
         err.response?.data?.message || "Login failed. Please try again."
       );
     } finally {
@@ -158,7 +153,18 @@ function Login() {
                 </div>
 
                 {/* LOGIN FORM */}
-                <form className="mt-8 space-y-5" onSubmit={handleLogin}>
+                <form
+                  className="mt-8 space-y-5"
+                  onSubmit={handleSubmit(handleLogin)}
+                  noValidate
+                >
+                  {/* FORM ERROR (API) */}
+                  {formError && (
+                    <div className="border border-red-500 bg-red-50 dark:bg-red-500/10 p-3 text-center text-sm text-red-600 dark:text-red-400">
+                      {formError}
+                    </div>
+                  )}
+
                   {/* EMAIL */}
                   <div>
                     <label
@@ -174,14 +180,22 @@ function Login() {
                       <input
                         id="email"
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
                         autoComplete="username"
                         placeholder="you@example.com"
                         className="block w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-white outline-none transition placeholder:text-slate-400 focus:border-sky-500"
+                        {...register("email", {
+                          required: "Email is required",
+                          pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: "Invalid email format",
+                          },
+                        })}
                       />
                     </div>
+
+                    <p className="mt-1 min-h-5 text-sm text-red-500">
+                      {errors.email?.message}
+                    </p>
                   </div>
 
                   {/* PASSWORD */}
@@ -208,14 +222,18 @@ function Login() {
                       <input
                         id="password"
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
                         autoComplete="current-password"
                         placeholder="Enter your password"
                         className="block w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-white outline-none transition placeholder:text-slate-400 focus:border-sky-500"
+                        {...register("password", {
+                          required: "Password is required",
+                        })}
                       />
                     </div>
+
+                    <p className="mt-1 min-h-5 text-sm text-red-500">
+                      {errors.password?.message}
+                    </p>
                   </div>
 
                   {/* REMEMBER ME */}

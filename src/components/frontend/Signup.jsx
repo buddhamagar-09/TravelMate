@@ -1,79 +1,38 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import api from "../../api/axios";
-import { toast } from "react-hot-toast";
 
 function Signup() {
   const navigate = useNavigate();
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState({});
-  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState("");
 
-  async function handleForm(e) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onTouched" });
+
+  async function onSubmit(data) {
+    setFormError("");
     setLoading(true);
-    const newErrors = {};
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (name.trim() === "") {
-      newErrors.name = "Name is required";
-    } else if (name.trim().length < 3) {
-      newErrors.name = "Name must be at least 3 characters long";
-    }
-
-    if (email.trim() == "") {
-      newErrors.email = "Email is required";
-    } else if (!emailPattern.test(email)) {
-      newErrors.email = "Invalid email format";
-    }
-
-    if (password.trim() === "") {
-      newErrors.password = "Password is required";
-    }
-
-    if (confirmPassword.trim() === "") {
-      newErrors.confirmPassword = "Please confirm your password";
-    } else if (password !== confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
-    }
-
-    setError(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      try {
-        const response = await api.post("/register", {
-          name,
-          email,
-          password,
-          confirmPassword,
-        });
-        console.log(response);
-        toast.success("Account created successfully!");
-        navigate("/login");
-      } catch (error) {
-        console.error("Error occurred while signing up:", error);
-        toast.error("Error occurred while signing up. Please try again.");
-      } finally {
-        setLoading(false);
-      }
-      setSuccess(true);
-      console.log("Form submitted successfully");
-      setName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-    } else {
-      setSuccess(false);
+    try {
+      await api.post("/register", data);
+      navigate("/login");
+    } catch (err) {
+      setFormError(
+        err.response?.data?.message || "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
   }
 
   const inputClass =
     "w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-sky-500 outline-none transition-colors";
+
+  const errorClass = "text-red-500 text-sm mt-1 min-h-5";
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
@@ -122,89 +81,87 @@ function Signup() {
                 Join TravelMate today — it only takes a minute.
               </p>
 
-              <form onSubmit={handleForm} className="mt-8 space-y-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                noValidate
+                className="mt-8 space-y-4"
+              >
                 {/* Name */}
                 <div>
                   <input
-                    value={name}
-                    onChange={(e) => {
-                      setName(e.target.value);
-                      setError((prev) => ({ ...prev, name: "" }));
-                    }}
                     type="text"
                     placeholder="Full name"
                     className={inputClass}
+                    {...register("name", {
+                      required: "Name is required",
+                      minLength: {
+                        value: 3,
+                        message: "Name must be at least 3 characters long",
+                      },
+                    })}
                   />
-                  <p className="text-red-500 text-sm mt-1 min-h-5">
-                    {error.name}
-                  </p>
+                  <p className={errorClass}>{errors.name?.message}</p>
                 </div>
 
                 {/* Email */}
                 <div>
                   <input
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setError((prev) => ({ ...prev, email: "" }));
-                    }}
                     type="email"
                     placeholder="Email address"
                     className={inputClass}
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Invalid email format",
+                      },
+                    })}
                   />
-                  <p className="text-red-500 text-sm mt-1 min-h-5">
-                    {error.email}
-                  </p>
+                  <p className={errorClass}>{errors.email?.message}</p>
                 </div>
 
                 {/* Password */}
                 <div>
                   <input
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      setError((prev) => ({ ...prev, password: "" }));
-                    }}
                     type="password"
                     placeholder="Password"
                     className={inputClass}
+                    {...register("password", {
+                      required: "Password is required",
+                    })}
                   />
-                  <p className="text-red-500 text-sm mt-1 min-h-5">
-                    {error.password}
-                  </p>
+                  <p className={errorClass}>{errors.password?.message}</p>
                 </div>
 
                 {/* Confirm Password */}
                 <div>
                   <input
-                    value={confirmPassword}
-                    onChange={(e) => {
-                      setConfirmPassword(e.target.value);
-                      setError((prev) => ({
-                        ...prev,
-                        confirmPassword: "",
-                      }));
-                    }}
                     type="password"
                     placeholder="Confirm password"
                     className={inputClass}
+                    {...register("confirmPassword", {
+                      required: "Please confirm your password",
+                      validate: (value, allValues) =>
+                        value === allValues.password ||
+                        "Passwords do not match",
+                    })}
                   />
-                  <p className="text-red-500 text-sm mt-1 min-h-5">
-                    {error.confirmPassword}
+                  <p className={errorClass}>
+                    {errors.confirmPassword?.message}
                   </p>
                 </div>
 
-                {/* Success */}
-                {success && (
-                  <div className="border border-sky-500 bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 p-3 text-sm text-center">
-                    Account created successfully!
+                {/* Form error (API) */}
+                {formError && (
+                  <div className="border border-red-500 bg-red-50 dark:bg-red-500/10 p-3 text-center text-sm text-red-600 dark:text-red-400">
+                    {formError}
                   </div>
                 )}
 
                 {/* Button */}
                 <button
                   type="submit"
-                  disabled={success || loading}
+                  disabled={loading}
                   className="w-full bg-sky-500 hover:bg-sky-600 transition-colors text-white font-semibold py-3 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? "Creating account..." : "Sign up"}
