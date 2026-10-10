@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { toast } from "react-hot-toast";
@@ -95,7 +94,7 @@ export default function Header({ setSidebarOpen }) {
             />
           </svg>
 
-          <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          <span className="absolute top-1 right-1 w-2 h-2 bg-blue-500 rounded-full"></span>
         </button>
 
         {/* User section */}
@@ -114,7 +113,7 @@ export default function Header({ setSidebarOpen }) {
           {/* Logout button - hide on small tablets */}
           <button
             onClick={handleLogout}
-            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-sm font-medium transition"
+            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition"
           >
             Logout
           </button>
