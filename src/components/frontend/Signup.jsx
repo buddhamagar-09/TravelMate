@@ -12,7 +12,7 @@ function Signup() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onTouched" });
+  } = useForm({ mode: "onTouched", reValidateMode: "onChange" });
 
   async function onSubmit(data) {
     setFormError("");
@@ -29,8 +29,12 @@ function Signup() {
     }
   }
 
-  const inputClass =
-    "w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-sky-500 outline-none transition-colors";
+  const getInputClass = (hasError) =>
+    `w-full border bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 outline-none transition-colors ${
+      hasError
+        ? "border-red-500 focus:border-red-500"
+        : "border-slate-300 dark:border-slate-700 focus:border-sky-500"
+    }`;
 
   const errorClass = "text-red-500 text-sm mt-1 min-h-5";
 
@@ -91,12 +95,17 @@ function Signup() {
                   <input
                     type="text"
                     placeholder="Full name"
-                    className={inputClass}
+                    className={getInputClass(!!errors.name)}
                     {...register("name", {
                       required: "Name is required",
                       minLength: {
                         value: 3,
                         message: "Name must be at least 3 characters long",
+                      },
+                      pattern: {
+                        value: /^[A-Za-z][A-Za-z\s'.]*$/,
+                        message:
+                          "Name can only contain letters, spaces, apostrophes and periods",
                       },
                     })}
                   />
@@ -108,12 +117,13 @@ function Signup() {
                   <input
                     type="email"
                     placeholder="Email address"
-                    className={inputClass}
+                    className={getInputClass(!!errors.email)}
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Invalid email format",
+                        value: /^[A-Za-z][^\s@]*@[^\s@]+\.[^\s@]+$/,
+                        message:
+                          "Invalid email format",
                       },
                     })}
                   />
@@ -125,9 +135,13 @@ function Signup() {
                   <input
                     type="password"
                     placeholder="Password"
-                    className={inputClass}
+                    className={getInputClass(!!errors.password)}
                     {...register("password", {
                       required: "Password is required",
+                      minLength: {
+                        value: 6,
+                        message: "Password must be at least 6 characters long",
+                      },
                     })}
                   />
                   <p className={errorClass}>{errors.password?.message}</p>
@@ -138,7 +152,7 @@ function Signup() {
                   <input
                     type="password"
                     placeholder="Confirm password"
-                    className={inputClass}
+                    className={getInputClass(!!errors.confirmPassword)}
                     {...register("confirmPassword", {
                       required: "Please confirm your password",
                       validate: (value, allValues) =>
