@@ -20,7 +20,7 @@ function Destination() {
       {/* ==================== PAGE HEADER ==================== */}
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
             Destinations
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
@@ -85,14 +85,14 @@ function Destination() {
                           From
                         </p>
 
-                        <p className="text-xl font-bold text-[#064E3B]">
+                        <p className="text-xl font-bold text-[#065F46]">
                           Rs. {pkg.price}
                         </p>
                       </div>
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
+                        className="text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
                       >
                         View →
                       </Link>

@@ -11,7 +11,7 @@ const EsewaSuccessPage = () => {
         {/* Back link */}
         <Link
           to="/my-bookings"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-600 hover:text-[#064E3B] transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-600 hover:text-[#065F46] transition-colors mb-12"
         >
           <FaArrowLeft className="text-xs" />
           Back to my bookings
@@ -73,7 +73,7 @@ const EsewaSuccessPage = () => {
         <div className="flex flex-col sm:flex-row gap-3">
           <Link
             to="/my-bookings"
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#064E3B] py-4 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#065F46] py-4 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
           >
             <FaSuitcase className="text-sm" />
             View my bookings
@@ -81,7 +81,7 @@ const EsewaSuccessPage = () => {
 
           <Link
             to="/package"
-            className="flex-1 inline-flex items-center justify-center gap-2 border border-[#CDD9CF] dark:border-[#CDD9CF] py-4 text-sm font-semibold text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
+            className="flex-1 inline-flex items-center justify-center gap-2 border border-[#CDD9CF] dark:border-[#CDD9CF] py-4 text-sm font-semibold text-slate-700 dark:text-slate-700 transition-colors hover:border-[#065F46] hover:text-[#065F46]"
           >
             <FaCompass className="text-sm" />
             Explore packages
@@ -93,7 +93,7 @@ const EsewaSuccessPage = () => {
           Questions?{" "}
           <a
             href="mailto:support@travelmate.com"
-            className="text-[#064E3B] hover:underline"
+            className="text-[#065F46] hover:underline"
           >
             support@travelmate.com
           </a>

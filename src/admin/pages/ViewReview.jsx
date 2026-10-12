@@ -61,7 +61,7 @@ export default function ViewReview() {
           <input
             type="text"
             placeholder="Search review..."
-            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
+            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
           />
         </div>
       </div>
@@ -104,14 +104,14 @@ export default function ViewReview() {
                     <span
                       className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
                         review.status === "active"
-                          ? "border-[#064E3B]/30 bg-[#064E3B]/10 text-[#064E3B]"
+                          ? "border-[#065F46]/30 bg-[#065F46]/10 text-[#065F46]"
                           : "border-red-500/30 bg-red-500/10 text-red-400"
                       }`}
                     >
                       <span
                         className={`h-1.5 w-1.5 ${
                           review.status === "active"
-                            ? "bg-[#064E3B]"
+                            ? "bg-[#065F46]"
                             : "bg-red-400"
                         }`}
                       ></span>
@@ -125,7 +125,7 @@ export default function ViewReview() {
                       className={`border px-3 py-1.5 text-xs font-medium transition ${
                         review.status === "active"
                           ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
-                          : "border-[#064E3B]/40 bg-[#064E3B]/10 text-[#064E3B] hover:border-[#064E3B] hover:bg-[#04382A]/15 hover:text-[#064E3B]"
+                          : "border-[#065F46]/40 bg-[#065F46]/10 text-[#065F46] hover:border-[#065F46] hover:bg-[#064E3B]/15 hover:text-[#065F46]"
                       }`}
                     >
                       {review.status === "active" ? "Block" : "Unblock"}

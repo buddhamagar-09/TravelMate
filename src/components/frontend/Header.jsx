@@ -113,16 +113,16 @@ export default function Header() {
           ? "text-white font-semibold"
           : "text-gray-200 hover:text-white"
         : isActive
-          ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
-          : "text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
+          ? "text-[#065F46] dark:text-[#065F46] font-semibold"
+          : "text-gray-700 dark:text-gray-700 hover:text-[#065F46] dark:hover:text-[#065F46]"
     }`;
 
   // Mobile navigation
   const mobileNavLinkStyle = ({ isActive }) =>
     `block px-4 py-2 transition-colors duration-300 ${
       isActive
-        ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
-        : "text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
+        ? "text-[#065F46] dark:text-[#065F46] font-semibold"
+        : "text-gray-700 dark:text-gray-700 hover:text-[#065F46] dark:hover:text-[#065F46]"
     }`;
 
   // Handle search form submission
@@ -166,14 +166,14 @@ export default function Header() {
           >
             <FaPlane
               className={`text-2xl sm:text-3xl transition-colors duration-300 ${
-                isHomePage && !scrolled ? "text-emerald-400" : "text-[#064E3B]"
+                isHomePage && !scrolled ? "text-emerald-400" : "text-[#065F46]"
               }`}
             />
             <span>
               Travel{" "}
               <span
                 className={`transition-colors duration-300 ${
-                  isHomePage && !scrolled ? "text-emerald-400" : "text-[#064E3B]"
+                  isHomePage && !scrolled ? "text-emerald-400" : "text-[#065F46]"
                 }`}
               >
                 Mate
@@ -213,7 +213,7 @@ export default function Header() {
                     <div
                       className={`border overflow-hidden py-1.5 ${
                         isHomePage && !scrolled
-                          ? "bg-[#064E3B]/95 backdrop-blur-md border-white/10 shadow-2xl shadow-black/40"
+                          ? "bg-[#065F46]/95 backdrop-blur-md border-white/10 shadow-2xl shadow-black/40"
                           : "bg-[#FFFFFF] dark:bg-[#FFFFFF] border-[#DDE7DF] dark:border-[#DDE7DF] shadow-xl"
                       }`}
                     >
@@ -374,7 +374,7 @@ export default function Header() {
                   className={`text-sm font-medium transition-colors duration-300 ${
                     isHomePage && !scrolled
                       ? "text-white hover:text-emerald-300"
-                      : "text-slate-700 dark:text-slate-800 hover:text-[#064E3B]"
+                      : "text-slate-700 dark:text-slate-800 hover:text-[#065F46]"
                   }`}
                 >
                   Register
@@ -382,7 +382,7 @@ export default function Header() {
 
                 <Link
                   to="/login"
-                  className="bg-[#064E3B] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
+                  className="bg-[#065F46] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
                 >
                   Login
                 </Link>
@@ -391,7 +391,7 @@ export default function Header() {
               <div className="hidden lg:flex items-center gap-4">
                 <button
                   onClick={handleLogout}
-                  className="bg-[#064E3B] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
+                  className="bg-[#065F46] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
                 >
                   Logout
                 </button>
@@ -464,7 +464,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobilePackagesOpen(!mobilePackagesOpen)}
-                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B] transition-colors duration-300"
+                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-700 hover:text-[#065F46] dark:hover:text-[#065F46] transition-colors duration-300"
               >
                 <span>Packages</span>
                 <FaChevronDown
@@ -548,7 +548,7 @@ export default function Header() {
               <Link
                 to="/login"
                 onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 border border-[#064E3B] text-[#064E3B] hover:bg-[#04382A] hover:text-white transition-colors"
+                className="text-center px-4 py-2 border border-[#065F46] text-[#065F46] hover:bg-[#064E3B] hover:text-white transition-colors"
               >
                 Login
               </Link>
@@ -556,7 +556,7 @@ export default function Header() {
               <Link
                 to="/signup"
                 onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 bg-[#064E3B] text-white hover:bg-[#04382A] transition-colors"
+                className="text-center px-4 py-2 bg-[#065F46] text-white hover:bg-[#064E3B] transition-colors"
               >
                 Sign Up
               </Link>
@@ -568,7 +568,7 @@ export default function Header() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="w-full bg-[#064E3B] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
+                className="w-full bg-[#065F46] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
               >
                 Logout
               </button>
@@ -589,7 +589,7 @@ function PackageDropdownItem({ to, label, dark }) {
       className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
         dark
           ? "text-slate-200 hover:bg-[#FFFFFF]/10 hover:text-white"
-          : "text-slate-700 dark:text-slate-700 hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]/60 hover:text-[#064E3B]"
+          : "text-slate-700 dark:text-slate-700 hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]/60 hover:text-[#065F46]"
       }`}
     >
       <span

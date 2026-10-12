@@ -49,34 +49,34 @@ function Login() {
           {/* Main Login Container */}
           <div className="grid overflow-hidden border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] lg:grid-cols-2">
             {/* LEFT SIDE */}
-            <div className="relative hidden bg-[#EEF4EF] dark:bg-[#EEF4EF] p-10 lg:flex lg:flex-col lg:justify-between">
+            <div className="relative hidden bg-[#065F46] dark:bg-[#065F46] p-10 lg:flex lg:flex-col lg:justify-between">
               <div>
                 {/* Logo */}
                 <Link to="/" className="inline-flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center bg-[#064E3B] text-lg font-bold text-white">
+                  <span className="flex h-11 w-11 items-center justify-center bg-white text-lg font-bold text-[#065F46]">
                     T
                   </span>
 
-                  <span className="text-xl font-bold tracking-tight text-slate-900">
+                  <span className="text-xl font-bold tracking-tight text-white">
                     TravelMate
                   </span>
                 </Link>
 
                 {/* Welcome Text */}
                 <div className="mt-24 max-w-md">
-                  <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#064E3B]">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-emerald-200">
                     Welcome back
                   </p>
 
-                  <h1 className="text-4xl font-bold leading-tight text-slate-900">
+                  <h1 className="text-4xl font-bold leading-tight text-white">
                     Your trips.
                     <br />
                     Your bookings.
                     <br />
-                    <span className="text-[#064E3B]">Your journey.</span>
+                    <span className="text-emerald-200">Your journey.</span>
                   </h1>
 
-                  <p className="mt-6 text-base leading-7 text-slate-600">
+                  <p className="mt-6 text-base leading-7 text-white/80">
                     Sign in to manage your bookings, explore travel packages,
                     and keep all your travel plans organized in one place.
                   </p>
@@ -84,35 +84,35 @@ function Login() {
               </div>
 
               {/* Security Information */}
-              <div className="border-t border-[#DDE7DF] pt-6">
+              <div className="border-t border-white/20 pt-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center border border-[#064E3B]/30 text-[#064E3B]">
+                    <div className="flex h-9 w-9 items-center justify-center border border-white/30 text-white">
                       <FiCheckCircle className="h-4 w-4" />
                     </div>
 
                     <div>
-                      <p className="text-sm font-medium text-slate-900">
+                      <p className="text-sm font-medium text-white">
                         Easy travel management
                       </p>
 
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-white/70">
                         Manage your trips and bookings easily.
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center border border-[#064E3B]/30 text-[#064E3B]">
+                    <div className="flex h-9 w-9 items-center justify-center border border-white/30 text-white">
                       <FiLock className="h-4 w-4" />
                     </div>
 
                     <div>
-                      <p className="text-sm font-medium text-slate-900">
+                      <p className="text-sm font-medium text-white">
                         Secure account access
                       </p>
 
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-white/70">
                         Your account information is protected.
                       </p>
                     </div>
@@ -127,7 +127,7 @@ function Login() {
                 {/* Mobile Logo */}
                 <div className="mb-10 lg:hidden">
                   <Link to="/" className="inline-flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center bg-[#064E3B] text-lg font-bold text-white">
+                    <span className="flex h-11 w-11 items-center justify-center bg-[#065F46] text-lg font-bold text-white">
                       T
                     </span>
 
@@ -139,7 +139,7 @@ function Login() {
 
                 {/* Header */}
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B]">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46]">
                     Account
                   </p>
 
@@ -182,7 +182,7 @@ function Login() {
                         type="email"
                         autoComplete="username"
                         placeholder="you@example.com"
-                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#065F46]"
                         {...register("email", {
                           required: "Email is required",
                           pattern: {
@@ -210,7 +210,7 @@ function Login() {
 
                       <button
                         type="button"
-                        className="text-sm font-medium text-[#064E3B] transition-colors hover:text-[#064E3B] hover:underline"
+                        className="text-sm font-medium text-[#065F46] transition-colors hover:text-[#065F46] hover:underline"
                       >
                         Forgot password?
                       </button>
@@ -224,7 +224,7 @@ function Login() {
                         type="password"
                         autoComplete="current-password"
                         placeholder="Enter your password"
-                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#065F46]"
                         {...register("password", {
                           required: "Password is required",
                         })}
@@ -241,7 +241,7 @@ function Login() {
                     <label className="inline-flex cursor-pointer items-center">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 border-[#CDD9CF] text-[#064E3B] focus:ring-[#064E3B]"
+                        className="h-4 w-4 border-[#CDD9CF] text-[#065F46] focus:ring-[#065F46]"
                       />
 
                       <span className="ml-2 text-sm text-slate-600 dark:text-slate-700">
@@ -255,7 +255,7 @@ function Login() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex w-full items-center justify-center gap-2 bg-[#064E3B] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:cursor-not-allowed disabled:opacity-70"
+                      className="flex w-full items-center justify-center gap-2 bg-[#065F46] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] disabled:cursor-not-allowed disabled:opacity-70"
                     >
                       {loading ? (
                         "Signing in..."
@@ -275,7 +275,7 @@ function Login() {
                     Don't have an account?{" "}
                     <Link
                       to="/signup"
-                      className="font-semibold text-[#064E3B] transition-colors hover:text-[#064E3B] hover:underline"
+                      className="font-semibold text-[#065F46] transition-colors hover:text-[#065F46] hover:underline"
                     >
                       Create an account
                     </Link>

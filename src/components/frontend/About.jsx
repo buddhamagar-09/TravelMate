@@ -48,7 +48,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
             <div>
-              <p className="text-[#064E3B] text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="text-[#065F46] text-sm font-semibold uppercase tracking-widest mb-4">
                 Who we are
               </p>
 
@@ -74,13 +74,13 @@ export default function About() {
               <div className="flex flex-wrap gap-4 mt-10">
                 <Link
                   to="/package"
-                  className="px-6 py-3 bg-[#064E3B] hover:bg-[#04382A] text-white font-semibold transition-colors"
+                  className="px-6 py-3 bg-[#065F46] hover:bg-[#064E3B] text-white font-semibold transition-colors"
                 >
                   Explore Packages
                 </Link>
                 <Link
                   to="/destination"
-                  className="px-6 py-3 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-800 hover:border-[#064E3B] hover:text-[#064E3B] font-semibold transition-colors"
+                  className="px-6 py-3 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-800 hover:border-[#065F46] hover:text-[#065F46] font-semibold transition-colors"
                 >
                   Browse Destinations
                 </Link>
@@ -96,7 +96,7 @@ export default function About() {
               />
 
               <div className="absolute -bottom-6 left-6 bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] px-6 py-4">
-                <p className="text-3xl font-bold text-[#064E3B]">500+</p>
+                <p className="text-3xl font-bold text-[#065F46]">500+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-600">
                   Happy travelers
                 </p>
@@ -112,7 +112,7 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {/* Section heading */}
             <div className="max-w-2xl mb-14">
-              <p className="text-[#064E3B] text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="text-[#065F46] text-sm font-semibold uppercase tracking-widest mb-4">
                 Get in touch
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
@@ -197,7 +197,7 @@ export default function About() {
 
                   <button
                     type="submit"
-                    className="mt-6 w-full py-3 bg-[#064E3B] hover:bg-[#04382A] text-white font-semibold transition-colors"
+                    className="mt-6 w-full py-3 bg-[#065F46] hover:bg-[#064E3B] text-white font-semibold transition-colors"
                   >
                     Send message
                   </button>
@@ -220,7 +220,7 @@ export default function About() {
 function InfoCard({ icon: Icon, label, value, href }) {
   const content = (
     <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] p-5 h-full">
-      <div className="w-9 h-9 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] mb-3">
+      <div className="w-9 h-9 grid place-items-center border border-[#065F46]/30 text-[#065F46] mb-3">
         <Icon className="text-sm" />
       </div>
       <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-600">
@@ -251,7 +251,7 @@ function Field({
   autoComplete,
 }) {
   const base =
-    "w-full bg-[#EEF4EF] dark:bg-[#FFFFFF] text-slate-900 dark:text-slate-900 border border-[#DDE7DF] dark:border-[#DDE7DF] focus:border-[#064E3B] outline-none px-4 py-2.5 transition-colors";
+    "w-full bg-[#EEF4EF] dark:bg-[#FFFFFF] text-slate-900 dark:text-slate-900 border border-[#DDE7DF] dark:border-[#DDE7DF] focus:border-[#065F46] outline-none px-4 py-2.5 transition-colors";
 
   return (
     <div>

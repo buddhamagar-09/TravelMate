@@ -33,7 +33,7 @@ function Signup() {
     `w-full border bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 outline-none transition-colors ${
       hasError
         ? "border-red-500 focus:border-red-500"
-        : "border-[#CDD9CF] dark:border-[#CDD9CF] focus:border-[#064E3B]"
+        : "border-[#CDD9CF] dark:border-[#CDD9CF] focus:border-[#065F46]"
     }`;
 
   const errorClass = "text-red-500 text-sm mt-1 min-h-5";
@@ -73,7 +73,7 @@ function Signup() {
 
             {/* ============ RIGHT SIDE (form) ============ */}
             <div className="p-8 sm:p-10 lg:p-12">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
                 Account
               </p>
 
@@ -176,7 +176,7 @@ function Signup() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#064E3B] hover:bg-[#04382A] transition-colors text-white font-semibold py-3 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full bg-[#065F46] hover:bg-[#064E3B] transition-colors text-white font-semibold py-3 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? "Creating account..." : "Sign up"}
                 </button>
@@ -185,7 +185,7 @@ function Signup() {
                   Already have an account?{" "}
                   <span
                     onClick={() => navigate("/login")}
-                    className="text-[#064E3B] hover:text-[#064E3B] cursor-pointer font-semibold transition-colors"
+                    className="text-[#065F46] hover:text-[#065F46] cursor-pointer font-semibold transition-colors"
                   >
                     Login
                   </span>

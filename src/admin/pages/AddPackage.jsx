@@ -13,7 +13,7 @@ function CategoryFields({
   parkName, setParkName,
 }) {
   const inputClass =
-    "w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]";
+    "w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]";
   const labelClass = "block text-sm text-slate-700 mb-2";
 
   switch (category) {
@@ -261,7 +261,7 @@ export default function AddPackage() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-[#064E3B] text-white"
+                    ? "bg-[#065F46] text-white"
                     : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
@@ -274,7 +274,7 @@ export default function AddPackage() {
 
         <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#064E3B]"
+            className="h-full bg-[#065F46]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
@@ -297,7 +297,7 @@ export default function AddPackage() {
               placeholder="Everest Base Camp Trek"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -309,7 +309,7 @@ export default function AddPackage() {
               placeholder="everest-base-camp-trek"
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -319,7 +319,7 @@ export default function AddPackage() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46]"
             >
               <option value="trekking">Trekking</option>
               <option value="tour">Tour</option>
@@ -337,7 +337,7 @@ export default function AddPackage() {
               placeholder="00000"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -351,7 +351,7 @@ export default function AddPackage() {
               placeholder="14"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -363,7 +363,7 @@ export default function AddPackage() {
               placeholder="Khumbu, Nepal"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -375,7 +375,7 @@ export default function AddPackage() {
             <select
               value={bestSeason}
               onChange={(e) => setBestSeason(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46]"
             >
               <option value="">Select season</option>
               <option>Spring (Mar-May)</option>
@@ -396,7 +396,7 @@ export default function AddPackage() {
               placeholder="10"
               value={groupSize}
               onChange={(e) => setGroupSize(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]"
             />
           </div>
 
@@ -420,7 +420,7 @@ export default function AddPackage() {
               placeholder="Short package summary"
               value={shortOverview}
               onChange={(e) => setShortOverview(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46] resize-none"
             />
           </div>
 
@@ -434,7 +434,7 @@ export default function AddPackage() {
               placeholder="Detailed package description"
               value={fullDescription}
               onChange={(e) => setFullDescription(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#065F46] resize-none"
             />
           </div>
 
@@ -446,7 +446,7 @@ export default function AddPackage() {
             <input
               type="file"
               onChange={(e) => setFeaturedImage(e.target.files[0])}
-              className="w-full text-slate-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#064E3B] file:text-white hover:file:bg-[#064E3B]"
+              className="w-full text-slate-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#065F46] file:text-white hover:file:bg-[#065F46]"
             />
           </div>
         </div>
@@ -456,7 +456,7 @@ export default function AddPackage() {
           <button
             onClick={handleNext}
             type="button"
-            className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
+            className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
           >
             Next
           </button>
@@ -464,7 +464,7 @@ export default function AddPackage() {
             type="button"
             onClick={handleSubmit}
             disabled={saving}
-            className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
+            className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
           >
             {saving ? "Saving..." : "Save & Continue"}
           </button>

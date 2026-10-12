@@ -130,7 +130,7 @@ export default function GalleryStep() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-[#064E3B] text-white"
+                    ? "bg-[#065F46] text-white"
                     : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
@@ -143,7 +143,7 @@ export default function GalleryStep() {
 
         <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#064E3B]"
+            className="h-full bg-[#065F46]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
@@ -153,7 +153,7 @@ export default function GalleryStep() {
       <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-6 mb-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">Upload Images</h2>
 
-        <label className="block w-full border-2 border-dashed border-[#CDD9CF] rounded-lg p-10 text-center cursor-pointer hover:border-[#064E3B] transition">
+        <label className="block w-full border-2 border-dashed border-[#CDD9CF] rounded-lg p-10 text-center cursor-pointer hover:border-[#065F46] transition">
           <div className="flex flex-col items-center gap-3">
             <div className="w-14 h-14 rounded-full bg-[#EEF4EF] flex items-center justify-center">
               <svg
@@ -233,7 +233,7 @@ export default function GalleryStep() {
               type="button"
               onClick={handleSubmit}
               disabled={saving}
-              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
+              className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
             >
               {saving ? "Saving..." : "Save & Continue"}
             </button>

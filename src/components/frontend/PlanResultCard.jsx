@@ -18,7 +18,7 @@ export default function PlanResultCard({ pkg }) {
         />
 
         {pkg.category && (
-          <span className="absolute top-3 left-3 bg-[#064E3B] text-white text-xs font-medium px-2 py-1">
+          <span className="absolute top-3 left-3 bg-[#065F46] text-white text-xs font-medium px-2 py-1">
             {CATEGORY_LABELS[pkg.category] ?? pkg.category}
           </span>
         )}
@@ -29,7 +29,7 @@ export default function PlanResultCard({ pkg }) {
               pkg.matchScore >= 90
                 ? "bg-emerald-500 text-white"
                 : pkg.matchScore >= 70
-                  ? "bg-[#064E3B] text-white"
+                  ? "bg-[#065F46] text-white"
                   : "bg-[#CDD9CF] text-slate-200"
             }`}
           >
@@ -48,12 +48,12 @@ export default function PlanResultCard({ pkg }) {
             <p className="text-xs uppercase tracking-wide text-slate-400">
               From
             </p>
-            <p className="text-xl font-bold text-[#064E3B]">Rs. {pkg.price}</p>
+            <p className="text-xl font-bold text-[#065F46]">Rs. {pkg.price}</p>
           </div>
 
           <Link
             to={`/package/${pkg.id}`}
-            className="text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
+            className="text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
           >
             View →
           </Link>

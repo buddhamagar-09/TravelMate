@@ -12,7 +12,7 @@ export default function Footer() {
       {/* Right side */}
       <div className="hidden sm:flex items-center gap-2 text-slate-600">
         <span>Powered by</span>
-        <span className="font-semibold text-[#064E3B]">TravelMate Admin</span>
+        <span className="font-semibold text-[#065F46]">TravelMate Admin</span>
       </div>
     </footer>
   );

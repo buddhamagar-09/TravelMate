@@ -105,7 +105,7 @@ useEffect(() => {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-[#064E3B] text-white"
+                    ? "bg-[#065F46] text-white"
                     : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
@@ -117,7 +117,7 @@ useEffect(() => {
         </div>
 
         <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
-          <div className="h-full bg-[#064E3B]" style={{ width: "100%" }} />
+          <div className="h-full bg-[#065F46]" style={{ width: "100%" }} />
         </div>
       </div>
       {/* Form */}
@@ -128,7 +128,7 @@ useEffect(() => {
             <input
               type="text"
               placeholder="Example: International flight ticket"
-              className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
+              className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
               value={newExclude}
               onChange={(e) => setNewExclude(e.target.value)}
             />
@@ -136,7 +136,7 @@ useEffect(() => {
             <button
               type="button"
               onClick={addExclude}
-              className="px-5 py-3 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition whitespace-nowrap"
+              className="px-5 py-3 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition whitespace-nowrap"
             >
               Add
             </button>
@@ -171,7 +171,7 @@ useEffect(() => {
           </div>
 
           {/* Completion box */}
-          <div className="rounded-lg border border-[#064E3B]/30 bg-[#064E3B]/10 p-4">
+          <div className="rounded-lg border border-[#065F46]/30 bg-[#065F46]/10 p-4">
             <div>
               <p className="font-semibold text-slate-900">Final Step</p>
               <p className="text-sm text-slate-700 mt-1">
@@ -196,7 +196,7 @@ useEffect(() => {
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
+              className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
             >
               {saving ? "Saving..." : "Save & Finish"}
             </button>

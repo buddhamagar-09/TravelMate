@@ -56,14 +56,14 @@ export default function BookingForm() {
   };
 
   const inputClass =
-    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 focus:border-[#064E3B] outline-none transition-colors";
+    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 focus:border-[#065F46] outline-none transition-colors";
 
   return (
     <>
       {/* ============ PAGE HEADER ============ */}
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5 py-14 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
             TravelMate
           </p>
 
@@ -142,7 +142,7 @@ export default function BookingForm() {
                     Starting from
                   </p>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <h3 className="text-3xl font-bold text-[#064E3B]">
+                    <h3 className="text-3xl font-bold text-[#065F46]">
                       Rs. {packageData?.price}
                     </h3>
                     <p className="text-sm text-slate-500 dark:text-slate-600">
@@ -276,7 +276,7 @@ export default function BookingForm() {
                     <span className="text-slate-900 dark:text-slate-900">
                       Total
                     </span>
-                    <span className="text-[#064E3B]">
+                    <span className="text-[#065F46]">
                       Rs. {packageData?.price * travelers}
                     </span>
                   </div>
@@ -288,7 +288,7 @@ export default function BookingForm() {
                     type="checkbox"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-[#064E3B]"
+                    className="mt-1 h-4 w-4 accent-[#065F46]"
                   />
 
                   <p className="text-sm text-slate-600 dark:text-slate-600 leading-6">
@@ -299,7 +299,7 @@ export default function BookingForm() {
                 {/* Button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A]"
+                  className="w-full bg-[#065F46] py-4 text-white font-semibold transition-colors hover:bg-[#064E3B]"
                 >
                   Confirm Booking
                 </button>

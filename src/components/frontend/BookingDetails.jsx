@@ -88,7 +88,7 @@ const BookingDetails = () => {
       case "cancelled":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-50 dark:text-red-700 dark:border-red-200";
       case "completed":
-        return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
+        return "bg-[#065F46]/10 text-[#065F46] border-[#065F46]/20 dark:bg-[#065F46]/10 dark:text-[#065F46] dark:border-[#065F46]/20";
       default:
         return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
@@ -136,7 +136,7 @@ const BookingDetails = () => {
 
             <button
               onClick={() => navigate("/my-bookings")}
-              className="mt-6 bg-[#064E3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
+              className="mt-6 bg-[#065F46] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
             >
               Back to My Bookings
             </button>
@@ -152,7 +152,7 @@ const BookingDetails = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate("/my-bookings")}
-          className="mb-6 text-sm font-semibold text-[#064E3B] transition-colors hover:text-[#064E3B]"
+          className="mb-6 text-sm font-semibold text-[#065F46] transition-colors hover:text-[#065F46]"
         >
           ← Back to My Bookings
         </button>
@@ -213,7 +213,7 @@ const BookingDetails = () => {
               <div className="mt-6">
                 <button
                   onClick={() => navigate(`/package/${booking.package?.id}`)}
-                  className="border border-[#064E3B] px-5 py-2.5 text-sm font-semibold text-[#064E3B] transition-colors hover:bg-[#04382A] hover:text-white"
+                  className="border border-[#065F46] px-5 py-2.5 text-sm font-semibold text-[#065F46] transition-colors hover:bg-[#064E3B] hover:text-white"
                 >
                   View Package
                 </button>
@@ -315,7 +315,7 @@ const BookingDetails = () => {
               <button
                 onClick={() => handlePayNow(booking.id)}
                 disabled={paying}
-                className="bg-[#064E3B] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:cursor-not-allowed disabled:opacity-60"
+                className="bg-[#065F46] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {paying ? "Processing Payment..." : "Pay Now"}
               </button>
