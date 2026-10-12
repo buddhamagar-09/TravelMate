@@ -69,7 +69,7 @@ export default function ViewBookings() {
           <input
             type="text"
             placeholder="Search booking..."
-            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
+            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#047857] focus:outline-none"
           />
         </div>
       </div>
@@ -163,8 +163,8 @@ export default function ViewBookings() {
 
                   <td className="px-6 py-4 whitespace-nowrap">
                     {booking.payment_status === "paid" && (
-                      <span className="inline-flex items-center gap-2 border border-[#065F46]/30 bg-[#065F46]/10 px-3 py-1.5 text-xs font-medium text-[#065F46]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#065F46]"></span>
+                      <span className="inline-flex items-center gap-2 border border-[#047857]/30 bg-[#047857]/10 px-3 py-1.5 text-xs font-medium text-[#047857]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#047857]"></span>
                         Paid
                       </span>
                     )}
@@ -193,8 +193,8 @@ export default function ViewBookings() {
                     )}
 
                     {booking.status === "confirmed" && (
-                      <span className="inline-flex items-center gap-2 border border-[#065F46]/30 bg-[#065F46]/10 px-3 py-1.5 text-xs font-medium text-[#065F46]">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#065F46]"></span>
+                      <span className="inline-flex items-center gap-2 border border-[#047857]/30 bg-[#047857]/10 px-3 py-1.5 text-xs font-medium text-[#047857]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#047857]"></span>
                         Confirmed
                       </span>
                     )}
@@ -215,7 +215,7 @@ export default function ViewBookings() {
                             onClick={() =>
                               updateStatus(booking.id, "confirmed")
                             }
-                            className="border cursor-pointer border-[#065F46]/40 px-3 py-1.5 text-xs font-medium text-[#065F46] transition hover:border-[#065F46] hover:bg-[#064E3B]/10 hover:text-[#065F46]"
+                            className="border cursor-pointer border-[#047857]/40 px-3 py-1.5 text-xs font-medium text-[#047857] transition hover:border-[#047857] hover:bg-[#065F46]/10 hover:text-[#047857]"
                           >
                             Approve
                           </button>

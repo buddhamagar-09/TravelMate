@@ -105,7 +105,7 @@ export default function Plan() {
   };
 
   const inputClass =
-    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#065F46] transition-colors";
+    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#047857] transition-colors";
 
   const labelClass =
     "block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2";
@@ -115,7 +115,7 @@ export default function Plan() {
       {/* HEADER */}
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
             Personalized Planning
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
@@ -226,7 +226,7 @@ export default function Plan() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="bg-[#065F46] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
+                className="bg-[#047857] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#065F46]"
               >
                 Find matches
               </button>
@@ -248,7 +248,7 @@ export default function Plan() {
         <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-16 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-2">
                 Results
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-900">
@@ -307,7 +307,7 @@ export default function Plan() {
               <div className="grid md:grid-cols-5">
                 {/* LEFT — context */}
                 <div className="md:col-span-2 p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#DDE7DF] dark:border-[#DDE7DF]">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#047857] mb-3">
                     Save Plan
                   </p>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-900 leading-snug mb-3">
@@ -345,7 +345,7 @@ export default function Plan() {
                       type="button"
                       onClick={handleSavePlan}
                       disabled={saving}
-                      className="w-full bg-[#065F46] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] disabled:bg-[#DCE7DE] dark:disabled:bg-[#DCE7DE] disabled:cursor-not-allowed"
+                      className="w-full bg-[#047857] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#065F46] disabled:bg-[#DCE7DE] dark:disabled:bg-[#DCE7DE] disabled:cursor-not-allowed"
                     >
                       {saving ? "Saving..." : "Save Plan"}
                     </button>
@@ -370,7 +370,7 @@ export default function Plan() {
 function SaveBullet({ text }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="text-[#065F46] font-semibold shrink-0 mt-0.5">✓</span>
+      <span className="text-[#047857] font-semibold shrink-0 mt-0.5">✓</span>
       <span className="leading-relaxed">{text}</span>
     </li>
   );

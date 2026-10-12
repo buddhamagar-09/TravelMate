@@ -49,11 +49,11 @@ function Login() {
           {/* Main Login Container */}
           <div className="grid overflow-hidden border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] lg:grid-cols-2">
             {/* LEFT SIDE */}
-            <div className="relative hidden bg-[#065F46] dark:bg-[#065F46] p-10 lg:flex lg:flex-col lg:justify-between">
+            <div className="relative hidden bg-[#047857] dark:bg-[#047857] p-10 lg:flex lg:flex-col lg:justify-between">
               <div>
                 {/* Logo */}
                 <Link to="/" className="inline-flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center bg-white text-lg font-bold text-[#065F46]">
+                  <span className="flex h-11 w-11 items-center justify-center bg-white text-lg font-bold text-[#047857]">
                     T
                   </span>
 
@@ -127,7 +127,7 @@ function Login() {
                 {/* Mobile Logo */}
                 <div className="mb-10 lg:hidden">
                   <Link to="/" className="inline-flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center bg-[#065F46] text-lg font-bold text-white">
+                    <span className="flex h-11 w-11 items-center justify-center bg-[#047857] text-lg font-bold text-white">
                       T
                     </span>
 
@@ -139,7 +139,7 @@ function Login() {
 
                 {/* Header */}
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46]">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-[#047857]">
                     Account
                   </p>
 
@@ -182,7 +182,7 @@ function Login() {
                         type="email"
                         autoComplete="username"
                         placeholder="you@example.com"
-                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#065F46]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#047857]"
                         {...register("email", {
                           required: "Email is required",
                           pattern: {
@@ -210,7 +210,7 @@ function Login() {
 
                       <button
                         type="button"
-                        className="text-sm font-medium text-[#065F46] transition-colors hover:text-[#065F46] hover:underline"
+                        className="text-sm font-medium text-[#047857] transition-colors hover:text-[#047857] hover:underline"
                       >
                         Forgot password?
                       </button>
@@ -224,7 +224,7 @@ function Login() {
                         type="password"
                         autoComplete="current-password"
                         placeholder="Enter your password"
-                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#065F46]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#047857]"
                         {...register("password", {
                           required: "Password is required",
                         })}
@@ -241,7 +241,7 @@ function Login() {
                     <label className="inline-flex cursor-pointer items-center">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 border-[#CDD9CF] text-[#065F46] focus:ring-[#065F46]"
+                        className="h-4 w-4 border-[#CDD9CF] text-[#047857] focus:ring-[#047857]"
                       />
 
                       <span className="ml-2 text-sm text-slate-600 dark:text-slate-700">
@@ -255,7 +255,7 @@ function Login() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex w-full items-center justify-center gap-2 bg-[#065F46] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] disabled:cursor-not-allowed disabled:opacity-70"
+                      className="flex w-full items-center justify-center gap-2 bg-[#047857] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#065F46] disabled:cursor-not-allowed disabled:opacity-70"
                     >
                       {loading ? (
                         "Signing in..."
@@ -275,7 +275,7 @@ function Login() {
                     Don't have an account?{" "}
                     <Link
                       to="/signup"
-                      className="font-semibold text-[#065F46] transition-colors hover:text-[#065F46] hover:underline"
+                      className="font-semibold text-[#047857] transition-colors hover:text-[#047857] hover:underline"
                     >
                       Create an account
                     </Link>

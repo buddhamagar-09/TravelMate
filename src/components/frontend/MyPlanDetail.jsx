@@ -104,7 +104,7 @@ export default function MyPlanDetail() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
           <Link
             to="/my-plans"
-            className="text-sm font-medium text-[#065F46] hover:text-[#065F46] transition-colors"
+            className="text-sm font-medium text-[#047857] hover:text-[#047857] transition-colors"
           >
             ← Back to my plans
           </Link>
@@ -123,7 +123,7 @@ export default function MyPlanDetail() {
               {chips.map((chip, i) => (
                 <span
                   key={i}
-                  className="text-xs font-medium px-2.5 py-1 bg-[#065F46]/10 text-[#065F46]"
+                  className="text-xs font-medium px-2.5 py-1 bg-[#047857]/10 text-[#047857]"
                 >
                   {chip}
                 </span>
@@ -166,7 +166,7 @@ export default function MyPlanDetail() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-2">
                 Matches
               </p>
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-900">

@@ -128,7 +128,7 @@ export default function ItineraryStep() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-[#065F46] text-white"
+                    ? "bg-[#047857] text-white"
                     : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
@@ -141,7 +141,7 @@ export default function ItineraryStep() {
 
         <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#065F46]"
+            className="h-full bg-[#047857]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
@@ -158,7 +158,7 @@ export default function ItineraryStep() {
           <button
             type="button"
             onClick={addDay}
-            className="px-4 py-2 bg-[#065F46] text-white rounded-md hover:bg-[#064E3B] transition text-sm"
+            className="px-4 py-2 bg-[#047857] text-white rounded-md hover:bg-[#065F46] transition text-sm"
           >
             + Add Day
           </button>
@@ -196,7 +196,7 @@ export default function ItineraryStep() {
                   }}
                   type="text"
                   placeholder="Arrival in Kathmandu"
-                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]"
+                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#047857]"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export default function ItineraryStep() {
                   }}
                   rows="4"
                   placeholder="Describe the activities, trekking hours, sightseeing, meals, and important information for this day..."
-                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46] resize-none"
+                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#047857] resize-none"
                 />
               </div>
 
@@ -234,7 +234,7 @@ export default function ItineraryStep() {
                   }}
                   type="text"
                   placeholder="Kathmandu"
-                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#065F46]"
+                  className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#047857]"
                 />
               </div>
             </div>
@@ -266,7 +266,7 @@ export default function ItineraryStep() {
               onClick={handleSubmit}
               type="button"
               disabled={loading}
-              className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
+              className="px-5 py-2 rounded-md bg-[#047857] text-white hover:bg-[#065F46] transition"
             >
               {loading ? "Saving..." : "Save & Continue"}
             </button>

@@ -64,7 +64,7 @@ function Package() {
       {/* ==================== PAGE HEADER ==================== */}
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
             Packages
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
@@ -134,7 +134,7 @@ function Package() {
                   setDuration("all");
                   setDifficulty("all");
                 }}
-                className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-600 hover:text-[#065F46] dark:hover:text-[#065F46] transition-colors"
+                className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-slate-500 dark:text-slate-600 hover:text-[#047857] dark:hover:text-[#047857] transition-colors"
               >
                 <span className="text-base leading-none">×</span>
                 Clear filters
@@ -185,7 +185,7 @@ function Package() {
 
                     {/* Category badge */}
                     {pkg.category && (
-                      <span className="absolute top-3 left-3 bg-[#065F46] text-white text-xs font-medium px-2 py-1">
+                      <span className="absolute top-3 left-3 bg-[#047857] text-white text-xs font-medium px-2 py-1">
                         {pkg.category === "trekking"
                           ? "Trekking"
                           : pkg.category === "tour"
@@ -207,14 +207,14 @@ function Package() {
                         <p className="text-xs uppercase tracking-wide text-slate-400">
                           From
                         </p>
-                        <p className="text-xl font-bold text-[#065F46]">
+                        <p className="text-xl font-bold text-[#047857]">
                           Rs. {pkg.price}
                         </p>
                       </div>
 
                       <Link
                         to={`/package/${pkg.id}`}
-                        className="text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
+                        className="text-sm font-semibold text-[#047857] hover:text-[#047857] transition-colors"
                       >
                         View →
                       </Link>
@@ -244,9 +244,9 @@ function FilterSelect({ value, onChange, options }) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`appearance-none cursor-pointer text-sm pr-9 pl-4 py-2 border transition-colors focus:outline-none focus:border-[#065F46] ${
+        className={`appearance-none cursor-pointer text-sm pr-9 pl-4 py-2 border transition-colors focus:outline-none focus:border-[#047857] ${
           isActive
-            ? "border-[#065F46] bg-[#065F46]/10 dark:bg-[#065F46]/10 text-[#065F46] dark:text-[#065F46] font-medium"
+            ? "border-[#047857] bg-[#047857]/10 dark:bg-[#047857]/10 text-[#047857] dark:text-[#047857] font-medium"
             : "border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] text-slate-700 dark:text-slate-800 hover:border-[#B8C7BB] dark:hover:border-[#CDD9CF]"
         }`}
       >
@@ -260,7 +260,7 @@ function FilterSelect({ value, onChange, options }) {
       {/* Custom chevron */}
       <span
         className={`pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs transition-colors ${
-          isActive ? "text-[#065F46]" : "text-slate-400"
+          isActive ? "text-[#047857]" : "text-slate-400"
         }`}
       >
         ▼

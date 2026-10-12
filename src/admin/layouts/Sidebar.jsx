@@ -24,7 +24,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         {/* Logo */}
         <div className="h-20 flex items-center justify-between px-6 border-b border-[#DDE7DF]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#065F46] flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-[#047857] flex items-center justify-center text-white font-bold text-lg">
               T
             </div>
             <div>

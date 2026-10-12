@@ -81,7 +81,7 @@ function MainSection() {
     <>
       {/* ==================== HERO ==================== */}
       <FramerMotion>
-        <section className="relative w-full h-screen overflow-hidden bg-[#065F46]">
+        <section className="relative w-full h-screen overflow-hidden bg-[#047857]">
           {banners.map((banner, index) => (
             <img
               key={banner.id}
@@ -114,7 +114,7 @@ function MainSection() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     to="/package"
-                    className="inline-flex items-center gap-2 bg-[#065F46] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B]"
+                    className="inline-flex items-center gap-2 bg-[#047857] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#065F46]"
                   >
                     Book Now
                     <FaArrowRight className="text-xs" />
@@ -154,7 +154,7 @@ function MainSection() {
         <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                 Features
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
@@ -196,7 +196,7 @@ function MainSection() {
           <div className="container mx-auto px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                   Featured
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900">
@@ -206,7 +206,7 @@ function MainSection() {
 
               <Link
                 to="/package"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#047857] hover:text-[#047857] transition-colors"
               >
                 See all
                 <FaArrowRight className="text-xs" />
@@ -274,14 +274,14 @@ function MainSection() {
                               <p className="text-xs uppercase tracking-wide text-slate-400">
                                 From
                               </p>
-                              <p className="text-xl font-bold text-[#065F46]">
+                              <p className="text-xl font-bold text-[#047857]">
                                 Rs. {pkg.price}
                               </p>
                             </div>
 
                             <Link
                               to={`/package/${pkg.id}`}
-                              className="text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
+                              className="text-sm font-semibold text-[#047857] hover:text-[#047857] transition-colors"
                             >
                               View →
                             </Link>
@@ -296,14 +296,14 @@ function MainSection() {
                 <div className="flex justify-center mt-8 gap-3">
                   <button
                     aria-label="Previous"
-                    className="prev-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#065F46] hover:text-[#065F46]"
+                    className="prev-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#047857] hover:text-[#047857]"
                   >
                     <FaChevronLeft className="text-sm" />
                   </button>
 
                   <button
                     aria-label="Next"
-                    className="next-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#065F46] hover:text-[#065F46]"
+                    className="next-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#047857] hover:text-[#047857]"
                   >
                     <FaChevronRight className="text-sm" />
                   </button>
@@ -325,7 +325,7 @@ function MainSection() {
         <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-10">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                 Destinations
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
@@ -414,7 +414,7 @@ function MainSection() {
         <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center mb-10">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                 Testimonials
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
@@ -459,7 +459,7 @@ function MainSection() {
 function FeatureCard({ icon: Icon, title, description, link }) {
   return (
     <div className="flex flex-col h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-8">
-      <div className="w-12 h-12 grid place-items-center border border-[#065F46]/30 text-[#065F46] mb-6">
+      <div className="w-12 h-12 grid place-items-center border border-[#047857]/30 text-[#047857] mb-6">
         <Icon className="h-5 w-5" />
       </div>
 
@@ -473,7 +473,7 @@ function FeatureCard({ icon: Icon, title, description, link }) {
 
       <Link
         to={link}
-        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#047857] hover:text-[#047857] transition-colors"
       >
         Learn more
         <FaArrowRight className="text-xs" />
@@ -509,7 +509,7 @@ function TestimonialCard({ review }) {
     <div className="h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6">
       {/* User */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 grid place-items-center border border-[#065F46]/30 text-[#065F46] shrink-0">
+        <div className="w-10 h-10 grid place-items-center border border-[#047857]/30 text-[#047857] shrink-0">
           <FaUser className="text-sm" />
         </div>
         <div className="min-w-0">

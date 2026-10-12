@@ -48,11 +48,11 @@ export default function Footer() {
         {/* Brand + Newsletter */}
         <div className="lg:col-span-4">
           <Link to="/" className="flex items-center gap-3">
-            <span className="grid place-items-center w-11 h-11 bg-[#065F46] text-white">
+            <span className="grid place-items-center w-11 h-11 bg-[#047857] text-white">
               <FaPlane className="text-lg" />
             </span>
             <span className="text-2xl font-bold text-slate-900 dark:text-slate-900 tracking-tight">
-              Travel<span className="text-[#065F46]">Mate</span>
+              Travel<span className="text-[#047857]">Mate</span>
             </span>
           </Link>
 
@@ -70,12 +70,12 @@ export default function Footer() {
               type="email"
               required
               placeholder="Your email"
-              className="flex-1 border border-[#CDD9CF] dark:border-[#CDD9CF] border-r-0 bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#065F46] transition-colors"
+              className="flex-1 border border-[#CDD9CF] dark:border-[#CDD9CF] border-r-0 bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#047857] transition-colors"
             />
             <button
               type="submit"
               aria-label="Subscribe"
-              className="grid place-items-center w-12 bg-[#065F46] text-white hover:bg-[#064E3B] transition-colors"
+              className="grid place-items-center w-12 bg-[#047857] text-white hover:bg-[#065F46] transition-colors"
             >
               <FaArrowRight className="text-sm" />
             </button>
@@ -99,7 +99,7 @@ export default function Footer() {
               href="https://twitter.com/knyttneve"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#065F46] hover:text-[#065F46] font-medium"
+              className="text-[#047857] hover:text-[#047857] font-medium"
             >
               @renxbm07
             </a>
@@ -113,7 +113,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="grid place-items-center w-9 h-9 text-slate-500 dark:text-slate-600 hover:text-[#065F46] transition-colors duration-200"
+                className="grid place-items-center w-9 h-9 text-slate-500 dark:text-slate-600 hover:text-[#047857] transition-colors duration-200"
               >
                 <Icon className="text-sm" />
               </a>
@@ -136,7 +136,7 @@ function FooterColumn({ title, links }) {
           <li key={to}>
             <Link
               to={to}
-              className="text-sm hover:text-[#065F46] transition-colors"
+              className="text-sm hover:text-[#047857] transition-colors"
             >
               {label}
             </Link>

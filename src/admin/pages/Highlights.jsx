@@ -125,7 +125,7 @@ export default function Highlights() {
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-[#065F46] text-white"
+                    ? "bg-[#047857] text-white"
                     : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
@@ -138,7 +138,7 @@ export default function Highlights() {
 
         <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#065F46]"
+            className="h-full bg-[#047857]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
@@ -154,13 +154,13 @@ export default function Highlights() {
               value={newHighlight}
               onChange={(event) => setNewHighlight(event.target.value)}
               placeholder="Example: Visit Everest Base Camp"
-              className="flex-1 rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
+              className="flex-1 rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#047857] focus:outline-none"
             />
 
             <button
               type="button"
               onClick={addHighlight}
-              className="px-5 py-3 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition whitespace-nowrap"
+              className="px-5 py-3 rounded-md bg-[#047857] text-white hover:bg-[#065F46] transition whitespace-nowrap"
             >
               Add
             </button>
@@ -210,7 +210,7 @@ export default function Highlights() {
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-5 py-2 rounded-md bg-[#065F46] text-white hover:bg-[#064E3B] transition"
+              className="px-5 py-2 rounded-md bg-[#047857] text-white hover:bg-[#065F46] transition"
             >
               {saving ? "Saving..." : "Save & Continue"}
             </button>

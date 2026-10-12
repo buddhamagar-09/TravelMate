@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 function CategoryBadge({ category }) {
   const styles = {
     trekking: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-    tour: "border-[#065F46]/30 bg-[#065F46]/10 text-[#065F46]",
+    tour: "border-[#047857]/30 bg-[#047857]/10 text-[#047857]",
     wildlife: "border-orange-500/30 bg-orange-500/10 text-orange-400",
   };
   const label = {
@@ -101,7 +101,7 @@ export default function ViewPackage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-3 py-2.5 text-slate-900 focus:border-[#065F46] focus:outline-none"
+            className="rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-3 py-2.5 text-slate-900 focus:border-[#047857] focus:outline-none"
           >
             <option value="all">All Categories</option>
             <option value="trekking">Trekking</option>
@@ -117,7 +117,7 @@ export default function ViewPackage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search package..."
-              className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
+              className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#047857] focus:outline-none"
             />
           </div>
         </div>
@@ -209,7 +209,7 @@ export default function ViewPackage() {
                         <button
                           onClick={() => handleEdit(pkg.id)}
                           title="Edit package"
-                          className="border cursor-pointer border-[#CDD9CF] bg-[#EEF4EF] p-2 text-slate-700 transition hover:border-[#065F46]/50 hover:bg-[#064E3B]/10 hover:text-[#065F46]"
+                          className="border cursor-pointer border-[#CDD9CF] bg-[#EEF4EF] p-2 text-slate-700 transition hover:border-[#047857]/50 hover:bg-[#065F46]/10 hover:text-[#047857]"
                         >
                           <FiEdit2 size={16} />
                         </button>
@@ -219,7 +219,7 @@ export default function ViewPackage() {
                           className={`border px-3 py-1.5 text-xs font-medium transition cursor-pointer ${
                             pkg.status === "active"
                               ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
-                              : "border-[#065F46]/40 bg-[#065F46]/10 text-[#065F46] hover:border-[#065F46] hover:bg-[#064E3B]/15 hover:text-[#065F46]"
+                              : "border-[#047857]/40 bg-[#047857]/10 text-[#047857] hover:border-[#047857] hover:bg-[#065F46]/15 hover:text-[#047857]"
                           }`}
                         >
                           {pkg.status === "active" ? "Block" : "Unblock"}

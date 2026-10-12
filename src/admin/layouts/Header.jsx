@@ -94,7 +94,7 @@ export default function Header({ setSidebarOpen }) {
             />
           </svg>
 
-          <span className="absolute top-1 right-1 w-2 h-2 bg-[#065F46] rounded-full"></span>
+          <span className="absolute top-1 right-1 w-2 h-2 bg-[#047857] rounded-full"></span>
         </button>
 
         {/* User section */}
@@ -106,14 +106,14 @@ export default function Header({ setSidebarOpen }) {
           </div>
 
           {/* Avatar */}
-          <div className="w-10 h-10 rounded-full bg-[#065F46] flex items-center justify-center text-white font-bold">
+          <div className="w-10 h-10 rounded-full bg-[#047857] flex items-center justify-center text-white font-bold">
             A
           </div>
 
           {/* Logout button - hide on small tablets */}
           <button
             onClick={handleLogout}
-            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-[#065F46] hover:bg-[#064E3B] text-white text-sm font-medium transition"
+            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-[#047857] hover:bg-[#065F46] text-white text-sm font-medium transition"
           >
             Logout
           </button>

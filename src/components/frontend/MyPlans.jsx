@@ -65,7 +65,7 @@ export default function MyPlans() {
       {/* HEADER */}
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
             Your Plans
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
@@ -99,7 +99,7 @@ export default function MyPlans() {
             <div className="text-center py-20 bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF]">
               <p className="text-slate-500 dark:text-slate-600">
                 No packages available. Try editing your preferences or{" "}
-                <Link to="/plan" className="text-[#065F46] hover:underline">
+                <Link to="/plan" className="text-[#047857] hover:underline">
                   create a new plan
                 </Link>
                 .
@@ -190,7 +190,7 @@ function PlanCard({ plan, onDelete }) {
       <div className="flex items-center justify-between pt-4 border-t border-[#E4EDE6] dark:border-[#DDE7DF] mt-auto">
         <Link
           to={`/my-plans/${plan.id}`}
-          className="text-sm font-semibold text-[#065F46] hover:text-[#065F46] transition-colors"
+          className="text-sm font-semibold text-[#047857] hover:text-[#047857] transition-colors"
         >
           View matches →
         </Link>

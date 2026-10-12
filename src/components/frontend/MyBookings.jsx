@@ -88,7 +88,7 @@ const MyBookings = () => {
       case "cancelled":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-50 dark:text-red-700 dark:border-red-200";
       case "completed":
-        return "bg-[#065F46]/10 text-[#065F46] border-[#065F46]/20 dark:bg-[#065F46]/10 dark:text-[#065F46] dark:border-[#065F46]/20";
+        return "bg-[#047857]/10 text-[#047857] border-[#047857]/20 dark:bg-[#047857]/10 dark:text-[#047857] dark:border-[#047857]/20";
       default:
         return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
@@ -126,7 +126,7 @@ const MyBookings = () => {
       <div className="container mx-auto max-w-6xl px-5">
         {/* Header */}
         <div className="mb-10 border-b border-[#DDE7DF] dark:border-[#DDE7DF] pb-6">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#065F46]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#047857]">
             TravelMate
           </p>
 
@@ -142,7 +142,7 @@ const MyBookings = () => {
         {/* No Bookings */}
         {bookings.length === 0 ? (
           <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-6 py-16 text-center">
-            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-[#065F46] text-[#065F46]">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-[#047857] text-[#047857]">
               <span className="text-2xl">✈</span>
             </div>
 
@@ -157,7 +157,7 @@ const MyBookings = () => {
 
             <button
               onClick={() => navigate("/package")}
-              className="mt-6 bg-[#065F46] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] cursor-pointer"
+              className="mt-6 bg-[#047857] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#065F46] cursor-pointer"
             >
               Explore Packages
             </button>
@@ -254,7 +254,7 @@ const MyBookings = () => {
                     <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#E4EDE6] dark:border-[#DDE7DF] px-6 py-4">
                       <Link
                         to={`/booking-details/${booking.id}`}
-                        className="text-sm font-semibold text-[#065F46] transition-colors hover:text-[#065F46]"
+                        className="text-sm font-semibold text-[#047857] transition-colors hover:text-[#047857]"
                       >
                         View Booking →
                       </Link>
@@ -265,7 +265,7 @@ const MyBookings = () => {
                             <button
                               onClick={() => handleEsewaPayment(booking.id)}
                               disabled={paying}
-                              className="bg-[#065F46] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#064E3B] disabled:cursor-not-allowed disabled:opacity-60"
+                              className="bg-[#047857] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#065F46] disabled:cursor-not-allowed disabled:opacity-60"
                             >
                               {paying ? "Processing..." : "Pay Now"}
                             </button>

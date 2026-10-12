@@ -59,7 +59,7 @@ export default function ViewUser() {
           <input
             type="text"
             placeholder="Search user..."
-            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#065F46] focus:outline-none"
+            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#047857] focus:outline-none"
           />
         </div>
       </div>
@@ -98,14 +98,14 @@ export default function ViewUser() {
                     <span
                       className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
                         user.status === "active"
-                          ? "border-[#065F46]/30 bg-[#065F46]/10 text-[#065F46]"
+                          ? "border-[#047857]/30 bg-[#047857]/10 text-[#047857]"
                           : "border-red-500/30 bg-red-500/10 text-red-400"
                       }`}
                     >
                       <span
                         className={`h-1.5 w-1.5 ${
                           user.status === "active"
-                            ? "bg-[#065F46]"
+                            ? "bg-[#047857]"
                             : "bg-red-400"
                         }`}
                       ></span>
@@ -121,7 +121,7 @@ export default function ViewUser() {
                         className={`border cursor-pointer px-3 py-1.5 text-xs font-medium transition ${
                           user.status === "active"
                             ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
-                            : "border-[#065F46]/40 bg-[#065F46]/10 text-[#065F46] hover:border-[#065F46] hover:bg-[#064E3B]/15 hover:text-[#065F46]"
+                            : "border-[#047857]/40 bg-[#047857]/10 text-[#047857] hover:border-[#047857] hover:bg-[#065F46]/15 hover:text-[#047857]"
                         }`}
                       >
                         {user.status === "active" ? "Block" : "Unblock"}

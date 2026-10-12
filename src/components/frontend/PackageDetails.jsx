@@ -170,7 +170,7 @@ function PackageDetails() {
 
                           {/* Highlights */}
                           <div className="mb-8">
-                            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#065F46] mb-4">
+                            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#047857] mb-4">
                               {config.highlightsTitle}
                             </h3>
 
@@ -180,7 +180,7 @@ function PackageDetails() {
                                   key={index}
                                   className="flex items-start gap-3"
                                 >
-                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#065F46] shrink-0" />
+                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#047857] shrink-0" />
                                   <span className="text-sm text-slate-700 dark:text-slate-700 leading-relaxed">
                                     {highlight.highlight}
                                   </span>
@@ -195,7 +195,7 @@ function PackageDetails() {
                               Starting from
                             </p>
                             <div className="mt-1 flex items-baseline gap-2">
-                              <h3 className="text-3xl font-bold text-[#065F46]">
+                              <h3 className="text-3xl font-bold text-[#047857]">
                                 Rs. {pkg.price}
                               </h3>
                               <p className="text-sm text-slate-500 dark:text-slate-600">
@@ -218,7 +218,7 @@ function PackageDetails() {
                             <p className="text-xs uppercase tracking-wide text-slate-400">
                               Starting from
                             </p>
-                            <h2 className="text-2xl font-bold text-[#065F46] mt-1">
+                            <h2 className="text-2xl font-bold text-[#047857] mt-1">
                               Rs. {pkg.price}{" "}
                               <span className="text-sm font-normal text-slate-500 dark:text-slate-600">
                                 per person
@@ -231,12 +231,12 @@ function PackageDetails() {
                             <BenefitItem text="Free cancellation up to 24 hours before departure." />
                             <BenefitItem text="24/7 customer support throughout your journey." />
                             <div className="flex items-start gap-3">
-                              <span className="text-[#065F46]">→</span>
+                              <span className="text-[#047857]">→</span>
                               <p>
                                 Follow us on Instagram:{" "}
                                 <a
                                   href="#"
-                                  className="font-medium text-[#065F46] hover:text-[#065F46] hover:underline"
+                                  className="font-medium text-[#047857] hover:text-[#047857] hover:underline"
                                 >
                                   @travelmate
                                 </a>
@@ -264,7 +264,7 @@ function PackageDetails() {
               <div key={pkg.id} className="max-w-7xl mx-auto px-5">
                 {/* Heading */}
                 <div className="mb-12">
-                  <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                     Quick Information
                   </p>
                   <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
@@ -355,13 +355,13 @@ function PackageDetails() {
                           <div key={index} className="relative flex gap-5">
                             {/* Dot */}
                             <div className="relative z-10 mt-1.5 shrink-0">
-                              <div className="w-3.5 h-3.5 rounded-full border-2 border-[#065F46] bg-[#EEF4EF] dark:bg-[#FFFFFF]" />
+                              <div className="w-3.5 h-3.5 rounded-full border-2 border-[#047857] bg-[#EEF4EF] dark:bg-[#FFFFFF]" />
                             </div>
 
                             {/* Content */}
                             <div className="pb-1">
                               <div className="flex items-baseline gap-3 mb-1">
-                                <span className="text-xs font-bold uppercase tracking-wider text-[#065F46]">
+                                <span className="text-xs font-bold uppercase tracking-wider text-[#047857]">
                                   {itinerary.day}
                                 </span>
                                 <h4 className="font-semibold text-slate-900 dark:text-slate-900 leading-snug">
@@ -391,7 +391,7 @@ function PackageDetails() {
             <div key={pkg.id} className="max-w-7xl mx-auto px-5">
               {/* Heading */}
               <div className="mb-12">
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                   Inclusions
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
@@ -471,7 +471,7 @@ function PackageDetails() {
           .map((pkg) => (
             <div key={pkg.id} className="max-w-7xl mx-auto px-5">
               <div className="mb-12">
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
                   Gallery
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
@@ -518,7 +518,7 @@ function PackageDetails() {
       <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
           <div className="mb-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-[#065F46] mb-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#047857] mb-3">
               Testimonials
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
@@ -550,7 +550,7 @@ function PackageDetails() {
                 <div className="h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6">
                   {/* User */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 grid place-items-center border border-[#065F46]/30 text-[#065F46] shrink-0">
+                    <div className="w-10 h-10 grid place-items-center border border-[#047857]/30 text-[#047857] shrink-0">
                       <FaUser className="text-sm" />
                     </div>
                     <div className="min-w-0">
@@ -595,7 +595,7 @@ function PackageDetails() {
                   const config = getConfig(pkg.category);
                   return (
                     <div key={pkg.id}>
-                      <p className="text-[#065F46] font-semibold uppercase tracking-widest mb-3">
+                      <p className="text-[#047857] font-semibold uppercase tracking-widest mb-3">
                         Ready to {config.label}?
                       </p>
 
@@ -630,22 +630,22 @@ function PackageDetails() {
                     <div className="border border-[#DDE7DF] bg-[#FFFFFF] p-8">
                       <div className="space-y-3 text-sm text-slate-600">
                         <div className="flex items-start gap-3">
-                          <span className="text-[#065F46] shrink-0">✓</span>
+                          <span className="text-[#047857] shrink-0">✓</span>
                           <span>Free cancellation up to 24 hours.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-[#065F46] shrink-0">✓</span>
+                          <span className="text-[#047857] shrink-0">✓</span>
                           <span>Professional licensed trekking guides.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-[#065F46] shrink-0">✓</span>
+                          <span className="text-[#047857] shrink-0">✓</span>
                           <span>No hidden costs or extra charges.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-[#065F46] shrink-0">✓</span>
+                          <span className="text-[#047857] shrink-0">✓</span>
                           <span>
                             24/7 customer support before and during your trip.
                           </span>
@@ -654,7 +654,7 @@ function PackageDetails() {
 
                       <button
                         onClick={handleBooking}
-                        className="mt-8 w-full bg-[#065F46] py-4 text-white font-semibold transition-colors hover:bg-[#064E3B]"
+                        className="mt-8 w-full bg-[#047857] py-4 text-white font-semibold transition-colors hover:bg-[#065F46]"
                       >
                         {config.bookLabel}
                       </button>
@@ -686,7 +686,7 @@ function PackageDetails() {
 function HighlightItem({ text }) {
   return (
     <div className="flex items-start gap-3">
-      <span className="text-[#065F46] font-semibold shrink-0">✓</span>
+      <span className="text-[#047857] font-semibold shrink-0">✓</span>
       <span className="text-sm text-slate-700 dark:text-slate-700">{text}</span>
     </div>
   );
@@ -704,7 +704,7 @@ function BenefitItem({ text }) {
 function FactItem({ label, value }) {
   return (
     <div className="border-b border-[#DDE7DF] dark:border-[#DDE7DF] pb-3">
-      <p className="text-xs font-semibold uppercase tracking-wide text-[#065F46]">
+      <p className="text-xs font-semibold uppercase tracking-wide text-[#047857]">
         {label}
       </p>
       <p className="mt-1 text-slate-700 dark:text-slate-700">{value}</p>
@@ -715,7 +715,7 @@ function FactItem({ label, value }) {
 function CtaBullet({ text }) {
   return (
     <div className="flex items-center gap-2 text-slate-600">
-      <span className="text-[#065F46]">✓</span>
+      <span className="text-[#047857]">✓</span>
       <span>{text}</span>
     </div>
   );
