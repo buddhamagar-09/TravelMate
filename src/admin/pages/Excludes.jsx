@@ -88,47 +88,47 @@ useEffect(() => {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Header */}{" "}
       <div className="mb-6">
         {" "}
-        <h1 className="text-2xl font-bold text-white">Package Excludes</h1>{" "}
-        <p className="text-slate-400 text-sm">
+        <h1 className="text-2xl font-bold text-slate-900">Package Excludes</h1>{" "}
+        <p className="text-slate-600 text-sm">
           Add expenses that are not included in the package price{" "}
         </p>{" "}
       </div>
       {/* Progress */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-700 text-slate-300"
+                    ? "bg-[#064E3B] text-white"
+                    : "bg-[#E6D2A6] text-slate-700"
                 }`}
               >
                 {index + 1}
               </div>
-              <span className="mt-2 text-xs text-slate-300">{step}</span>
+              <span className="mt-2 text-xs text-slate-700">{step}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600" style={{ width: "100%" }} />
+        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
+          <div className="h-full bg-[#064E3B]" style={{ width: "100%" }} />
         </div>
       </div>
       {/* Form */}
     
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
         <div className="space-y-5">
           <div className="flex flex-col sm:flex-row gap-3 items-start">
             <input
               type="text"
               placeholder="Example: International flight ticket"
-              className="w-full rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+              className="w-full rounded-md border border-[#D8C494] bg-[#F8E7C9] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
               value={newExclude}
               onChange={(e) => setNewExclude(e.target.value)}
             />
@@ -136,7 +136,7 @@ useEffect(() => {
             <button
               type="button"
               onClick={addExclude}
-              className="px-5 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition whitespace-nowrap"
+              className="px-5 py-3 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition whitespace-nowrap"
             >
               Add
             </button>
@@ -144,7 +144,7 @@ useEffect(() => {
 
           {/* Static preview list */}
           <div className="pt-2">
-            <h3 className="text-sm font-semibold text-white mb-3">
+            <h3 className="text-sm font-semibold text-slate-900 mb-3">
               Current Excluded Items
             </h3>
 
@@ -152,16 +152,16 @@ useEffect(() => {
               {excludes.map((exclude, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 p-4 mb-3"
+                  className="flex items-center justify-between rounded-md border border-[#E4D2A8] bg-[#F8E7C9] p-4 mb-3"
                 >
                   <div className="flex items-center gap-2">
-                    <p className="text-white">{exclude}</p>
+                    <p className="text-slate-900">{exclude}</p>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => removeExclude(index)}
-                    className="rounded  px-3 py-1 text-sm text-white hover:bg-red-700"
+                    className="rounded  px-3 py-1 text-sm text-slate-900 hover:bg-red-700"
                   >
                     Remove
                   </button>
@@ -171,10 +171,10 @@ useEffect(() => {
           </div>
 
           {/* Completion box */}
-          <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-4">
+          <div className="rounded-lg border border-[#064E3B]/30 bg-[#064E3B]/10 p-4">
             <div>
-              <p className="font-semibold text-white">Final Step</p>
-              <p className="text-sm text-slate-300 mt-1">
+              <p className="font-semibold text-slate-900">Final Step</p>
+              <p className="text-sm text-slate-700 mt-1">
                 After saving this form, the package setup will be completed and
                 the package can be viewed from the admin package list.
               </p>
@@ -183,11 +183,11 @@ useEffect(() => {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-[#E4D2A8]">
           <button
             type="button"
             onClick={handlePrevious}
-            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
           >
             ← Previous
           </button>
@@ -196,7 +196,7 @@ useEffect(() => {
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-5 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition"
+              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
             >
               {saving ? "Saving..." : "Save & Finish"}
             </button>

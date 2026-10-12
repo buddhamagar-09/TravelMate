@@ -9,7 +9,7 @@ const CATEGORY_LABELS = {
 
 export default function PlanResultCard({ pkg }) {
   return (
-    <div className="group bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
+    <div className="group bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
       <div className="relative overflow-hidden">
         <img
           src={`http://localhost:8000/storage/${pkg.featured_image}`}
@@ -18,7 +18,7 @@ export default function PlanResultCard({ pkg }) {
         />
 
         {pkg.category && (
-          <span className="absolute top-3 left-3 bg-sky-500 text-white text-xs font-medium px-2 py-1">
+          <span className="absolute top-3 left-3 bg-[#064E3B] text-white text-xs font-medium px-2 py-1">
             {CATEGORY_LABELS[pkg.category] ?? pkg.category}
           </span>
         )}
@@ -29,8 +29,8 @@ export default function PlanResultCard({ pkg }) {
               pkg.matchScore >= 90
                 ? "bg-emerald-500 text-white"
                 : pkg.matchScore >= 70
-                  ? "bg-sky-500 text-white"
-                  : "bg-slate-700 text-slate-200"
+                  ? "bg-[#064E3B] text-white"
+                  : "bg-[#D8C494] text-slate-200"
             }`}
           >
             {pkg.matchScore}% match
@@ -39,7 +39,7 @@ export default function PlanResultCard({ pkg }) {
       </div>
 
       <div className="p-4">
-        <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-11">
+        <h2 className="font-semibold text-base text-slate-900 dark:text-slate-900 line-clamp-2 leading-snug min-h-11">
           {pkg.title}
         </h2>
 
@@ -48,12 +48,12 @@ export default function PlanResultCard({ pkg }) {
             <p className="text-xs uppercase tracking-wide text-slate-400">
               From
             </p>
-            <p className="text-xl font-bold text-sky-500">Rs. {pkg.price}</p>
+            <p className="text-xl font-bold text-[#064E3B]">Rs. {pkg.price}</p>
           </div>
 
           <Link
             to={`/package/${pkg.id}`}
-            className="text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+            className="text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
           >
             View →
           </Link>

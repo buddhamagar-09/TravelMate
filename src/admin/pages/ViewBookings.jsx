@@ -51,25 +51,25 @@ export default function ViewBookings() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Header */}
       <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">View Bookings</h1>
+          <h1 className="text-2xl font-bold text-slate-900">View Bookings</h1>
 
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-slate-600">
             Manage all your travel bookings.
           </p>
         </div>
 
         {/* Search */}
         <div className="relative w-full md:w-80">
-          <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg" />
+          <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 text-lg" />
 
           <input
             type="text"
             placeholder="Search booking..."
-            className="w-full rounded-md border border-slate-700 bg-slate-900 py-2.5 pl-10 pr-4 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+            className="w-full rounded-md border border-[#D8C494] bg-[#F8E7C9] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
           />
         </div>
       </div>
@@ -78,10 +78,10 @@ export default function ViewBookings() {
       {loading ? (
         <SkeletonLoader rows={5} />
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
+        <div className="overflow-x-auto rounded-lg border border-[#E4D2A8] bg-[#F8E7C9]">
           <table className="min-w-full text-sm">
-            <thead className="border-b border-slate-800 bg-slate-950">
-              <tr className="text-slate-300">
+            <thead className="border-b border-[#E4D2A8] bg-[#F8E7C9]">
+              <tr className="text-slate-700">
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   S.No
                 </th>
@@ -125,46 +125,46 @@ export default function ViewBookings() {
               {bookings.map((booking, index) => (
                 <tr
                   key={booking.id}
-                  className="border-b border-slate-800 hover:bg-slate-800 transition all duration-200"
+                  className="border-b border-[#E4D2A8] hover:bg-[#F1E3C4] transition all duration-200"
                 >
                   <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
 
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-white">
+                  <td className="px-6 py-4 font-medium whitespace-nowrap text-slate-900">
                     {booking.user.name}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {booking.package.title}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {booking.package.category}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {booking.phone_number}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {booking.user.email}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {new Date(booking.travel_date).toLocaleDateString("en-GB", {
                       day: "2-digit",
                       month: "short",
                       year: "numeric",
                     })}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     {booking.travelers}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-slate-300">
+                  <td className="px-6 py-4 whitespace-nowrap text-slate-700">
                     Rs. {booking.total_price}
                   </td>
 
                   <td className="px-6 py-4 whitespace-nowrap">
                     {booking.payment_status === "paid" && (
-                      <span className="inline-flex items-center gap-2 border border-green-500/30 bg-green-500/10 px-3 py-1.5 text-xs font-medium text-green-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+                      <span className="inline-flex items-center gap-2 border border-[#064E3B]/30 bg-[#064E3B]/10 px-3 py-1.5 text-xs font-medium text-[#064E3B]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#064E3B]"></span>
                         Paid
                       </span>
                     )}
@@ -193,8 +193,8 @@ export default function ViewBookings() {
                     )}
 
                     {booking.status === "confirmed" && (
-                      <span className="inline-flex items-center gap-2 border border-blue-500/30 bg-blue-500/10 px-3 py-1.5 text-xs font-medium text-blue-400">
-                        <span className="h-1.5 w-1.5 rounded-full bg-blue-400"></span>
+                      <span className="inline-flex items-center gap-2 border border-[#064E3B]/30 bg-[#064E3B]/10 px-3 py-1.5 text-xs font-medium text-[#064E3B]">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#064E3B]"></span>
                         Confirmed
                       </span>
                     )}
@@ -215,7 +215,7 @@ export default function ViewBookings() {
                             onClick={() =>
                               updateStatus(booking.id, "confirmed")
                             }
-                            className="border cursor-pointer border-blue-500/40 px-3 py-1.5 text-xs font-medium text-blue-400 transition hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-300"
+                            className="border cursor-pointer border-[#064E3B]/40 px-3 py-1.5 text-xs font-medium text-[#064E3B] transition hover:border-[#064E3B] hover:bg-[#04382A]/10 hover:text-[#064E3B]"
                           >
                             Approve
                           </button>
@@ -232,13 +232,13 @@ export default function ViewBookings() {
                       )}
 
                       {booking.status === "confirmed" && (
-                        <span className="text-xs text-slate-500">
+                        <span className="text-xs text-slate-600">
                           No action
                         </span>
                       )}
 
                       {booking.status === "cancelled" && (
-                        <span className="text-xs text-slate-500">
+                        <span className="text-xs text-slate-600">
                           No action
                         </span>
                       )}

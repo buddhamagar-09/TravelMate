@@ -98,37 +98,37 @@ function PackageDetails() {
   return (
     <>
       {/* ============ PACKAGE DETAILS ============ */}
-      <section className="bg-white dark:bg-slate-950 transition-colors duration-300">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
         {loading ? (
           <div className="container mx-auto px-5 py-10">
             <div className="lg:w-4/6 mx-auto animate-pulse">
-              <div className="h-64 bg-slate-200 dark:bg-slate-800" />
+              <div className="h-64 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
 
               <div className="flex flex-col sm:flex-row mt-10">
                 <div className="sm:w-1/3 sm:pr-8 sm:py-8">
-                  <div className="h-8 bg-slate-200 dark:bg-slate-800 w-3/4 mb-4" />
+                  <div className="h-8 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4 mb-4" />
                   <div className="space-y-2 mb-8">
-                    <div className="h-4 bg-slate-200 dark:bg-slate-800 w-full" />
-                    <div className="h-4 bg-slate-200 dark:bg-slate-800 w-5/6" />
-                    <div className="h-4 bg-slate-200 dark:bg-slate-800 w-4/5" />
+                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
+                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-5/6" />
+                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-4/5" />
                   </div>
-                  <div className="h-8 bg-slate-200 dark:bg-slate-800 w-40 mb-5" />
+                  <div className="h-8 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-40 mb-5" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[1, 2, 3, 4, 5, 6].map((item) => (
                       <div key={item} className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-slate-200 dark:bg-slate-800" />
-                        <div className="h-4 bg-slate-200 dark:bg-slate-800 flex-1" />
+                        <div className="w-4 h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] flex-1" />
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-slate-200 dark:border-slate-800 mt-4 pt-4 sm:mt-0 sm:pt-0">
+                <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#E4D2A8] dark:border-[#E4D2A8] mt-4 pt-4 sm:mt-0 sm:pt-0">
                   <div className="space-y-3">
-                    <div className="h-5 bg-slate-200 dark:bg-slate-800 w-full" />
-                    <div className="h-5 bg-slate-200 dark:bg-slate-800 w-full" />
-                    <div className="h-5 bg-slate-200 dark:bg-slate-800 w-5/6" />
-                    <div className="h-5 bg-slate-200 dark:bg-slate-800 w-4/6" />
+                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
+                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
+                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-5/6" />
+                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-4/6" />
                   </div>
                 </div>
               </div>
@@ -160,17 +160,17 @@ function PackageDetails() {
                       {/* Left Side */}
                       <div className="sm:w-1/3 sm:pr-8 sm:py-8">
                         <div className="flex flex-col">
-                          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">
+                          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-900 mb-3">
                             {pkg.title}
                           </h2>
 
-                          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4 text-justify">
+                          <p className="text-slate-600 dark:text-slate-600 leading-relaxed mb-4 text-justify">
                             {pkg.short_description}
                           </p>
 
                           {/* Highlights */}
                           <div className="mb-8">
-                            <h3 className="text-xs font-semibold uppercase tracking-widest text-sky-500 mb-4">
+                            <h3 className="text-xs font-semibold uppercase tracking-widest text-[#064E3B] mb-4">
                               {config.highlightsTitle}
                             </h3>
 
@@ -180,8 +180,8 @@ function PackageDetails() {
                                   key={index}
                                   className="flex items-start gap-3"
                                 >
-                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
-                                  <span className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#064E3B] shrink-0" />
+                                  <span className="text-sm text-slate-700 dark:text-slate-700 leading-relaxed">
                                     {highlight.highlight}
                                   </span>
                                 </li>
@@ -195,10 +195,10 @@ function PackageDetails() {
                               Starting from
                             </p>
                             <div className="mt-1 flex items-baseline gap-2">
-                              <h3 className="text-3xl font-bold text-sky-500">
+                              <h3 className="text-3xl font-bold text-[#064E3B]">
                                 Rs. {pkg.price}
                               </h3>
-                              <p className="text-sm text-slate-500 dark:text-slate-400">
+                              <p className="text-sm text-slate-500 dark:text-slate-600">
                                 per person
                               </p>
                             </div>
@@ -207,36 +207,36 @@ function PackageDetails() {
                       </div>
 
                       {/* Right Side */}
-                      <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-slate-200 dark:border-slate-800 mt-4 pt-4 sm:mt-0 sm:pt-0">
-                        <p className="leading-relaxed text-base text-slate-600 dark:text-slate-300 mb-4 text-justify">
+                      <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#E4D2A8] dark:border-[#E4D2A8] mt-4 pt-4 sm:mt-0 sm:pt-0">
+                        <p className="leading-relaxed text-base text-slate-600 dark:text-slate-700 mb-4 text-justify">
                           {pkg.long_description}
                         </p>
 
                         {/* Price Card */}
-                        <div className="mt-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+                        <div className="mt-8 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
                           <div className="mb-6">
                             <p className="text-xs uppercase tracking-wide text-slate-400">
                               Starting from
                             </p>
-                            <h2 className="text-2xl font-bold text-sky-500 mt-1">
+                            <h2 className="text-2xl font-bold text-[#064E3B] mt-1">
                               Rs. {pkg.price}{" "}
-                              <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                              <span className="text-sm font-normal text-slate-500 dark:text-slate-600">
                                 per person
                               </span>
                             </h2>
                           </div>
 
                           {/* Benefits */}
-                          <div className="mt-6 border-t border-slate-200 dark:border-slate-800 pt-5 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                          <div className="mt-6 border-t border-[#E4D2A8] dark:border-[#E4D2A8] pt-5 space-y-3 text-sm text-slate-600 dark:text-slate-700">
                             <BenefitItem text="Free cancellation up to 24 hours before departure." />
                             <BenefitItem text="24/7 customer support throughout your journey." />
                             <div className="flex items-start gap-3">
-                              <span className="text-sky-500">→</span>
+                              <span className="text-[#064E3B]">→</span>
                               <p>
                                 Follow us on Instagram:{" "}
                                 <a
                                   href="#"
-                                  className="font-medium text-sky-500 hover:text-sky-600 hover:underline"
+                                  className="font-medium text-[#064E3B] hover:text-[#064E3B] hover:underline"
                                 >
                                   @travelmate
                                 </a>
@@ -254,7 +254,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ QUICK INFORMATION ============ */}
-      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => {
@@ -264,13 +264,13 @@ function PackageDetails() {
               <div key={pkg.id} className="max-w-7xl mx-auto px-5">
                 {/* Heading */}
                 <div className="mb-12">
-                  <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                  <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                     Quick Information
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                  <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
                     Everything you need to know
                   </h2>
-                  <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+                  <p className="text-slate-600 dark:text-slate-600 max-w-2xl">
                     {config.sectionsSubtitle(pkg.title)}
                   </p>
                 </div>
@@ -348,27 +348,27 @@ function PackageDetails() {
 
                     <div className="relative">
                       {/* Vertical line */}
-                      <div className="absolute left-1.75 top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-800" />
+                      <div className="absolute left-1.75 top-2 bottom-2 w-px bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
 
                       <div className="space-y-6">
                         {pkg.itineraries.map((itinerary, index) => (
                           <div key={index} className="relative flex gap-5">
                             {/* Dot */}
                             <div className="relative z-10 mt-1.5 shrink-0">
-                              <div className="w-3.5 h-3.5 rounded-full border-2 border-sky-500 bg-slate-50 dark:bg-slate-900" />
+                              <div className="w-3.5 h-3.5 rounded-full border-2 border-[#064E3B] bg-[#F1E3C4] dark:bg-[#F8E7C9]" />
                             </div>
 
                             {/* Content */}
                             <div className="pb-1">
                               <div className="flex items-baseline gap-3 mb-1">
-                                <span className="text-xs font-bold uppercase tracking-wider text-sky-500">
+                                <span className="text-xs font-bold uppercase tracking-wider text-[#064E3B]">
                                   {itinerary.day}
                                 </span>
-                                <h4 className="font-semibold text-slate-900 dark:text-white leading-snug">
+                                <h4 className="font-semibold text-slate-900 dark:text-slate-900 leading-snug">
                                   {itinerary.title}
                                 </h4>
                               </div>
-                              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                              <p className="text-sm text-slate-600 dark:text-slate-600 leading-relaxed">
                                 {itinerary.description}
                               </p>
                             </div>
@@ -384,20 +384,20 @@ function PackageDetails() {
       </section>
 
       {/* ============ INCLUDED / EXCLUDED ============ */}
-      <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => (
             <div key={pkg.id} className="max-w-7xl mx-auto px-5">
               {/* Heading */}
               <div className="mb-12">
-                <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                   Inclusions
                 </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
                   What's included & excluded
                 </h2>
-                <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+                <p className="text-slate-600 dark:text-slate-600 max-w-2xl">
                   A clear overview of what is covered in your package and what
                   is not.
                 </p>
@@ -410,7 +410,7 @@ function PackageDetails() {
                     <div className="w-8 h-8 grid place-items-center border border-emerald-500/30 text-emerald-500">
                       <CheckIcon />
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-900">
                       What's included
                     </h3>
                   </div>
@@ -419,12 +419,12 @@ function PackageDetails() {
                     {pkg.includes.map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-3 py-3 border-b border-slate-100 dark:border-slate-800 last:border-0"
+                        className="flex items-start gap-3 py-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-0"
                       >
                         <span className="text-emerald-500 shrink-0 mt-0.5">
                           <CheckIcon />
                         </span>
-                        <span className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                        <span className="text-sm text-slate-700 dark:text-slate-800 leading-relaxed">
                           {item.item}
                         </span>
                       </li>
@@ -438,7 +438,7 @@ function PackageDetails() {
                     <div className="w-8 h-8 grid place-items-center border border-red-500/30 text-red-500">
                       <CrossIcon />
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-900">
                       What's not included
                     </h3>
                   </div>
@@ -447,12 +447,12 @@ function PackageDetails() {
                     {pkg.excludes.map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-3 py-3 border-b border-slate-100 dark:border-slate-800 last:border-0"
+                        className="flex items-start gap-3 py-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-0"
                       >
                         <span className="text-red-500 shrink-0 mt-0.5">
                           <CrossIcon />
                         </span>
-                        <span className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
+                        <span className="text-sm text-slate-700 dark:text-slate-800 leading-relaxed">
                           {item.item}
                         </span>
                       </li>
@@ -465,19 +465,19 @@ function PackageDetails() {
       </section>
 
       {/* ============ GALLERY ============ */}
-      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => (
             <div key={pkg.id} className="max-w-7xl mx-auto px-5">
               <div className="mb-12">
-                <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                   Gallery
                 </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
                   Moments from the trail
                 </h2>
-                <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+                <p className="text-slate-600 dark:text-slate-600 max-w-2xl">
                   Explore breathtaking moments from the {pkg.title}.
                 </p>
               </div>
@@ -515,16 +515,16 @@ function PackageDetails() {
       </section>
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
           <div className="mb-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
               Testimonials
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 mb-3">
               What travelers say
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+            <p className="text-slate-600 dark:text-slate-600 max-w-2xl">
               Reviews from travelers who experienced unforgettable journeys with
               TravelMate.
             </p>
@@ -547,17 +547,17 @@ function PackageDetails() {
           >
             {reviews.map((review) => (
               <SwiperSlide key={review.id} className="h-auto!">
-                <div className="h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+                <div className="h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
                   {/* User */}
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 grid place-items-center border border-sky-500/30 text-sky-500 shrink-0">
+                    <div className="w-10 h-10 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] shrink-0">
                       <FaUser className="text-sm" />
                     </div>
                     <div className="min-w-0">
-                      <h3 className="font-semibold text-slate-900 dark:text-white truncate">
+                      <h3 className="font-semibold text-slate-900 dark:text-slate-900 truncate">
                         {review.user?.name}
                       </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                      <p className="text-xs text-slate-500 dark:text-slate-600 truncate">
                         {review.user?.location}
                       </p>
                     </div>
@@ -573,7 +573,7 @@ function PackageDetails() {
                   </div>
 
                   {/* Review */}
-                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-700">
                     {review.comment}
                   </p>
                 </div>
@@ -584,7 +584,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ CTA ============ */}
-      <section className="bg-slate-900 dark:bg-slate-950 py-14 lg:py-20">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] border-t border-[#E4D2A8] dark:border-[#E4D2A8] py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Left Content */}
@@ -595,15 +595,15 @@ function PackageDetails() {
                   const config = getConfig(pkg.category);
                   return (
                     <div key={pkg.id}>
-                      <p className="text-sky-400 font-semibold uppercase tracking-widest mb-3">
+                      <p className="text-[#064E3B] font-semibold uppercase tracking-widest mb-3">
                         Ready to {config.label}?
                       </p>
 
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight mb-6">
                         Start your next adventure
                       </h2>
 
-                      <p className="text-base lg:text-lg leading-relaxed text-slate-300 mb-8">
+                      <p className="text-base lg:text-lg leading-relaxed text-slate-600 mb-8">
                         Join experienced local guides, trek through Nepal's most
                         iconic trails, and experience the beauty of the
                         Himalayas on a carefully planned journey.
@@ -627,25 +627,25 @@ function PackageDetails() {
 
                 return (
                   <div key={pkg.id} className="lg:col-span-2">
-                    <div className="border border-slate-700 bg-slate-950 p-8">
-                      <div className="space-y-3 text-sm text-slate-300">
+                    <div className="border border-[#E4D2A8] bg-[#F8E7C9] p-8">
+                      <div className="space-y-3 text-sm text-slate-600">
                         <div className="flex items-start gap-3">
-                          <span className="text-sky-400 shrink-0">✓</span>
+                          <span className="text-[#064E3B] shrink-0">✓</span>
                           <span>Free cancellation up to 24 hours.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-sky-400 shrink-0">✓</span>
+                          <span className="text-[#064E3B] shrink-0">✓</span>
                           <span>Professional licensed trekking guides.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-sky-400 shrink-0">✓</span>
+                          <span className="text-[#064E3B] shrink-0">✓</span>
                           <span>No hidden costs or extra charges.</span>
                         </div>
 
                         <div className="flex items-start gap-3">
-                          <span className="text-sky-400 shrink-0">✓</span>
+                          <span className="text-[#064E3B] shrink-0">✓</span>
                           <span>
                             24/7 customer support before and during your trip.
                           </span>
@@ -654,7 +654,7 @@ function PackageDetails() {
 
                       <button
                         onClick={handleBooking}
-                        className="mt-8 w-full bg-sky-500 py-4 text-white font-semibold transition-colors hover:bg-sky-600"
+                        className="mt-8 w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A]"
                       >
                         {config.bookLabel}
                       </button>
@@ -672,7 +672,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ REVIEW FORM ============ */}
-      <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-3xl mx-auto px-5">
           <ReviewForm packageId={id} />
         </div>
@@ -686,8 +686,8 @@ function PackageDetails() {
 function HighlightItem({ text }) {
   return (
     <div className="flex items-start gap-3">
-      <span className="text-sky-500 font-semibold shrink-0">✓</span>
-      <span className="text-sm text-slate-700 dark:text-slate-300">{text}</span>
+      <span className="text-[#064E3B] font-semibold shrink-0">✓</span>
+      <span className="text-sm text-slate-700 dark:text-slate-700">{text}</span>
     </div>
   );
 }
@@ -703,19 +703,19 @@ function BenefitItem({ text }) {
 
 function FactItem({ label, value }) {
   return (
-    <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
-      <p className="text-xs font-semibold uppercase tracking-wide text-sky-500">
+    <div className="border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-3">
+      <p className="text-xs font-semibold uppercase tracking-wide text-[#064E3B]">
         {label}
       </p>
-      <p className="mt-1 text-slate-700 dark:text-slate-300">{value}</p>
+      <p className="mt-1 text-slate-700 dark:text-slate-700">{value}</p>
     </div>
   );
 }
 
 function CtaBullet({ text }) {
   return (
-    <div className="flex items-center gap-2 text-slate-300">
-      <span className="text-sky-400">✓</span>
+    <div className="flex items-center gap-2 text-slate-600">
+      <span className="text-[#064E3B]">✓</span>
       <span>{text}</span>
     </div>
   );

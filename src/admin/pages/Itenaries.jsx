@@ -107,13 +107,13 @@ export default function ItineraryStep() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Page title */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">
+        <h1 className="text-2xl font-bold text-slate-900">
           {isEditing ? "Edit Itinerary" : "Add Itinerary"}
         </h1>
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-600 text-sm">
           {isEditing
             ? "Update the day-by-day itinerary for this package."
             : "Create a day-by-day itinerary for this package."}
@@ -121,36 +121,36 @@ export default function ItineraryStep() {
       </div>
 
       {/* Progress */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-700 text-slate-300"
+                    ? "bg-[#064E3B] text-white"
+                    : "bg-[#E6D2A6] text-slate-700"
                 }`}
               >
                 {index + 1}
               </div>
-              <span className="mt-2 text-xs text-slate-300">{step}</span>
+              <span className="mt-2 text-xs text-slate-700">{step}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600"
+            className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
       </div>
 
       {/* Itinerary Form */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-white">
+          <h2 className="text-lg font-semibold text-slate-900">
             Day-by-Day Itinerary
           </h2>
          
@@ -158,7 +158,7 @@ export default function ItineraryStep() {
           <button
             type="button"
             onClick={addDay}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm"
+            className="px-4 py-2 bg-[#064E3B] text-white rounded-md hover:bg-[#04382A] transition text-sm"
           >
             + Add Day
           </button>
@@ -168,22 +168,22 @@ export default function ItineraryStep() {
           {days.map((item, index) => (
             <div
               key={index}
-              className="border border-slate-800 rounded-lg p-5 bg-slate-950/40"
+              className="border border-[#E4D2A8] rounded-lg p-5 bg-[#F8E7C9]/40"
             >
               {/* Day Header */}
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-semibold">
+                <h3 className="text-slate-900 font-semibold">
                   Day {item.day_number}
                 </h3>
 
-                <span className="text-xs px-2 py-1 rounded bg-slate-800 text-slate-300">
+                <span className="text-xs px-2 py-1 rounded bg-[#F1E3C4] text-slate-700">
                   Itinerary
                 </span>
               </div>
 
               {/* Day Title */}
               <div className="mb-4">
-                <label className="block text-sm text-slate-300 mb-2">
+                <label className="block text-sm text-slate-700 mb-2">
                   Day Title
                 </label>
 
@@ -196,13 +196,13 @@ export default function ItineraryStep() {
                   }}
                   type="text"
                   placeholder="Arrival in Kathmandu"
-                  className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
                 />
               </div>
 
               {/* Description */}
               <div className="mb-4">
-                <label className="block text-sm text-slate-300 mb-2">
+                <label className="block text-sm text-slate-700 mb-2">
                   Description
                 </label>
 
@@ -215,13 +215,13 @@ export default function ItineraryStep() {
                   }}
                   rows="4"
                   placeholder="Describe the activities, trekking hours, sightseeing, meals, and important information for this day..."
-                  className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
+                  className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B] resize-none"
                 />
               </div>
 
               {/* Overnight */}
               <div>
-                <label className="block text-sm text-slate-300 mb-2">
+                <label className="block text-sm text-slate-700 mb-2">
                   Overnight Stay
                 </label>
 
@@ -234,7 +234,7 @@ export default function ItineraryStep() {
                   }}
                   type="text"
                   placeholder="Kathmandu"
-                  className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
                 />
               </div>
             </div>
@@ -242,12 +242,12 @@ export default function ItineraryStep() {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-[#E4D2A8]">
           {/* Left */}
           <button
             onClick={handlePrevious}
             type="button"
-            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
           >
             ← Previous
           </button>
@@ -257,7 +257,7 @@ export default function ItineraryStep() {
             <button
               onClick={handleNext}
               type="button"
-              className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+              className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
             >
               Next →
             </button>
@@ -266,7 +266,7 @@ export default function ItineraryStep() {
               onClick={handleSubmit}
               type="button"
               disabled={loading}
-              className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
             >
               {loading ? "Saving..." : "Save & Continue"}
             </button>

@@ -88,9 +88,9 @@ const MyBookings = () => {
       case "cancelled":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       case "completed":
-        return "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/10 dark:text-sky-400 dark:border-sky-500/20";
+        return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
       default:
-        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
+        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
     }
   };
 
@@ -103,16 +103,16 @@ const MyBookings = () => {
       case "failed":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       default:
-        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
+        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
     }
   };
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
+      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
         <div className="container mx-auto px-5">
           <div className="flex min-h-100 items-center justify-center">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500 dark:text-slate-600">
               Loading bookings...
             </p>
           </div>
@@ -122,42 +122,42 @@ const MyBookings = () => {
   }
 
   return (
-    <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
+    <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
       <div className="container mx-auto max-w-6xl px-5">
         {/* Header */}
-        <div className="mb-10 border-b border-slate-200 dark:border-slate-800 pb-6">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-sky-500">
+        <div className="mb-10 border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-6">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#064E3B]">
             TravelMate
           </p>
 
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-900">
             My Bookings
           </h1>
 
-          <p className="mt-2 text-slate-500 dark:text-slate-400">
+          <p className="mt-2 text-slate-500 dark:text-slate-600">
             Keep track of your upcoming and previous trips.
           </p>
         </div>
 
         {/* No Bookings */}
         {bookings.length === 0 ? (
-          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-16 text-center">
-            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-sky-500 text-sky-500">
+          <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-6 py-16 text-center">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-[#064E3B] text-[#064E3B]">
               <span className="text-2xl">✈</span>
             </div>
 
-            <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
+            <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-900">
               No bookings yet
             </h2>
 
-            <p className="mx-auto mt-2 max-w-md text-sm text-slate-500 dark:text-slate-400">
+            <p className="mx-auto mt-2 max-w-md text-sm text-slate-500 dark:text-slate-600">
               You haven't booked a trip yet. Explore our packages and start
               planning your next adventure.
             </p>
 
             <button
               onClick={() => navigate("/package")}
-              className="mt-6 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600 cursor-pointer"
+              className="mt-6 bg-[#064E3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] cursor-pointer"
             >
               Explore Packages
             </button>
@@ -167,7 +167,7 @@ const MyBookings = () => {
             {bookings.map((booking) => (
               <div
                 key={booking.id}
-                className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+                className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]"
               >
                 {/* Top Section */}
                 <div className="flex flex-col md:flex-row">
@@ -187,13 +187,13 @@ const MyBookings = () => {
                   {/* Main Content */}
                   <div className="flex-1">
                     {/* Package Header */}
-                    <div className="flex flex-col gap-3 border-b border-slate-100 dark:border-slate-800 px-6 py-5 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex flex-col gap-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-5 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
                           Booking #{booking.id}
                         </p>
 
-                        <h2 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">
+                        <h2 className="mt-1 text-xl font-bold text-slate-900 dark:text-slate-900">
                           {booking.package?.title}
                         </h2>
                       </div>
@@ -213,7 +213,7 @@ const MyBookings = () => {
                         <p className="text-xs uppercase tracking-wide text-slate-400">
                           Travel Date
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-900">
                           {booking.travel_date}
                         </p>
                       </div>
@@ -222,7 +222,7 @@ const MyBookings = () => {
                         <p className="text-xs uppercase tracking-wide text-slate-400">
                           Travelers
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-900">
                           {booking.travelers}
                         </p>
                       </div>
@@ -231,7 +231,7 @@ const MyBookings = () => {
                         <p className="text-xs uppercase tracking-wide text-slate-400">
                           Total
                         </p>
-                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                        <p className="mt-1 text-sm font-semibold text-slate-800 dark:text-slate-900">
                           Rs. {Number(booking.total_price).toLocaleString()}
                         </p>
                       </div>
@@ -251,10 +251,10 @@ const MyBookings = () => {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 dark:border-slate-800 px-6 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-4">
                       <Link
                         to={`/booking-details/${booking.id}`}
-                        className="text-sm font-semibold text-sky-500 transition-colors hover:text-sky-600"
+                        className="text-sm font-semibold text-[#064E3B] transition-colors hover:text-[#064E3B]"
                       >
                         View Booking →
                       </Link>
@@ -265,7 +265,7 @@ const MyBookings = () => {
                             <button
                               onClick={() => handleEsewaPayment(booking.id)}
                               disabled={paying}
-                              className="bg-sky-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-60"
+                              className="bg-[#064E3B] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:cursor-not-allowed disabled:opacity-60"
                             >
                               {paying ? "Processing..." : "Pay Now"}
                             </button>
@@ -276,7 +276,7 @@ const MyBookings = () => {
                             onClick={() =>
                               handleCancelBooking(booking.id, "cancelled")
                             }
-                            className="border border-slate-300 dark:border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-300 transition-colors hover:border-red-300 hover:text-red-600 dark:hover:border-red-500/30 dark:hover:text-red-400"
+                            className="border border-[#D8C494] dark:border-[#D8C494] px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-700 transition-colors hover:border-red-300 hover:text-red-600 dark:hover:border-red-500/30 dark:hover:text-red-400"
                           >
                             Cancel
                           </button>

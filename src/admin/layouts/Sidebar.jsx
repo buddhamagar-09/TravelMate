@@ -17,29 +17,29 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-screen w-72 bg-slate-900 border-r border-slate-800 transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 z-50 h-screen w-72 bg-[#F8E7C9] border-r border-[#E4D2A8] transition-transform duration-300 ease-in-out
         ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0`}
       >
         {/* Logo */}
-        <div className="h-20 flex items-center justify-between px-6 border-b border-slate-800">
+        <div className="h-20 flex items-center justify-between px-6 border-b border-[#E4D2A8]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-10 h-10 rounded-xl bg-[#064E3B] flex items-center justify-center text-white font-bold text-lg">
               T
             </div>
             <div>
-              <h1 className="text-white font-bold text-lg">TravelMate</h1>
-              <p className="text-slate-400 text-xs">Admin Panel</p>
+              <h1 className="text-slate-900 font-bold text-lg">TravelMate</h1>
+              <p className="text-slate-600 text-xs">Admin Panel</p>
             </div>
           </div>
 
           {/* Mobile close button */}
           <button
             onClick={() => setSidebarOpen(false)}
-            className="lg:hidden p-2 rounded-lg hover:bg-slate-800"
+            className="lg:hidden p-2 rounded-lg hover:bg-[#F1E3C4]"
           >
             <svg
-              className="w-5 h-5 text-white"
+              className="w-5 h-5 text-slate-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -59,7 +59,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
           <NavLink
             to=""
-            className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
+            className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900"
           >
             <svg
               className="w-5 h-5"
@@ -79,7 +79,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
           {/* Section */}
           <div className="pt-6">
-            <p className="px-4 text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">
+            <p className="px-4 text-xs font-semibold text-slate-600 uppercase tracking-wider mb-3">
               Management
             </p>
 
@@ -87,7 +87,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
             <div className="space-y-1">
               <button
                 onClick={() => setOpenPackages(!openPackages)}
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition"
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900 transition"
               >
                 <div className="flex items-center gap-3">
                   <svg
@@ -127,14 +127,14 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 <div className="ml-6 space-y-1">
                   <NavLink
                     to="/admin/add-package"
-                    className="block px-4 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition"
+                    className="block px-4 py-2 rounded-lg text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900 transition"
                   >
                     Add Package
                   </NavLink>
 
                   <NavLink
                     to="/admin/view-packages"
-                    className="block px-4 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition"
+                    className="block px-4 py-2 rounded-lg text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900 transition"
                   >
                     View Packages
                   </NavLink>
@@ -144,7 +144,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
               {/* Simple links */}
               <NavLink
                 to="/admin/view-users"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900"
               >
                 <svg
                   className="w-5 h-5"
@@ -164,7 +164,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
               <NavLink
                 to="/admin/view-bookings"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900"
               >
                 <svg
                   className="w-5 h-5"
@@ -183,7 +183,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
               </NavLink>
               <NavLink
                 to="/admin/reviews"
-                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-slate-700 hover:bg-[#F1E3C4] hover:text-slate-900"
               >
                 <svg
                   className="w-5 h-5"

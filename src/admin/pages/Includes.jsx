@@ -108,43 +108,43 @@ export default function Includes() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Header */}{" "}
       <div className="mb-6">
         {" "}
-        <h1 className="text-2xl font-bold text-white">Package Includes</h1>{" "}
-        <p className="text-slate-400 text-sm">
+        <h1 className="text-2xl font-bold text-slate-900">Package Includes</h1>{" "}
+        <p className="text-slate-600 text-sm">
           Add services that are included in the package price{" "}
         </p>
       </div>
       {/* Progress */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-700 text-slate-300"
+                    ? "bg-[#064E3B] text-white"
+                    : "bg-[#E6D2A6] text-slate-700"
                 }`}
               >
                 {index + 1}
               </div>
-              <span className="mt-2 text-xs text-slate-300">{step}</span>
+              <span className="mt-2 text-xs text-slate-700">{step}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600"
+            className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
       </div>
       {/* Form */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
         <div className="space-y-5">
           {/* Add item */}
           <div className="flex flex-col sm:flex-row gap-3">
@@ -153,13 +153,13 @@ export default function Includes() {
               value={newInclude}
               onChange={(event) => setNewInclude(event.target.value)}
               placeholder="Example: Airport pickup and drop"
-              className="flex-1 rounded-md border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+              className="flex-1 rounded-md border border-[#D8C494] bg-[#F8E7C9] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
             />
 
             <button
               type="button"
               onClick={addInclude}
-              className="px-5 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition whitespace-nowrap"
+              className="px-5 py-3 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition whitespace-nowrap"
             >
               Add
             </button>
@@ -167,14 +167,14 @@ export default function Includes() {
 
           {/* Current items */}
           <div className="pt-2">
-            <h3 className="text-sm font-semibold text-white mb-3">
+            <h3 className="text-sm font-semibold text-slate-900 mb-3">
               Included Items
             </h3>
 
             <div className="space-y-2">
               {includes.map((item, index) => (
-                <div key={index} className="flex items-center justify-between rounded-md border border-slate-800 bg-slate-950 px-4 py-3">
-                  <p className="text-white text-sm">{item}</p>
+                <div key={index} className="flex items-center justify-between rounded-md border border-[#E4D2A8] bg-[#F8E7C9] px-4 py-3">
+                  <p className="text-slate-900 text-sm">{item}</p>
                   <button
                     type="button"
                     onClick={() => removeInclude(index)}
@@ -188,11 +188,11 @@ export default function Includes() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-[#E4D2A8]">
           <button
             type="button"
             onClick={handlePrevious}
-            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
           >
             ← Previous
           </button>
@@ -201,7 +201,7 @@ export default function Includes() {
             <button
               type="button"
               onClick={handleNext}
-              className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+              className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
             >
               Next →
             </button>
@@ -209,7 +209,7 @@ export default function Includes() {
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
             >
              {saving ? "Saving..." : "Save & Continue"}
             </button>

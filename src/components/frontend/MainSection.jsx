@@ -81,7 +81,7 @@ function MainSection() {
     <>
       {/* ==================== HERO ==================== */}
       <FramerMotion>
-        <section className="relative w-full h-screen overflow-hidden bg-slate-900">
+        <section className="relative w-full h-screen overflow-hidden bg-[#064E3B]">
           {banners.map((banner, index) => (
             <img
               key={banner.id}
@@ -99,7 +99,7 @@ function MainSection() {
           <div className="relative h-full flex items-center">
             <div className="container mx-auto px-6 lg:px-8">
               <div className="max-w-2xl">
-                <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-4">
+                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400 mb-4">
                   Explore Nepal
                 </p>
 
@@ -114,7 +114,7 @@ function MainSection() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     to="/package"
-                    className="inline-flex items-center gap-2 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                    className="inline-flex items-center gap-2 bg-[#064E3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
                   >
                     Book Now
                     <FaArrowRight className="text-xs" />
@@ -122,7 +122,7 @@ function MainSection() {
 
                   <Link
                     to="/destination"
-                    className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                    className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#F8E7C9]/10"
                   >
                     Browse Destinations
                   </Link>
@@ -140,8 +140,8 @@ function MainSection() {
                 onClick={() => setCurrentIndex(i)}
                 className={`h-1 transition-all ${
                   i === currentIndex
-                    ? "w-8 bg-sky-500"
-                    : "w-4 bg-white/50 hover:bg-white/80"
+                    ? "w-8 bg-[#F8E7C9]"
+                    : "w-4 bg-[#F8E7C9]/50 hover:bg-[#F8E7C9]/80"
                 }`}
               />
             ))}
@@ -151,16 +151,16 @@ function MainSection() {
 
       {/* ==================== FEATURES ==================== */}
       <FramerMotion>
-        <section className="bg-white dark:bg-slate-950 transition-colors duration-300">
+        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                 Features
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
                 Everything you need for the perfect trip
               </h2>
-              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-600">
                 From expert guides to custom packages — TravelMate gives you the
                 tools to plan smarter journeys.
               </p>
@@ -192,21 +192,21 @@ function MainSection() {
 
       {/* ==================== POPULAR PACKAGES ==================== */}
       <FramerMotion>
-        <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                   Featured
                 </p>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900">
                   Popular packages
                 </h2>
               </div>
 
               <Link
                 to="/package"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
               >
                 See all
                 <FaArrowRight className="text-xs" />
@@ -218,18 +218,18 @@ function MainSection() {
                 {[1, 2, 3, 4].map((item) => (
                   <div
                     key={item}
-                    className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden animate-pulse"
+                    className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden animate-pulse"
                   >
-                    <div className="w-full h-56 bg-slate-200 dark:bg-slate-800" />
+                    <div className="w-full h-56 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
                     <div className="p-4">
-                      <div className="h-5 bg-slate-200 dark:bg-slate-800 w-3/4" />
-                      <div className="mt-2 h-4 bg-slate-200 dark:bg-slate-800 w-1/2" />
+                      <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4" />
+                      <div className="mt-2 h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/2" />
                       <div className="mt-6 flex items-center justify-between">
                         <div>
-                          <div className="h-3 bg-slate-200 dark:bg-slate-800 w-10" />
-                          <div className="h-6 bg-slate-200 dark:bg-slate-800 w-20 mt-2" />
+                          <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-10" />
+                          <div className="h-6 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-20 mt-2" />
                         </div>
-                        <div className="h-4 bg-slate-200 dark:bg-slate-800 w-12" />
+                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-12" />
                       </div>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ function MainSection() {
                 >
                   {packages.map((pkg) => (
                     <SwiperSlide key={pkg.id}>
-                      <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden">
+                      <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden">
                         <img
                           src={`http://localhost:8000/storage/${pkg.featured_image}`}
                           alt={pkg.title}
@@ -265,7 +265,7 @@ function MainSection() {
                         />
 
                         <div className="p-4">
-                          <h2 className="font-semibold text-base text-slate-900 dark:text-white line-clamp-2 leading-snug min-h-11">
+                          <h2 className="font-semibold text-base text-slate-900 dark:text-slate-900 line-clamp-2 leading-snug min-h-11">
                             {pkg.title}
                           </h2>
 
@@ -274,14 +274,14 @@ function MainSection() {
                               <p className="text-xs uppercase tracking-wide text-slate-400">
                                 From
                               </p>
-                              <p className="text-xl font-bold text-sky-500">
+                              <p className="text-xl font-bold text-[#064E3B]">
                                 Rs. {pkg.price}
                               </p>
                             </div>
 
                             <Link
                               to={`/package/${pkg.id}`}
-                              className="text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+                              className="text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
                             >
                               View →
                             </Link>
@@ -296,14 +296,14 @@ function MainSection() {
                 <div className="flex justify-center mt-8 gap-3">
                   <button
                     aria-label="Previous"
-                    className="prev-btn grid place-items-center w-10 h-10 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+                    className="prev-btn grid place-items-center w-10 h-10 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
                   >
                     <FaChevronLeft className="text-sm" />
                   </button>
 
                   <button
                     aria-label="Next"
-                    className="next-btn grid place-items-center w-10 h-10 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+                    className="next-btn grid place-items-center w-10 h-10 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
                   >
                     <FaChevronRight className="text-sm" />
                   </button>
@@ -311,7 +311,7 @@ function MainSection() {
               </>
             ) : (
               <div className="text-center py-10">
-                <p className="text-slate-500 dark:text-slate-400">
+                <p className="text-slate-500 dark:text-slate-600">
                   No travel packages available.
                 </p>
               </div>
@@ -322,16 +322,16 @@ function MainSection() {
 
       {/* ==================== DESTINATIONS ==================== */}
       <FramerMotion>
-        <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-10">
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                 Destinations
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
                 Where will you go next?
               </h2>
-              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-400">
+              <p className="mt-4 text-base lg:text-lg leading-relaxed text-slate-500 dark:text-slate-600">
                 From Himalayan peaks to jungle safaris — pick a region and start
                 planning.
               </p>
@@ -352,7 +352,7 @@ function MainSection() {
                 <div className="absolute inset-0 bg-slate-950/45" />
 
                 <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-2">
                     14 days · Trekking
                   </p>
                   <h3 className="text-2xl lg:text-3xl font-bold text-white">
@@ -362,7 +362,7 @@ function MainSection() {
                     Walk the legendary trail to the roof of the world.
                   </p>
 
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-400">
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400">
                     Explore
                     <FaArrowRight className="text-xs" />
                   </span>
@@ -411,16 +411,16 @@ function MainSection() {
 
       {/* ==================== TESTIMONIALS ==================== */}
       <FramerMotion>
-        <section className="bg-white dark:bg-slate-950 py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center mb-10">
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                 Testimonials
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
                 What travelers say
               </h2>
-              <p className="mt-4 text-base lg:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+              <p className="mt-4 text-base lg:text-lg text-slate-500 dark:text-slate-600 leading-relaxed">
                 Reviews from travelers who experienced unforgettable journeys
                 with TravelMate.
               </p>
@@ -458,22 +458,22 @@ function MainSection() {
 
 function FeatureCard({ icon: Icon, title, description, link }) {
   return (
-    <div className="flex flex-col h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
-      <div className="w-12 h-12 grid place-items-center border border-sky-500/30 text-sky-500 mb-6">
+    <div className="flex flex-col h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-8">
+      <div className="w-12 h-12 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] mb-6">
         <Icon className="h-5 w-5" />
       </div>
 
-      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-900 mb-3">
         {title}
       </h3>
 
-      <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400 grow">
+      <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-600 grow">
         {description}
       </p>
 
       <Link
         to={link}
-        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
       >
         Learn more
         <FaArrowRight className="text-xs" />
@@ -494,7 +494,7 @@ function DestinationCard({ image, alt, duration, name, tagline, to }) {
       <div className="absolute inset-0 bg-slate-950/45" />
 
       <div className="absolute inset-x-0 bottom-0 p-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-sky-400 mb-2">
+        <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-2">
           {duration}
         </p>
         <h3 className="text-xl font-bold text-white">{name}</h3>
@@ -506,17 +506,17 @@ function DestinationCard({ image, alt, duration, name, tagline, to }) {
 
 function TestimonialCard({ review }) {
   return (
-    <div className="h-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6">
+    <div className="h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
       {/* User */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 grid place-items-center border border-sky-500/30 text-sky-500 shrink-0">
+        <div className="w-10 h-10 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] shrink-0">
           <FaUser className="text-sm" />
         </div>
         <div className="min-w-0">
-          <h3 className="font-semibold text-slate-900 dark:text-white truncate">
+          <h3 className="font-semibold text-slate-900 dark:text-slate-900 truncate">
             {review.user?.name}
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+          <p className="text-xs text-slate-500 dark:text-slate-600 truncate">
             {review.user?.location}
           </p>
         </div>
@@ -532,7 +532,7 @@ function TestimonialCard({ review }) {
       </div>
 
       {/* Review */}
-      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+      <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-700">
         {review.comment}
       </p>
     </div>

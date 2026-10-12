@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 function CategoryBadge({ category }) {
   const styles = {
     trekking: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-    tour: "border-blue-500/30 bg-blue-500/10 text-blue-400",
+    tour: "border-[#064E3B]/30 bg-[#064E3B]/10 text-[#064E3B]",
     wildlife: "border-orange-500/30 bg-orange-500/10 text-orange-400",
   };
   const label = {
@@ -21,7 +21,7 @@ function CategoryBadge({ category }) {
   return (
     <span
       className={`inline-flex items-center border px-3 py-1.5 text-xs font-medium ${
-        styles[category] ?? "border-slate-700 bg-slate-800 text-slate-300"
+        styles[category] ?? "border-[#D8C494] bg-[#F1E3C4] text-slate-700"
       }`}
     >
       {label[category] ?? category}
@@ -86,12 +86,12 @@ export default function ViewPackage() {
   });
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Header */}
       <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">View Packages</h1>
-          <p className="text-sm text-slate-400">
+          <h1 className="text-2xl font-bold text-slate-900">View Packages</h1>
+          <p className="text-sm text-slate-600">
             Manage all your travel packages.
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function ViewPackage() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="rounded-md border border-slate-700 bg-slate-900 px-3 py-2.5 text-white focus:border-blue-500 focus:outline-none"
+            className="rounded-md border border-[#D8C494] bg-[#F8E7C9] px-3 py-2.5 text-slate-900 focus:border-[#064E3B] focus:outline-none"
           >
             <option value="all">All Categories</option>
             <option value="trekking">Trekking</option>
@@ -111,13 +111,13 @@ export default function ViewPackage() {
 
           {/* Search */}
           <div className="relative w-full md:w-72">
-            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-lg" />
+            <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 text-lg" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search package..."
-              className="w-full rounded-md border border-slate-700 bg-slate-900 py-2.5 pl-10 pr-4 text-white placeholder-slate-500 focus:border-blue-500 focus:outline-none"
+              className="w-full rounded-md border border-[#D8C494] bg-[#F8E7C9] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
             />
           </div>
         </div>
@@ -127,10 +127,10 @@ export default function ViewPackage() {
       {loading ? (
         <SkeletonLoader rows={5} />
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-slate-800 bg-slate-900">
+        <div className="overflow-x-auto rounded-lg border border-[#E4D2A8] bg-[#F8E7C9]">
           <table className="min-w-full text-sm">
-            <thead className="border-b border-slate-800 bg-slate-950">
-              <tr className="text-slate-300">
+            <thead className="border-b border-[#E4D2A8] bg-[#F8E7C9]">
+              <tr className="text-slate-700">
                 <th className="px-6 py-4 text-left font-semibold">Image</th>
                 <th className="px-6 py-4 text-left font-semibold">Package</th>
                 <th className="px-6 py-4 text-left font-semibold">Category</th>
@@ -148,7 +148,7 @@ export default function ViewPackage() {
                 <tr>
                   <td
                     colSpan={9}
-                    className="px-6 py-10 text-center text-slate-500"
+                    className="px-6 py-10 text-center text-slate-600"
                   >
                     No packages found.
                   </td>
@@ -157,7 +157,7 @@ export default function ViewPackage() {
                 filteredPackages.map((pkg) => (
                   <tr
                     key={pkg.id}
-                    className="border-b border-slate-800 hover:bg-slate-800 transition"
+                    className="border-b border-[#E4D2A8] hover:bg-[#F1E3C4] transition"
                   >
                     <td className="px-6 py-4">
                       <img
@@ -167,7 +167,7 @@ export default function ViewPackage() {
                       />
                     </td>
 
-                    <td className="px-6 py-4 font-medium text-white">
+                    <td className="px-6 py-4 font-medium text-slate-900">
                       {pkg.title}
                     </td>
 
@@ -175,11 +175,11 @@ export default function ViewPackage() {
                       <CategoryBadge category={pkg.category} />
                     </td>
 
-                    <td className="px-6 py-4 text-slate-300">Rs. {pkg.price}</td>
+                    <td className="px-6 py-4 text-slate-700">Rs. {pkg.price}</td>
 
-                    <td className="px-6 py-4 text-slate-300">{pkg.duration} days</td>
+                    <td className="px-6 py-4 text-slate-700">{pkg.duration} days</td>
 
-                    <td className="px-6 py-4 text-slate-300">{pkg.location}</td>
+                    <td className="px-6 py-4 text-slate-700">{pkg.location}</td>
 
                     <td className="px-6 py-4">
                       {pkg.difficulty ? (
@@ -188,7 +188,7 @@ export default function ViewPackage() {
                           {pkg.difficulty}
                         </span>
                       ) : (
-                        <span className="text-slate-500">—</span>
+                        <span className="text-slate-600">—</span>
                       )}
                     </td>
 
@@ -197,7 +197,7 @@ export default function ViewPackage() {
                         className={`inline-flex items-center gap-2 border px-3 py-1.5 text-xs font-medium ${
                           pkg.status === "active"
                             ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
-                            : "border-slate-700 bg-slate-800 text-slate-400"
+                            : "border-[#D8C494] bg-[#F1E3C4] text-slate-600"
                         }`}
                       >
                         {pkg.status === "active" ? "Active" : "Inactive"}
@@ -209,7 +209,7 @@ export default function ViewPackage() {
                         <button
                           onClick={() => handleEdit(pkg.id)}
                           title="Edit package"
-                          className="border cursor-pointer border-slate-700 bg-slate-800 p-2 text-slate-300 transition hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-400"
+                          className="border cursor-pointer border-[#D8C494] bg-[#F1E3C4] p-2 text-slate-700 transition hover:border-[#064E3B]/50 hover:bg-[#04382A]/10 hover:text-[#064E3B]"
                         >
                           <FiEdit2 size={16} />
                         </button>
@@ -219,7 +219,7 @@ export default function ViewPackage() {
                           className={`border px-3 py-1.5 text-xs font-medium transition cursor-pointer ${
                             pkg.status === "active"
                               ? "border-red-500/40 bg-red-500/10 text-red-400 hover:border-red-500 hover:bg-red-500/15 hover:text-red-300"
-                              : "border-blue-500/40 bg-blue-500/10 text-blue-400 hover:border-blue-500 hover:bg-blue-500/15 hover:text-blue-300"
+                              : "border-[#064E3B]/40 bg-[#064E3B]/10 text-[#064E3B] hover:border-[#064E3B] hover:bg-[#04382A]/15 hover:text-[#064E3B]"
                           }`}
                         >
                           {pkg.status === "active" ? "Block" : "Unblock"}

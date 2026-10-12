@@ -6,12 +6,12 @@ const EsewaSuccessPage = () => {
   const { bookingId } = useParams();
 
   return (
-    <section className="bg-white dark:bg-slate-950 min-h-screen py-16 lg:py-24 transition-colors duration-300">
+    <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] min-h-screen py-16 lg:py-24 transition-colors duration-300">
       <div className="max-w-xl mx-auto px-6 lg:px-8">
         {/* Back link */}
         <Link
           to="/my-bookings"
-          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-600 hover:text-[#064E3B] transition-colors mb-12"
         >
           <FaArrowLeft className="text-xs" />
           Back to my bookings
@@ -27,11 +27,11 @@ const EsewaSuccessPage = () => {
             Payment successful
           </p>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
             You're all set
           </h1>
 
-          <p className="mt-4 text-base leading-relaxed text-slate-500 dark:text-slate-400">
+          <p className="mt-4 text-base leading-relaxed text-slate-500 dark:text-slate-600">
             Your booking is confirmed. A confirmation email is on its way.
           </p>
         </div>
@@ -39,27 +39,27 @@ const EsewaSuccessPage = () => {
         {/* Details list */}
         <div className="space-y-0 mb-12">
           {bookingId && (
-            <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
-              <span className="text-sm text-slate-500 dark:text-slate-400">
+            <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+              <span className="text-sm text-slate-500 dark:text-slate-600">
                 Booking reference
               </span>
-              <span className="font-mono text-sm font-semibold text-slate-900 dark:text-white">
+              <span className="font-mono text-sm font-semibold text-slate-900 dark:text-slate-900">
                 #{bookingId}
               </span>
             </div>
           )}
 
-          <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+            <span className="text-sm text-slate-500 dark:text-slate-600">
               Payment method
             </span>
-            <span className="text-sm font-medium text-slate-900 dark:text-white">
+            <span className="text-sm font-medium text-slate-900 dark:text-slate-900">
               eSewa
             </span>
           </div>
 
-          <div className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-slate-800">
-            <span className="text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+            <span className="text-sm text-slate-500 dark:text-slate-600">
               Status
             </span>
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
@@ -73,7 +73,7 @@ const EsewaSuccessPage = () => {
         <div className="flex flex-col sm:flex-row gap-3">
           <Link
             to="/my-bookings"
-            className="flex-1 inline-flex items-center justify-center gap-2 bg-sky-500 py-4 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+            className="flex-1 inline-flex items-center justify-center gap-2 bg-[#064E3B] py-4 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
           >
             <FaSuitcase className="text-sm" />
             View my bookings
@@ -81,7 +81,7 @@ const EsewaSuccessPage = () => {
 
           <Link
             to="/package"
-            className="flex-1 inline-flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 py-4 text-sm font-semibold text-slate-700 dark:text-slate-300 transition-colors hover:border-sky-500 hover:text-sky-500"
+            className="flex-1 inline-flex items-center justify-center gap-2 border border-[#D8C494] dark:border-[#D8C494] py-4 text-sm font-semibold text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
           >
             <FaCompass className="text-sm" />
             Explore packages
@@ -89,11 +89,11 @@ const EsewaSuccessPage = () => {
         </div>
 
         {/* Help */}
-        <p className="mt-12 text-center text-xs text-slate-400 dark:text-slate-500">
+        <p className="mt-12 text-center text-xs text-slate-400 dark:text-slate-600">
           Questions?{" "}
           <a
             href="mailto:support@travelmate.com"
-            className="text-sky-500 hover:underline"
+            className="text-[#064E3B] hover:underline"
           >
             support@travelmate.com
           </a>

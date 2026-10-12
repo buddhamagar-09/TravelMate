@@ -13,8 +13,8 @@ function CategoryFields({
   parkName, setParkName,
 }) {
   const inputClass =
-    "w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500";
-  const labelClass = "block text-sm text-slate-300 mb-2";
+    "w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]";
+  const labelClass = "block text-sm text-slate-700 mb-2";
 
   switch (category) {
     case "trekking":
@@ -90,7 +90,7 @@ function CategoryFields({
 
           <div>
             <label className={labelClass}>
-              Vehicle Type <span className="text-slate-500">(optional)</span>
+              Vehicle Type <span className="text-slate-600">(optional)</span>
             </label>
             <input
               type="text"
@@ -240,13 +240,13 @@ export default function AddPackage() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Page title */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">
+        <h1 className="text-2xl font-bold text-slate-900">
           {isEditing ? "Edit Package" : "Create a new travel package"}
         </h1>
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-600 text-sm">
           {isEditing
             ? "Edit the details of your travel package"
             : "Fill in the details for your new travel package"}
@@ -254,42 +254,42 @@ export default function AddPackage() {
       </div>
 
       {/* Progress */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-700 text-slate-300"
+                    ? "bg-[#064E3B] text-white"
+                    : "bg-[#E6D2A6] text-slate-700"
                 }`}
               >
                 {index + 1}
               </div>
-              <span className="mt-2 text-xs text-slate-300">{step}</span>
+              <span className="mt-2 text-xs text-slate-700">{step}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600"
+            className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
       </div>
 
       {/* Form */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
-        <h2 className="text-lg font-semibold text-white mb-4">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-4">
           Basic Package Information
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Title */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Package Title
             </label>
             <input
@@ -297,29 +297,29 @@ export default function AddPackage() {
               placeholder="Everest Base Camp Trek"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
           {/* Slug */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">Slug</label>
+            <label className="block text-sm text-slate-700 mb-2">Slug</label>
             <input
               type="text"
               placeholder="everest-base-camp-trek"
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
           {/* Category — NEW */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">Category</label>
+            <label className="block text-sm text-slate-700 mb-2">Category</label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             >
               <option value="trekking">Trekking</option>
               <option value="tour">Tour</option>
@@ -329,7 +329,7 @@ export default function AddPackage() {
 
           {/* Price */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Price (Rupees)
             </label>
             <input
@@ -337,13 +337,13 @@ export default function AddPackage() {
               placeholder="00000"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
           {/* Duration */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Duration (Days)
             </label>
             <input
@@ -351,31 +351,31 @@ export default function AddPackage() {
               placeholder="14"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
           {/* Location */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">Location</label>
+            <label className="block text-sm text-slate-700 mb-2">Location</label>
             <input
               type="text"
               placeholder="Khumbu, Nepal"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
           {/* Best Season */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Best Season
             </label>
             <select
               value={bestSeason}
               onChange={(e) => setBestSeason(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             >
               <option value="">Select season</option>
               <option>Spring (Mar-May)</option>
@@ -388,7 +388,7 @@ export default function AddPackage() {
 
           {/* Group Size */}
           <div>
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Group Size
             </label>
             <input
@@ -396,7 +396,7 @@ export default function AddPackage() {
               placeholder="10"
               value={groupSize}
               onChange={(e) => setGroupSize(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -412,7 +412,7 @@ export default function AddPackage() {
 
           {/* Short Overview */}
           <div className="md:col-span-2">
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Short Overview
             </label>
             <textarea
@@ -420,13 +420,13 @@ export default function AddPackage() {
               placeholder="Short package summary"
               value={shortOverview}
               onChange={(e) => setShortOverview(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
             />
           </div>
 
           {/* Full Description */}
           <div className="md:col-span-2">
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Full Description
             </label>
             <textarea
@@ -434,29 +434,29 @@ export default function AddPackage() {
               placeholder="Detailed package description"
               value={fullDescription}
               onChange={(e) => setFullDescription(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
             />
           </div>
 
           {/* Image */}
           <div className="md:col-span-2">
-            <label className="block text-sm text-slate-300 mb-2">
+            <label className="block text-sm text-slate-700 mb-2">
               Featured Image
             </label>
             <input
               type="file"
               onChange={(e) => setFeaturedImage(e.target.files[0])}
-              className="w-full text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+              className="w-full text-slate-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-[#064E3B] file:text-white hover:file:bg-[#064E3B]"
             />
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6 pt-4 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6 pt-4 border-t border-[#E4D2A8]">
           <button
             onClick={handleNext}
             type="button"
-            className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+            className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
           >
             Next
           </button>
@@ -464,7 +464,7 @@ export default function AddPackage() {
             type="button"
             onClick={handleSubmit}
             disabled={saving}
-            className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+            className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
           >
             {saving ? "Saving..." : "Save & Continue"}
           </button>

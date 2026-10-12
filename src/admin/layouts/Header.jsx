@@ -22,16 +22,16 @@ export default function Header({ setSidebarOpen }) {
   };
 
   return (
-    <header className="h-20 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
+    <header className="h-20 bg-[#F8E7C9] border-b border-[#E4D2A8] flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
       {/* Left side */}
       <div className="flex items-center gap-4">
         {/* Mobile hamburger */}
         <button
           onClick={() => setSidebarOpen(true)}
-          className="lg:hidden p-2 rounded-lg hover:bg-slate-800 transition"
+          className="lg:hidden p-2 rounded-lg hover:bg-[#F1E3C4] transition"
         >
           <svg
-            className="w-6 h-6 text-slate-300"
+            className="w-6 h-6 text-slate-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -46,8 +46,8 @@ export default function Header({ setSidebarOpen }) {
         </button>
 
         <div>
-          <h1 className="text-white font-semibold text-lg">TravelMate Admin</h1>
-          <p className="text-slate-400 text-sm hidden sm:block">
+          <h1 className="text-slate-900 font-semibold text-lg">TravelMate Admin</h1>
+          <p className="text-slate-600 text-sm hidden sm:block">
             Manage packages, bookings and users
           </p>
         </div>
@@ -56,9 +56,9 @@ export default function Header({ setSidebarOpen }) {
       {/* Right side */}
       <div className="flex items-center gap-2 md:gap-4">
         {/* Search - show on tablet and desktop */}
-        <div className="hidden md:flex items-center bg-slate-800 rounded-xl px-3 py-2 w-48 lg:w-72">
+        <div className="hidden md:flex items-center bg-[#F1E3C4] rounded-xl px-3 py-2 w-48 lg:w-72">
           <svg
-            className="w-5 h-5 text-slate-400 mr-2"
+            className="w-5 h-5 text-slate-600 mr-2"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -74,14 +74,14 @@ export default function Header({ setSidebarOpen }) {
           <input
             type="text"
             placeholder="Search..."
-            className="bg-transparent outline-none text-slate-200 placeholder-slate-400 w-full text-sm"
+            className="bg-transparent outline-none text-slate-800 placeholder-slate-500 w-full text-sm"
           />
         </div>
 
         {/* Notifications */}
-        <button className="relative p-2 rounded-xl hover:bg-slate-800 transition">
+        <button className="relative p-2 rounded-xl hover:bg-[#F1E3C4] transition">
           <svg
-            className="w-6 h-6 text-slate-300"
+            className="w-6 h-6 text-slate-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -94,26 +94,26 @@ export default function Header({ setSidebarOpen }) {
             />
           </svg>
 
-          <span className="absolute top-1 right-1 w-2 h-2 bg-blue-500 rounded-full"></span>
+          <span className="absolute top-1 right-1 w-2 h-2 bg-[#064E3B] rounded-full"></span>
         </button>
 
         {/* User section */}
-        <div className="flex items-center gap-3 pl-3 border-l border-slate-800">
+        <div className="flex items-center gap-3 pl-3 border-l border-[#E4D2A8]">
           {/* Username only on large desktop */}
           <div className="text-right hidden xl:block">
-            <p className="text-white text-sm font-medium">Admin User</p>
-            <p className="text-slate-400 text-xs">Super Admin</p>
+            <p className="text-slate-900 text-sm font-medium">Admin User</p>
+            <p className="text-slate-600 text-xs">Super Admin</p>
           </div>
 
           {/* Avatar */}
-          <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+          <div className="w-10 h-10 rounded-full bg-[#064E3B] flex items-center justify-center text-white font-bold">
             A
           </div>
 
           {/* Logout button - hide on small tablets */}
           <button
             onClick={handleLogout}
-            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition"
+            className="hidden cursor-pointer lg:block px-3 py-2 rounded-xl bg-[#064E3B] hover:bg-[#04382A] text-white text-sm font-medium transition"
           >
             Logout
           </button>

@@ -113,16 +113,16 @@ export default function Header() {
           ? "text-white font-semibold"
           : "text-gray-200 hover:text-white"
         : isActive
-          ? "text-blue-600 dark:text-blue-400 font-semibold"
-          : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+          ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
+          : "text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
     }`;
 
   // Mobile navigation
   const mobileNavLinkStyle = ({ isActive }) =>
     `block px-4 py-2 transition-colors duration-300 ${
       isActive
-        ? "text-blue-600 dark:text-blue-400 font-semibold"
-        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+        ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
+        : "text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
     }`;
 
   // Handle search form submission
@@ -146,10 +146,10 @@ export default function Header() {
         isHomePage
           ? `fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
               scrolled
-                ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+                ? "bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]"
                 : "bg-transparent border-b border-transparent"
             }`
-          : "sticky top-0 w-full z-50 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+          : "sticky top-0 w-full z-50 bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]"
       }
     >
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
@@ -161,16 +161,23 @@ export default function Header() {
             className={`flex items-center gap-2 text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 ${
               isHomePage && !scrolled
                 ? "text-white"
-                : "text-slate-900 dark:text-white"
+                : "text-slate-900 dark:text-slate-900"
             }`}
           >
             <FaPlane
               className={`text-2xl sm:text-3xl transition-colors duration-300 ${
-                isHomePage && !scrolled ? "text-sky-400" : "text-sky-500"
+                isHomePage && !scrolled ? "text-emerald-400" : "text-[#064E3B]"
               }`}
             />
             <span>
-              Travel <span className="text-sky-500">Mate</span>
+              Travel{" "}
+              <span
+                className={`transition-colors duration-300 ${
+                  isHomePage && !scrolled ? "text-emerald-400" : "text-[#064E3B]"
+                }`}
+              >
+                Mate
+              </span>
             </span>
           </Link>
 
@@ -206,8 +213,8 @@ export default function Header() {
                     <div
                       className={`border overflow-hidden py-1.5 ${
                         isHomePage && !scrolled
-                          ? "bg-slate-900/95 backdrop-blur-md border-white/10 shadow-2xl shadow-black/40"
-                          : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-xl"
+                          ? "bg-[#064E3B]/95 backdrop-blur-md border-white/10 shadow-2xl shadow-black/40"
+                          : "bg-[#F8E7C9] dark:bg-[#F8E7C9] border-[#E4D2A8] dark:border-[#E4D2A8] shadow-xl"
                       }`}
                     >
                       <PackageDropdownItem
@@ -268,15 +275,15 @@ export default function Header() {
             <div
               className={`hidden lg:flex relative items-center w-64 px-4 py-2 border transition-colors duration-300 ${
                 isHomePage && !scrolled
-                  ? "border-white/30 bg-white/10"
-                  : "border-slate-300 bg-white dark:border-slate-700 dark:bg-slate-900"
+                  ? "border-white/30 bg-[#F8E7C9]/10"
+                  : "border-[#D8C494] bg-[#F8E7C9] dark:border-[#D8C494] dark:bg-[#F8E7C9]"
               }`}
             >
               <FaSearch
                 className={`text-sm ${
                   isHomePage && !scrolled
                     ? "text-white/80"
-                    : "text-slate-500 dark:text-slate-400"
+                    : "text-slate-500 dark:text-slate-600"
                 }`}
               />
 
@@ -295,7 +302,7 @@ export default function Header() {
                   className={`ml-3 flex-1 bg-transparent outline-none text-sm ${
                     isHomePage && !scrolled
                       ? "text-white placeholder:text-slate-200"
-                      : "text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                      : "text-slate-800 dark:text-slate-900 placeholder:text-slate-500 dark:placeholder:text-slate-500"
                   }`}
                 />
 
@@ -306,7 +313,7 @@ export default function Header() {
                     className={`ml-2 ${
                       isHomePage && !scrolled
                         ? "text-white/80 hover:text-white"
-                        : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                        : "text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-white"
                     }`}
                   >
                     <FaTimes size={14} />
@@ -316,7 +323,7 @@ export default function Header() {
 
               {/* Suggestions dropdown */}
               {searchTerm && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden z-50">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden z-50">
                   {suggestions.slice(0, 5).map((packageItem) => (
                     <button
                       key={packageItem.id}
@@ -327,13 +334,13 @@ export default function Header() {
                           `/package?search=${encodeURIComponent(packageItem.title)}`,
                         );
                       }}
-                      className="w-full text-left px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-900 border-b border-slate-100 dark:border-slate-800 last:border-b-0 transition-colors"
+                      className="w-full text-left px-4 py-3 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4] border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-b-0 transition-colors"
                     >
-                      <div className="font-medium text-sm text-slate-900 dark:text-white">
+                      <div className="font-medium text-sm text-slate-900 dark:text-slate-900">
                         {packageItem.title}
                       </div>
 
-                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      <div className="text-xs text-slate-500 dark:text-slate-600 mt-0.5">
                         {packageItem.location}
                       </div>
                     </button>
@@ -348,8 +355,8 @@ export default function Header() {
               aria-label="Toggle theme"
               className={`grid place-items-center w-9 h-9 border transition-colors duration-300 ${
                 isHomePage && !scrolled
-                  ? "border-white/30 text-white hover:bg-white/10"
-                  : "border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+                  ? "border-white/30 text-white hover:bg-[#F8E7C9]/10"
+                  : "border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4]"
               }`}
             >
               {themeMode === "light" ? (
@@ -366,8 +373,8 @@ export default function Header() {
                   to="/signup"
                   className={`text-sm font-medium transition-colors duration-300 ${
                     isHomePage && !scrolled
-                      ? "text-white hover:text-sky-300"
-                      : "text-slate-700 dark:text-slate-200 hover:text-sky-500"
+                      ? "text-white hover:text-emerald-300"
+                      : "text-slate-700 dark:text-slate-800 hover:text-[#064E3B]"
                   }`}
                 >
                   Register
@@ -375,7 +382,7 @@ export default function Header() {
 
                 <Link
                   to="/login"
-                  className="bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                  className="bg-[#064E3B] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
                 >
                   Login
                 </Link>
@@ -384,7 +391,7 @@ export default function Header() {
               <div className="hidden lg:flex items-center gap-4">
                 <button
                   onClick={handleLogout}
-                  className="bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                  className="bg-[#064E3B] px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
                 >
                   Logout
                 </button>
@@ -397,7 +404,7 @@ export default function Header() {
               className={`lg:hidden text-2xl transition-colors duration-300 ${
                 isHomePage && !scrolled
                   ? "text-white"
-                  : "text-slate-800 dark:text-white"
+                  : "text-slate-800 dark:text-slate-900"
               }`}
               aria-label="Toggle menu"
             >
@@ -408,7 +415,7 @@ export default function Header() {
 
         {/* ================= MOBILE MENU ================= */}
         <div
-          className={`lg:hidden overflow-hidden bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-[max-height] duration-300 ${
+          className={`lg:hidden overflow-hidden bg-[#F8E7C9] dark:bg-[#F8E7C9] border-t border-[#E4D2A8] dark:border-[#E4D2A8] transition-[max-height] duration-300 ${
             menuOpen ? "max-h-150 py-4" : "max-h-0"
           }`}
         >
@@ -416,23 +423,23 @@ export default function Header() {
           <div className="px-4 pt-2">
             <form
               onSubmit={handleSearch}
-              className="flex items-center w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2"
+              className="flex items-center w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-2"
             >
-              <FaSearch className="text-sm text-slate-500 dark:text-slate-400" />
+              <FaSearch className="text-sm text-slate-500 dark:text-slate-600" />
 
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search destinations..."
-                className="ml-3 flex-1 bg-transparent outline-none text-sm text-slate-800 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                className="ml-3 flex-1 bg-transparent outline-none text-sm text-slate-800 dark:text-slate-900 placeholder:text-slate-500 dark:placeholder:text-slate-500"
               />
 
               {searchTerm && (
                 <button
                   type="button"
                   onClick={clearSearch}
-                  className="ml-2 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+                  className="ml-2 text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-white"
                 >
                   <FaTimes size={14} />
                 </button>
@@ -457,7 +464,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobilePackagesOpen(!mobilePackagesOpen)}
-                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B] transition-colors duration-300"
               >
                 <span>Packages</span>
                 <FaChevronDown
@@ -541,7 +548,7 @@ export default function Header() {
               <Link
                 to="/login"
                 onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 border border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white transition-colors"
+                className="text-center px-4 py-2 border border-[#064E3B] text-[#064E3B] hover:bg-[#04382A] hover:text-white transition-colors"
               >
                 Login
               </Link>
@@ -549,7 +556,7 @@ export default function Header() {
               <Link
                 to="/signup"
                 onClick={() => setMenuOpen(false)}
-                className="text-center px-4 py-2 bg-sky-500 text-white hover:bg-sky-600 transition-colors"
+                className="text-center px-4 py-2 bg-[#064E3B] text-white hover:bg-[#04382A] transition-colors"
               >
                 Sign Up
               </Link>
@@ -561,7 +568,7 @@ export default function Header() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="w-full bg-sky-500 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                className="w-full bg-[#064E3B] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
               >
                 Logout
               </button>
@@ -581,13 +588,13 @@ function PackageDropdownItem({ to, label, dark }) {
       to={to}
       className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
         dark
-          ? "text-slate-200 hover:bg-white/10 hover:text-white"
-          : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 hover:text-sky-500"
+          ? "text-slate-200 hover:bg-[#F8E7C9]/10 hover:text-white"
+          : "text-slate-700 dark:text-slate-700 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4]/60 hover:text-[#064E3B]"
       }`}
     >
       <span
         className={`w-1.5 h-1.5 rounded-full ${
-          dark ? "bg-sky-400" : "bg-slate-300 dark:bg-slate-600"
+          dark ? "bg-[#064E3B]" : "bg-[#E6D2A6] dark:bg-[#D8C494]"
         }`}
       />
       <span>{label}</span>

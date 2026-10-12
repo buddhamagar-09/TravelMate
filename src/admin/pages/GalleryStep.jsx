@@ -113,51 +113,51 @@ export default function GalleryStep() {
     }
   };
   return (
-    <div className="p-4 md:p-6 bg-slate-950 min-h-screen">
+    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">Package Gallery</h1>
-        <p className="text-slate-400 text-sm">
+        <h1 className="text-2xl font-bold text-slate-900">Package Gallery</h1>
+        <p className="text-slate-600 text-sm">
           Upload package images and choose a featured cover image
         </p>
       </div>
 
       {/* Progress */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 mb-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
-                    ? "bg-blue-600 text-white"
-                    : "bg-slate-700 text-slate-300"
+                    ? "bg-[#064E3B] text-white"
+                    : "bg-[#E6D2A6] text-slate-700"
                 }`}
               >
                 {index + 1}
               </div>
-              <span className="mt-2 text-xs text-slate-300">{step}</span>
+              <span className="mt-2 text-xs text-slate-700">{step}</span>
             </div>
           ))}
         </div>
 
-        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600"
+            className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
           />
         </div>
       </div>
 
       {/* Upload Section */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6 mb-6">
-        <h2 className="text-lg font-semibold text-white mb-4">Upload Images</h2>
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6 mb-6">
+        <h2 className="text-lg font-semibold text-slate-900 mb-4">Upload Images</h2>
 
-        <label className="block w-full border-2 border-dashed border-slate-700 rounded-lg p-10 text-center cursor-pointer hover:border-blue-500 transition">
+        <label className="block w-full border-2 border-dashed border-[#D8C494] rounded-lg p-10 text-center cursor-pointer hover:border-[#064E3B] transition">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-slate-800 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-[#F1E3C4] flex items-center justify-center">
               <svg
-                className="w-7 h-7 text-slate-400"
+                className="w-7 h-7 text-slate-600"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -172,8 +172,8 @@ export default function GalleryStep() {
             </div>
 
             <div>
-              <p className="text-white font-medium">Click to upload images</p>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-slate-900 font-medium">Click to upload images</p>
+              <p className="text-sm text-slate-600 mt-1">
                 JPG, PNG, WEBP up to 5MB each
               </p>
             </div>
@@ -190,17 +190,17 @@ export default function GalleryStep() {
       </div>
 
       {/* Preview Grid */}
-      <div className="bg-slate-900 border border-slate-800 rounded-lg p-6">
+      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
         <div className="flex items-center justify-between mb-5">
-          <h2 className="text-lg font-semibold text-white">Image Preview</h2>
-          <span className="text-sm text-slate-400">{images.length} images</span>
+          <h2 className="text-lg font-semibold text-slate-900">Image Preview</h2>
+          <span className="text-sm text-slate-600">{images.length} images</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {images.map((image) => (
             <div
               key={image.id}
-              className="rounded-lg overflow-hidden border border-slate-800 bg-slate-950"
+              className="rounded-lg overflow-hidden border border-[#E4D2A8] bg-[#F8E7C9]"
             >
               <img
                 src={image.url}
@@ -212,11 +212,11 @@ export default function GalleryStep() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-[#E4D2A8]">
           <button
             type="button"
             onClick={handlePrevious}
-            className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
           >
             ← Previous
           </button>
@@ -225,7 +225,7 @@ export default function GalleryStep() {
             <button
               type="button"
               onClick={handleNext}
-              className="px-5 py-2 rounded-md bg-slate-800 text-white hover:bg-slate-700 transition"
+              className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
             >
               Next →
             </button>
@@ -233,7 +233,7 @@ export default function GalleryStep() {
               type="button"
               onClick={handleSubmit}
               disabled={saving}
-              className="px-5 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="px-5 py-2 rounded-md bg-[#064E3B] text-white hover:bg-[#04382A] transition"
             >
               {saving ? "Saving..." : "Save & Continue"}
             </button>

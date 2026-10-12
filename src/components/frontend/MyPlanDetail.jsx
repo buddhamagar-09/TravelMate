@@ -80,10 +80,10 @@ export default function MyPlanDetail() {
 
   if (planLoading) {
     return (
-      <section className="bg-slate-50 dark:bg-slate-900 py-20 min-h-[60vh]">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-20 min-h-[60vh]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="h-8 w-64 bg-slate-200 dark:bg-slate-800 animate-pulse mb-4" />
-          <div className="h-4 w-96 bg-slate-200 dark:bg-slate-800 animate-pulse" />
+          <div className="h-8 w-64 bg-[#E6D2A6] dark:bg-[#F1E3C4] animate-pulse mb-4" />
+          <div className="h-4 w-96 bg-[#E6D2A6] dark:bg-[#F1E3C4] animate-pulse" />
         </div>
       </section>
     );
@@ -100,20 +100,20 @@ export default function MyPlanDetail() {
   return (
     <>
       {/* HEADER */}
-      <section className="bg-slate-900 dark:bg-slate-950">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14 lg:py-16">
           <Link
             to="/my-plans"
-            className="text-sm font-medium text-sky-400 hover:text-sky-300 transition-colors"
+            className="text-sm font-medium text-[#064E3B] hover:text-[#064E3B] transition-colors"
           >
             ← Back to my plans
           </Link>
 
-          <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
             {title}
           </h1>
 
-          <p className="mt-3 text-sm text-slate-400">
+          <p className="mt-3 text-sm text-slate-500">
             Created {new Date(plan.created_at).toLocaleDateString()}
           </p>
 
@@ -123,7 +123,7 @@ export default function MyPlanDetail() {
               {chips.map((chip, i) => (
                 <span
                   key={i}
-                  className="text-xs font-medium px-2.5 py-1 bg-white/10 text-slate-200"
+                  className="text-xs font-medium px-2.5 py-1 bg-[#064E3B]/10 text-[#064E3B]"
                 >
                   {chip}
                 </span>
@@ -132,7 +132,7 @@ export default function MyPlanDetail() {
           )}
 
           {/* Details */}
-          <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-300">
+          <div className="mt-5 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-600">
             {plan.location && (
               <span>
                 <span className="text-slate-500">Location:</span>{" "}
@@ -162,18 +162,18 @@ export default function MyPlanDetail() {
       </section>
 
       {/* RESULTS */}
-      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-16 transition-colors duration-300">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-2">
                 Matches
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-900">
                 {rankedPackages.length}{" "}
                 {rankedPackages.length === 1 ? "package" : "packages"} ranked
               </h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-sm text-slate-500 dark:text-slate-600 mt-1">
                 Sorted by how well each package fits this plan.
               </p>
             </div>
@@ -191,13 +191,13 @@ export default function MyPlanDetail() {
               {[1, 2, 3, 4].map((i) => (
                 <div
                   key={i}
-                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 h-80 animate-pulse"
+                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] h-80 animate-pulse"
                 />
               ))}
             </div>
           ) : rankedPackages.length === 0 ? (
-            <div className="text-center py-16 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <p className="text-slate-500 dark:text-slate-400">
+            <div className="text-center py-16 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8]">
+              <p className="text-slate-500 dark:text-slate-600">
                 No packages available.
               </p>
             </div>

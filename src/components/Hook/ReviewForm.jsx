@@ -46,12 +46,12 @@ function ReviewForm({ packageId }) {
   };
 
   return (
-    <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8">
+    <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-8">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-900 mb-2">
           Leave a Review
         </h2>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-500 dark:text-slate-600">
           Share your experience with this package.
         </p>
       </div>
@@ -95,7 +95,7 @@ function ReviewForm({ packageId }) {
             onChange={(e) => setComment(e.target.value)}
             placeholder="Tell us about your experience..."
             rows="5"
-            className="w-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4 text-sm text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-sky-500 transition resize-none"
+            className="w-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-4 text-sm text-slate-700 dark:text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#064E3B] transition resize-none"
           />
         </div>
 
@@ -103,7 +103,7 @@ function ReviewForm({ packageId }) {
         <button
           type="submit"
           disabled={rating === 0 || submitting}
-          className="w-full bg-sky-500 py-4 text-white font-semibold transition-colors hover:bg-sky-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed"
+          className="w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A] disabled:bg-[#E6D2A6] dark:disabled:bg-[#E6D2A6] disabled:cursor-not-allowed"
         >
           {submitting ? "Posting..." : "Post Review"}
         </button>

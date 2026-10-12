@@ -16,7 +16,7 @@ export default function About() {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-950 transition-colors duration-300">
+    <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
       {/* ============ HERO ============ */}
       <FramerMotion>
         <section className="relative w-full h-[60vh] min-h-105 flex items-center justify-center text-center px-6">
@@ -27,7 +27,7 @@ export default function About() {
           <div className="absolute inset-0 bg-slate-950/65" />
 
           <div className="relative max-w-3xl">
-            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest mb-4">
+            <p className="text-emerald-400 text-sm font-semibold uppercase tracking-widest mb-4">
               About TravelMate
             </p>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
@@ -43,21 +43,21 @@ export default function About() {
       </FramerMotion>
 
       {/* ============ ABOUT ============ */}
-      <section className="py-14 lg:py-20 bg-white dark:bg-slate-950">
+      <section className="py-14 lg:py-20 bg-[#F8E7C9] dark:bg-[#F8E7C9]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
             <div>
-              <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="text-[#064E3B] text-sm font-semibold uppercase tracking-widest mb-4">
                 Who we are
               </p>
 
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
                 Discover Nepal <br />
                 like never before
               </h2>
 
-              <p className="mt-8 text-base lg:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-8 text-base lg:text-lg leading-relaxed text-slate-600 dark:text-slate-700">
                 TravelMate helps travelers discover Nepal's hidden treasures,
                 breathtaking trekking routes, cultural heritage, and
                 unforgettable adventures. We carefully select destinations and
@@ -65,7 +65,7 @@ export default function About() {
                 simple, enjoyable, and memorable.
               </p>
 
-              <p className="mt-5 text-base lg:text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+              <p className="mt-5 text-base lg:text-lg leading-relaxed text-slate-600 dark:text-slate-700">
                 Whether you're searching for mountains, wildlife, lakes,
                 temples, or local experiences — TravelMate is your trusted
                 companion for planning the perfect trip.
@@ -74,13 +74,13 @@ export default function About() {
               <div className="flex flex-wrap gap-4 mt-10">
                 <Link
                   to="/package"
-                  className="px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold transition-colors"
+                  className="px-6 py-3 bg-[#064E3B] hover:bg-[#04382A] text-white font-semibold transition-colors"
                 >
                   Explore Packages
                 </Link>
                 <Link
                   to="/destination"
-                  className="px-6 py-3 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-sky-500 hover:text-sky-500 font-semibold transition-colors"
+                  className="px-6 py-3 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-800 hover:border-[#064E3B] hover:text-[#064E3B] font-semibold transition-colors"
                 >
                   Browse Destinations
                 </Link>
@@ -95,9 +95,9 @@ export default function About() {
                 className="w-full h-125 object-cover"
               />
 
-              <div className="absolute -bottom-6 left-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-6 py-4">
-                <p className="text-3xl font-bold text-sky-500">500+</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="absolute -bottom-6 left-6 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] px-6 py-4">
+                <p className="text-3xl font-bold text-[#064E3B]">500+</p>
+                <p className="text-sm text-slate-600 dark:text-slate-600">
                   Happy travelers
                 </p>
               </div>
@@ -108,17 +108,17 @@ export default function About() {
 
       {/* ============ CONTACT ============ */}
       <FramerMotion>
-        <section className="py-14 lg:py-20 bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+        <section className="py-14 lg:py-20 bg-[#F1E3C4] dark:bg-[#F8E7C9] transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {/* Section heading */}
             <div className="max-w-2xl mb-14">
-              <p className="text-sky-500 text-sm font-semibold uppercase tracking-widest mb-4">
+              <p className="text-[#064E3B] text-sm font-semibold uppercase tracking-widest mb-4">
                 Get in touch
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
                 Contact us
               </h2>
-              <p className="mt-5 text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="mt-5 text-base lg:text-lg text-slate-600 dark:text-slate-700 leading-relaxed">
                 Have a question, suggestion, or just want to say hello? We'd
                 love to hear from you.
               </p>
@@ -149,7 +149,7 @@ export default function About() {
                 </div>
 
                 {/* Map */}
-                <div className="overflow-hidden border border-slate-200 dark:border-slate-800 h-85">
+                <div className="overflow-hidden border border-[#E4D2A8] dark:border-[#E4D2A8] h-85">
                   <iframe
                     title="TravelMate office location"
                     src="https://www.google.com/maps?q=27.7098244,84.4142118&z=15&output=embed"
@@ -164,9 +164,9 @@ export default function About() {
               <div className="lg:col-span-2">
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-8"
+                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-8"
                 >
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-900 mb-6">
                     Send a message
                   </h3>
 
@@ -197,12 +197,12 @@ export default function About() {
 
                   <button
                     type="submit"
-                    className="mt-6 w-full py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold transition-colors"
+                    className="mt-6 w-full py-3 bg-[#064E3B] hover:bg-[#04382A] text-white font-semibold transition-colors"
                   >
                     Send message
                   </button>
 
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 text-center">
+                  <p className="text-xs text-slate-500 dark:text-slate-600 mt-4 text-center">
                     We respect your privacy and never share your information.
                   </p>
                 </form>
@@ -219,14 +219,14 @@ export default function About() {
 
 function InfoCard({ icon: Icon, label, value, href }) {
   const content = (
-    <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-5 h-full">
-      <div className="w-9 h-9 grid place-items-center border border-sky-500/30 text-sky-500 mb-3">
+    <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-5 h-full">
+      <div className="w-9 h-9 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] mb-3">
         <Icon className="text-sm" />
       </div>
-      <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+      <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-600">
         {label}
       </p>
-      <p className="mt-1 text-sm text-slate-800 dark:text-slate-200 wrap-break-word">
+      <p className="mt-1 text-sm text-slate-800 dark:text-slate-800 wrap-break-word">
         {value}
       </p>
     </div>
@@ -251,13 +251,13 @@ function Field({
   autoComplete,
 }) {
   const base =
-    "w-full bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 focus:border-sky-500 outline-none px-4 py-2.5 transition-colors";
+    "w-full bg-[#F1E3C4] dark:bg-[#F8E7C9] text-slate-900 dark:text-slate-900 border border-[#E4D2A8] dark:border-[#E4D2A8] focus:border-[#064E3B] outline-none px-4 py-2.5 transition-colors";
 
   return (
     <div>
       <label
         htmlFor={id}
-        className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5"
+        className="block text-sm font-medium text-slate-700 dark:text-slate-700 mb-1.5"
       >
         {label}
       </label>

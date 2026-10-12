@@ -63,15 +63,15 @@ export default function MyPlans() {
   return (
     <>
       {/* HEADER */}
-      <section className="bg-slate-900 dark:bg-slate-950">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             Your Plans
           </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
             Saved trip plans
           </h1>
-          <p className="mt-4 text-base lg:text-lg text-slate-300 max-w-xl leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg text-slate-600 max-w-xl leading-relaxed">
             All your saved preferences in one place. Revisit any plan to see the
             latest matching packages.
           </p>
@@ -79,27 +79,27 @@ export default function MyPlans() {
       </section>
 
       {/* LIST */}
-      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-16 transition-colors duration-300 min-h-[50vh]">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300 min-h-[50vh]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-6 animate-pulse"
+                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-6 animate-pulse"
                 >
-                  <div className="h-5 bg-slate-200 dark:bg-slate-800 w-2/3 mb-3" />
-                  <div className="h-3 bg-slate-200 dark:bg-slate-800 w-1/3 mb-6" />
-                  <div className="h-4 bg-slate-200 dark:bg-slate-800 w-full mb-2" />
-                  <div className="h-4 bg-slate-200 dark:bg-slate-800 w-5/6" />
+                  <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-2/3 mb-3" />
+                  <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/3 mb-6" />
+                  <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full mb-2" />
+                  <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-5/6" />
                 </div>
               ))}
             </div>
           ) : plans.length === 0 ? (
-            <div className="text-center py-20 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-              <p className="text-slate-500 dark:text-slate-400">
+            <div className="text-center py-20 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8]">
+              <p className="text-slate-500 dark:text-slate-600">
                 No packages available. Try editing your preferences or{" "}
-                <Link to="/plan" className="text-sky-500 hover:underline">
+                <Link to="/plan" className="text-[#064E3B] hover:underline">
                   create a new plan
                 </Link>
                 .
@@ -131,10 +131,10 @@ function PlanCard({ plan, onDelete }) {
   const title = plan.title || generateTitle(plan);
 
   return (
-    <div className="group flex flex-col bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
+    <div className="group flex flex-col bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-6 transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
       {/* Title */}
       <div className="mb-4">
-        <h3 className="font-semibold text-lg text-slate-900 dark:text-white leading-snug truncate">
+        <h3 className="font-semibold text-lg text-slate-900 dark:text-slate-900 leading-snug truncate">
           {title}
         </h3>
         <p className="text-xs text-slate-400 mt-1">
@@ -150,7 +150,7 @@ function PlanCard({ plan, onDelete }) {
             {chips.map((chip, i) => (
               <span
                 key={i}
-                className="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                className="text-xs font-medium px-2 py-1 bg-[#F1E3C4] dark:bg-[#F1E3C4] text-slate-700 dark:text-slate-700"
               >
                 {chip}
               </span>
@@ -159,7 +159,7 @@ function PlanCard({ plan, onDelete }) {
         )}
 
         {/* Details */}
-        <div className="space-y-1 text-sm text-slate-600 dark:text-slate-400 mb-5">
+        <div className="space-y-1 text-sm text-slate-600 dark:text-slate-600 mb-5">
           {plan.location && (
             <p>
               <span className="text-slate-400">Location:</span> {plan.location}
@@ -187,10 +187,10 @@ function PlanCard({ plan, onDelete }) {
       </div>
 
       {/* Actions — pinned to bottom */}
-      <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto">
+      <div className="flex items-center justify-between pt-4 border-t border-[#EAD9B4] dark:border-[#E4D2A8] mt-auto">
         <Link
           to={`/my-plans/${plan.id}`}
-          className="text-sm font-semibold text-sky-500 hover:text-sky-600 transition-colors"
+          className="text-sm font-semibold text-[#064E3B] hover:text-[#064E3B] transition-colors"
         >
           View matches →
         </Link>

@@ -30,19 +30,19 @@ function Signup() {
   }
 
   const getInputClass = (hasError) =>
-    `w-full border bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 outline-none transition-colors ${
+    `w-full border bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 outline-none transition-colors ${
       hasError
         ? "border-red-500 focus:border-red-500"
-        : "border-slate-300 dark:border-slate-700 focus:border-sky-500"
+        : "border-[#D8C494] dark:border-[#D8C494] focus:border-[#064E3B]"
     }`;
 
   const errorClass = "text-red-500 text-sm mt-1 min-h-5";
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <div className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] transition-colors duration-300">
       <div className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-6">
         <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+          <div className="grid grid-cols-1 md:grid-cols-2 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
             {/* ============ LEFT SIDE (image) ============ */}
             <div
               className="relative hidden md:flex items-center justify-center p-10"
@@ -55,7 +55,7 @@ function Signup() {
               <div className="absolute inset-0 bg-slate-950/55" />
 
               <div className="relative max-w-sm text-center">
-                <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-4">
+                <p className="text-sm font-semibold uppercase tracking-widest text-emerald-400 mb-4">
                   Join TravelMate
                 </p>
 
@@ -73,15 +73,15 @@ function Signup() {
 
             {/* ============ RIGHT SIDE (form) ============ */}
             <div className="p-8 sm:p-10 lg:p-12">
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                 Account
               </p>
 
-              <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-900">
                 Create account
               </h2>
 
-              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-600">
                 Join TravelMate today — it only takes a minute.
               </p>
 
@@ -176,16 +176,16 @@ function Signup() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-sky-500 hover:bg-sky-600 transition-colors text-white font-semibold py-3 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full bg-[#064E3B] hover:bg-[#04382A] transition-colors text-white font-semibold py-3 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? "Creating account..." : "Sign up"}
                 </button>
 
-                <p className="text-center text-sm text-slate-500 dark:text-slate-400">
+                <p className="text-center text-sm text-slate-500 dark:text-slate-600">
                   Already have an account?{" "}
                   <span
                     onClick={() => navigate("/login")}
-                    className="text-sky-500 hover:text-sky-600 cursor-pointer font-semibold transition-colors"
+                    className="text-[#064E3B] hover:text-[#064E3B] cursor-pointer font-semibold transition-colors"
                   >
                     Login
                   </span>

@@ -88,9 +88,9 @@ const BookingDetails = () => {
       case "cancelled":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       case "completed":
-        return "bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-500/10 dark:text-sky-400 dark:border-sky-500/20";
+        return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
       default:
-        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
+        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
     }
   };
 
@@ -103,16 +103,16 @@ const BookingDetails = () => {
       case "failed":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       default:
-        return "bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700";
+        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
     }
   };
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
+      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
         <div className="container mx-auto px-5">
           <div className="flex min-h-[400px] items-center justify-center">
-            <p className="text-sm text-slate-500 dark:text-slate-400">
+            <p className="text-sm text-slate-500 dark:text-slate-600">
               Loading booking details...
             </p>
           </div>
@@ -123,20 +123,20 @@ const BookingDetails = () => {
 
   if (!booking) {
     return (
-      <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
+      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
         <div className="container mx-auto max-w-4xl px-5">
-          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-10 text-center">
-            <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
+          <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-10 text-center">
+            <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-900">
               Booking not found
             </h2>
 
-            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+            <p className="mt-2 text-sm text-slate-500 dark:text-slate-600">
               We couldn't find the booking you're looking for.
             </p>
 
             <button
               onClick={() => navigate("/my-bookings")}
-              className="mt-6 bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+              className="mt-6 bg-[#064E3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
             >
               Back to My Bookings
             </button>
@@ -147,24 +147,24 @@ const BookingDetails = () => {
   }
 
   return (
-    <section className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 transition-colors">
+    <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
       <div className="container mx-auto max-w-5xl px-5">
         {/* Back Button */}
         <button
           onClick={() => navigate("/my-bookings")}
-          className="mb-6 text-sm font-semibold text-sky-500 transition-colors hover:text-sky-600"
+          className="mb-6 text-sm font-semibold text-[#064E3B] transition-colors hover:text-[#064E3B]"
         >
           ← Back to My Bookings
         </button>
 
         {/* Header */}
-        <div className="mb-6 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div className="mb-6 border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-6">
           <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
             Booking #{booking.id}
           </p>
 
           <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-900">
               {booking.package?.title}
             </h1>
 
@@ -179,7 +179,7 @@ const BookingDetails = () => {
         </div>
 
         {/* Package */}
-        <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
           <div className="flex flex-col md:flex-row">
             {/* Package Image */}
             <div className="h-64 w-full md:h-auto md:w-80 shrink-0">
@@ -200,12 +200,12 @@ const BookingDetails = () => {
                 Travel Package
               </p>
 
-              <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+              <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-slate-900">
                 {booking.package?.title}
               </h2>
 
               {booking.package?.location && (
-                <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                <p className="mt-2 text-sm text-slate-500 dark:text-slate-600">
                   📍 {booking.package.location}
                 </p>
               )}
@@ -213,7 +213,7 @@ const BookingDetails = () => {
               <div className="mt-6">
                 <button
                   onClick={() => navigate(`/package/${booking.package?.id}`)}
-                  className="border border-sky-500 px-5 py-2.5 text-sm font-semibold text-sky-500 transition-colors hover:bg-sky-500 hover:text-white"
+                  className="border border-[#064E3B] px-5 py-2.5 text-sm font-semibold text-[#064E3B] transition-colors hover:bg-[#04382A] hover:text-white"
                 >
                   View Package
                 </button>
@@ -229,7 +229,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Travel Date
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 {booking.travel_date}
               </p>
             </div>
@@ -238,7 +238,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Travelers
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 {booking.travelers}
               </p>
             </div>
@@ -247,7 +247,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Total Price
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 Rs. {Number(booking.total_price).toLocaleString()}
               </p>
             </div>
@@ -274,7 +274,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Full Name
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 {booking.user.name}
               </p>
             </div>
@@ -283,7 +283,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Email
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 {booking.user.email}
               </p>
             </div>
@@ -292,7 +292,7 @@ const BookingDetails = () => {
               <p className="text-xs uppercase tracking-wide text-slate-400">
                 Phone
               </p>
-              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-100">
+              <p className="mt-1 font-semibold text-slate-800 dark:text-slate-900">
                 {booking.phone_number}
               </p>
             </div>
@@ -302,7 +302,7 @@ const BookingDetails = () => {
         {/* Special Request */}
         {booking.special_request && (
           <SectionCard title="Special Request">
-            <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
+            <p className="text-sm leading-6 text-slate-600 dark:text-slate-700">
               {booking.special_request}
             </p>
           </SectionCard>
@@ -315,7 +315,7 @@ const BookingDetails = () => {
               <button
                 onClick={() => handlePayNow(booking.id)}
                 disabled={paying}
-                className="bg-sky-500 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600 disabled:cursor-not-allowed disabled:opacity-60"
+                className="bg-[#064E3B] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {paying ? "Processing Payment..." : "Pay Now"}
               </button>
@@ -339,9 +339,9 @@ const BookingDetails = () => {
 
 function SectionCard({ title, children }) {
   return (
-    <div className="mt-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-      <div className="border-b border-slate-100 dark:border-slate-800 px-6 py-5">
-        <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+    <div className="mt-6 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+      <div className="border-b border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-5">
+        <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-900">
           {title}
         </h2>
       </div>

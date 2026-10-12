@@ -105,7 +105,7 @@ export default function Plan() {
   };
 
   const inputClass =
-    "w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-sky-500 transition-colors";
+    "w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#064E3B] transition-colors";
 
   const labelClass =
     "block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2";
@@ -113,15 +113,15 @@ export default function Plan() {
   return (
     <>
       {/* HEADER */}
-      <section className="bg-slate-900 dark:bg-slate-950">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
-          <p className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             Personalized Planning
           </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
             Find your perfect trip
           </h1>
-          <p className="mt-4 text-base lg:text-lg text-slate-300 max-w-xl leading-relaxed">
+          <p className="mt-4 text-base lg:text-lg text-slate-600 max-w-xl leading-relaxed">
             Tell us what you're looking for, and we'll match you with the best
             packages across Nepal.
           </p>
@@ -129,7 +129,7 @@ export default function Plan() {
       </section>
 
       {/* FORM */}
-      <section className="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-14">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -226,7 +226,7 @@ export default function Plan() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                className="bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-sky-600"
+                className="bg-[#064E3B] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#04382A]"
               >
                 Find matches
               </button>
@@ -234,7 +234,7 @@ export default function Plan() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 transition-colors"
+                className="px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-700 border border-[#D8C494] dark:border-[#D8C494] hover:border-[#C9AF7E] dark:hover:border-[#D8C494] transition-colors"
               >
                 Reset
               </button>
@@ -245,17 +245,17 @@ export default function Plan() {
 
       {/* RESULTS */}
       {submitted && (
-        <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-16 transition-colors duration-300">
+        <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-2">
                 Results
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-900">
                 {rankedPackages.length}{" "}
                 {rankedPackages.length === 1 ? "match" : "matches"} found
               </h2>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-sm text-slate-500 dark:text-slate-600 mt-1">
                 Ranked by how well they fit your preferences.
               </p>
             </div>
@@ -265,26 +265,26 @@ export default function Plan() {
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                   <div
                     key={i}
-                    className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 overflow-hidden animate-pulse"
+                    className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden animate-pulse"
                   >
-                    <div className="w-full h-56 bg-slate-200 dark:bg-slate-800" />
+                    <div className="w-full h-56 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
                     <div className="p-4">
-                      <div className="h-5 bg-slate-200 dark:bg-slate-800 w-3/4" />
-                      <div className="h-4 bg-slate-200 dark:bg-slate-800 w-1/2 mt-2" />
+                      <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4" />
+                      <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/2 mt-2" />
                       <div className="mt-6 flex items-center justify-between">
                         <div>
-                          <div className="h-3 bg-slate-200 dark:bg-slate-800 w-10" />
-                          <div className="h-7 bg-slate-200 dark:bg-slate-800 w-20 mt-2" />
+                          <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-10" />
+                          <div className="h-7 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-20 mt-2" />
                         </div>
-                        <div className="h-4 bg-slate-200 dark:bg-slate-800 w-12" />
+                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-12" />
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             ) : rankedPackages.length === 0 ? (
-              <div className="text-center py-16 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
-                <p className="text-slate-500 dark:text-slate-400">
+              <div className="text-center py-16 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8]">
+                <p className="text-slate-500 dark:text-slate-600">
                   No packages to show yet.
                 </p>
               </div>
@@ -301,24 +301,24 @@ export default function Plan() {
 
       {/* SAVE PLAN */}
       {submitted && hasAnyPreference && (
-        <section className="bg-white dark:bg-slate-950 py-14 lg:py-16 transition-colors duration-300 border-t border-slate-200 dark:border-slate-800">
+        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300 border-t border-[#E4D2A8] dark:border-[#E4D2A8]">
           <div className="max-w-5xl mx-auto px-6 lg:px-8">
-            <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+            <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F1E3C4] dark:bg-[#F8E7C9] overflow-hidden">
               <div className="grid md:grid-cols-5">
                 {/* LEFT — context */}
-                <div className="md:col-span-2 p-8 lg:p-10 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-sky-500 mb-3">
+                <div className="md:col-span-2 p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#E4D2A8] dark:border-[#E4D2A8]">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                     Save Plan
                   </p>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white leading-snug mb-3">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-900 leading-snug mb-3">
                     Keep these matches for later
                   </h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                  <p className="text-sm text-slate-600 dark:text-slate-600 leading-relaxed mb-6">
                     Save your preferences and revisit this list any time from
                     your account.
                   </p>
 
-                  <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+                  <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-600">
                     <SaveBullet text="Revisit matches whenever you like" />
                     <SaveBullet text="See how new packages score against your plan" />
                     <SaveBullet text="Compare multiple trips side by side" />
@@ -326,7 +326,7 @@ export default function Plan() {
                 </div>
 
                 {/* RIGHT — form */}
-                <div className="md:col-span-3 p-8 lg:p-10 bg-white dark:bg-slate-950">
+                <div className="md:col-span-3 p-8 lg:p-10 bg-[#F8E7C9] dark:bg-[#F8E7C9]">
                   <label className={labelClass}>Plan name (optional)</label>
                   <input
                     type="text"
@@ -336,7 +336,7 @@ export default function Plan() {
                     className={inputClass}
                   />
 
-                  <p className="mt-3 text-xs text-slate-500 dark:text-slate-500">
+                  <p className="mt-3 text-xs text-slate-500 dark:text-slate-600">
                     Leave blank and we'll name it after your preferences.
                   </p>
 
@@ -345,12 +345,12 @@ export default function Plan() {
                       type="button"
                       onClick={handleSavePlan}
                       disabled={saving}
-                      className="w-full bg-sky-500 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-sky-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 disabled:cursor-not-allowed"
+                      className="w-full bg-[#064E3B] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:bg-[#E6D2A6] dark:disabled:bg-[#E6D2A6] disabled:cursor-not-allowed"
                     >
                       {saving ? "Saving..." : "Save Plan"}
                     </button>
 
-                    <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-500">
+                    <p className="mt-3 text-center text-xs text-slate-400 dark:text-slate-600">
                       Secure · Free · One click
                     </p>
                   </div>
@@ -370,7 +370,7 @@ export default function Plan() {
 function SaveBullet({ text }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="text-sky-500 font-semibold shrink-0 mt-0.5">✓</span>
+      <span className="text-[#064E3B] font-semibold shrink-0 mt-0.5">✓</span>
       <span className="leading-relaxed">{text}</span>
     </li>
   );

@@ -56,33 +56,33 @@ export default function BookingForm() {
   };
 
   const inputClass =
-    "w-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 px-4 py-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-sky-500 outline-none transition-colors";
+    "w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 focus:border-[#064E3B] outline-none transition-colors";
 
   return (
     <>
       {/* ============ PAGE HEADER ============ */}
-      <section className="bg-white dark:bg-slate-950 transition-colors duration-300">
+      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5 py-14 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-sky-500 mb-3">
+          <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             TravelMate
           </p>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-900 leading-tight">
             Complete your booking
           </h1>
 
-          <p className="mt-4 text-slate-600 dark:text-slate-400">
+          <p className="mt-4 text-slate-600 dark:text-slate-600">
             You're just one step away from your next adventure.
           </p>
         </div>
       </section>
 
       {/* ============ FORM SECTION ============ */}
-      <section className="bg-slate-50 dark:bg-slate-900 py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="grid lg:grid-cols-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+          <div className="grid lg:grid-cols-2 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
             {/* ============ LEFT SIDE ============ */}
-            <div className="flex flex-col p-8 lg:p-10 lg:border-r border-slate-200 dark:border-slate-800">
+            <div className="flex flex-col p-8 lg:p-10 lg:border-r border-[#E4D2A8] dark:border-[#E4D2A8]">
               <img
                 src={`http://localhost:8000/storage/${packageData?.featured_image}`}
                 alt="Package Image"
@@ -90,11 +90,11 @@ export default function BookingForm() {
               />
 
               <div className="mt-6">
-                <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
+                <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-slate-900">
                   {packageData?.title}
                 </h2>
 
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 line-clamp-3">
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-600 line-clamp-3">
                   {packageData?.short_description}
                 </p>
 
@@ -142,10 +142,10 @@ export default function BookingForm() {
                     Starting from
                   </p>
                   <div className="mt-1 flex items-baseline gap-2">
-                    <h3 className="text-3xl font-bold text-sky-500">
+                    <h3 className="text-3xl font-bold text-[#064E3B]">
                       Rs. {packageData?.price}
                     </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-slate-500 dark:text-slate-600">
                       per person
                     </p>
                   </div>
@@ -154,44 +154,44 @@ export default function BookingForm() {
             </div>
 
             {/* ============ RIGHT SIDE ============ */}
-            <div className="p-8 lg:p-10 border-t lg:border-t-0 border-slate-200 dark:border-slate-800">
-              <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white">
+            <div className="p-8 lg:p-10 border-t lg:border-t-0 border-[#E4D2A8] dark:border-[#E4D2A8]">
+              <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-slate-900">
                 Your details
               </h2>
-              <p className="mt-2 text-slate-500 dark:text-slate-400">
+              <p className="mt-2 text-slate-500 dark:text-slate-600">
                 Fill in your information to reserve your trip.
               </p>
 
               <form onSubmit={handleBooking} className="mt-8 space-y-6">
                 {/* Full Name */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                     Full Name
                   </label>
                   <input
                     type="text"
                     value={user?.name}
                     readOnly
-                    className={`${inputClass} bg-slate-50 dark:bg-slate-900 cursor-not-allowed`}
+                    className={`${inputClass} bg-[#F1E3C4] dark:bg-[#F8E7C9] cursor-not-allowed`}
                   />
                 </div>
 
                 {/* Email & Phone */}
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                       Email
                     </label>
                     <input
                       type="email"
                       value={user?.email}
                       readOnly
-                      className={`${inputClass} bg-slate-50 dark:bg-slate-900 cursor-not-allowed`}
+                      className={`${inputClass} bg-[#F1E3C4] dark:bg-[#F8E7C9] cursor-not-allowed`}
                     />
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                       Phone Number
                     </label>
                     <input
@@ -206,7 +206,7 @@ export default function BookingForm() {
                 {/* Travel Date & Travelers */}
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                       Travel Date
                     </label>
                     <input
@@ -218,7 +218,7 @@ export default function BookingForm() {
                   </div>
 
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                    <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                       Number of Travelers
                     </label>
                     <input
@@ -234,7 +234,7 @@ export default function BookingForm() {
 
                 {/* Special Request */}
                 <div>
-                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <label className="block mb-2 text-sm font-medium text-slate-700 dark:text-slate-700">
                     Special Request{" "}
                     <span className="text-slate-400">(Optional)</span>
                   </label>
@@ -247,36 +247,36 @@ export default function BookingForm() {
                 </div>
 
                 {/* Booking Summary */}
-                <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-5">
-                  <h3 className="mb-4 text-base font-semibold text-slate-900 dark:text-white">
+                <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F1E3C4] dark:bg-[#F8E7C9] p-5">
+                  <h3 className="mb-4 text-base font-semibold text-slate-900 dark:text-slate-900">
                     Booking Summary
                   </h3>
 
                   <div className="flex justify-between mb-2 text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">
+                    <span className="text-slate-600 dark:text-slate-600">
                       Price per person
                     </span>
-                    <span className="font-medium text-slate-900 dark:text-white">
+                    <span className="font-medium text-slate-900 dark:text-slate-900">
                       Rs. {packageData?.price}
                     </span>
                   </div>
 
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">
+                    <span className="text-slate-600 dark:text-slate-600">
                       Travelers
                     </span>
-                    <span className="font-medium text-slate-900 dark:text-white">
+                    <span className="font-medium text-slate-900 dark:text-slate-900">
                       {travelers}
                     </span>
                   </div>
 
-                  <div className="my-4 border-t border-slate-200 dark:border-slate-800" />
+                  <div className="my-4 border-t border-[#E4D2A8] dark:border-[#E4D2A8]" />
 
                   <div className="flex justify-between text-base font-bold">
-                    <span className="text-slate-900 dark:text-white">
+                    <span className="text-slate-900 dark:text-slate-900">
                       Total
                     </span>
-                    <span className="text-sky-500">
+                    <span className="text-[#064E3B]">
                       Rs. {packageData?.price * travelers}
                     </span>
                   </div>
@@ -288,10 +288,10 @@ export default function BookingForm() {
                     type="checkbox"
                     checked={agreedToTerms}
                     onChange={(e) => setAgreedToTerms(e.target.checked)}
-                    className="mt-1 h-4 w-4 accent-sky-500"
+                    className="mt-1 h-4 w-4 accent-[#064E3B]"
                   />
 
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-6">
+                  <p className="text-sm text-slate-600 dark:text-slate-600 leading-6">
                     I agree to the Terms & Conditions and Privacy Policy.
                   </p>
                 </div>
@@ -299,7 +299,7 @@ export default function BookingForm() {
                 {/* Button */}
                 <button
                   type="submit"
-                  className="w-full bg-sky-500 py-4 text-white font-semibold transition-colors hover:bg-sky-600"
+                  className="w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A]"
                 >
                   Confirm Booking
                 </button>
@@ -316,9 +316,9 @@ export default function BookingForm() {
 
 function InfoBox({ label, value }) {
   return (
-    <div className="border border-slate-200 dark:border-slate-800 p-4">
+    <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] p-4">
       <p className="text-xs uppercase tracking-wide text-slate-400">{label}</p>
-      <h4 className="mt-1 font-semibold text-slate-900 dark:text-white">
+      <h4 className="mt-1 font-semibold text-slate-900 dark:text-slate-900">
         {value}
       </h4>
     </div>
