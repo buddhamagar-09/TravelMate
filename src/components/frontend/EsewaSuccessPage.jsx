@@ -23,7 +23,7 @@ const EsewaSuccessPage = () => {
             <FaCheck className="text-3xl" />
           </div>
 
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-700 mb-4">
             Payment successful
           </p>
 
@@ -62,7 +62,7 @@ const EsewaSuccessPage = () => {
             <span className="text-sm text-slate-500 dark:text-slate-600">
               Status
             </span>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-700">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Paid
             </span>

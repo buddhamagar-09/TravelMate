@@ -114,7 +114,7 @@ export default function Header() {
           : "text-gray-200 hover:text-white"
         : isActive
           ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
-          : "text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
+          : "text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
     }`;
 
   // Mobile navigation
@@ -122,7 +122,7 @@ export default function Header() {
     `block px-4 py-2 transition-colors duration-300 ${
       isActive
         ? "text-[#064E3B] dark:text-[#064E3B] font-semibold"
-        : "text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
+        : "text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B]"
     }`;
 
   // Handle search form submission
@@ -313,7 +313,7 @@ export default function Header() {
                     className={`ml-2 ${
                       isHomePage && !scrolled
                         ? "text-white/80 hover:text-white"
-                        : "text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-white"
+                        : "text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-slate-900"
                     }`}
                   >
                     <FaTimes size={14} />
@@ -439,7 +439,7 @@ export default function Header() {
                 <button
                   type="button"
                   onClick={clearSearch}
-                  className="ml-2 text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-white"
+                  className="ml-2 text-slate-500 hover:text-slate-800 dark:text-slate-600 dark:hover:text-slate-900"
                 >
                   <FaTimes size={14} />
                 </button>
@@ -464,7 +464,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setMobilePackagesOpen(!mobilePackagesOpen)}
-                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#064E3B] dark:hover:text-[#064E3B] transition-colors duration-300"
+                className="w-full flex items-center justify-between px-4 py-2 text-gray-700 dark:text-gray-700 hover:text-[#064E3B] dark:hover:text-[#064E3B] transition-colors duration-300"
               >
                 <span>Packages</span>
                 <FaChevronDown
@@ -594,7 +594,7 @@ function PackageDropdownItem({ to, label, dark }) {
     >
       <span
         className={`w-1.5 h-1.5 rounded-full ${
-          dark ? "bg-[#064E3B]" : "bg-[#DCE7DE] dark:bg-[#CDD9CF]"
+          dark ? "bg-[#FFFFFF]/70" : "bg-[#DCE7DE] dark:bg-[#CDD9CF]"
         }`}
       />
       <span>{label}</span>

@@ -160,7 +160,7 @@ function Login() {
                 >
                   {/* FORM ERROR (API) */}
                   {formError && (
-                    <div className="border border-red-500 bg-red-50 dark:bg-red-500/10 p-3 text-center text-sm text-red-600 dark:text-red-400">
+                    <div className="border border-red-500 bg-red-50 dark:bg-red-50 p-3 text-center text-sm text-red-600 dark:text-red-700">
                       {formError}
                     </div>
                   )}

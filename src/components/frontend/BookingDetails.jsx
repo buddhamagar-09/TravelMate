@@ -82,11 +82,11 @@ const BookingDetails = () => {
   const getBookingStatus = (status) => {
     switch (status) {
       case "pending":
-        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20";
+        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-50 dark:text-amber-700 dark:border-amber-200";
       case "confirmed":
-        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20";
+        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-50 dark:text-emerald-700 dark:border-emerald-200";
       case "cancelled":
-        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
+        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-50 dark:text-red-700 dark:border-red-200";
       case "completed":
         return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
       default:
@@ -97,11 +97,11 @@ const BookingDetails = () => {
   const getPaymentStatus = (status) => {
     switch (status) {
       case "pending":
-        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-500/10 dark:text-amber-400 dark:border-amber-500/20";
+        return "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-50 dark:text-amber-700 dark:border-amber-200";
       case "paid":
-        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20";
+        return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-50 dark:text-emerald-700 dark:border-emerald-200";
       case "failed":
-        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
+        return "bg-red-50 text-red-700 border-red-200 dark:bg-red-50 dark:text-red-700 dark:border-red-200";
       default:
         return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
@@ -324,7 +324,7 @@ const BookingDetails = () => {
           {booking.status === "pending" && (
             <button
               onClick={() => handleCancelBooking(booking.id)}
-              className="border border-red-300 dark:border-red-500/30 px-7 py-3 text-sm font-semibold text-red-600 dark:text-red-400 transition-colors hover:bg-red-50 dark:hover:bg-red-500/10"
+              className="border border-red-300 dark:border-red-300 px-7 py-3 text-sm font-semibold text-red-600 dark:text-red-700 transition-colors hover:bg-red-50 dark:hover:bg-red-50"
             >
               Cancel Booking
             </button>
