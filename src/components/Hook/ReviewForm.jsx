@@ -46,7 +46,7 @@ function ReviewForm({ packageId }) {
   };
 
   return (
-    <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-8">
+    <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-8">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-900 mb-2">
           Leave a Review
@@ -95,7 +95,7 @@ function ReviewForm({ packageId }) {
             onChange={(e) => setComment(e.target.value)}
             placeholder="Tell us about your experience..."
             rows="5"
-            className="w-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-4 text-sm text-slate-700 dark:text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#064E3B] transition resize-none"
+            className="w-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-4 text-sm text-slate-700 dark:text-slate-800 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-[#064E3B] transition resize-none"
           />
         </div>
 
@@ -103,7 +103,7 @@ function ReviewForm({ packageId }) {
         <button
           type="submit"
           disabled={rating === 0 || submitting}
-          className="w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A] disabled:bg-[#E6D2A6] dark:disabled:bg-[#E6D2A6] disabled:cursor-not-allowed"
+          className="w-full bg-[#064E3B] py-4 text-white font-semibold transition-colors hover:bg-[#04382A] disabled:bg-[#DCE7DE] dark:disabled:bg-[#DCE7DE] disabled:cursor-not-allowed"
         >
           {submitting ? "Posting..." : "Post Review"}
         </button>

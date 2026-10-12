@@ -113,7 +113,7 @@ export default function GalleryStep() {
     }
   };
   return (
-    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
+    <div className="p-4 md:p-6 bg-[#EEF4EF] min-h-screen">
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900">Package Gallery</h1>
@@ -123,7 +123,7 @@ export default function GalleryStep() {
       </div>
 
       {/* Progress */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
@@ -131,7 +131,7 @@ export default function GalleryStep() {
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
                     ? "bg-[#064E3B] text-white"
-                    : "bg-[#E6D2A6] text-slate-700"
+                    : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
                 {index + 1}
@@ -141,7 +141,7 @@ export default function GalleryStep() {
           ))}
         </div>
 
-        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
             className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
@@ -150,12 +150,12 @@ export default function GalleryStep() {
       </div>
 
       {/* Upload Section */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6 mb-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-6 mb-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">Upload Images</h2>
 
-        <label className="block w-full border-2 border-dashed border-[#D8C494] rounded-lg p-10 text-center cursor-pointer hover:border-[#064E3B] transition">
+        <label className="block w-full border-2 border-dashed border-[#CDD9CF] rounded-lg p-10 text-center cursor-pointer hover:border-[#064E3B] transition">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-14 h-14 rounded-full bg-[#F1E3C4] flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-[#EEF4EF] flex items-center justify-center">
               <svg
                 className="w-7 h-7 text-slate-600"
                 fill="none"
@@ -190,7 +190,7 @@ export default function GalleryStep() {
       </div>
 
       {/* Preview Grid */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-6">
         <div className="flex items-center justify-between mb-5">
           <h2 className="text-lg font-semibold text-slate-900">Image Preview</h2>
           <span className="text-sm text-slate-600">{images.length} images</span>
@@ -200,7 +200,7 @@ export default function GalleryStep() {
           {images.map((image) => (
             <div
               key={image.id}
-              className="rounded-lg overflow-hidden border border-[#E4D2A8] bg-[#F8E7C9]"
+              className="rounded-lg overflow-hidden border border-[#DDE7DF] bg-[#FFFFFF]"
             >
               <img
                 src={image.url}
@@ -212,11 +212,11 @@ export default function GalleryStep() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-[#E4D2A8]">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 pt-4 border-t border-[#DDE7DF]">
           <button
             type="button"
             onClick={handlePrevious}
-            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
+            className="px-5 py-2 rounded-md bg-[#EEF4EF] text-slate-900 hover:bg-[#DCE7DE] transition"
           >
             ← Previous
           </button>
@@ -225,7 +225,7 @@ export default function GalleryStep() {
             <button
               type="button"
               onClick={handleNext}
-              className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
+              className="px-5 py-2 rounded-md bg-[#EEF4EF] text-slate-900 hover:bg-[#DCE7DE] transition"
             >
               Next →
             </button>

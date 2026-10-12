@@ -6,7 +6,7 @@ const EsewaFailurePage = () => {
   const { bookingId } = useParams();
 
   return (
-    <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] min-h-screen py-16 lg:py-24 transition-colors duration-300">
+    <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] min-h-screen py-16 lg:py-24 transition-colors duration-300">
       <div className="max-w-xl mx-auto px-6 lg:px-8">
         {/* Back link */}
         <Link
@@ -40,7 +40,7 @@ const EsewaFailurePage = () => {
         {/* Details list */}
         <div className="space-y-0 mb-12">
           {bookingId && (
-            <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+            <div className="flex items-center justify-between py-4 border-b border-[#E4EDE6] dark:border-[#DDE7DF]">
               <span className="text-sm text-slate-500 dark:text-slate-600">
                 Booking reference
               </span>
@@ -50,7 +50,7 @@ const EsewaFailurePage = () => {
             </div>
           )}
 
-          <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+          <div className="flex items-center justify-between py-4 border-b border-[#E4EDE6] dark:border-[#DDE7DF]">
             <span className="text-sm text-slate-500 dark:text-slate-600">
               Payment method
             </span>
@@ -59,7 +59,7 @@ const EsewaFailurePage = () => {
             </span>
           </div>
 
-          <div className="flex items-center justify-between py-4 border-b border-[#EAD9B4] dark:border-[#E4D2A8]">
+          <div className="flex items-center justify-between py-4 border-b border-[#E4EDE6] dark:border-[#DDE7DF]">
             <span className="text-sm text-slate-500 dark:text-slate-600">
               Status
             </span>
@@ -71,7 +71,7 @@ const EsewaFailurePage = () => {
         </div>
 
         {/* Helpful note */}
-        <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F1E3C4] dark:bg-[#F8E7C9] px-5 py-4 mb-10">
+        <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#EEF4EF] dark:bg-[#FFFFFF] px-5 py-4 mb-10">
           <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-600">
             <span className="font-semibold text-slate-900 dark:text-slate-900">
               Common reasons:
@@ -93,7 +93,7 @@ const EsewaFailurePage = () => {
 
           <Link
             to="/package"
-            className="flex-1 inline-flex items-center justify-center gap-2 border border-[#D8C494] dark:border-[#D8C494] py-4 text-sm font-semibold text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
+            className="flex-1 inline-flex items-center justify-center gap-2 border border-[#CDD9CF] dark:border-[#CDD9CF] py-4 text-sm font-semibold text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
           >
             <FaCompass className="text-sm" />
             Explore packages

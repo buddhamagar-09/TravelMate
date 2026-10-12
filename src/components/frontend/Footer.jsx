@@ -42,7 +42,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F1E3C4] dark:bg-[#F8E7C9] text-slate-600 dark:text-slate-600 border-t border-[#E4D2A8] dark:border-[#E4D2A8] transition-colors duration-300">
+    <footer className="bg-[#EEF4EF] dark:bg-[#FFFFFF] text-slate-600 dark:text-slate-600 border-t border-[#DDE7DF] dark:border-[#DDE7DF] transition-colors duration-300">
       {/* Upper footer */}
       <div className="container mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Brand + Newsletter */}
@@ -70,7 +70,7 @@ export default function Footer() {
               type="email"
               required
               placeholder="Your email"
-              className="flex-1 border border-[#D8C494] dark:border-[#D8C494] border-r-0 bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#064E3B] transition-colors"
+              className="flex-1 border border-[#CDD9CF] dark:border-[#CDD9CF] border-r-0 bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#064E3B] transition-colors"
             />
             <button
               type="submit"
@@ -91,7 +91,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#E4D2A8] dark:border-[#E4D2A8]">
+      <div className="border-t border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="container mx-auto px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-0">
           <p className="text-xs sm:text-sm text-center sm:text-left">
             © {new Date().getFullYear()} TravelMate —{" "}

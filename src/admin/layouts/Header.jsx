@@ -22,13 +22,13 @@ export default function Header({ setSidebarOpen }) {
   };
 
   return (
-    <header className="h-20 bg-[#F8E7C9] border-b border-[#E4D2A8] flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
+    <header className="h-20 bg-[#FFFFFF] border-b border-[#DDE7DF] flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
       {/* Left side */}
       <div className="flex items-center gap-4">
         {/* Mobile hamburger */}
         <button
           onClick={() => setSidebarOpen(true)}
-          className="lg:hidden p-2 rounded-lg hover:bg-[#F1E3C4] transition"
+          className="lg:hidden p-2 rounded-lg hover:bg-[#EEF4EF] transition"
         >
           <svg
             className="w-6 h-6 text-slate-700"
@@ -56,7 +56,7 @@ export default function Header({ setSidebarOpen }) {
       {/* Right side */}
       <div className="flex items-center gap-2 md:gap-4">
         {/* Search - show on tablet and desktop */}
-        <div className="hidden md:flex items-center bg-[#F1E3C4] rounded-xl px-3 py-2 w-48 lg:w-72">
+        <div className="hidden md:flex items-center bg-[#EEF4EF] rounded-xl px-3 py-2 w-48 lg:w-72">
           <svg
             className="w-5 h-5 text-slate-600 mr-2"
             fill="none"
@@ -79,7 +79,7 @@ export default function Header({ setSidebarOpen }) {
         </div>
 
         {/* Notifications */}
-        <button className="relative p-2 rounded-xl hover:bg-[#F1E3C4] transition">
+        <button className="relative p-2 rounded-xl hover:bg-[#EEF4EF] transition">
           <svg
             className="w-6 h-6 text-slate-700"
             fill="none"
@@ -98,7 +98,7 @@ export default function Header({ setSidebarOpen }) {
         </button>
 
         {/* User section */}
-        <div className="flex items-center gap-3 pl-3 border-l border-[#E4D2A8]">
+        <div className="flex items-center gap-3 pl-3 border-l border-[#DDE7DF]">
           {/* Username only on large desktop */}
           <div className="text-right hidden xl:block">
             <p className="text-slate-900 text-sm font-medium">Admin User</p>

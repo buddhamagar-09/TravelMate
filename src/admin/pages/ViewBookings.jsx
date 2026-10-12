@@ -51,7 +51,7 @@ export default function ViewBookings() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
+    <div className="p-4 md:p-6 bg-[#EEF4EF] min-h-screen">
       {/* Header */}
       <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
@@ -69,7 +69,7 @@ export default function ViewBookings() {
           <input
             type="text"
             placeholder="Search booking..."
-            className="w-full rounded-md border border-[#D8C494] bg-[#F8E7C9] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
+            className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] py-2.5 pl-10 pr-4 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
           />
         </div>
       </div>
@@ -78,9 +78,9 @@ export default function ViewBookings() {
       {loading ? (
         <SkeletonLoader rows={5} />
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-[#E4D2A8] bg-[#F8E7C9]">
+        <div className="overflow-x-auto rounded-lg border border-[#DDE7DF] bg-[#FFFFFF]">
           <table className="min-w-full text-sm">
-            <thead className="border-b border-[#E4D2A8] bg-[#F8E7C9]">
+            <thead className="border-b border-[#DDE7DF] bg-[#FFFFFF]">
               <tr className="text-slate-700">
                 <th className="px-6 py-4 text-left whitespace-nowrap font-semibold">
                   S.No
@@ -125,7 +125,7 @@ export default function ViewBookings() {
               {bookings.map((booking, index) => (
                 <tr
                   key={booking.id}
-                  className="border-b border-[#E4D2A8] hover:bg-[#F1E3C4] transition all duration-200"
+                  className="border-b border-[#DDE7DF] hover:bg-[#EEF4EF] transition all duration-200"
                 >
                   <td className="px-6 py-4 whitespace-nowrap">{index + 1}</td>
 

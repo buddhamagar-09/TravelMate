@@ -90,7 +90,7 @@ const MyBookings = () => {
       case "completed":
         return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
       default:
-        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
+        return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
   };
 
@@ -103,13 +103,13 @@ const MyBookings = () => {
       case "failed":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       default:
-        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
+        return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
   };
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
+      <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
         <div className="container mx-auto px-5">
           <div className="flex min-h-100 items-center justify-center">
             <p className="text-sm text-slate-500 dark:text-slate-600">
@@ -122,10 +122,10 @@ const MyBookings = () => {
   }
 
   return (
-    <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
+    <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
       <div className="container mx-auto max-w-6xl px-5">
         {/* Header */}
-        <div className="mb-10 border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-6">
+        <div className="mb-10 border-b border-[#DDE7DF] dark:border-[#DDE7DF] pb-6">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#064E3B]">
             TravelMate
           </p>
@@ -141,7 +141,7 @@ const MyBookings = () => {
 
         {/* No Bookings */}
         {bookings.length === 0 ? (
-          <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-6 py-16 text-center">
+          <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-6 py-16 text-center">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-[#064E3B] text-[#064E3B]">
               <span className="text-2xl">✈</span>
             </div>
@@ -167,7 +167,7 @@ const MyBookings = () => {
             {bookings.map((booking) => (
               <div
                 key={booking.id}
-                className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]"
+                className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF]"
               >
                 {/* Top Section */}
                 <div className="flex flex-col md:flex-row">
@@ -187,7 +187,7 @@ const MyBookings = () => {
                   {/* Main Content */}
                   <div className="flex-1">
                     {/* Package Header */}
-                    <div className="flex flex-col gap-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-5 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="flex flex-col gap-3 border-b border-[#E4EDE6] dark:border-[#DDE7DF] px-6 py-5 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
                           Booking #{booking.id}
@@ -251,7 +251,7 @@ const MyBookings = () => {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#E4EDE6] dark:border-[#DDE7DF] px-6 py-4">
                       <Link
                         to={`/booking-details/${booking.id}`}
                         className="text-sm font-semibold text-[#064E3B] transition-colors hover:text-[#064E3B]"
@@ -276,7 +276,7 @@ const MyBookings = () => {
                             onClick={() =>
                               handleCancelBooking(booking.id, "cancelled")
                             }
-                            className="border border-[#D8C494] dark:border-[#D8C494] px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-700 transition-colors hover:border-red-300 hover:text-red-600 dark:hover:border-red-500/30 dark:hover:text-red-400"
+                            className="border border-[#CDD9CF] dark:border-[#CDD9CF] px-5 py-2.5 text-sm font-semibold text-slate-600 dark:text-slate-700 transition-colors hover:border-red-300 hover:text-red-600 dark:hover:border-red-500/30 dark:hover:text-red-400"
                           >
                             Cancel
                           </button>

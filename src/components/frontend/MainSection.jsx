@@ -122,7 +122,7 @@ function MainSection() {
 
                   <Link
                     to="/destination"
-                    className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#F8E7C9]/10"
+                    className="inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#FFFFFF]/10"
                   >
                     Browse Destinations
                   </Link>
@@ -140,8 +140,8 @@ function MainSection() {
                 onClick={() => setCurrentIndex(i)}
                 className={`h-1 transition-all ${
                   i === currentIndex
-                    ? "w-8 bg-[#F8E7C9]"
-                    : "w-4 bg-[#F8E7C9]/50 hover:bg-[#F8E7C9]/80"
+                    ? "w-8 bg-[#FFFFFF]"
+                    : "w-4 bg-[#FFFFFF]/50 hover:bg-[#FFFFFF]/80"
                 }`}
               />
             ))}
@@ -151,7 +151,7 @@ function MainSection() {
 
       {/* ==================== FEATURES ==================== */}
       <FramerMotion>
-        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
+        <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8 py-14 lg:py-20">
             <div className="max-w-2xl mx-auto text-center mb-12">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
@@ -192,7 +192,7 @@ function MainSection() {
 
       {/* ==================== POPULAR PACKAGES ==================== */}
       <FramerMotion>
-        <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
               <div>
@@ -218,18 +218,18 @@ function MainSection() {
                 {[1, 2, 3, 4].map((item) => (
                   <div
                     key={item}
-                    className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden animate-pulse"
+                    className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden animate-pulse"
                   >
-                    <div className="w-full h-56 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+                    <div className="w-full h-56 bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
                     <div className="p-4">
-                      <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4" />
-                      <div className="mt-2 h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/2" />
+                      <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-3/4" />
+                      <div className="mt-2 h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-1/2" />
                       <div className="mt-6 flex items-center justify-between">
                         <div>
-                          <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-10" />
-                          <div className="h-6 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-20 mt-2" />
+                          <div className="h-3 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-10" />
+                          <div className="h-6 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-20 mt-2" />
                         </div>
-                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-12" />
+                        <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-12" />
                       </div>
                     </div>
                   </div>
@@ -257,7 +257,7 @@ function MainSection() {
                 >
                   {packages.map((pkg) => (
                     <SwiperSlide key={pkg.id}>
-                      <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden">
+                      <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden">
                         <img
                           src={`http://localhost:8000/storage/${pkg.featured_image}`}
                           alt={pkg.title}
@@ -296,14 +296,14 @@ function MainSection() {
                 <div className="flex justify-center mt-8 gap-3">
                   <button
                     aria-label="Previous"
-                    className="prev-btn grid place-items-center w-10 h-10 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
+                    className="prev-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
                   >
                     <FaChevronLeft className="text-sm" />
                   </button>
 
                   <button
                     aria-label="Next"
-                    className="next-btn grid place-items-center w-10 h-10 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
+                    className="next-btn grid place-items-center w-10 h-10 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 transition-colors hover:border-[#064E3B] hover:text-[#064E3B]"
                   >
                     <FaChevronRight className="text-sm" />
                   </button>
@@ -322,7 +322,7 @@ function MainSection() {
 
       {/* ==================== DESTINATIONS ==================== */}
       <FramerMotion>
-        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mb-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
@@ -411,7 +411,7 @@ function MainSection() {
 
       {/* ==================== TESTIMONIALS ==================== */}
       <FramerMotion>
-        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+        <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
           <div className="container mx-auto px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
@@ -458,7 +458,7 @@ function MainSection() {
 
 function FeatureCard({ icon: Icon, title, description, link }) {
   return (
-    <div className="flex flex-col h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-8">
+    <div className="flex flex-col h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-8">
       <div className="w-12 h-12 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] mb-6">
         <Icon className="h-5 w-5" />
       </div>
@@ -506,7 +506,7 @@ function DestinationCard({ image, alt, duration, name, tagline, to }) {
 
 function TestimonialCard({ review }) {
   return (
-    <div className="h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
+    <div className="h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6">
       {/* User */}
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] shrink-0">

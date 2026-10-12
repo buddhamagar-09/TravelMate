@@ -98,37 +98,37 @@ function PackageDetails() {
   return (
     <>
       {/* ============ PACKAGE DETAILS ============ */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
         {loading ? (
           <div className="container mx-auto px-5 py-10">
             <div className="lg:w-4/6 mx-auto animate-pulse">
-              <div className="h-64 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+              <div className="h-64 bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
 
               <div className="flex flex-col sm:flex-row mt-10">
                 <div className="sm:w-1/3 sm:pr-8 sm:py-8">
-                  <div className="h-8 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4 mb-4" />
+                  <div className="h-8 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-3/4 mb-4" />
                   <div className="space-y-2 mb-8">
-                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
-                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-5/6" />
-                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-4/5" />
+                    <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-full" />
+                    <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-5/6" />
+                    <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-4/5" />
                   </div>
-                  <div className="h-8 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-40 mb-5" />
+                  <div className="h-8 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-40 mb-5" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[1, 2, 3, 4, 5, 6].map((item) => (
                       <div key={item} className="flex items-center gap-3">
-                        <div className="w-4 h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
-                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] flex-1" />
+                        <div className="w-4 h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
+                        <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] flex-1" />
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#E4D2A8] dark:border-[#E4D2A8] mt-4 pt-4 sm:mt-0 sm:pt-0">
+                <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#DDE7DF] dark:border-[#DDE7DF] mt-4 pt-4 sm:mt-0 sm:pt-0">
                   <div className="space-y-3">
-                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
-                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-full" />
-                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-5/6" />
-                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-4/6" />
+                    <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-full" />
+                    <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-full" />
+                    <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-5/6" />
+                    <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-4/6" />
                   </div>
                 </div>
               </div>
@@ -207,13 +207,13 @@ function PackageDetails() {
                       </div>
 
                       {/* Right Side */}
-                      <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#E4D2A8] dark:border-[#E4D2A8] mt-4 pt-4 sm:mt-0 sm:pt-0">
+                      <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-[#DDE7DF] dark:border-[#DDE7DF] mt-4 pt-4 sm:mt-0 sm:pt-0">
                         <p className="leading-relaxed text-base text-slate-600 dark:text-slate-700 mb-4 text-justify">
                           {pkg.long_description}
                         </p>
 
                         {/* Price Card */}
-                        <div className="mt-8 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
+                        <div className="mt-8 border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6">
                           <div className="mb-6">
                             <p className="text-xs uppercase tracking-wide text-slate-400">
                               Starting from
@@ -227,7 +227,7 @@ function PackageDetails() {
                           </div>
 
                           {/* Benefits */}
-                          <div className="mt-6 border-t border-[#E4D2A8] dark:border-[#E4D2A8] pt-5 space-y-3 text-sm text-slate-600 dark:text-slate-700">
+                          <div className="mt-6 border-t border-[#DDE7DF] dark:border-[#DDE7DF] pt-5 space-y-3 text-sm text-slate-600 dark:text-slate-700">
                             <BenefitItem text="Free cancellation up to 24 hours before departure." />
                             <BenefitItem text="24/7 customer support throughout your journey." />
                             <div className="flex items-start gap-3">
@@ -254,7 +254,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ QUICK INFORMATION ============ */}
-      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => {
@@ -348,14 +348,14 @@ function PackageDetails() {
 
                     <div className="relative">
                       {/* Vertical line */}
-                      <div className="absolute left-1.75 top-2 bottom-2 w-px bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+                      <div className="absolute left-1.75 top-2 bottom-2 w-px bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
 
                       <div className="space-y-6">
                         {pkg.itineraries.map((itinerary, index) => (
                           <div key={index} className="relative flex gap-5">
                             {/* Dot */}
                             <div className="relative z-10 mt-1.5 shrink-0">
-                              <div className="w-3.5 h-3.5 rounded-full border-2 border-[#064E3B] bg-[#F1E3C4] dark:bg-[#F8E7C9]" />
+                              <div className="w-3.5 h-3.5 rounded-full border-2 border-[#064E3B] bg-[#EEF4EF] dark:bg-[#FFFFFF]" />
                             </div>
 
                             {/* Content */}
@@ -384,7 +384,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ INCLUDED / EXCLUDED ============ */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => (
@@ -419,7 +419,7 @@ function PackageDetails() {
                     {pkg.includes.map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-3 py-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-0"
+                        className="flex items-start gap-3 py-3 border-b border-[#E4EDE6] dark:border-[#DDE7DF] last:border-0"
                       >
                         <span className="text-emerald-500 shrink-0 mt-0.5">
                           <CheckIcon />
@@ -447,7 +447,7 @@ function PackageDetails() {
                     {pkg.excludes.map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-3 py-3 border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-0"
+                        className="flex items-start gap-3 py-3 border-b border-[#E4EDE6] dark:border-[#DDE7DF] last:border-0"
                       >
                         <span className="text-red-500 shrink-0 mt-0.5">
                           <CrossIcon />
@@ -465,7 +465,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ GALLERY ============ */}
-      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         {packages
           .filter((pkg) => pkg.id == id)
           .map((pkg) => (
@@ -515,7 +515,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
           <div className="mb-12">
             <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
@@ -547,7 +547,7 @@ function PackageDetails() {
           >
             {reviews.map((review) => (
               <SwiperSlide key={review.id} className="h-auto!">
-                <div className="h-full border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6">
+                <div className="h-full border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6">
                   {/* User */}
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] shrink-0">
@@ -584,7 +584,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ CTA ============ */}
-      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] border-t border-[#E4D2A8] dark:border-[#E4D2A8] py-14 lg:py-20">
+      <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] border-t border-[#DDE7DF] dark:border-[#DDE7DF] py-14 lg:py-20">
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid lg:grid-cols-5 gap-10 items-start">
             {/* Left Content */}
@@ -627,7 +627,7 @@ function PackageDetails() {
 
                 return (
                   <div key={pkg.id} className="lg:col-span-2">
-                    <div className="border border-[#E4D2A8] bg-[#F8E7C9] p-8">
+                    <div className="border border-[#DDE7DF] bg-[#FFFFFF] p-8">
                       <div className="space-y-3 text-sm text-slate-600">
                         <div className="flex items-start gap-3">
                           <span className="text-[#064E3B] shrink-0">✓</span>
@@ -672,7 +672,7 @@ function PackageDetails() {
       </section>
 
       {/* ============ REVIEW FORM ============ */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-3xl mx-auto px-5">
           <ReviewForm packageId={id} />
         </div>
@@ -703,7 +703,7 @@ function BenefitItem({ text }) {
 
 function FactItem({ label, value }) {
   return (
-    <div className="border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-3">
+    <div className="border-b border-[#DDE7DF] dark:border-[#DDE7DF] pb-3">
       <p className="text-xs font-semibold uppercase tracking-wide text-[#064E3B]">
         {label}
       </p>

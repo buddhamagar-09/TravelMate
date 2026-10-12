@@ -88,7 +88,7 @@ useEffect(() => {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
+    <div className="p-4 md:p-6 bg-[#EEF4EF] min-h-screen">
       {/* Header */}{" "}
       <div className="mb-6">
         {" "}
@@ -98,7 +98,7 @@ useEffect(() => {
         </p>{" "}
       </div>
       {/* Progress */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
@@ -106,7 +106,7 @@ useEffect(() => {
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
                     ? "bg-[#064E3B] text-white"
-                    : "bg-[#E6D2A6] text-slate-700"
+                    : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
                 {index + 1}
@@ -116,19 +116,19 @@ useEffect(() => {
           ))}
         </div>
 
-        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div className="h-full bg-[#064E3B]" style={{ width: "100%" }} />
         </div>
       </div>
       {/* Form */}
     
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-6">
         <div className="space-y-5">
           <div className="flex flex-col sm:flex-row gap-3 items-start">
             <input
               type="text"
               placeholder="Example: International flight ticket"
-              className="w-full rounded-md border border-[#D8C494] bg-[#F8E7C9] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
+              className="w-full rounded-md border border-[#CDD9CF] bg-[#FFFFFF] px-4 py-3 text-slate-900 placeholder-slate-500 focus:border-[#064E3B] focus:outline-none"
               value={newExclude}
               onChange={(e) => setNewExclude(e.target.value)}
             />
@@ -152,7 +152,7 @@ useEffect(() => {
               {excludes.map((exclude, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between rounded-md border border-[#E4D2A8] bg-[#F8E7C9] p-4 mb-3"
+                  className="flex items-center justify-between rounded-md border border-[#DDE7DF] bg-[#FFFFFF] p-4 mb-3"
                 >
                   <div className="flex items-center gap-2">
                     <p className="text-slate-900">{exclude}</p>
@@ -183,11 +183,11 @@ useEffect(() => {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-[#E4D2A8]">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-8 pt-4 border-t border-[#DDE7DF]">
           <button
             type="button"
             onClick={handlePrevious}
-            className="px-5 py-2 rounded-md bg-[#F1E3C4] text-slate-900 hover:bg-[#E6D2A6] transition"
+            className="px-5 py-2 rounded-md bg-[#EEF4EF] text-slate-900 hover:bg-[#DCE7DE] transition"
           >
             ← Previous
           </button>

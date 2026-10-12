@@ -16,7 +16,7 @@ export default function About() {
   };
 
   return (
-    <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
+    <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
       {/* ============ HERO ============ */}
       <FramerMotion>
         <section className="relative w-full h-[60vh] min-h-105 flex items-center justify-center text-center px-6">
@@ -43,7 +43,7 @@ export default function About() {
       </FramerMotion>
 
       {/* ============ ABOUT ============ */}
-      <section className="py-14 lg:py-20 bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+      <section className="py-14 lg:py-20 bg-[#FFFFFF] dark:bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
@@ -80,7 +80,7 @@ export default function About() {
                 </Link>
                 <Link
                   to="/destination"
-                  className="px-6 py-3 border border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-800 hover:border-[#064E3B] hover:text-[#064E3B] font-semibold transition-colors"
+                  className="px-6 py-3 border border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-800 hover:border-[#064E3B] hover:text-[#064E3B] font-semibold transition-colors"
                 >
                   Browse Destinations
                 </Link>
@@ -95,7 +95,7 @@ export default function About() {
                 className="w-full h-125 object-cover"
               />
 
-              <div className="absolute -bottom-6 left-6 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] px-6 py-4">
+              <div className="absolute -bottom-6 left-6 bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] px-6 py-4">
                 <p className="text-3xl font-bold text-[#064E3B]">500+</p>
                 <p className="text-sm text-slate-600 dark:text-slate-600">
                   Happy travelers
@@ -108,7 +108,7 @@ export default function About() {
 
       {/* ============ CONTACT ============ */}
       <FramerMotion>
-        <section className="py-14 lg:py-20 bg-[#F1E3C4] dark:bg-[#F8E7C9] transition-colors duration-300">
+        <section className="py-14 lg:py-20 bg-[#EEF4EF] dark:bg-[#FFFFFF] transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             {/* Section heading */}
             <div className="max-w-2xl mb-14">
@@ -149,7 +149,7 @@ export default function About() {
                 </div>
 
                 {/* Map */}
-                <div className="overflow-hidden border border-[#E4D2A8] dark:border-[#E4D2A8] h-85">
+                <div className="overflow-hidden border border-[#DDE7DF] dark:border-[#DDE7DF] h-85">
                   <iframe
                     title="TravelMate office location"
                     src="https://www.google.com/maps?q=27.7098244,84.4142118&z=15&output=embed"
@@ -164,7 +164,7 @@ export default function About() {
               <div className="lg:col-span-2">
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-8"
+                  className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] p-8"
                 >
                   <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-900 mb-6">
                     Send a message
@@ -219,7 +219,7 @@ export default function About() {
 
 function InfoCard({ icon: Icon, label, value, href }) {
   const content = (
-    <div className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] p-5 h-full">
+    <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] p-5 h-full">
       <div className="w-9 h-9 grid place-items-center border border-[#064E3B]/30 text-[#064E3B] mb-3">
         <Icon className="text-sm" />
       </div>
@@ -251,7 +251,7 @@ function Field({
   autoComplete,
 }) {
   const base =
-    "w-full bg-[#F1E3C4] dark:bg-[#F8E7C9] text-slate-900 dark:text-slate-900 border border-[#E4D2A8] dark:border-[#E4D2A8] focus:border-[#064E3B] outline-none px-4 py-2.5 transition-colors";
+    "w-full bg-[#EEF4EF] dark:bg-[#FFFFFF] text-slate-900 dark:text-slate-900 border border-[#DDE7DF] dark:border-[#DDE7DF] focus:border-[#064E3B] outline-none px-4 py-2.5 transition-colors";
 
   return (
     <div>

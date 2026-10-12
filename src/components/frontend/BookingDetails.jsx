@@ -90,7 +90,7 @@ const BookingDetails = () => {
       case "completed":
         return "bg-[#064E3B]/10 text-[#064E3B] border-[#064E3B]/20 dark:bg-[#064E3B]/10 dark:text-[#064E3B] dark:border-[#064E3B]/20";
       default:
-        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
+        return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
   };
 
@@ -103,13 +103,13 @@ const BookingDetails = () => {
       case "failed":
         return "bg-red-50 text-red-700 border-red-200 dark:bg-red-500/10 dark:text-red-400 dark:border-red-500/20";
       default:
-        return "bg-[#F1E3C4] text-slate-700 border-[#E4D2A8] dark:bg-[#F1E3C4] dark:text-slate-700 dark:border-[#D8C494]";
+        return "bg-[#EEF4EF] text-slate-700 border-[#DDE7DF] dark:bg-[#EEF4EF] dark:text-slate-700 dark:border-[#CDD9CF]";
     }
   };
 
   if (loading) {
     return (
-      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
+      <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
         <div className="container mx-auto px-5">
           <div className="flex min-h-[400px] items-center justify-center">
             <p className="text-sm text-slate-500 dark:text-slate-600">
@@ -123,9 +123,9 @@ const BookingDetails = () => {
 
   if (!booking) {
     return (
-      <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
+      <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
         <div className="container mx-auto max-w-4xl px-5">
-          <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] p-10 text-center">
+          <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] p-10 text-center">
             <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-900">
               Booking not found
             </h2>
@@ -147,7 +147,7 @@ const BookingDetails = () => {
   }
 
   return (
-    <section className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] py-12 transition-colors">
+    <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
       <div className="container mx-auto max-w-5xl px-5">
         {/* Back Button */}
         <button
@@ -158,7 +158,7 @@ const BookingDetails = () => {
         </button>
 
         {/* Header */}
-        <div className="mb-6 border-b border-[#E4D2A8] dark:border-[#E4D2A8] pb-6">
+        <div className="mb-6 border-b border-[#DDE7DF] dark:border-[#DDE7DF] pb-6">
           <p className="text-xs font-medium uppercase tracking-widest text-slate-400">
             Booking #{booking.id}
           </p>
@@ -179,7 +179,7 @@ const BookingDetails = () => {
         </div>
 
         {/* Package */}
-        <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+        <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF]">
           <div className="flex flex-col md:flex-row">
             {/* Package Image */}
             <div className="h-64 w-full md:h-auto md:w-80 shrink-0">
@@ -339,8 +339,8 @@ const BookingDetails = () => {
 
 function SectionCard({ title, children }) {
   return (
-    <div className="mt-6 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
-      <div className="border-b border-[#EAD9B4] dark:border-[#E4D2A8] px-6 py-5">
+    <div className="mt-6 border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF]">
+      <div className="border-b border-[#E4EDE6] dark:border-[#DDE7DF] px-6 py-5">
         <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-900">
           {title}
         </h2>

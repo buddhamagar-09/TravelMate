@@ -13,7 +13,7 @@ function CategoryFields({
   parkName, setParkName,
 }) {
   const inputClass =
-    "w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]";
+    "w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]";
   const labelClass = "block text-sm text-slate-700 mb-2";
 
   switch (category) {
@@ -240,7 +240,7 @@ export default function AddPackage() {
   };
 
   return (
-    <div className="p-4 md:p-6 bg-[#F8E7C9] min-h-screen">
+    <div className="p-4 md:p-6 bg-[#EEF4EF] min-h-screen">
       {/* Page title */}
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900">
@@ -254,7 +254,7 @@ export default function AddPackage() {
       </div>
 
       {/* Progress */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-4 mb-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-4 mb-6">
         <div className="flex items-center justify-between text-sm mb-3">
           {steps.map((step, index) => (
             <div key={step} className="flex flex-col items-center flex-1">
@@ -262,7 +262,7 @@ export default function AddPackage() {
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
                   index + 1 <= currentStep
                     ? "bg-[#064E3B] text-white"
-                    : "bg-[#E6D2A6] text-slate-700"
+                    : "bg-[#DCE7DE] text-slate-700"
                 }`}
               >
                 {index + 1}
@@ -272,7 +272,7 @@ export default function AddPackage() {
           ))}
         </div>
 
-        <div className="w-full h-2 bg-[#E6D2A6] rounded-full overflow-hidden">
+        <div className="w-full h-2 bg-[#DCE7DE] rounded-full overflow-hidden">
           <div
             className="h-full bg-[#064E3B]"
             style={{ width: `${(currentStep / steps.length) * 100}%` }}
@@ -281,7 +281,7 @@ export default function AddPackage() {
       </div>
 
       {/* Form */}
-      <div className="bg-[#F8E7C9] border border-[#E4D2A8] rounded-lg p-6">
+      <div className="bg-[#FFFFFF] border border-[#DDE7DF] rounded-lg p-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">
           Basic Package Information
         </h2>
@@ -297,7 +297,7 @@ export default function AddPackage() {
               placeholder="Everest Base Camp Trek"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -309,7 +309,7 @@ export default function AddPackage() {
               placeholder="everest-base-camp-trek"
               value={slug}
               onChange={(e) => setSlug(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -319,7 +319,7 @@ export default function AddPackage() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             >
               <option value="trekking">Trekking</option>
               <option value="tour">Tour</option>
@@ -337,7 +337,7 @@ export default function AddPackage() {
               placeholder="00000"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -351,7 +351,7 @@ export default function AddPackage() {
               placeholder="14"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -363,7 +363,7 @@ export default function AddPackage() {
               placeholder="Khumbu, Nepal"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -375,7 +375,7 @@ export default function AddPackage() {
             <select
               value={bestSeason}
               onChange={(e) => setBestSeason(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B]"
             >
               <option value="">Select season</option>
               <option>Spring (Mar-May)</option>
@@ -396,7 +396,7 @@ export default function AddPackage() {
               placeholder="10"
               value={groupSize}
               onChange={(e) => setGroupSize(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 placeholder-slate-500 focus:outline-none focus:border-[#064E3B]"
             />
           </div>
 
@@ -420,7 +420,7 @@ export default function AddPackage() {
               placeholder="Short package summary"
               value={shortOverview}
               onChange={(e) => setShortOverview(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
             />
           </div>
 
@@ -434,7 +434,7 @@ export default function AddPackage() {
               placeholder="Detailed package description"
               value={fullDescription}
               onChange={(e) => setFullDescription(e.target.value)}
-              className="w-full px-3 py-2 rounded-md bg-[#F1E3C4] border border-[#D8C494] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
+              className="w-full px-3 py-2 rounded-md bg-[#EEF4EF] border border-[#CDD9CF] text-slate-900 focus:outline-none focus:border-[#064E3B] resize-none"
             />
           </div>
 
@@ -452,7 +452,7 @@ export default function AddPackage() {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6 pt-4 border-t border-[#E4D2A8]">
+        <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6 pt-4 border-t border-[#DDE7DF]">
           <button
             onClick={handleNext}
             type="button"

@@ -18,7 +18,7 @@ function Destination() {
   return (
     <>
       {/* ==================== PAGE HEADER ==================== */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             Destinations
@@ -34,28 +34,28 @@ function Destination() {
       </section>
 
       {/* ==================== GRID ==================== */}
-      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] transition-colors duration-300">
+      <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
                 <div
                   key={item}
-                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden animate-pulse"
+                  className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden animate-pulse"
                 >
-                  <div className="w-full h-56 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+                  <div className="w-full h-56 bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
 
                   <div className="p-4">
-                    <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4" />
-                    <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/2 mt-2" />
+                    <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-3/4" />
+                    <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-1/2 mt-2" />
 
                     <div className="mt-6 flex items-center justify-between">
                       <div>
-                        <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-10" />
-                        <div className="h-7 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-20 mt-2" />
+                        <div className="h-3 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-10" />
+                        <div className="h-7 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-20 mt-2" />
                       </div>
 
-                      <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-12" />
+                      <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-12" />
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@ function Destination() {
               {packages.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden"
+                  className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden"
                 >
                   <img
                     src={`http://localhost:8000/storage/${pkg.featured_image}`}

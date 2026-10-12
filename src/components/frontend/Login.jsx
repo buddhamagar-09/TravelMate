@@ -43,13 +43,13 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] text-slate-900 dark:text-slate-900 transition-colors">
+    <div className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] text-slate-900 dark:text-slate-900 transition-colors">
       <div className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-6">
         <div className="w-full max-w-5xl">
           {/* Main Login Container */}
-          <div className="grid overflow-hidden border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9] lg:grid-cols-2">
+          <div className="grid overflow-hidden border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] lg:grid-cols-2">
             {/* LEFT SIDE */}
-            <div className="relative hidden bg-[#F1E3C4] dark:bg-[#F1E3C4] p-10 lg:flex lg:flex-col lg:justify-between">
+            <div className="relative hidden bg-[#EEF4EF] dark:bg-[#EEF4EF] p-10 lg:flex lg:flex-col lg:justify-between">
               <div>
                 {/* Logo */}
                 <Link to="/" className="inline-flex items-center gap-3">
@@ -84,7 +84,7 @@ function Login() {
               </div>
 
               {/* Security Information */}
-              <div className="border-t border-[#E4D2A8] pt-6">
+              <div className="border-t border-[#DDE7DF] pt-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 items-center justify-center border border-[#064E3B]/30 text-[#064E3B]">
@@ -122,7 +122,7 @@ function Login() {
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="flex items-center bg-[#F8E7C9] dark:bg-[#F8E7C9] p-6 sm:p-10 lg:p-12">
+            <div className="flex items-center bg-[#FFFFFF] dark:bg-[#FFFFFF] p-6 sm:p-10 lg:p-12">
               <div className="mx-auto w-full max-w-md">
                 {/* Mobile Logo */}
                 <div className="mb-10 lg:hidden">
@@ -182,7 +182,7 @@ function Login() {
                         type="email"
                         autoComplete="username"
                         placeholder="you@example.com"
-                        className="block w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
                         {...register("email", {
                           required: "Email is required",
                           pattern: {
@@ -224,7 +224,7 @@ function Login() {
                         type="password"
                         autoComplete="current-password"
                         placeholder="Enter your password"
-                        className="block w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
+                        className="block w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] py-3 pl-11 pr-4 text-sm text-slate-900 dark:text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#064E3B]"
                         {...register("password", {
                           required: "Password is required",
                         })}
@@ -241,7 +241,7 @@ function Login() {
                     <label className="inline-flex cursor-pointer items-center">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 border-[#D8C494] text-[#064E3B] focus:ring-[#064E3B]"
+                        className="h-4 w-4 border-[#CDD9CF] text-[#064E3B] focus:ring-[#064E3B]"
                       />
 
                       <span className="ml-2 text-sm text-slate-600 dark:text-slate-700">
@@ -270,7 +270,7 @@ function Login() {
                 </form>
 
                 {/* REGISTER */}
-                <div className="mt-8 border-t border-[#E4D2A8] dark:border-[#E4D2A8] pt-6 text-center">
+                <div className="mt-8 border-t border-[#DDE7DF] dark:border-[#DDE7DF] pt-6 text-center">
                   <p className="text-sm text-slate-500 dark:text-slate-600">
                     Don't have an account?{" "}
                     <Link

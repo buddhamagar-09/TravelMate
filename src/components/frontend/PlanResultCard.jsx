@@ -9,7 +9,7 @@ const CATEGORY_LABELS = {
 
 export default function PlanResultCard({ pkg }) {
   return (
-    <div className="group bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
+    <div className="group bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-300/40 dark:hover:shadow-black/40">
       <div className="relative overflow-hidden">
         <img
           src={`http://localhost:8000/storage/${pkg.featured_image}`}
@@ -30,7 +30,7 @@ export default function PlanResultCard({ pkg }) {
                 ? "bg-emerald-500 text-white"
                 : pkg.matchScore >= 70
                   ? "bg-[#064E3B] text-white"
-                  : "bg-[#D8C494] text-slate-200"
+                  : "bg-[#CDD9CF] text-slate-200"
             }`}
           >
             {pkg.matchScore}% match

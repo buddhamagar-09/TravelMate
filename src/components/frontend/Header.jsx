@@ -146,10 +146,10 @@ export default function Header() {
         isHomePage
           ? `fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
               scrolled
-                ? "bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]"
+                ? "bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]"
                 : "bg-transparent border-b border-transparent"
             }`
-          : "sticky top-0 w-full z-50 bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]"
+          : "sticky top-0 w-full z-50 bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]"
       }
     >
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-8">
@@ -214,7 +214,7 @@ export default function Header() {
                       className={`border overflow-hidden py-1.5 ${
                         isHomePage && !scrolled
                           ? "bg-[#064E3B]/95 backdrop-blur-md border-white/10 shadow-2xl shadow-black/40"
-                          : "bg-[#F8E7C9] dark:bg-[#F8E7C9] border-[#E4D2A8] dark:border-[#E4D2A8] shadow-xl"
+                          : "bg-[#FFFFFF] dark:bg-[#FFFFFF] border-[#DDE7DF] dark:border-[#DDE7DF] shadow-xl"
                       }`}
                     >
                       <PackageDropdownItem
@@ -275,8 +275,8 @@ export default function Header() {
             <div
               className={`hidden lg:flex relative items-center w-64 px-4 py-2 border transition-colors duration-300 ${
                 isHomePage && !scrolled
-                  ? "border-white/30 bg-[#F8E7C9]/10"
-                  : "border-[#D8C494] bg-[#F8E7C9] dark:border-[#D8C494] dark:bg-[#F8E7C9]"
+                  ? "border-white/30 bg-[#FFFFFF]/10"
+                  : "border-[#CDD9CF] bg-[#FFFFFF] dark:border-[#CDD9CF] dark:bg-[#FFFFFF]"
               }`}
             >
               <FaSearch
@@ -323,7 +323,7 @@ export default function Header() {
 
               {/* Suggestions dropdown */}
               {searchTerm && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden z-50">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden z-50">
                   {suggestions.slice(0, 5).map((packageItem) => (
                     <button
                       key={packageItem.id}
@@ -334,7 +334,7 @@ export default function Header() {
                           `/package?search=${encodeURIComponent(packageItem.title)}`,
                         );
                       }}
-                      className="w-full text-left px-4 py-3 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4] border-b border-[#EAD9B4] dark:border-[#E4D2A8] last:border-b-0 transition-colors"
+                      className="w-full text-left px-4 py-3 hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF] border-b border-[#E4EDE6] dark:border-[#DDE7DF] last:border-b-0 transition-colors"
                     >
                       <div className="font-medium text-sm text-slate-900 dark:text-slate-900">
                         {packageItem.title}
@@ -355,8 +355,8 @@ export default function Header() {
               aria-label="Toggle theme"
               className={`grid place-items-center w-9 h-9 border transition-colors duration-300 ${
                 isHomePage && !scrolled
-                  ? "border-white/30 text-white hover:bg-[#F8E7C9]/10"
-                  : "border-[#D8C494] dark:border-[#D8C494] text-slate-700 dark:text-slate-700 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4]"
+                  ? "border-white/30 text-white hover:bg-[#FFFFFF]/10"
+                  : "border-[#CDD9CF] dark:border-[#CDD9CF] text-slate-700 dark:text-slate-700 hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]"
               }`}
             >
               {themeMode === "light" ? (
@@ -415,7 +415,7 @@ export default function Header() {
 
         {/* ================= MOBILE MENU ================= */}
         <div
-          className={`lg:hidden overflow-hidden bg-[#F8E7C9] dark:bg-[#F8E7C9] border-t border-[#E4D2A8] dark:border-[#E4D2A8] transition-[max-height] duration-300 ${
+          className={`lg:hidden overflow-hidden bg-[#FFFFFF] dark:bg-[#FFFFFF] border-t border-[#DDE7DF] dark:border-[#DDE7DF] transition-[max-height] duration-300 ${
             menuOpen ? "max-h-150 py-4" : "max-h-0"
           }`}
         >
@@ -423,7 +423,7 @@ export default function Header() {
           <div className="px-4 pt-2">
             <form
               onSubmit={handleSearch}
-              className="flex items-center w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-2"
+              className="flex items-center w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2"
             >
               <FaSearch className="text-sm text-slate-500 dark:text-slate-600" />
 
@@ -588,13 +588,13 @@ function PackageDropdownItem({ to, label, dark }) {
       to={to}
       className={`flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
         dark
-          ? "text-slate-200 hover:bg-[#F8E7C9]/10 hover:text-white"
-          : "text-slate-700 dark:text-slate-700 hover:bg-[#F1E3C4] dark:hover:bg-[#F1E3C4]/60 hover:text-[#064E3B]"
+          ? "text-slate-200 hover:bg-[#FFFFFF]/10 hover:text-white"
+          : "text-slate-700 dark:text-slate-700 hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]/60 hover:text-[#064E3B]"
       }`}
     >
       <span
         className={`w-1.5 h-1.5 rounded-full ${
-          dark ? "bg-[#064E3B]" : "bg-[#E6D2A6] dark:bg-[#D8C494]"
+          dark ? "bg-[#064E3B]" : "bg-[#DCE7DE] dark:bg-[#CDD9CF]"
         }`}
       />
       <span>{label}</span>

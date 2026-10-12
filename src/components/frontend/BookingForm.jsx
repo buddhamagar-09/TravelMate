@@ -56,12 +56,12 @@ export default function BookingForm() {
   };
 
   const inputClass =
-    "w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 focus:border-[#064E3B] outline-none transition-colors";
+    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 focus:border-[#064E3B] outline-none transition-colors";
 
   return (
     <>
       {/* ============ PAGE HEADER ============ */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] transition-colors duration-300">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5 py-14 text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             TravelMate
@@ -78,11 +78,11 @@ export default function BookingForm() {
       </section>
 
       {/* ============ FORM SECTION ============ */}
-      <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-20 transition-colors duration-300">
+      <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-20 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-5">
-          <div className="grid lg:grid-cols-2 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+          <div className="grid lg:grid-cols-2 border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF]">
             {/* ============ LEFT SIDE ============ */}
-            <div className="flex flex-col p-8 lg:p-10 lg:border-r border-[#E4D2A8] dark:border-[#E4D2A8]">
+            <div className="flex flex-col p-8 lg:p-10 lg:border-r border-[#DDE7DF] dark:border-[#DDE7DF]">
               <img
                 src={`http://localhost:8000/storage/${packageData?.featured_image}`}
                 alt="Package Image"
@@ -154,7 +154,7 @@ export default function BookingForm() {
             </div>
 
             {/* ============ RIGHT SIDE ============ */}
-            <div className="p-8 lg:p-10 border-t lg:border-t-0 border-[#E4D2A8] dark:border-[#E4D2A8]">
+            <div className="p-8 lg:p-10 border-t lg:border-t-0 border-[#DDE7DF] dark:border-[#DDE7DF]">
               <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 dark:text-slate-900">
                 Your details
               </h2>
@@ -172,7 +172,7 @@ export default function BookingForm() {
                     type="text"
                     value={user?.name}
                     readOnly
-                    className={`${inputClass} bg-[#F1E3C4] dark:bg-[#F8E7C9] cursor-not-allowed`}
+                    className={`${inputClass} bg-[#EEF4EF] dark:bg-[#FFFFFF] cursor-not-allowed`}
                   />
                 </div>
 
@@ -186,7 +186,7 @@ export default function BookingForm() {
                       type="email"
                       value={user?.email}
                       readOnly
-                      className={`${inputClass} bg-[#F1E3C4] dark:bg-[#F8E7C9] cursor-not-allowed`}
+                      className={`${inputClass} bg-[#EEF4EF] dark:bg-[#FFFFFF] cursor-not-allowed`}
                     />
                   </div>
 
@@ -247,7 +247,7 @@ export default function BookingForm() {
                 </div>
 
                 {/* Booking Summary */}
-                <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F1E3C4] dark:bg-[#F8E7C9] p-5">
+                <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#EEF4EF] dark:bg-[#FFFFFF] p-5">
                   <h3 className="mb-4 text-base font-semibold text-slate-900 dark:text-slate-900">
                     Booking Summary
                   </h3>
@@ -270,7 +270,7 @@ export default function BookingForm() {
                     </span>
                   </div>
 
-                  <div className="my-4 border-t border-[#E4D2A8] dark:border-[#E4D2A8]" />
+                  <div className="my-4 border-t border-[#DDE7DF] dark:border-[#DDE7DF]" />
 
                   <div className="flex justify-between text-base font-bold">
                     <span className="text-slate-900 dark:text-slate-900">
@@ -316,7 +316,7 @@ export default function BookingForm() {
 
 function InfoBox({ label, value }) {
   return (
-    <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] p-4">
+    <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] p-4">
       <p className="text-xs uppercase tracking-wide text-slate-400">{label}</p>
       <h4 className="mt-1 font-semibold text-slate-900 dark:text-slate-900">
         {value}

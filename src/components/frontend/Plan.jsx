@@ -105,7 +105,7 @@ export default function Plan() {
   };
 
   const inputClass =
-    "w-full border border-[#D8C494] dark:border-[#D8C494] bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#064E3B] transition-colors";
+    "w-full border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-2.5 text-sm text-slate-800 dark:text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#064E3B] transition-colors";
 
   const labelClass =
     "block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2";
@@ -113,7 +113,7 @@ export default function Plan() {
   return (
     <>
       {/* HEADER */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
           <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
             Personalized Planning
@@ -129,7 +129,7 @@ export default function Plan() {
       </section>
 
       {/* FORM */}
-      <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border-b border-[#E4D2A8] dark:border-[#E4D2A8]">
+      <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border-b border-[#DDE7DF] dark:border-[#DDE7DF]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10 lg:py-14">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -234,7 +234,7 @@ export default function Plan() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-700 border border-[#D8C494] dark:border-[#D8C494] hover:border-[#C9AF7E] dark:hover:border-[#D8C494] transition-colors"
+                className="px-6 py-3 text-sm font-medium text-slate-600 dark:text-slate-700 border border-[#CDD9CF] dark:border-[#CDD9CF] hover:border-[#B8C7BB] dark:hover:border-[#CDD9CF] transition-colors"
               >
                 Reset
               </button>
@@ -245,7 +245,7 @@ export default function Plan() {
 
       {/* RESULTS */}
       {submitted && (
-        <section className="bg-[#F1E3C4] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300">
+        <section className="bg-[#EEF4EF] dark:bg-[#FFFFFF] py-14 lg:py-16 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="mb-8">
               <p className="text-sm font-semibold uppercase tracking-widest text-[#064E3B] mb-2">
@@ -265,25 +265,25 @@ export default function Plan() {
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                   <div
                     key={i}
-                    className="bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8] overflow-hidden animate-pulse"
+                    className="bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF] overflow-hidden animate-pulse"
                   >
-                    <div className="w-full h-56 bg-[#E6D2A6] dark:bg-[#F1E3C4]" />
+                    <div className="w-full h-56 bg-[#DCE7DE] dark:bg-[#EEF4EF]" />
                     <div className="p-4">
-                      <div className="h-5 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-3/4" />
-                      <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-1/2 mt-2" />
+                      <div className="h-5 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-3/4" />
+                      <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-1/2 mt-2" />
                       <div className="mt-6 flex items-center justify-between">
                         <div>
-                          <div className="h-3 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-10" />
-                          <div className="h-7 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-20 mt-2" />
+                          <div className="h-3 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-10" />
+                          <div className="h-7 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-20 mt-2" />
                         </div>
-                        <div className="h-4 bg-[#E6D2A6] dark:bg-[#F1E3C4] w-12" />
+                        <div className="h-4 bg-[#DCE7DE] dark:bg-[#EEF4EF] w-12" />
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
             ) : rankedPackages.length === 0 ? (
-              <div className="text-center py-16 bg-[#F8E7C9] dark:bg-[#F8E7C9] border border-[#E4D2A8] dark:border-[#E4D2A8]">
+              <div className="text-center py-16 bg-[#FFFFFF] dark:bg-[#FFFFFF] border border-[#DDE7DF] dark:border-[#DDE7DF]">
                 <p className="text-slate-500 dark:text-slate-600">
                   No packages to show yet.
                 </p>
@@ -301,12 +301,12 @@ export default function Plan() {
 
       {/* SAVE PLAN */}
       {submitted && hasAnyPreference && (
-        <section className="bg-[#F8E7C9] dark:bg-[#F8E7C9] py-14 lg:py-16 transition-colors duration-300 border-t border-[#E4D2A8] dark:border-[#E4D2A8]">
+        <section className="bg-[#FFFFFF] dark:bg-[#FFFFFF] py-14 lg:py-16 transition-colors duration-300 border-t border-[#DDE7DF] dark:border-[#DDE7DF]">
           <div className="max-w-5xl mx-auto px-6 lg:px-8">
-            <div className="border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F1E3C4] dark:bg-[#F8E7C9] overflow-hidden">
+            <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#EEF4EF] dark:bg-[#FFFFFF] overflow-hidden">
               <div className="grid md:grid-cols-5">
                 {/* LEFT — context */}
-                <div className="md:col-span-2 p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#E4D2A8] dark:border-[#E4D2A8]">
+                <div className="md:col-span-2 p-8 lg:p-10 border-b md:border-b-0 md:border-r border-[#DDE7DF] dark:border-[#DDE7DF]">
                   <p className="text-xs font-semibold uppercase tracking-widest text-[#064E3B] mb-3">
                     Save Plan
                   </p>
@@ -326,7 +326,7 @@ export default function Plan() {
                 </div>
 
                 {/* RIGHT — form */}
-                <div className="md:col-span-3 p-8 lg:p-10 bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+                <div className="md:col-span-3 p-8 lg:p-10 bg-[#FFFFFF] dark:bg-[#FFFFFF]">
                   <label className={labelClass}>Plan name (optional)</label>
                   <input
                     type="text"
@@ -345,7 +345,7 @@ export default function Plan() {
                       type="button"
                       onClick={handleSavePlan}
                       disabled={saving}
-                      className="w-full bg-[#064E3B] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:bg-[#E6D2A6] dark:disabled:bg-[#E6D2A6] disabled:cursor-not-allowed"
+                      className="w-full bg-[#064E3B] py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#04382A] disabled:bg-[#DCE7DE] dark:disabled:bg-[#DCE7DE] disabled:cursor-not-allowed"
                     >
                       {saving ? "Saving..." : "Save Plan"}
                     </button>

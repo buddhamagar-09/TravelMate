@@ -30,19 +30,19 @@ function Signup() {
   }
 
   const getInputClass = (hasError) =>
-    `w-full border bg-[#F8E7C9] dark:bg-[#F8E7C9] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 outline-none transition-colors ${
+    `w-full border bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm text-slate-900 dark:text-slate-900 placeholder:text-slate-400 outline-none transition-colors ${
       hasError
         ? "border-red-500 focus:border-red-500"
-        : "border-[#D8C494] dark:border-[#D8C494] focus:border-[#064E3B]"
+        : "border-[#CDD9CF] dark:border-[#CDD9CF] focus:border-[#064E3B]"
     }`;
 
   const errorClass = "text-red-500 text-sm mt-1 min-h-5";
 
   return (
-    <div className="min-h-screen bg-[#F1E3C4] dark:bg-[#F8E7C9] transition-colors duration-300">
+    <div className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] transition-colors duration-300">
       <div className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-6">
         <div className="w-full max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 border border-[#E4D2A8] dark:border-[#E4D2A8] bg-[#F8E7C9] dark:bg-[#F8E7C9]">
+          <div className="grid grid-cols-1 md:grid-cols-2 border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF]">
             {/* ============ LEFT SIDE (image) ============ */}
             <div
               className="relative hidden md:flex items-center justify-center p-10"
