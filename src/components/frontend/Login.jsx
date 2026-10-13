@@ -3,6 +3,8 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import api from "../../api/axios";
 import { FiArrowRight, FiCheckCircle, FiLock, FiMail } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF } from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
@@ -265,6 +267,36 @@ function Login() {
                           Sign in
                         </>
                       )}
+                    </button>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-[#DDE7DF] dark:border-[#DDE7DF]" />
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="bg-[#FFFFFF] dark:bg-[#FFFFFF] px-2 text-slate-500 dark:text-slate-600">
+                        Or continue with
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Social Login */}
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-center gap-2 border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-700 transition-colors hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]"
+                    >
+                      <FcGoogle className="h-5 w-5" />
+                      Google
+                    </button>
+                    <button
+                      type="button"
+                      className="flex w-full items-center justify-center gap-2 border border-[#CDD9CF] dark:border-[#CDD9CF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-700 transition-colors hover:bg-[#EEF4EF] dark:hover:bg-[#EEF4EF]"
+                    >
+                      <FaFacebookF className="h-5 w-5 text-[#1877F2]" />
+                      Facebook
                     </button>
                   </div>
                 </form>

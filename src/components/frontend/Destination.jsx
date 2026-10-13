@@ -75,7 +75,7 @@ function Destination() {
                   />
 
                   <div className="p-4">
-                    <h2 className="font-semibold text-base text-slate-900 dark:text-slate-900 line-clamp-2 leading-snug min-h-[2.75rem]">
+                    <h2 className="font-semibold text-base text-slate-900 dark:text-slate-900 line-clamp-2 leading-snug min-h-11">
                       {pkg.title}
                     </h2>
 

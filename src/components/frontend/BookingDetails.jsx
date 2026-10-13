@@ -111,7 +111,7 @@ const BookingDetails = () => {
     return (
       <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
         <div className="container mx-auto px-5">
-          <div className="flex min-h-[400px] items-center justify-center">
+          <div className="flex min-h-100 items-center justify-center">
             <p className="text-sm text-slate-500 dark:text-slate-600">
               Loading booking details...
             </p>

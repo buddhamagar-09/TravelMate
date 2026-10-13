@@ -158,24 +158,12 @@ export default function Header() {
           {/* ================= LOGO ================= */}
           <Link
             to="/"
-            className={`flex items-center gap-2 text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 ${
-              isHomePage && !scrolled
-                ? "text-white"
-                : "text-slate-900 dark:text-slate-900"
-            }`}
+            className="flex items-center gap-2 text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 text-slate-900 dark:text-slate-900"
           >
-            <FaPlane
-              className={`text-2xl sm:text-3xl transition-colors duration-300 ${
-                isHomePage && !scrolled ? "text-emerald-400" : "text-[#047857]"
-              }`}
-            />
+            <FaPlane className="text-2xl sm:text-3xl transition-colors duration-300 text-[#047857]" />
             <span>
               Travel{" "}
-              <span
-                className={`transition-colors duration-300 ${
-                  isHomePage && !scrolled ? "text-emerald-400" : "text-[#047857]"
-                }`}
-              >
+              <span className="transition-colors duration-300 text-[#047857]">
                 Mate
               </span>
             </span>
