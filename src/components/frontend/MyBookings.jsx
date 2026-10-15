@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../api/axios";
 import { toast } from "react-hot-toast";
+import BookingSkeleton from "../Hook/BookingSkeleton";
 
 const MyBookings = () => {
   const navigate = useNavigate();
@@ -107,20 +108,6 @@ const MyBookings = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
-        <div className="container mx-auto px-5">
-          <div className="flex min-h-100 items-center justify-center">
-            <p className="text-sm text-slate-500 dark:text-slate-600">
-              Loading bookings...
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="min-h-screen bg-[#EEF4EF] dark:bg-[#FFFFFF] py-12 transition-colors">
       <div className="container mx-auto max-w-6xl px-5">
@@ -139,8 +126,10 @@ const MyBookings = () => {
           </p>
         </div>
 
-        {/* No Bookings */}
-        {bookings.length === 0 ? (
+        {/* Loading / No Bookings / Bookings */}
+        {loading ? (
+          <BookingSkeleton count={3} />
+        ) : bookings.length === 0 ? (
           <div className="border border-[#DDE7DF] dark:border-[#DDE7DF] bg-[#FFFFFF] dark:bg-[#FFFFFF] px-6 py-16 text-center">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-[#047857] text-[#047857]">
               <span className="text-2xl">✈</span>
