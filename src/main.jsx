@@ -22,6 +22,8 @@ import Login from "./components/frontend/Login.jsx";
 import Signup from "./components/frontend/Signup.jsx";
 import PackageDetails from "./components/frontend/PackageDetails.jsx";
 import BookingForm from "./components/frontend/BookingForm.jsx";
+import TermsAndConditions from "./components/frontend/TermsAndConditions.jsx";
+import Faq from "./components/frontend/Faqs.jsx";
 
 // admin routes
 import AdminLayout from "./admin/layouts/MainLayout.jsx";
@@ -61,7 +63,8 @@ const router = createBrowserRouter(
         <Route path="booking-details/:id" element={<BookingDetails />} /> 
         <Route path="esewa-success/:booking_id" element={<EsewaSuccessPage />} />
         <Route path="esewa-failure/:bookingId" element={<EsewaFailurePage />} />
-        
+        <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="faqs" element={<Faq />} />
       </Route>
       {/* admin routes */}
       {/* protected routes for admin only */}
