@@ -1,105 +1,17 @@
-import React, { useState, useMemo } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUserAlt, FaCalendarAlt, FaClock } from "react-icons/fa";
 import FramerMotion from "../Hook/FramerMotion";
-
-const categories = [
-  "All",
-  "Trekking",
-  "Culture",
-  "Wildlife",
-  "Tips",
-  "Food",
-];
-
-const featuredPost = {
-  slug: "everest-base-camp-trek-guide",
-  title: "Everest Base Camp Trek: The Complete 2026 Guide",
-  excerpt:
-    "Everything you need to know before standing at 5,364 metres — the route, permits, altitude acclimatisation, packing list, and the best tea houses along the way.",
-  image: "/images/trekking/everest.jpg",
-  category: "Trekking",
-  author: "Aarav Shrestha",
-  date: "October 10, 2026",
-  readTime: "12 min read",
-};
-
-const posts = [
-  {
-    slug: "annapurna-base-camp-in-autumn",
-    title: "Why Autumn Is the Perfect Season for Annapurna Base Camp",
-    excerpt:
-      "Clear skies, warm hospitality, and rhododendron-covered hills make autumn the most rewarding window to explore the Annapurna sanctuary.",
-    image: "/images/trekking/annapurnabasecamp.jpg",
-    category: "Trekking",
-    author: "Priya Gurung",
-    date: "October 4, 2026",
-    readTime: "8 min read",
-  },
-  {
-    slug: "living-heritage-kathmandu-valley",
-    title: "Kathmandu Valley: A Living Heritage of Temples and Squares",
-    excerpt:
-      "From Bhaktapur's golden gates to Patan's bronze workshops, a slower walk through the valley reveals centuries of living craftsmanship.",
-    image: "/images/tour/lumbini1.jpg",
-    category: "Culture",
-    author: "Rohan Adhikari",
-    date: "September 28, 2026",
-    readTime: "6 min read",
-  },
-  {
-    slug: "chitwan-wildlife-safari-guide",
-    title: "Chitwan National Park: Tracking Rhinos and Tigers",
-    excerpt:
-      "A practical guide to jeep safaris, canoe trips, and birdwatching in Nepal's first national park — and how to travel responsibly.",
-    image: "/images/wildlifesafari/chitwan1.jpg",
-    category: "Wildlife",
-    author: "Sanjay Thapa",
-    date: "September 21, 2026",
-    readTime: "9 min read",
-  },
-  {
-    slug: "packing-list-high-altitude-treks",
-    title: "The Smart Packing List for High-Altitude Treks",
-    excerpt:
-      "What to carry, what to leave behind, and how to keep your pack light without sacrificing warmth, safety, or comfort on the trail.",
-    image: "/images/trekking/mardihimal.jpg",
-    category: "Tips",
-    author: "Aarav Shrestha",
-    date: "September 15, 2026",
-    readTime: "7 min read",
-  },
-  {
-    slug: "flavours-of-nepal-mustang",
-    title: "Flavours of Nepal: Eating Your Way Through Mustang",
-    excerpt:
-      "Thukpa, buckwheat pancakes, and apples grown in the rain shadow of the Himalayas — a culinary journey across the Himalayas.",
-    image: "/images/tour/mustang2.jpg",
-    category: "Food",
-    author: "Mina Karki",
-    date: "September 9, 2026",
-    readTime: "5 min read",
-  },
-  {
-    slug: "rara-lakes-hidden-paradise",
-    title: "Rara Lake: Nepal's Hidden Alpine Paradise",
-    excerpt:
-      "Far from the crowds, the country's largest lake rewards travellers with turquoise water, pine forests, and absolute silence.",
-    image: "/images/trekking/rara.jpg",
-    category: "Trekking",
-    author: "Priya Gurung",
-    date: "September 2, 2026",
-    readTime: "6 min read",
-  },
-];
+import { categories, featuredPost, posts } from "../../data/blogPosts";
 
 export default function TravelBlog() {
   const [category, setCategory] = useState("All");
 
-  const displayPosts = useMemo(() => {
-    if (category === "All") return posts;
-    return posts.filter((post) => post.category === category);
-  }, [category]);
+  
+  const displayPosts =
+    category === "All"
+      ? posts
+      : posts.filter((post) => post.category === category);
 
   return (
     <div className="bg-[#FFFFFF] dark:bg-[#FFFFFF] transition-colors duration-300">
