@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -26,6 +25,7 @@ import TermsAndConditions from "./components/frontend/TermsAndConditions.jsx";
 import Faq from "./components/frontend/Faqs.jsx";
 import PrivacyPolicy from "./components/frontend/PrivacyPolicy.jsx";
 import TravelBlog from "./components/frontend/TravelBlog.jsx";
+import BlogDetail from "./components/frontend/BlogDetail.jsx";
 
 // admin routes
 import AdminLayout from "./admin/layouts/MainLayout.jsx";
@@ -69,6 +69,7 @@ const router = createBrowserRouter(
         <Route path="faqs" element={<Faq />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="travel-blog" element={<TravelBlog />} />
+        <Route path="blog/:slug" element={<BlogDetail />} />
       </Route>
       {/* admin routes */}
       {/* protected routes for admin only */}
